@@ -28,6 +28,10 @@ bin/
 ### Mac OS ###
 .DS_Store
 
+### Gradle ###
+.gradle/
+build/
+
 ### Compiled Java class files ###
 *.class
 

@@ -1,0 +1,8 @@
+plugins {
+    // Lets the Java toolchain auto-provision a JDK 21 when one is not installed
+    // locally, so the build is reproducible across machines. This is build
+    // tooling only — no application/runtime network dependencies are added here.
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+}
+
+rootProject.name = "prayer-time-calculator"

@@ -1,0 +1,55 @@
+plugins {
+    id 'java-library'
+    id 'application'
+}
+
+group = 'io.github.cyonecoder'
+version = '0.1.0'
+
+java {
+    toolchain {
+        // Requirement: build/compile/run on a Java 21 toolchain.
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    // Needed for the test dependencies (JUnit 5, AssertJ). No application
+    // runtime/network dependencies are declared yet.
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.11.3')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'org.assertj:assertj-core:3.26.3'
+}
+
+// The legacy implementation still lives in the flat `src/` directory in the
+// default package. Point the main source set at it temporarily so it keeps
+// compiling while the refactor proceeds. Tests use the conventional
+// `src/test/java` layout.
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+            // `src/test/java` lives under `src`, so keep it out of main.
+            exclude 'test/**'
+        }
+    }
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+    }
+}
+
+application {
+    // Legacy entry point (default package).
+    mainClass = 'Main'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
