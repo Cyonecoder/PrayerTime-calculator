@@ -38,3 +38,6 @@ build/
 ### IntelliJ IDEA project files ###
 .idea/
 *.iml
+
+### Claude Code ###
+.claude/
