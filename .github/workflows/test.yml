@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+# Least-privilege: read-only, no secrets required, nothing is published.
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Gradle (with dependency cache)
+        uses: gradle/actions/setup-gradle@v4
+
+      # Normal CI never contacts the live Habous website: the `test` task
+      # excludes the "live" tag, so this passes even when Habous is offline.
+      - name: Run tests
+        run: ./gradlew clean test
+
+      # `build` runs `check`, which includes Spotless style checks and JaCoCo
+      # coverage verification; it fails on any compilation, test, style, or
+      # coverage-threshold failure.
+      - name: Build, verify style and coverage
+        run: ./gradlew build
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-coverage-report
+          path: build/reports/jacoco/test
+          retention-days: 7
+
+      - name: Upload test reports on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: build/reports/tests/test
+          retention-days: 7

@@ -1,6 +1,8 @@
 plugins {
     id 'java-library'
     id 'application'
+    id 'jacoco'
+    id 'com.diffplug.spotless' version '6.25.0'
 }
 
 group = 'io.github.cyonecoder'
@@ -17,6 +19,12 @@ repositories {
     // Needed for the test dependencies (JUnit 5, AssertJ). No application
     // runtime/network dependencies are declared yet.
     mavenCentral()
+}
+
+// Reproducible builds: lock resolved dependency versions. Lockfiles
+// (gradle.lockfile) are committed as source; regenerate with --write-locks.
+dependencyLocking {
+    lockAllConfigurations()
 }
 
 dependencies {
@@ -55,4 +63,80 @@ tasks.register('liveTest', Test) {
     useJUnitPlatform {
         includeTags 'live'
     }
+}
+
+// --- Code style (Spotless) --------------------------------------------------
+spotless {
+    java {
+        target 'src/**/*.java'
+        removeUnusedImports()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+}
+
+// --- Coverage (JaCoCo) ------------------------------------------------------
+jacoco {
+    toolVersion = '0.8.12'
+}
+
+tasks.named('test') {
+    finalizedBy tasks.named('jacocoTestReport')
+}
+
+tasks.named('jacocoTestReport') {
+    dependsOn tasks.named('test')
+    reports {
+        xml.required = true
+        html.required = true
+        csv.required = true
+    }
+}
+
+tasks.named('jacocoTestCoverageVerification') {
+    dependsOn tasks.named('test')
+    violationRules {
+        // Total project line coverage.
+        rule {
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.80
+            }
+        }
+        // Core astronomical calculation domain.
+        rule {
+            element = 'PACKAGE'
+            includes = ['io.github.cyonecoder.prayertime.domain.calculation']
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.90
+            }
+        }
+        // Morocco civil-time module.
+        rule {
+            element = 'PACKAGE'
+            includes = ['io.github.cyonecoder.prayertime.time']
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.95
+            }
+        }
+        // Habous HTML parser (class-level rule).
+        rule {
+            element = 'CLASS'
+            includes = ['io.github.cyonecoder.prayertime.infrastructure.habous.HabousHtmlParser']
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.90
+            }
+        }
+    }
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('jacocoTestCoverageVerification')
 }

@@ -1,6 +1,7 @@
 package io.github.cyonecoder.prayertime.time;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.assertj.core.api.Assertions.assertThatNullPointerException;
 
 import java.time.LocalDate;
@@ -129,5 +130,27 @@ class MoroccoCivilTimeServiceTest {
         }
         System.out.println("[diagnostic] Africa/Casablanca TZDB versions: " + versions);
         assertThat(versions).isNotNull();
+    }
+
+    // --- Unexpected offsets ------------------------------------------------
+
+    @Test
+    void classifiesUnexpectedOffsetsAsOther() {
+        assertThat(service.modeFor(ZoneOffset.ofHours(3))).isEqualTo(MoroccoClockMode.OTHER);
+        assertThat(service.modeFor(ZoneOffset.ofHoursMinutes(0, 30)))
+                .isEqualTo(MoroccoClockMode.OTHER);
+    }
+
+    @Test
+    void clockInfoRejectsUnexpectedHistoricalOffset() {
+        // Before 1913 Casablanca used LMT (-00:30:20), which is neither +01:00
+        // nor +00:00, so the service refuses to guess a mode.
+        LocalDate historical = LocalDate.of(1900, 1, 1);
+        ZoneOffset offset = service.offsetFor(historical);
+        assertThat(service.modeFor(offset)).isEqualTo(MoroccoClockMode.OTHER);
+
+        assertThatExceptionOfType(MoroccoCivilTimeService.UnsupportedOffsetException.class)
+                .isThrownBy(() -> service.clockInfoFor(historical))
+                .satisfies(ex -> assertThat(ex.offset()).isEqualTo(offset));
     }
 }

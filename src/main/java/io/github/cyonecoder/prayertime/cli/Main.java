@@ -7,7 +7,6 @@ import io.github.cyonecoder.prayertime.domain.calculation.PrayerTimeCalculator;
 import io.github.cyonecoder.prayertime.domain.method.CalculationMethod;
 import io.github.cyonecoder.prayertime.domain.method.MoroccoCalculationMethod;
 import io.github.cyonecoder.prayertime.domain.model.City;
-import io.github.cyonecoder.prayertime.domain.model.Prayer;
 import io.github.cyonecoder.prayertime.domain.model.PrayerRequest;
 import io.github.cyonecoder.prayertime.domain.model.PrayerTimes;
 import io.github.cyonecoder.prayertime.domain.model.PrayerTimesResult;

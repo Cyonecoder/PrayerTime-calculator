@@ -73,4 +73,42 @@ class HabousHtmlParserTest {
                 .isThrownBy(() -> parser.parse(html))
                 .withMessageContaining("Unparseable time");
     }
+
+    @Test
+    void rejectsDayOutOfRange() {
+        String html = """
+                <table id="horaire">
+                  <tr><td>40</td><td>05:10</td><td>06:40</td><td>12:30</td>
+                      <td>16:05</td><td>19:15</td><td>20:40</td></tr>
+                </table>
+                """;
+        assertThatExceptionOfType(HabousParseException.class)
+                .isThrownBy(() -> parser.parse(html))
+                .withMessageContaining("Invalid day-of-month");
+    }
+
+    @Test
+    void rejectsNonNumericDay() {
+        String html = """
+                <table id="horaire">
+                  <tr><td>abc</td><td>05:10</td><td>06:40</td><td>12:30</td>
+                      <td>16:05</td><td>19:15</td><td>20:40</td></tr>
+                </table>
+                """;
+        assertThatExceptionOfType(HabousParseException.class)
+                .isThrownBy(() -> parser.parse(html))
+                .withMessageContaining("Unparseable day-of-month");
+    }
+
+    @Test
+    void rejectsTableWithNoDayRows() {
+        String html = """
+                <table id="horaire">
+                  <tr><th>day</th><th>fajr</th></tr>
+                </table>
+                """;
+        assertThatExceptionOfType(HabousParseException.class)
+                .isThrownBy(() -> parser.parse(html))
+                .withMessageContaining("no day rows");
+    }
 }
