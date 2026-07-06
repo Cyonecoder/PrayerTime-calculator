@@ -1,0 +1,22 @@
+{
+  "cities": [
+    {
+      "slug": "rabat",
+      "displayName": "Rabat",
+      "latitude": 34.0209,
+      "longitude": -6.8416,
+      "elevationMeters": 75,
+      "zoneId": "Africa/Casablanca",
+      "aliases": ["capital"]
+    },
+    {
+      "slug": "sale",
+      "displayName": "Salé",
+      "latitude": 34.0531,
+      "longitude": -6.7985,
+      "elevationMeters": 20,
+      "zoneId": "Africa/Casablanca",
+      "aliases": ["capital"]
+    }
+  ]
+}
