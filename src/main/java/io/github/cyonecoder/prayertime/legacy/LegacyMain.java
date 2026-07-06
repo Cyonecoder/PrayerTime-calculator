@@ -1,10 +1,8 @@
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZoneOffset;
+package io.github.cyonecoder.prayertime.legacy;
 
 import static java.lang.Math.*;
 
-public class Main {
+public class LegacyMain {
     public static void main(String[] args) {
         int Y = 2024; // Year
         int M = 3;// Month
@@ -53,7 +51,7 @@ public class Main {
 // Convert the equation of time correction to minutes
         double ET = ET1000 / 1000.0;
 
-        
+
        //the moment when the Sun reaches its highest position in the sky
         double TT = 12 + Z - (LONG / 15) - (ET / 60);
 
@@ -100,11 +98,11 @@ public class Main {
 //        System.out.println("AL_ASR"+AL_ASR);
 
         double ASR= TT + AL_ASR / 15;
-        
+
         int hoursASR = (int) ASR;
-        
+
         int minutesASR = (int) ((ASR - hoursASR) * 60);
-        
+
         int secondsASR = (int) (((ASR - hoursASR) * 60 - minutesASR) * 60);
 
         String asrTime = String.format("%02d:%02d:%02d", hoursASR, minutesASR, secondsASR);
@@ -118,9 +116,9 @@ public class Main {
 
         double SUNRISE = TT - HA_SUNRISE / 15;
 
-        
+
         int hoursSunRize = (int) SUNRISE;
-        
+
         int minutesSunRize = (int) ((SUNRISE - hoursSunRize) * 60);
         int secondsSunRize = (int) (((SUNRISE - hoursSunRize) * 60 - minutesSunRize) * 60);
         String sunRizeTime = String.format("%02d:%02d:%02d", hoursSunRize, minutesSunRize, secondsSunRize);

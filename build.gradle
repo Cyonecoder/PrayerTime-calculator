@@ -26,28 +26,10 @@ dependencies {
     testImplementation 'org.assertj:assertj-core:3.26.3'
 }
 
-// The legacy implementation still lives in the flat `src/` directory in the
-// default package. Point the main source set at it temporarily so it keeps
-// compiling while the refactor proceeds. Tests use the conventional
-// `src/test/java` layout.
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src']
-            // `src/test/java` lives under `src`, so keep it out of main.
-            exclude 'test/**'
-        }
-    }
-    test {
-        java {
-            srcDirs = ['src/test/java']
-        }
-    }
-}
-
 application {
-    // Legacy entry point (default package).
-    mainClass = 'Main'
+    // Legacy entry point, kept runnable during the refactor. Standard Gradle
+    // source layout (src/main/java, src/test/java) is now used.
+    mainClass = 'io.github.cyonecoder.prayertime.legacy.LegacyMain'
 }
 
 tasks.named('test') {
