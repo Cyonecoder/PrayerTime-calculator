@@ -32,9 +32,10 @@ dependencies {
 }
 
 application {
-    // Legacy entry point, kept runnable during the refactor. Standard Gradle
-    // source layout (src/main/java, src/test/java) is now used.
-    mainClass = 'io.github.cyonecoder.prayertime.legacy.LegacyMain'
+    // The CLI is the entry point. The legacy calculation still exists as a
+    // class (LegacyMain) for the characterization test, but is no longer the
+    // run target.
+    mainClass = 'io.github.cyonecoder.prayertime.cli.Main'
 }
 
 tasks.named('test') {
