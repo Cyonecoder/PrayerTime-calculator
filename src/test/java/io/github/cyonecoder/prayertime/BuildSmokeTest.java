@@ -6,9 +6,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Minimal smoke test proving the Gradle + JUnit 5 + AssertJ build is wired up
- * under the standard directory layout and that the legacy entry point still
- * compiles onto the classpath. It intentionally does not exercise any
- * prayer-time math.
+ * under the standard directory layout and that the CLI entry point compiles onto
+ * the classpath. It intentionally does not exercise any prayer-time math.
  */
 class BuildSmokeTest {
 
@@ -18,8 +17,8 @@ class BuildSmokeTest {
     }
 
     @Test
-    void legacyMainClassIsOnTheClasspath() throws ClassNotFoundException {
+    void cliEntryPointIsOnTheClasspath() throws ClassNotFoundException {
         assertThat(Class.forName(
-                "io.github.cyonecoder.prayertime.legacy.LegacyMain")).isNotNull();
+                "io.github.cyonecoder.prayertime.cli.Main")).isNotNull();
     }
 }

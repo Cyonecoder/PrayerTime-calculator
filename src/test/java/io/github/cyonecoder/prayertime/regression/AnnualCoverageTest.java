@@ -11,7 +11,6 @@ import io.github.cyonecoder.prayertime.domain.model.PrayerTimes;
 import io.github.cyonecoder.prayertime.infrastructure.city.MoroccoCityRegistry;
 import io.github.cyonecoder.prayertime.validation.PrayerTimesValidator;
 import java.time.LocalDate;
-import org.junit.jupiter.params.ParameterizedTest;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;

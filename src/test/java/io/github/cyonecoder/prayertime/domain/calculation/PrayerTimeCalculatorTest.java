@@ -8,7 +8,6 @@ import io.github.cyonecoder.prayertime.domain.model.Coordinates;
 import io.github.cyonecoder.prayertime.domain.model.Prayer;
 import io.github.cyonecoder.prayertime.domain.model.PrayerRequest;
 import io.github.cyonecoder.prayertime.domain.model.PrayerTimes;
-import io.github.cyonecoder.prayertime.legacy.LegacyMain;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
@@ -93,18 +92,16 @@ class PrayerTimeCalculatorTest {
     }
 
     @Test
-    void legacyBehaviorRemainsAvailableOnlyInLegacyMainAndDiffersFromEngine() {
-        // Legacy still produces its original snapshot values.
-        LegacyMain.LegacyTimes legacy = LegacyMain.compute(
-                2024, 3, 17, 23, 59, 59, 0, -6.7480954, 96, 34.0361152, 18.5, 17);
-        assertThat(legacy.dhuhr()).isEqualTo("12:41:01");
-
+    void correctedEngineDiffersFromArchivedLegacyValue() {
+        // The legacy implementation (now removed; see docs/audit/baseline.md and
+        // docs/audit/legacy-archive.md) produced Dhuhr 12:41:01 for these inputs.
         // The corrected engine is independent (Morocco method, +5 min Dhuhr buffer,
-        // civil +00:00 offset for that UTC date) and is not the legacy value.
+        // civil offset resolved from Africa/Casablanca) and must not reproduce it.
+        String archivedLegacyDhuhr = "12:41:01";
         PrayerTimes engine = calculator.calculate(
                 PrayerRequest.of(LocalDate.of(2024, 3, 17), new Coordinates(34.0361152, -6.7480954, 96),
                         CASA_ZONE, new MoroccoCalculationMethod()));
-        assertThat(engine.dhuhr().toString()).isNotEqualTo("12:41:01");
+        assertThat(engine.dhuhr().toString()).isNotEqualTo(archivedLegacyDhuhr);
     }
 
     @Test
