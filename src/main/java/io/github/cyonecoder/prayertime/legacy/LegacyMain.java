@@ -2,7 +2,36 @@ package io.github.cyonecoder.prayertime.legacy;
 
 import static java.lang.Math.*;
 
+/**
+ * The original, unmodified prayer-time calculation, preserved verbatim.
+ *
+ * <p><strong>Warning:</strong> the values produced here are the output of the
+ * <em>legacy</em> formula only. They are <strong>not</strong> official Morocco
+ * (Habous) reference times and must not be treated as correct. This class
+ * exists solely to lock down current behaviour with a characterization test
+ * before the calculation is extracted and corrected.
+ *
+ * <p>This is a minimal refactor: the arithmetic is unchanged. The only change
+ * is that the computation now lives in {@link #compute} so it can be called
+ * from a test, while {@link #main} still prints the exact original output.
+ */
 public class LegacyMain {
+
+    /**
+     * The six formatted legacy times, in the original output order.
+     *
+     * <p>These strings are the legacy formula's raw output and are NOT official
+     * Morocco reference times.
+     */
+    public record LegacyTimes(
+            String fajr,
+            String sunrise,
+            String dhuhr,
+            String asr,
+            String maghrib,
+            String isha) {
+    }
+
     public static void main(String[] args) {
         int Y = 2024; // Year
         int M = 3;// Month
@@ -11,13 +40,40 @@ public class LegacyMain {
         int m = 59; //Minute
         int s = 59; //Second
         int Z = 0; // UTC offset
-        int SF = 1;// Shadow Length
         double LONG =-6.7480954;//-7.603869;// longitude CASA
         double ELEVATION =  96;//60;// Elevation from sea CASA
         double LAT =34.0361152;//33.589886;// Latitude CASA
         double FAJR_ANGLE = 18.5; // fajr angle for calculating fajr timing
         double ISHA_ANGLE = 17; // isha angle to be changed later um al qura algo need 90 min diff between maghrib and isha thats dosent work correctly for Morocco
 
+        LegacyTimes t = compute(Y, M, D, H, m, s, Z, LONG, ELEVATION, LAT, FAJR_ANGLE, ISHA_ANGLE);
+
+        // Output Al FAJR time
+        System.out.println("AL FAJR     "+D+"/"+M+"/"+Y+" ==> " + t.fajr());
+        System.out.println("SunRize     "+D+"/"+M+"/"+Y+" ==> " + t.sunrise());
+        // Output al DUHR time
+        System.out.println("AL DUHR     " + D + "/" + M + "/" + Y + " ==> " + t.dhuhr());
+        //OutPut Al ASR time
+        System.out.println("AL Asr      "+D+"/"+M+"/"+Y+" ==> " + t.asr());
+        // Output al MAGHRIB time
+        System.out.println("AL MAGHRIB  " + D + "/" + M + "/" + Y + " ==> " + t.maghrib());
+
+       //OutPut ISHA
+        System.out.println("AL ISHA     "+D+"/"+M+"/"+Y+" ==> " + t.isha());
+    }
+
+    /**
+     * Runs the original legacy calculation for the given inputs.
+     *
+     * <p>The arithmetic below is copied verbatim from the original
+     * implementation; no formula has been changed. The results are the legacy
+     * formula's output and are NOT official Morocco reference times.
+     *
+     * @return the six formatted legacy times in output order
+     */
+    public static LegacyTimes compute(int Y, int M, int D, int H, int m, int s, int Z,
+                                      double LONG, double ELEVATION, double LAT,
+                                      double FAJR_ANGLE, double ISHA_ANGLE) {
         // add junary and february as 13 14 months for caculating date in gregorian calendar
         int A = Y / 100;
         int B = 2 + A / 4 - A;
@@ -168,19 +224,7 @@ public class LegacyMain {
         String theISHA= String.format("%02d:%02d:%02d", hoursISHA, minutesISHA, secondsISHA);
         ///////////////////////
 
-        // Output Al FAJR time
-        System.out.println("AL FAJR     "+D+"/"+M+"/"+Y+" ==> " + fajrTime);
-        System.out.println("SunRize     "+D+"/"+M+"/"+Y+" ==> " + sunRizeTime);
-        // Output al DUHR time
-        System.out.println("AL DUHR     " + D + "/" + M + "/" + Y + " ==> " + sunDUHR);
-        //OutPut Al ASR time
-        System.out.println("AL Asr      "+D+"/"+M+"/"+Y+" ==> " + asrTime);
-        // Output al MAGHRIB time
-        System.out.println("AL MAGHRIB  " + D + "/" + M + "/" + Y + " ==> " + sunMAGHRIB);
-
-       //OutPut ISHA
-        System.out.println("AL ISHA     "+D+"/"+M+"/"+Y+" ==> " + theISHA);
-
+        return new LegacyTimes(fajrTime, sunRizeTime, sunDUHR, asrTime, sunMAGHRIB, theISHA);
     }
 
     public static double acot(double x) {
