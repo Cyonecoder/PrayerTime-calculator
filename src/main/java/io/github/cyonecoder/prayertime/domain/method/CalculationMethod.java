@@ -1,20 +1,37 @@
 package io.github.cyonecoder.prayertime.domain.method;
 
 /**
- * A named prayer-time calculation method (for example the Moroccan/Habous
- * convention).
+ * A named prayer-time calculation method together with the parameters that
+ * configure it (for example the Moroccan/Habous convention).
  *
- * <p>This is intentionally minimal at this stage: it only exposes a
- * human-readable name so that domain models such as
- * {@link io.github.cyonecoder.prayertime.domain.model.PrayerRequest} can refer
- * to a method without depending on any calculation logic. The astronomical
- * parameters and behaviour are added in a later step.
+ * <p>All method-specific behaviour is expressed through {@link #parameters()};
+ * the generic mathematical engine stays free of any method- or country-specific
+ * conditions.
  */
 public interface CalculationMethod {
 
     /**
-     * @return a stable, human-readable name for this method,
-     *         e.g. {@code "Morocco (Habous)"}.
+     * @return a stable machine identifier, e.g. {@code "morocco"}
      */
-    String methodName();
+    String id();
+
+    /**
+     * @return a human-readable name, e.g. {@code "Morocco (Habous)"}
+     */
+    String displayName();
+
+    /**
+     * @return the astronomical parameters and adjustments for this method
+     */
+    CalculationParameters parameters();
+
+    /**
+     * Convenience alias for {@link #displayName()} used where a single name
+     * string is recorded (e.g. in a result's provenance).
+     *
+     * @return the display name
+     */
+    default String methodName() {
+        return displayName();
+    }
 }

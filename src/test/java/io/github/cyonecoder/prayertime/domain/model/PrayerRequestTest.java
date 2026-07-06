@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNullPointerException;
 
 import io.github.cyonecoder.prayertime.domain.method.CalculationMethod;
+import io.github.cyonecoder.prayertime.domain.method.MoroccoCalculationMethod;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.OptionalDouble;
@@ -14,7 +15,7 @@ class PrayerRequestTest {
     private static final LocalDate DATE = LocalDate.of(2024, 3, 17);
     private static final Coordinates COORDS = new Coordinates(34.0361152, -6.7480954, 96);
     private static final ZoneId ZONE = ZoneId.of("Africa/Casablanca");
-    private static final CalculationMethod METHOD = () -> "Test Method";
+    private static final CalculationMethod METHOD = new MoroccoCalculationMethod();
 
     @Test
     void factoryWithoutOverrideUsesCoordinateElevation() {
@@ -22,7 +23,7 @@ class PrayerRequestTest {
 
         assertThat(request.elevationOverrideMeters()).isEmpty();
         assertThat(request.effectiveElevationMeters()).isEqualTo(96);
-        assertThat(request.method().methodName()).isEqualTo("Test Method");
+        assertThat(request.method().methodName()).isEqualTo("Morocco (Habous)");
     }
 
     @Test
