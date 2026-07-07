@@ -92,6 +92,13 @@ public final class Main {
             return EXIT_USAGE;
         }
         String command = args[0];
+        // Research/audit verb: has its own subcommand + flag grammar, so it is
+        // routed before the production flag parser. It never touches production
+        // calculation defaults.
+        if ("research".equals(command)) {
+            return new io.github.cyonecoder.prayertime.audit.optimization.SearchCommand()
+                    .run(args, out, err);
+        }
         Map<String, String> flags;
         try {
             flags = parseFlags(args);

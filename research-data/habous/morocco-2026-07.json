@@ -1,0 +1,126 @@
+{
+  "source": "habous",
+  "note": "Genuine official Habous snapshot re-exported from the committed regression fixture; values unchanged.",
+  "days": [
+    {
+      "city": "rabat",
+      "date": "2026-07-03",
+      "fajr": "04:30",
+      "sunrise": "06:18",
+      "dhuhr": "13:37",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:19"
+    },
+    {
+      "city": "rabat",
+      "date": "2026-07-04",
+      "fajr": "04:30",
+      "sunrise": "06:19",
+      "dhuhr": "13:37",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:19"
+    },
+    {
+      "city": "rabat",
+      "date": "2026-07-05",
+      "fajr": "04:31",
+      "sunrise": "06:19",
+      "dhuhr": "13:37",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:19"
+    },
+    {
+      "city": "rabat",
+      "date": "2026-07-06",
+      "fajr": "04:32",
+      "sunrise": "06:20",
+      "dhuhr": "13:37",
+      "asr": "17:18",
+      "maghrib": "20:47",
+      "isha": "22:18"
+    },
+    {
+      "city": "rabat",
+      "date": "2026-07-07",
+      "fajr": "04:33",
+      "sunrise": "06:20",
+      "dhuhr": "13:37",
+      "asr": "17:18",
+      "maghrib": "20:46",
+      "isha": "22:18"
+    },
+    {
+      "city": "rabat",
+      "date": "2026-07-08",
+      "fajr": "04:33",
+      "sunrise": "06:21",
+      "dhuhr": "13:37",
+      "asr": "17:18",
+      "maghrib": "20:46",
+      "isha": "22:18"
+    },
+    {
+      "city": "rabat",
+      "date": "2026-07-09",
+      "fajr": "04:34",
+      "sunrise": "06:21",
+      "dhuhr": "13:38",
+      "asr": "17:18",
+      "maghrib": "20:46",
+      "isha": "22:17"
+    },
+    {
+      "city": "casablanca",
+      "date": "2026-07-03",
+      "fajr": "04:35",
+      "sunrise": "06:23",
+      "dhuhr": "13:40",
+      "asr": "17:19",
+      "maghrib": "20:49",
+      "isha": "22:20"
+    },
+    {
+      "city": "fez",
+      "date": "2026-07-03",
+      "fajr": "04:22",
+      "sunrise": "06:08",
+      "dhuhr": "13:29",
+      "asr": "17:10",
+      "maghrib": "20:42",
+      "isha": "22:12"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-03",
+      "fajr": "04:46",
+      "sunrise": "06:27",
+      "dhuhr": "13:41",
+      "asr": "17:16",
+      "maghrib": "20:48",
+      "isha": "22:13"
+    },
+    {
+      "city": "tangier",
+      "date": "2026-07-03",
+      "fajr": "04:16",
+      "sunrise": "06:09",
+      "dhuhr": "13:33",
+      "asr": "17:17",
+      "maghrib": "20:48",
+      "isha": "22:24"
+    },
+    {
+      "city": "agadir",
+      "date": "2026-07-03",
+      "fajr": "04:58",
+      "sunrise": "06:39",
+      "dhuhr": "13:48",
+      "asr": "17:20",
+      "maghrib": "20:49",
+      "isha": "22:15"
+    }
+  ]
+}
