@@ -33,6 +33,8 @@ public final class CandidateSerialization {
             int asrAdjustmentSeconds,
             int maghribAdjustmentSeconds,
             int ishaAdjustmentSeconds,
+            double sunriseHorizonDipCoefficient,
+            double maghribHorizonDipCoefficient,
             String roundingPolicy,
             String operationOrder,
             boolean elevationAdjustedHorizon) {
@@ -46,13 +48,14 @@ public final class CandidateSerialization {
                 c.sunriseAltitudeDegrees(), c.maghribAltitudeDegrees(),
                 c.fajrAdjustmentSeconds(), c.sunriseAdjustmentSeconds(), c.dhuhrAdjustmentSeconds(),
                 c.asrAdjustmentSeconds(), c.maghribAdjustmentSeconds(), c.ishaAdjustmentSeconds(),
+                c.sunriseHorizonDipCoefficient(), c.maghribHorizonDipCoefficient(),
                 c.roundingPolicy().name(), c.operationOrder().name(), c.elevationAdjustedHorizon());
     }
 
     /** @return a candidate rebuilt from a DTO (values are set as fixed, not tuned). */
     public static CalculationCandidate fromDto(CandidateDto d) {
         Objects.requireNonNull(d, "dto");
-        return CalculationCandidate.builder()
+        CalculationCandidate.Builder b = CalculationCandidate.builder()
                 .roundingPolicyFixed(RoundingPolicy.valueOf(d.roundingPolicy()))
                 .operationOrderFixed(OperationOrder.valueOf(d.operationOrder()))
                 .elevationAdjustedHorizon(d.elevationAdjustedHorizon())
@@ -66,8 +69,16 @@ public final class CandidateSerialization {
                 .dhuhrAdjustmentSeconds(d.dhuhrAdjustmentSeconds())
                 .asrAdjustmentSeconds(d.asrAdjustmentSeconds())
                 .maghribAdjustmentSeconds(d.maghribAdjustmentSeconds())
-                .ishaAdjustmentSeconds(d.ishaAdjustmentSeconds())
-                .build();
+                .ishaAdjustmentSeconds(d.ishaAdjustmentSeconds());
+        // Only register the (tuned) dip knobs when actually present, so legacy
+        // snapshots without the field round-trip to a zero-dip model unchanged.
+        if (d.sunriseHorizonDipCoefficient() != 0.0) {
+            b.sunriseHorizonDipCoefficient(d.sunriseHorizonDipCoefficient());
+        }
+        if (d.maghribHorizonDipCoefficient() != 0.0) {
+            b.maghribHorizonDipCoefficient(d.maghribHorizonDipCoefficient());
+        }
+        return b.build();
     }
 
     /** @return the candidate serialized as pretty JSON. */

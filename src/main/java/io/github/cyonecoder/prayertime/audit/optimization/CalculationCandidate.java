@@ -32,6 +32,8 @@ public final class CalculationCandidate {
         ASR_ADJUSTMENT,
         MAGHRIB_ADJUSTMENT,
         ISHA_ADJUSTMENT,
+        SUNRISE_DIP_COEFFICIENT,
+        MAGHRIB_DIP_COEFFICIENT,
         ROUNDING_POLICY,
         OPERATION_ORDER
     }
@@ -54,6 +56,8 @@ public final class CalculationCandidate {
     private final int asrAdjustmentSeconds;
     private final int maghribAdjustmentSeconds;
     private final int ishaAdjustmentSeconds;
+    private final double sunriseHorizonDipCoefficient;
+    private final double maghribHorizonDipCoefficient;
     private final RoundingPolicy roundingPolicy;
     private final OperationOrder operationOrder;
     private final boolean elevationAdjustedHorizon;
@@ -71,6 +75,8 @@ public final class CalculationCandidate {
         this.asrAdjustmentSeconds = b.asrAdjustmentSeconds;
         this.maghribAdjustmentSeconds = b.maghribAdjustmentSeconds;
         this.ishaAdjustmentSeconds = b.ishaAdjustmentSeconds;
+        this.sunriseHorizonDipCoefficient = b.sunriseHorizonDipCoefficient;
+        this.maghribHorizonDipCoefficient = b.maghribHorizonDipCoefficient;
         this.roundingPolicy = b.roundingPolicy;
         this.operationOrder = b.operationOrder;
         this.elevationAdjustedHorizon = b.elevationAdjustedHorizon;
@@ -98,6 +104,8 @@ public final class CalculationCandidate {
         b.asrAdjustmentSeconds = asrAdjustmentSeconds;
         b.maghribAdjustmentSeconds = maghribAdjustmentSeconds;
         b.ishaAdjustmentSeconds = ishaAdjustmentSeconds;
+        b.sunriseHorizonDipCoefficient = sunriseHorizonDipCoefficient;
+        b.maghribHorizonDipCoefficient = maghribHorizonDipCoefficient;
         b.roundingPolicy = roundingPolicy;
         b.operationOrder = operationOrder;
         b.elevationAdjustedHorizon = elevationAdjustedHorizon;
@@ -149,6 +157,30 @@ public final class CalculationCandidate {
         return ishaAdjustmentSeconds;
     }
 
+    /**
+     * The fitted horizon-dip coefficient for sunrise, in degrees per √metre. The
+     * effective sunrise altitude is {@code sunriseAltitudeDegrees - coefficient·√elevation},
+     * an empirically fitted effective horizon (not a physical constant). Zero
+     * means no dip. Applied in preference to the fixed {@link #elevationAdjustedHorizon()}
+     * family when non-zero.
+     *
+     * @return the sunrise dip coefficient (deg/√m), {@code >= 0}
+     */
+    public double sunriseHorizonDipCoefficient() {
+        return sunriseHorizonDipCoefficient;
+    }
+
+    /**
+     * The fitted horizon-dip coefficient for Maghrib, in degrees per √metre.
+     * See {@link #sunriseHorizonDipCoefficient()}; Maghrib is fitted independently
+     * because the observed elevation sensitivity of sunset differs from sunrise.
+     *
+     * @return the Maghrib dip coefficient (deg/√m), {@code >= 0}
+     */
+    public double maghribHorizonDipCoefficient() {
+        return maghribHorizonDipCoefficient;
+    }
+
     public RoundingPolicy roundingPolicy() {
         return roundingPolicy;
     }
@@ -196,6 +228,8 @@ public final class CalculationCandidate {
                 && asrAdjustmentSeconds == other.asrAdjustmentSeconds
                 && maghribAdjustmentSeconds == other.maghribAdjustmentSeconds
                 && ishaAdjustmentSeconds == other.ishaAdjustmentSeconds
+                && Double.compare(sunriseHorizonDipCoefficient, other.sunriseHorizonDipCoefficient) == 0
+                && Double.compare(maghribHorizonDipCoefficient, other.maghribHorizonDipCoefficient) == 0
                 && roundingPolicy == other.roundingPolicy
                 && operationOrder == other.operationOrder
                 && elevationAdjustedHorizon == other.elevationAdjustedHorizon
@@ -207,8 +241,8 @@ public final class CalculationCandidate {
         return Objects.hash(fajrAngle, ishaAngle, asrShadowFactor, sunriseAltitudeDegrees,
                 maghribAltitudeDegrees, fajrAdjustmentSeconds, sunriseAdjustmentSeconds,
                 dhuhrAdjustmentSeconds, asrAdjustmentSeconds, maghribAdjustmentSeconds,
-                ishaAdjustmentSeconds, roundingPolicy, operationOrder, elevationAdjustedHorizon,
-                tuned);
+                ishaAdjustmentSeconds, sunriseHorizonDipCoefficient, maghribHorizonDipCoefficient,
+                roundingPolicy, operationOrder, elevationAdjustedHorizon, tuned);
     }
 
     @Override
@@ -219,6 +253,8 @@ public final class CalculationCandidate {
                 + ", asrShadowFactor=" + asrShadowFactor
                 + ", sunriseAltitude=" + sunriseAltitudeDegrees
                 + ", maghribAltitude=" + maghribAltitudeDegrees
+                + ", sunriseDip=" + sunriseHorizonDipCoefficient
+                + ", maghribDip=" + maghribHorizonDipCoefficient
                 + ", roundingPolicy=" + roundingPolicy
                 + ", operationOrder=" + operationOrder
                 + ", elevationAdjustedHorizon=" + elevationAdjustedHorizon
@@ -239,6 +275,8 @@ public final class CalculationCandidate {
         private int asrAdjustmentSeconds;
         private int maghribAdjustmentSeconds;
         private int ishaAdjustmentSeconds;
+        private double sunriseHorizonDipCoefficient;
+        private double maghribHorizonDipCoefficient;
         private RoundingPolicy roundingPolicy = RoundingPolicy.NEAREST_MINUTE;
         private OperationOrder operationOrder = OperationOrder.RAW_THEN_ADJUST_THEN_ROUND;
         private boolean elevationAdjustedHorizon;
@@ -310,6 +348,32 @@ public final class CalculationCandidate {
         public Builder ishaAdjustmentSeconds(int v) {
             this.ishaAdjustmentSeconds = v;
             tuned.add(Knob.ISHA_ADJUSTMENT);
+            return this;
+        }
+
+        /**
+         * Sets the fitted sunrise horizon-dip coefficient (deg/√m) and counts it
+         * as a tuned parameter.
+         *
+         * @param v the coefficient, {@code >= 0}
+         * @return this builder
+         */
+        public Builder sunriseHorizonDipCoefficient(double v) {
+            this.sunriseHorizonDipCoefficient = v;
+            tuned.add(Knob.SUNRISE_DIP_COEFFICIENT);
+            return this;
+        }
+
+        /**
+         * Sets the fitted Maghrib horizon-dip coefficient (deg/√m) and counts it
+         * as a tuned parameter.
+         *
+         * @param v the coefficient, {@code >= 0}
+         * @return this builder
+         */
+        public Builder maghribHorizonDipCoefficient(double v) {
+            this.maghribHorizonDipCoefficient = v;
+            tuned.add(Knob.MAGHRIB_DIP_COEFFICIENT);
             return this;
         }
 

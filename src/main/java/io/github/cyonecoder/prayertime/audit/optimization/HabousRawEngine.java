@@ -81,13 +81,16 @@ public final class HabousRawEngine {
         double declination = solar.declinationDegrees();
         double noonHours = solar.solarNoonDecimalHours();
         double latitude = coordinates.latitude();
-        double elevationDip = elevationDipDegrees(candidate, coordinates);
+        double sunriseDip = horizonDipDegrees(
+                candidate, coordinates, candidate.sunriseHorizonDipCoefficient());
+        double maghribDip = horizonDipDegrees(
+                candidate, coordinates, candidate.maghribHorizonDipCoefficient());
 
         double eventHours = switch (prayer) {
             case FAJR -> noonHours + hourAngleCalculator.hourOffsetHours(
                     Direction.MORNING, -candidate.fajrAngle(), latitude, declination);
             case SUNRISE -> noonHours + hourAngleCalculator.hourOffsetHours(
-                    Direction.MORNING, candidate.sunriseAltitudeDegrees() - elevationDip,
+                    Direction.MORNING, candidate.sunriseAltitudeDegrees() - sunriseDip,
                     latitude, declination);
             case DHUHR -> noonHours;
             case ASR -> {
@@ -97,7 +100,7 @@ public final class HabousRawEngine {
                         Direction.EVENING, asrAltitude, latitude, declination);
             }
             case MAGHRIB -> noonHours + hourAngleCalculator.hourOffsetHours(
-                    Direction.EVENING, candidate.maghribAltitudeDegrees() - elevationDip,
+                    Direction.EVENING, candidate.maghribAltitudeDegrees() - maghribDip,
                     latitude, declination);
             case ISHA -> noonHours + hourAngleCalculator.hourOffsetHours(
                     Direction.EVENING, -candidate.ishaAngle(), latitude, declination);
@@ -106,16 +109,27 @@ public final class HabousRawEngine {
     }
 
     /**
-     * The elevation dip (in degrees, non-negative) subtracted from the
-     * sunrise/Maghrib altitude when the candidate uses the elevation-adjusted
-     * horizon. Returns zero for sea-level treatment (the default).
+     * The horizon dip (in degrees, non-negative) subtracted from a sunrise or
+     * Maghrib altitude for the observer's elevation.
+     *
+     * <p>Precedence: a non-zero per-event fitted {@code eventCoefficient} (deg/√m)
+     * is used directly ({@code coefficient·√elevation}); otherwise, if the candidate
+     * enables the fixed {@link CalculationCandidate#elevationAdjustedHorizon()}
+     * family, the standard PrayTimes coefficient is used; otherwise the dip is
+     * zero (sea-level treatment).
      */
-    private static double elevationDipDegrees(CalculationCandidate candidate, Coordinates coordinates) {
-        if (!candidate.elevationAdjustedHorizon()) {
+    private static double horizonDipDegrees(
+            CalculationCandidate candidate, Coordinates coordinates, double eventCoefficient) {
+        double elevation = Math.max(0.0, coordinates.elevationMeters());
+        double coefficient;
+        if (eventCoefficient > 0.0) {
+            coefficient = eventCoefficient;
+        } else if (candidate.elevationAdjustedHorizon()) {
+            coefficient = ELEVATION_DIP_COEFFICIENT;
+        } else {
             return 0.0;
         }
-        double elevation = Math.max(0.0, coordinates.elevationMeters());
-        return ELEVATION_DIP_COEFFICIENT * Math.sqrt(elevation);
+        return coefficient * Math.sqrt(elevation);
     }
 
     /**

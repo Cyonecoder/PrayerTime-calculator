@@ -198,6 +198,8 @@ public final class SearchReportWriter {
         m.put("asrAdjustmentSeconds", c.asrAdjustmentSeconds());
         m.put("maghribAdjustmentSeconds", c.maghribAdjustmentSeconds());
         m.put("ishaAdjustmentSeconds", c.ishaAdjustmentSeconds());
+        m.put("sunriseHorizonDipCoefficient", c.sunriseHorizonDipCoefficient());
+        m.put("maghribHorizonDipCoefficient", c.maghribHorizonDipCoefficient());
         m.put("roundingPolicy", c.roundingPolicy().name());
         m.put("operationOrder", c.operationOrder().name());
         m.put("elevationAdjustedHorizon", c.elevationAdjustedHorizon());

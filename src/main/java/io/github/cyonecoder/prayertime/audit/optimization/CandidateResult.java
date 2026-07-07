@@ -180,12 +180,13 @@ public final class CandidateResult {
     public String signature() {
         return String.format(java.util.Locale.ROOT,
                 "fajr=%.4f;isha=%.4f;asr=%.4f;sunrise=%.4f;maghrib=%.4f;"
-                        + "adj=%d,%d,%d,%d,%d,%d;round=%s;order=%s;elev=%s",
+                        + "adj=%d,%d,%d,%d,%d,%d;dip=%.4f,%.4f;round=%s;order=%s;elev=%s",
                 candidate.fajrAngle(), candidate.ishaAngle(), candidate.asrShadowFactor(),
                 candidate.sunriseAltitudeDegrees(), candidate.maghribAltitudeDegrees(),
                 candidate.fajrAdjustmentSeconds(), candidate.sunriseAdjustmentSeconds(),
                 candidate.dhuhrAdjustmentSeconds(), candidate.asrAdjustmentSeconds(),
                 candidate.maghribAdjustmentSeconds(), candidate.ishaAdjustmentSeconds(),
+                candidate.sunriseHorizonDipCoefficient(), candidate.maghribHorizonDipCoefficient(),
                 candidate.roundingPolicy(), candidate.operationOrder(),
                 candidate.elevationAdjustedHorizon());
     }

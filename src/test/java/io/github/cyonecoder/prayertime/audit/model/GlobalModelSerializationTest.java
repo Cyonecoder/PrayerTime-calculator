@@ -28,6 +28,8 @@ class GlobalModelSerializationTest {
                 .asrAdjustmentSeconds(15)
                 .maghribAdjustmentSeconds(45)
                 .ishaAdjustmentSeconds(90)
+                .sunriseHorizonDipCoefficient(0.029)
+                .maghribHorizonDipCoefficient(0.023)
                 .build();
 
         String json = CandidateSerialization.toJson(original);
@@ -36,6 +38,37 @@ class GlobalModelSerializationTest {
         assertThat(CandidateSerialization.toDto(restored))
                 .isEqualTo(CandidateSerialization.toDto(original));
         assertThat(restored.elevationAdjustedHorizon()).isTrue();
+        assertThat(restored.sunriseHorizonDipCoefficient()).isEqualTo(0.029);
+        assertThat(restored.maghribHorizonDipCoefficient()).isEqualTo(0.023);
+    }
+
+    /** A legacy snapshot with no dip fields must round-trip to a zero-dip model. */
+    @Test
+    void legacySnapshotWithoutDipFieldsLoadsAsZeroDip() {
+        String legacyJson = """
+                {
+                  "fajrAngle": 19.0,
+                  "ishaAngle": 17.0,
+                  "asrShadowFactor": 1.0,
+                  "sunriseAltitudeDegrees": -0.8333,
+                  "maghribAltitudeDegrees": -0.8333,
+                  "fajrAdjustmentSeconds": 0,
+                  "sunriseAdjustmentSeconds": 0,
+                  "dhuhrAdjustmentSeconds": 0,
+                  "asrAdjustmentSeconds": 0,
+                  "maghribAdjustmentSeconds": 0,
+                  "ishaAdjustmentSeconds": 0,
+                  "roundingPolicy": "NEAREST_MINUTE",
+                  "operationOrder": "RAW_THEN_ADJUST_THEN_ROUND",
+                  "elevationAdjustedHorizon": false
+                }
+                """;
+        CalculationCandidate restored = CandidateSerialization.fromJson(legacyJson);
+        assertThat(restored.sunriseHorizonDipCoefficient()).isZero();
+        assertThat(restored.maghribHorizonDipCoefficient()).isZero();
+        assertThat(restored.tuned())
+                .doesNotContain(CalculationCandidate.Knob.SUNRISE_DIP_COEFFICIENT,
+                        CalculationCandidate.Knob.MAGHRIB_DIP_COEFFICIENT);
     }
 
     @Test
