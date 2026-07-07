@@ -1,5 +1,6 @@
 package io.github.cyonecoder.prayertime.audit.optimization;
 
+import io.github.cyonecoder.prayertime.audit.dataset.HabousDatasetCommand;
 import io.github.cyonecoder.prayertime.audit.optimization.ParameterSearchService.PrayerSearchResult;
 import io.github.cyonecoder.prayertime.audit.optimization.PrayerParameterSearch.CombinedResult;
 import io.github.cyonecoder.prayertime.domain.model.Prayer;
@@ -79,6 +80,8 @@ public final class SearchCommand {
                 case "search-parameter" -> searchParameter(flags, out);
                 case "search-rounding" -> searchRounding(flags, out);
                 case "rank-candidates" -> rankCandidates(flags, out);
+                case "fetch-habous" -> new HabousDatasetCommand().fetch(flags, out);
+                case "dataset-coverage" -> new HabousDatasetCommand().coverage(flags, out);
                 default -> throw new UsageException("unknown research subcommand: " + sub);
             }
             return 0;
@@ -380,5 +383,9 @@ public final class SearchCommand {
         out.println("  research search-rounding --dataset <dir> "
                 + "[--cities a,b] [--from d] [--to d] [--output dir]");
         out.println("  research rank-candidates --input <dir> [--top N]");
+        out.println("  research fetch-habous --cities <all-mapped|a,b> --year <y> --months <1-12|1,2> "
+                + "[--output dir] [--delay-seconds n] [--retries n] [--refresh] [--report dir]");
+        out.println("  research dataset-coverage --dataset <dir> --year <y> --months <1-12|1,2> "
+                + "[--output dir]");
     }
 }

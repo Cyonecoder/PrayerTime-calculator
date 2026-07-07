@@ -108,6 +108,19 @@ public final class HabousClient {
     }
 
     private URI buildUri(String habousCityId) {
+        return monthlyUri(habousCityId);
+    }
+
+    /**
+     * The monthly-timetable URL for a Habous city id. Exposed so research tooling
+     * can record the exact {@code sourceUrl} it would fetch, without duplicating
+     * the base endpoint. Pure; performs no I/O.
+     *
+     * @param habousCityId the city's Habous {@code ville} identifier
+     * @return the fully-formed request URI
+     */
+    public static URI monthlyUri(String habousCityId) {
+        Objects.requireNonNull(habousCityId, "habousCityId");
         String query = "ville=" + URLEncoder.encode(habousCityId, StandardCharsets.UTF_8);
         return URI.create(BASE_URI + "?" + query);
     }

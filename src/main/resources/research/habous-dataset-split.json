@@ -1,0 +1,25 @@
+{
+  "note": "Fixed research split for Habous parameter fitting. This partition is frozen: it must NOT be changed once parameter fitting has begun, so that validation and holdout results stay honest. City identifiers are application city slugs (see MoroccoCityRegistry).",
+  "version": 1,
+  "training": [
+    "casablanca",
+    "rabat",
+    "marrakech",
+    "oujda",
+    "fez"
+  ],
+  "validation": [
+    "tangier",
+    "agadir",
+    "errachidia",
+    "meknes",
+    "kenitra"
+  ],
+  "holdout": [
+    "ifrane",
+    "laayoune",
+    "dakhla",
+    "tetouan",
+    "ouarzazate"
+  ]
+}
