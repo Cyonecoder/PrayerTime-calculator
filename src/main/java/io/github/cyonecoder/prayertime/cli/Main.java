@@ -99,6 +99,10 @@ public final class Main {
             return new io.github.cyonecoder.prayertime.audit.optimization.SearchCommand()
                     .run(args, out, err);
         }
+        if ("audit".equals(command)) {
+            return new io.github.cyonecoder.prayertime.audit.release.AuditCommand()
+                    .run(args, out, err);
+        }
         Map<String, String> flags;
         try {
             flags = parseFlags(args);

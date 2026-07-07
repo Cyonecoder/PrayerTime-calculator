@@ -72,6 +72,19 @@ public final class HabousClient {
     }
 
     /**
+     * Creates a client backed by a caller-supplied {@link HttpClient}. Used by
+     * research tooling that must, for example, augment the trust store to reach
+     * the live endpoint (which serves an incomplete certificate chain). The
+     * default {@link #HabousClient()} behaviour is unaffected.
+     *
+     * @param httpClient the HTTP client to use
+     * @return a client using the given HTTP client
+     */
+    public static HabousClient withHttpClient(HttpClient httpClient) {
+        return new HabousClient(httpClient);
+    }
+
+    /**
      * Fetches the raw monthly timetable HTML for a city (matches {@link Fetcher}).
      *
      * @param habousCityId the city's Habous identifier

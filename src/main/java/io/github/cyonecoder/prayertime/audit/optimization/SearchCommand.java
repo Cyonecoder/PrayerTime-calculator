@@ -81,6 +81,7 @@ public final class SearchCommand {
                 case "search-rounding" -> searchRounding(flags, out);
                 case "rank-candidates" -> rankCandidates(flags, out);
                 case "fetch-habous" -> new HabousDatasetCommand().fetch(flags, out);
+                case "fetch-habous-live" -> new HabousDatasetCommand().fetchLive(flags, out);
                 case "dataset-coverage" -> new HabousDatasetCommand().coverage(flags, out);
                 case "infer-global-model" ->
                         new io.github.cyonecoder.prayertime.audit.model.GlobalModelCommand(
@@ -391,5 +392,7 @@ public final class SearchCommand {
         out.println("  research dataset-coverage --dataset <dir> --year <y> --months <1-12|1,2> "
                 + "[--output dir]");
         out.println("  research infer-global-model --dataset <dir> [--output dir]");
+        out.println("  research fetch-habous-live --cities <all-mapped|a,b> "
+                + "[--output dir] [--delay-seconds n]");
     }
 }

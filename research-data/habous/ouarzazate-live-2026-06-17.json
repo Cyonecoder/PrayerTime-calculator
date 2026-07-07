@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "ouarzazate",
+  "habousVilleId": "138",
+  "habousArabicName": "ورزازات",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=138",
+  "fetchedAt": "2026-07-07T18:09:28.360462Z",
+  "sourceSha256": "2b83deb48195385b2778329275d001115f99f7e1528a8b93c790078fe32e6952",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "ouarzazate",
+      "date": "2026-06-17",
+      "fajr": "04:39",
+      "sunrise": "06:17",
+      "dhuhr": "13:34",
+      "asr": "17:07",
+      "maghrib": "20:41",
+      "isha": "22:05"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-06-18",
+      "fajr": "04:39",
+      "sunrise": "06:17",
+      "dhuhr": "13:34",
+      "asr": "17:07",
+      "maghrib": "20:41",
+      "isha": "22:05"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-06-19",
+      "fajr": "04:39",
+      "sunrise": "06:17",
+      "dhuhr": "13:34",
+      "asr": "17:07",
+      "maghrib": "20:41",
+      "isha": "22:06"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-06-20",
+      "fajr": "04:40",
+      "sunrise": "06:18",
+      "dhuhr": "13:34",
+      "asr": "17:07",
+      "maghrib": "20:42",
+      "isha": "22:06"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-06-21",
+      "fajr": "04:40",
+      "sunrise": "06:18",
+      "dhuhr": "13:35",
+      "asr": "17:07",
+      "maghrib": "20:42",
+      "isha": "22:06"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-06-22",
+      "fajr": "04:40",
+      "sunrise": "06:18",
+      "dhuhr": "13:35",
+      "asr": "17:08",
+      "maghrib": "20:42",
+      "isha": "22:06"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-06-23",
+      "fajr": "04:40",
+      "sunrise": "06:18",
+      "dhuhr": "13:35",
+      "asr": "17:08",
+      "maghrib": "20:42",
+      "isha": "22:06"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-06-24",
+      "fajr": "04:41",
+      "sunrise": "06:19",
+      "dhuhr": "13:35",
+      "asr": "17:08",
+      "maghrib": "20:42",
+      "isha": "22:07"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-06-25",
+      "fajr": "04:41",
+      "sunrise": "06:19",
+      "dhuhr": "13:35",
+      "asr": "17:08",
+      "maghrib": "20:42",
+      "isha": "22:07"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-06-26",
+      "fajr": "04:41",
+      "sunrise": "06:19",
+      "dhuhr": "13:36",
+      "asr": "17:08",
+      "maghrib": "20:42",
+      "isha": "22:07"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-06-27",
+      "fajr": "04:42",
+      "sunrise": "06:19",
+      "dhuhr": "13:36",
+      "asr": "17:09",
+      "maghrib": "20:43",
+      "isha": "22:07"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-06-28",
+      "fajr": "04:42",
+      "sunrise": "06:20",
+      "dhuhr": "13:36",
+      "asr": "17:09",
+      "maghrib": "20:43",
+      "isha": "22:07"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-06-29",
+      "fajr": "04:42",
+      "sunrise": "06:20",
+      "dhuhr": "13:36",
+      "asr": "17:09",
+      "maghrib": "20:43",
+      "isha": "22:07"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-06-30",
+      "fajr": "04:43",
+      "sunrise": "06:21",
+      "dhuhr": "13:36",
+      "asr": "17:09",
+      "maghrib": "20:43",
+      "isha": "22:07"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-01",
+      "fajr": "04:43",
+      "sunrise": "06:21",
+      "dhuhr": "13:37",
+      "asr": "17:10",
+      "maghrib": "20:43",
+      "isha": "22:07"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-02",
+      "fajr": "04:44",
+      "sunrise": "06:21",
+      "dhuhr": "13:37",
+      "asr": "17:10",
+      "maghrib": "20:43",
+      "isha": "22:06"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-03",
+      "fajr": "04:44",
+      "sunrise": "06:22",
+      "dhuhr": "13:37",
+      "asr": "17:10",
+      "maghrib": "20:43",
+      "isha": "22:06"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-04",
+      "fajr": "04:45",
+      "sunrise": "06:22",
+      "dhuhr": "13:37",
+      "asr": "17:10",
+      "maghrib": "20:42",
+      "isha": "22:06"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-05",
+      "fajr": "04:46",
+      "sunrise": "06:23",
+      "dhuhr": "13:37",
+      "asr": "17:10",
+      "maghrib": "20:42",
+      "isha": "22:06"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-06",
+      "fajr": "04:46",
+      "sunrise": "06:23",
+      "dhuhr": "13:38",
+      "asr": "17:11",
+      "maghrib": "20:42",
+      "isha": "22:05"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-07",
+      "fajr": "04:47",
+      "sunrise": "06:24",
+      "dhuhr": "13:38",
+      "asr": "17:11",
+      "maghrib": "20:42",
+      "isha": "22:05"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-08",
+      "fajr": "04:48",
+      "sunrise": "06:24",
+      "dhuhr": "13:38",
+      "asr": "17:11",
+      "maghrib": "20:42",
+      "isha": "22:05"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-09",
+      "fajr": "04:48",
+      "sunrise": "06:25",
+      "dhuhr": "13:38",
+      "asr": "17:11",
+      "maghrib": "20:42",
+      "isha": "22:04"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-10",
+      "fajr": "04:49",
+      "sunrise": "06:25",
+      "dhuhr": "13:38",
+      "asr": "17:11",
+      "maghrib": "20:41",
+      "isha": "22:04"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-11",
+      "fajr": "04:50",
+      "sunrise": "06:26",
+      "dhuhr": "13:38",
+      "asr": "17:12",
+      "maghrib": "20:41",
+      "isha": "22:04"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-12",
+      "fajr": "04:50",
+      "sunrise": "06:26",
+      "dhuhr": "13:38",
+      "asr": "17:12",
+      "maghrib": "20:41",
+      "isha": "22:03"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-13",
+      "fajr": "04:51",
+      "sunrise": "06:27",
+      "dhuhr": "13:39",
+      "asr": "17:12",
+      "maghrib": "20:41",
+      "isha": "22:03"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-14",
+      "fajr": "04:52",
+      "sunrise": "06:27",
+      "dhuhr": "13:39",
+      "asr": "17:12",
+      "maghrib": "20:40",
+      "isha": "22:02"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-15",
+      "fajr": "04:53",
+      "sunrise": "06:28",
+      "dhuhr": "13:39",
+      "asr": "17:12",
+      "maghrib": "20:40",
+      "isha": "22:02"
+    },
+    {
+      "city": "ouarzazate",
+      "date": "2026-07-16",
+      "fajr": "04:54",
+      "sunrise": "06:28",
+      "dhuhr": "13:39",
+      "asr": "17:12",
+      "maghrib": "20:39",
+      "isha": "22:01"
+    }
+  ]
+}

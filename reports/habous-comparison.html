@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Habous Prayer Times — Comparison</title>
+<style>
+:root{
+  --bg:#f6f8f6;--surface:#fff;--surface-2:#eef2ee;--line:#dde5e0;
+  --ink:#16201c;--ink-soft:#4a5a53;--ink-faint:#7c8b84;
+  --accent:#0f6b57;--accent-soft:#0f6b571a;--accent-ink:#0b4c3e;
+  --good:#2f8f5b;--good-bg:#2f8f5b1f;--warn:#a9791a;--warn-bg:#a9791a1f;
+  --bad:#bb4536;--bad-bg:#bb45361f;--sunrise:#a9791a12;
+  --shadow:0 1px 2px #16201c0d,0 8px 24px #16201c0a;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0e1411;--surface:#151d19;--surface-2:#1b241f;--line:#2a352f;
+  --ink:#e9efea;--ink-soft:#a9b7b0;--ink-faint:#7b8a83;
+  --accent:#54c3a4;--accent-soft:#54c3a41f;--accent-ink:#7fd6bd;
+  --good:#57c188;--good-bg:#57c1881f;--warn:#d6a53f;--warn-bg:#d6a53f1f;
+  --bad:#e0705f;--bad-bg:#e0705f1f;--sunrise:#d6a53f14;
+  --shadow:0 1px 2px #0006,0 10px 30px #0004;}}
+:root[data-theme="light"]{
+  --bg:#f6f8f6;--surface:#fff;--surface-2:#eef2ee;--line:#dde5e0;
+  --ink:#16201c;--ink-soft:#4a5a53;--ink-faint:#7c8b84;
+  --accent:#0f6b57;--accent-soft:#0f6b571a;--accent-ink:#0b4c3e;
+  --good:#2f8f5b;--good-bg:#2f8f5b1f;--warn:#a9791a;--warn-bg:#a9791a1f;
+  --bad:#bb4536;--bad-bg:#bb45361f;--sunrise:#a9791a12;
+  --shadow:0 1px 2px #16201c0d,0 8px 24px #16201c0a;}
+:root[data-theme="dark"]{
+  --bg:#0e1411;--surface:#151d19;--surface-2:#1b241f;--line:#2a352f;
+  --ink:#e9efea;--ink-soft:#a9b7b0;--ink-faint:#7b8a83;
+  --accent:#54c3a4;--accent-soft:#54c3a41f;--accent-ink:#7fd6bd;
+  --good:#57c188;--good-bg:#57c1881f;--warn:#d6a53f;--warn-bg:#d6a53f1f;
+  --bad:#e0705f;--bad-bg:#e0705f1f;--sunrise:#d6a53f14;
+  --shadow:0 1px 2px #0006,0 10px 30px #0004;}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5;font-size:15px;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:clamp(20px,4vw,52px)}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+h1,h2{text-wrap:balance;margin:0}
+header.mast{border-bottom:1px solid var(--line);padding-bottom:26px;margin-bottom:20px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:650;margin-bottom:12px}
+h1{font-size:clamp(25px,4.2vw,38px);font-weight:700;letter-spacing:-.02em;line-height:1.08}
+.lede{margin-top:14px;color:var(--ink-soft);max-width:66ch;font-size:15.5px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:20px;font-size:13px;color:var(--ink-faint);align-items:center}
+.meta b{color:var(--ink-soft);font-weight:600}
+.livebadge{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:650;color:var(--good);
+  background:var(--good-bg);padding:4px 11px;border-radius:999px}
+.livebadge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good)}
+section{margin-top:38px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
+.sec-head h2{font-size:19px;font-weight:660;letter-spacing:-.01em}
+.sec-head .num{font-size:12px;color:var(--ink-faint);letter-spacing:.1em;font-weight:600}
+.sec-head .sub{margin-left:auto;font-size:12.5px;color:var(--ink-faint)}
+.ids{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:14px}
+.idcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:15px 17px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:5px}
+.idcard .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.idcard .city{font-size:16px;font-weight:660}.idcard .ar{font-size:17px;color:var(--ink-soft)}
+.idcard .ville{font-size:13px;color:var(--ink-faint)}.idcard .ville b{color:var(--accent-ink);font-weight:700}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:13px;margin-bottom:20px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:var(--shadow)}
+.tile .k{font-size:12px;color:var(--ink-faint)}.tile .v{font-size:26px;font-weight:700;letter-spacing:-.02em;margin-top:3px}.tile .u{font-size:12px;color:var(--ink-faint)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+.card+.card{margin-top:18px}
+.cap{display:flex;align-items:center;gap:10px;padding:12px 17px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.cap .city{font-weight:660;font-size:15px}.cap .ar{color:var(--ink-soft)}
+.cap .st{margin-left:auto;font-size:12px;color:var(--ink-faint)}.cap .st b{color:var(--ink-soft)}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:6px 13px;text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;position:sticky;top:0;background:var(--surface)}
+tbody tr+tr td{border-top:1px solid var(--line)}
+tbody tr:hover td{background:var(--surface-2)}
+td.time,.t{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+.muted{color:var(--ink-faint)}
+th.sunrise,td.sunrise{background:var(--sunrise)}
+tr.rowbad td{color:var(--bad)}
+.chip{display:inline-block;min-width:30px;text-align:center;font-family:ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:11px;font-weight:650;padding:1px 6px;border-radius:5px;margin-left:6px}
+.chip.g{background:var(--good-bg);color:var(--good)}.chip.w{background:var(--warn-bg);color:var(--warn)}.chip.b{background:var(--bad-bg);color:var(--bad)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-faint);margin-top:12px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+.callout{margin-top:16px;padding:13px 16px;background:var(--warn-bg);border-left:3px solid var(--warn);border-radius:0 8px 8px 0;font-size:13.5px;color:var(--ink-soft)}
+.callout b{color:var(--warn)}
+.banner{padding:13px 16px;background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;font-size:13.5px;color:var(--ink-soft)}
+.banner b{color:var(--accent-ink)}
+footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-faint);line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div class="eyebrow">Morocco &middot; Habous method</div>
+    <h1 id="title">Prayer times &mdash; comparison</h1>
+    <p class="lede" id="lede"></p>
+    <div class="meta" id="meta"></div>
+  </header>
+
+  <section id="ids">
+    <div class="sec-head"><span class="num">01</span><h2>Cities</h2>
+      <span class="sub">index.php?ville=&lt;id&gt;</span></div>
+    <div class="ids" id="idcards"></div>
+  </section>
+
+  <section id="summary">
+    <div class="sec-head"><span class="num">02</span><h2 id="sumtitle">Accuracy</h2>
+      <span class="sub" id="sumsub"></span></div>
+    <div id="summarybody"></div>
+  </section>
+
+  <section id="detail">
+    <div class="sec-head"><span class="num">03</span><h2 id="detitle">Day by day</h2>
+      <span class="sub" id="desub"></span></div>
+    <div class="legend" id="legend" style="margin:0 0 16px"></div>
+    <div id="citytables"></div>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+const D = {"from": "2026-06-17", "to": "2026-07-16", "dates": ["2026-06-17", "2026-06-18", "2026-06-19", "2026-06-20", "2026-06-21", "2026-06-22", "2026-06-23", "2026-06-24", "2026-06-25", "2026-06-26", "2026-06-27", "2026-06-28", "2026-06-29", "2026-06-30", "2026-07-01", "2026-07-02", "2026-07-03", "2026-07-04", "2026-07-05", "2026-07-06", "2026-07-07", "2026-07-08", "2026-07-09", "2026-07-10", "2026-07-11", "2026-07-12", "2026-07-13", "2026-07-14", "2026-07-15", "2026-07-16"], "cities": ["casablanca", "rabat", "laayoune", "fez"], "calc": {"casablanca": {"2026-06-17": {"fajr": "04:29", "sunrise": "06:20", "dhuhr": "13:36", "asr": "17:15", "maghrib": "20:48", "isha": "22:19"}, "2026-06-18": {"fajr": "04:30", "sunrise": "06:20", "dhuhr": "13:37", "asr": "17:16", "maghrib": "20:48", "isha": "22:20"}, "2026-06-19": {"fajr": "04:30", "sunrise": "06:20", "dhuhr": "13:37", "asr": "17:16", "maghrib": "20:48", "isha": "22:20"}, "2026-06-20": {"fajr": "04:30", "sunrise": "06:20", "dhuhr": "13:37", "asr": "17:16", "maghrib": "20:48", "isha": "22:20"}, "2026-06-21": {"fajr": "04:30", "sunrise": "06:21", "dhuhr": "13:37", "asr": "17:16", "maghrib": "20:49", "isha": "22:21"}, "2026-06-22": {"fajr": "04:30", "sunrise": "06:21", "dhuhr": "13:37", "asr": "17:17", "maghrib": "20:49", "isha": "22:21"}, "2026-06-23": {"fajr": "04:31", "sunrise": "06:21", "dhuhr": "13:38", "asr": "17:17", "maghrib": "20:49", "isha": "22:21"}, "2026-06-24": {"fajr": "04:31", "sunrise": "06:21", "dhuhr": "13:38", "asr": "17:17", "maghrib": "20:49", "isha": "22:21"}, "2026-06-25": {"fajr": "04:31", "sunrise": "06:22", "dhuhr": "13:38", "asr": "17:17", "maghrib": "20:49", "isha": "22:21"}, "2026-06-26": {"fajr": "04:32", "sunrise": "06:22", "dhuhr": "13:38", "asr": "17:17", "maghrib": "20:49", "isha": "22:21"}, "2026-06-27": {"fajr": "04:32", "sunrise": "06:22", "dhuhr": "13:38", "asr": "17:18", "maghrib": "20:50", "isha": "22:21"}, "2026-06-28": {"fajr": "04:32", "sunrise": "06:23", "dhuhr": "13:39", "asr": "17:18", "maghrib": "20:50", "isha": "22:21"}, "2026-06-29": {"fajr": "04:33", "sunrise": "06:23", "dhuhr": "13:39", "asr": "17:18", "maghrib": "20:50", "isha": "22:21"}, "2026-06-30": {"fajr": "04:33", "sunrise": "06:24", "dhuhr": "13:39", "asr": "17:18", "maghrib": "20:50", "isha": "22:21"}, "2026-07-01": {"fajr": "04:34", "sunrise": "06:24", "dhuhr": "13:39", "asr": "17:18", "maghrib": "20:50", "isha": "22:21"}, "2026-07-02": {"fajr": "04:35", "sunrise": "06:24", "dhuhr": "13:39", "asr": "17:19", "maghrib": "20:50", "isha": "22:21"}, "2026-07-03": {"fajr": "04:35", "sunrise": "06:25", "dhuhr": "13:40", "asr": "17:19", "maghrib": "20:49", "isha": "22:20"}, "2026-07-04": {"fajr": "04:36", "sunrise": "06:25", "dhuhr": "13:40", "asr": "17:19", "maghrib": "20:49", "isha": "22:20"}, "2026-07-05": {"fajr": "04:37", "sunrise": "06:26", "dhuhr": "13:40", "asr": "17:19", "maghrib": "20:49", "isha": "22:20"}, "2026-07-06": {"fajr": "04:37", "sunrise": "06:26", "dhuhr": "13:40", "asr": "17:19", "maghrib": "20:49", "isha": "22:20"}, "2026-07-07": {"fajr": "04:38", "sunrise": "06:27", "dhuhr": "13:40", "asr": "17:20", "maghrib": "20:49", "isha": "22:19"}, "2026-07-08": {"fajr": "04:39", "sunrise": "06:27", "dhuhr": "13:40", "asr": "17:20", "maghrib": "20:49", "isha": "22:19"}, "2026-07-09": {"fajr": "04:39", "sunrise": "06:28", "dhuhr": "13:41", "asr": "17:20", "maghrib": "20:48", "isha": "22:18"}, "2026-07-10": {"fajr": "04:40", "sunrise": "06:28", "dhuhr": "13:41", "asr": "17:20", "maghrib": "20:48", "isha": "22:18"}, "2026-07-11": {"fajr": "04:41", "sunrise": "06:29", "dhuhr": "13:41", "asr": "17:20", "maghrib": "20:48", "isha": "22:17"}, "2026-07-12": {"fajr": "04:42", "sunrise": "06:30", "dhuhr": "13:41", "asr": "17:20", "maghrib": "20:48", "isha": "22:17"}, "2026-07-13": {"fajr": "04:43", "sunrise": "06:30", "dhuhr": "13:41", "asr": "17:20", "maghrib": "20:47", "isha": "22:16"}, "2026-07-14": {"fajr": "04:44", "sunrise": "06:31", "dhuhr": "13:41", "asr": "17:20", "maghrib": "20:47", "isha": "22:16"}, "2026-07-15": {"fajr": "04:45", "sunrise": "06:31", "dhuhr": "13:41", "asr": "17:20", "maghrib": "20:46", "isha": "22:15"}, "2026-07-16": {"fajr": "04:46", "sunrise": "06:32", "dhuhr": "13:41", "asr": "17:21", "maghrib": "20:46", "isha": "22:14"}}, "rabat": {"2026-06-17": {"fajr": "04:24", "sunrise": "06:16", "dhuhr": "13:33", "asr": "17:14", "maghrib": "20:46", "isha": "22:19"}, "2026-06-18": {"fajr": "04:24", "sunrise": "06:16", "dhuhr": "13:34", "asr": "17:14", "maghrib": "20:46", "isha": "22:19"}, "2026-06-19": {"fajr": "04:24", "sunrise": "06:16", "dhuhr": "13:34", "asr": "17:14", "maghrib": "20:46", "isha": "22:19"}, "2026-06-20": {"fajr": "04:24", "sunrise": "06:16", "dhuhr": "13:34", "asr": "17:14", "maghrib": "20:47", "isha": "22:19"}, "2026-06-21": {"fajr": "04:25", "sunrise": "06:17", "dhuhr": "13:34", "asr": "17:14", "maghrib": "20:47", "isha": "22:20"}, "2026-06-22": {"fajr": "04:25", "sunrise": "06:17", "dhuhr": "13:34", "asr": "17:15", "maghrib": "20:47", "isha": "22:20"}, "2026-06-23": {"fajr": "04:25", "sunrise": "06:17", "dhuhr": "13:35", "asr": "17:15", "maghrib": "20:47", "isha": "22:20"}, "2026-06-24": {"fajr": "04:26", "sunrise": "06:17", "dhuhr": "13:35", "asr": "17:15", "maghrib": "20:47", "isha": "22:20"}, "2026-06-25": {"fajr": "04:26", "sunrise": "06:18", "dhuhr": "13:35", "asr": "17:15", "maghrib": "20:48", "isha": "22:20"}, "2026-06-26": {"fajr": "04:26", "sunrise": "06:18", "dhuhr": "13:35", "asr": "17:16", "maghrib": "20:48", "isha": "22:20"}, "2026-06-27": {"fajr": "04:27", "sunrise": "06:18", "dhuhr": "13:35", "asr": "17:16", "maghrib": "20:48", "isha": "22:20"}, "2026-06-28": {"fajr": "04:27", "sunrise": "06:19", "dhuhr": "13:36", "asr": "17:16", "maghrib": "20:48", "isha": "22:20"}, "2026-06-29": {"fajr": "04:28", "sunrise": "06:19", "dhuhr": "13:36", "asr": "17:16", "maghrib": "20:48", "isha": "22:20"}, "2026-06-30": {"fajr": "04:28", "sunrise": "06:19", "dhuhr": "13:36", "asr": "17:16", "maghrib": "20:48", "isha": "22:20"}, "2026-07-01": {"fajr": "04:29", "sunrise": "06:20", "dhuhr": "13:36", "asr": "17:17", "maghrib": "20:48", "isha": "22:20"}, "2026-07-02": {"fajr": "04:29", "sunrise": "06:20", "dhuhr": "13:36", "asr": "17:17", "maghrib": "20:48", "isha": "22:20"}, "2026-07-03": {"fajr": "04:30", "sunrise": "06:21", "dhuhr": "13:37", "asr": "17:17", "maghrib": "20:48", "isha": "22:20"}, "2026-07-04": {"fajr": "04:31", "sunrise": "06:21", "dhuhr": "13:37", "asr": "17:17", "maghrib": "20:48", "isha": "22:19"}, "2026-07-05": {"fajr": "04:31", "sunrise": "06:22", "dhuhr": "13:37", "asr": "17:17", "maghrib": "20:47", "isha": "22:19"}, "2026-07-06": {"fajr": "04:32", "sunrise": "06:22", "dhuhr": "13:37", "asr": "17:17", "maghrib": "20:47", "isha": "22:19"}, "2026-07-07": {"fajr": "04:33", "sunrise": "06:23", "dhuhr": "13:37", "asr": "17:18", "maghrib": "20:47", "isha": "22:18"}, "2026-07-08": {"fajr": "04:34", "sunrise": "06:23", "dhuhr": "13:37", "asr": "17:18", "maghrib": "20:47", "isha": "22:18"}, "2026-07-09": {"fajr": "04:34", "sunrise": "06:24", "dhuhr": "13:38", "asr": "17:18", "maghrib": "20:47", "isha": "22:17"}, "2026-07-10": {"fajr": "04:35", "sunrise": "06:24", "dhuhr": "13:38", "asr": "17:18", "maghrib": "20:46", "isha": "22:17"}, "2026-07-11": {"fajr": "04:36", "sunrise": "06:25", "dhuhr": "13:38", "asr": "17:18", "maghrib": "20:46", "isha": "22:16"}, "2026-07-12": {"fajr": "04:37", "sunrise": "06:25", "dhuhr": "13:38", "asr": "17:18", "maghrib": "20:46", "isha": "22:16"}, "2026-07-13": {"fajr": "04:38", "sunrise": "06:26", "dhuhr": "13:38", "asr": "17:18", "maghrib": "20:45", "isha": "22:15"}, "2026-07-14": {"fajr": "04:39", "sunrise": "06:27", "dhuhr": "13:38", "asr": "17:18", "maghrib": "20:45", "isha": "22:15"}, "2026-07-15": {"fajr": "04:40", "sunrise": "06:27", "dhuhr": "13:38", "asr": "17:18", "maghrib": "20:45", "isha": "22:14"}, "2026-07-16": {"fajr": "04:40", "sunrise": "06:28", "dhuhr": "13:38", "asr": "17:19", "maghrib": "20:44", "isha": "22:13"}}, "laayoune": {"2026-06-17": {"fajr": "05:20", "sunrise": "06:58", "dhuhr": "13:59", "asr": "17:22", "maghrib": "20:54", "isha": "22:16"}, "2026-06-18": {"fajr": "05:20", "sunrise": "06:58", "dhuhr": "13:59", "asr": "17:22", "maghrib": "20:55", "isha": "22:16"}, "2026-06-19": {"fajr": "05:21", "sunrise": "06:59", "dhuhr": "13:59", "asr": "17:22", "maghrib": "20:55", "isha": "22:16"}, "2026-06-20": {"fajr": "05:21", "sunrise": "06:59", "dhuhr": "13:59", "asr": "17:22", "maghrib": "20:55", "isha": "22:16"}, "2026-06-21": {"fajr": "05:21", "sunrise": "06:59", "dhuhr": "14:00", "asr": "17:22", "maghrib": "20:55", "isha": "22:17"}, "2026-06-22": {"fajr": "05:21", "sunrise": "06:59", "dhuhr": "14:00", "asr": "17:23", "maghrib": "20:55", "isha": "22:17"}, "2026-06-23": {"fajr": "05:22", "sunrise": "07:00", "dhuhr": "14:00", "asr": "17:23", "maghrib": "20:56", "isha": "22:17"}, "2026-06-24": {"fajr": "05:22", "sunrise": "07:00", "dhuhr": "14:00", "asr": "17:23", "maghrib": "20:56", "isha": "22:17"}, "2026-06-25": {"fajr": "05:22", "sunrise": "07:00", "dhuhr": "14:00", "asr": "17:23", "maghrib": "20:56", "isha": "22:17"}, "2026-06-26": {"fajr": "05:22", "sunrise": "07:00", "dhuhr": "14:01", "asr": "17:24", "maghrib": "20:56", "isha": "22:17"}, "2026-06-27": {"fajr": "05:23", "sunrise": "07:01", "dhuhr": "14:01", "asr": "17:24", "maghrib": "20:56", "isha": "22:17"}, "2026-06-28": {"fajr": "05:23", "sunrise": "07:01", "dhuhr": "14:01", "asr": "17:24", "maghrib": "20:56", "isha": "22:17"}, "2026-06-29": {"fajr": "05:24", "sunrise": "07:01", "dhuhr": "14:01", "asr": "17:24", "maghrib": "20:56", "isha": "22:17"}, "2026-06-30": {"fajr": "05:24", "sunrise": "07:02", "dhuhr": "14:02", "asr": "17:25", "maghrib": "20:56", "isha": "22:17"}, "2026-07-01": {"fajr": "05:24", "sunrise": "07:02", "dhuhr": "14:02", "asr": "17:25", "maghrib": "20:56", "isha": "22:17"}, "2026-07-02": {"fajr": "05:25", "sunrise": "07:02", "dhuhr": "14:02", "asr": "17:25", "maghrib": "20:56", "isha": "22:17"}, "2026-07-03": {"fajr": "05:25", "sunrise": "07:03", "dhuhr": "14:02", "asr": "17:25", "maghrib": "20:56", "isha": "22:17"}, "2026-07-04": {"fajr": "05:26", "sunrise": "07:03", "dhuhr": "14:02", "asr": "17:26", "maghrib": "20:56", "isha": "22:17"}, "2026-07-05": {"fajr": "05:26", "sunrise": "07:04", "dhuhr": "14:02", "asr": "17:26", "maghrib": "20:56", "isha": "22:17"}, "2026-07-06": {"fajr": "05:27", "sunrise": "07:04", "dhuhr": "14:03", "asr": "17:26", "maghrib": "20:56", "isha": "22:17"}, "2026-07-07": {"fajr": "05:28", "sunrise": "07:04", "dhuhr": "14:03", "asr": "17:26", "maghrib": "20:56", "isha": "22:16"}, "2026-07-08": {"fajr": "05:28", "sunrise": "07:05", "dhuhr": "14:03", "asr": "17:27", "maghrib": "20:56", "isha": "22:16"}, "2026-07-09": {"fajr": "05:29", "sunrise": "07:05", "dhuhr": "14:03", "asr": "17:27", "maghrib": "20:56", "isha": "22:16"}, "2026-07-10": {"fajr": "05:29", "sunrise": "07:06", "dhuhr": "14:03", "asr": "17:27", "maghrib": "20:56", "isha": "22:16"}, "2026-07-11": {"fajr": "05:30", "sunrise": "07:06", "dhuhr": "14:03", "asr": "17:27", "maghrib": "20:56", "isha": "22:15"}, "2026-07-12": {"fajr": "05:31", "sunrise": "07:07", "dhuhr": "14:03", "asr": "17:28", "maghrib": "20:55", "isha": "22:15"}, "2026-07-13": {"fajr": "05:31", "sunrise": "07:07", "dhuhr": "14:04", "asr": "17:28", "maghrib": "20:55", "isha": "22:15"}, "2026-07-14": {"fajr": "05:32", "sunrise": "07:08", "dhuhr": "14:04", "asr": "17:28", "maghrib": "20:55", "isha": "22:14"}, "2026-07-15": {"fajr": "05:33", "sunrise": "07:08", "dhuhr": "14:04", "asr": "17:28", "maghrib": "20:55", "isha": "22:14"}, "2026-07-16": {"fajr": "05:33", "sunrise": "07:09", "dhuhr": "14:04", "asr": "17:28", "maghrib": "20:54", "isha": "22:13"}}, "fez": {"2026-06-17": {"fajr": "04:17", "sunrise": "06:08", "dhuhr": "13:26", "asr": "17:06", "maghrib": "20:38", "isha": "22:11"}, "2026-06-18": {"fajr": "04:17", "sunrise": "06:09", "dhuhr": "13:26", "asr": "17:06", "maghrib": "20:39", "isha": "22:12"}, "2026-06-19": {"fajr": "04:17", "sunrise": "06:09", "dhuhr": "13:26", "asr": "17:07", "maghrib": "20:39", "isha": "22:12"}, "2026-06-20": {"fajr": "04:17", "sunrise": "06:09", "dhuhr": "13:27", "asr": "17:07", "maghrib": "20:39", "isha": "22:12"}, "2026-06-21": {"fajr": "04:17", "sunrise": "06:09", "dhuhr": "13:27", "asr": "17:07", "maghrib": "20:40", "isha": "22:12"}, "2026-06-22": {"fajr": "04:17", "sunrise": "06:09", "dhuhr": "13:27", "asr": "17:07", "maghrib": "20:40", "isha": "22:13"}, "2026-06-23": {"fajr": "04:18", "sunrise": "06:10", "dhuhr": "13:27", "asr": "17:08", "maghrib": "20:40", "isha": "22:13"}, "2026-06-24": {"fajr": "04:18", "sunrise": "06:10", "dhuhr": "13:27", "asr": "17:08", "maghrib": "20:40", "isha": "22:13"}, "2026-06-25": {"fajr": "04:18", "sunrise": "06:10", "dhuhr": "13:28", "asr": "17:08", "maghrib": "20:40", "isha": "22:13"}, "2026-06-26": {"fajr": "04:19", "sunrise": "06:10", "dhuhr": "13:28", "asr": "17:08", "maghrib": "20:40", "isha": "22:13"}, "2026-06-27": {"fajr": "04:19", "sunrise": "06:11", "dhuhr": "13:28", "asr": "17:08", "maghrib": "20:40", "isha": "22:13"}, "2026-06-28": {"fajr": "04:20", "sunrise": "06:11", "dhuhr": "13:28", "asr": "17:09", "maghrib": "20:40", "isha": "22:13"}, "2026-06-29": {"fajr": "04:20", "sunrise": "06:12", "dhuhr": "13:29", "asr": "17:09", "maghrib": "20:40", "isha": "22:13"}, "2026-06-30": {"fajr": "04:21", "sunrise": "06:12", "dhuhr": "13:29", "asr": "17:09", "maghrib": "20:40", "isha": "22:13"}, "2026-07-01": {"fajr": "04:21", "sunrise": "06:12", "dhuhr": "13:29", "asr": "17:09", "maghrib": "20:40", "isha": "22:13"}, "2026-07-02": {"fajr": "04:22", "sunrise": "06:13", "dhuhr": "13:29", "asr": "17:09", "maghrib": "20:40", "isha": "22:12"}, "2026-07-03": {"fajr": "04:23", "sunrise": "06:13", "dhuhr": "13:29", "asr": "17:10", "maghrib": "20:40", "isha": "22:12"}, "2026-07-04": {"fajr": "04:23", "sunrise": "06:14", "dhuhr": "13:29", "asr": "17:10", "maghrib": "20:40", "isha": "22:12"}, "2026-07-05": {"fajr": "04:24", "sunrise": "06:14", "dhuhr": "13:30", "asr": "17:10", "maghrib": "20:40", "isha": "22:12"}, "2026-07-06": {"fajr": "04:25", "sunrise": "06:15", "dhuhr": "13:30", "asr": "17:10", "maghrib": "20:40", "isha": "22:11"}, "2026-07-07": {"fajr": "04:25", "sunrise": "06:15", "dhuhr": "13:30", "asr": "17:10", "maghrib": "20:40", "isha": "22:11"}, "2026-07-08": {"fajr": "04:26", "sunrise": "06:16", "dhuhr": "13:30", "asr": "17:10", "maghrib": "20:39", "isha": "22:11"}, "2026-07-09": {"fajr": "04:27", "sunrise": "06:16", "dhuhr": "13:30", "asr": "17:10", "maghrib": "20:39", "isha": "22:10"}, "2026-07-10": {"fajr": "04:28", "sunrise": "06:17", "dhuhr": "13:30", "asr": "17:11", "maghrib": "20:39", "isha": "22:10"}, "2026-07-11": {"fajr": "04:29", "sunrise": "06:17", "dhuhr": "13:31", "asr": "17:11", "maghrib": "20:39", "isha": "22:09"}, "2026-07-12": {"fajr": "04:29", "sunrise": "06:18", "dhuhr": "13:31", "asr": "17:11", "maghrib": "20:38", "isha": "22:09"}, "2026-07-13": {"fajr": "04:30", "sunrise": "06:19", "dhuhr": "13:31", "asr": "17:11", "maghrib": "20:38", "isha": "22:08"}, "2026-07-14": {"fajr": "04:31", "sunrise": "06:19", "dhuhr": "13:31", "asr": "17:11", "maghrib": "20:38", "isha": "22:07"}, "2026-07-15": {"fajr": "04:32", "sunrise": "06:20", "dhuhr": "13:31", "asr": "17:11", "maghrib": "20:37", "isha": "22:07"}, "2026-07-16": {"fajr": "04:33", "sunrise": "06:20", "dhuhr": "13:31", "asr": "17:11", "maghrib": "20:37", "isha": "22:06"}}}, "official": {"casablanca": {}, "rabat": {}, "laayoune": {}, "fez": {}}, "comp": [], "ids": {"casablanca": "58", "rabat": "1", "laayoune": "156", "fez": "81"}, "arabic": {"casablanca": "الدار البيضاء", "rabat": "الرباط", "laayoune": "العيون", "fez": "فاس"}, "display": {"casablanca": "Casablanca", "rabat": "Rabat", "laayoune": "Laâyoune", "fez": "Fès"}, "overall": {"n": 0, "exact": 0, "within1": 0, "mae": 0, "max": 0, "bias": 0}, "perPrayer": {"fajr": {"n": 0, "exact": 0, "within1": 0, "mae": 0, "max": 0, "bias": 0}, "sunrise": {"n": 0, "exact": 0, "within1": 0, "mae": 0, "max": 0, "bias": 0}, "dhuhr": {"n": 0, "exact": 0, "within1": 0, "mae": 0, "max": 0, "bias": 0}, "asr": {"n": 0, "exact": 0, "within1": 0, "mae": 0, "max": 0, "bias": 0}, "maghrib": {"n": 0, "exact": 0, "within1": 0, "mae": 0, "max": 0, "bias": 0}, "isha": {"n": 0, "exact": 0, "within1": 0, "mae": 0, "max": 0, "bias": 0}}, "perCity": {"casablanca": {"n": 0, "exact": 0, "within1": 0, "mae": 0, "max": 0, "bias": 0}, "rabat": {"n": 0, "exact": 0, "within1": 0, "mae": 0, "max": 0, "bias": 0}, "laayoune": {"n": 0, "exact": 0, "within1": 0, "mae": 0, "max": 0, "bias": 0}, "fez": {"n": 0, "exact": 0, "within1": 0, "mae": 0, "max": 0, "bias": 0}}, "generatedAt": "2026-07-07 18:27", "officialCoverage": 0};
+const P=["fajr","sunrise","dhuhr","asr","maghrib","isha"];
+const L={fajr:"Fajr",sunrise:"Sunrise",dhuhr:"Dhuhr",asr:"Asr",maghrib:"Maghrib",isha:"Isha"};
+const cls=n=>{const a=Math.abs(n);return a===0?"g":a===1?"w":"b";};
+const sg=n=>(n>0?"+":"")+n;
+const md=s=>{const p=s.split("-");return p[2]+"/"+p[1];};
+const pct=(a,b)=>b?Math.round(100*a/b)+"%":"—";
+const hasComp = D.overall.n>0;
+
+document.getElementById("title").textContent = hasComp
+  ? "Calculated vs. official Habous prayer times"
+  : "Calculated prayer times (Morocco / Habous)";
+document.getElementById("lede").innerHTML = `Range <b>${D.from}</b> to <b>${D.to}</b> &middot; ${D.dates.length} days &middot; ${D.cities.length} cities. `
+  + (hasComp
+      ? `Official Habous values were available for ${D.officialCoverage} city-days and are compared against the engine's calculated times.`
+      : `No official Habous data overlapped this range, so this is a calculated-only schedule.`);
+document.getElementById("meta").innerHTML =
+  (hasComp?`<span class="livebadge">official from habous.gov.ma</span>`:``)
+  + `<div><b>Method</b> Morocco (Habous)</div><div><b>Zone</b> Africa/Casablanca</div>`
+  + (hasComp?`<div><b>&Delta;</b> calculated &minus; official (min)</div>`:``);
+
+document.getElementById("idcards").innerHTML=D.cities.map(c=>`
+  <div class="idcard"><div class="top"><span class="city">${D.display[c]}</span></div>
+  <div class="ar" dir="rtl">${D.arabic[c]||""}</div><div class="ville">ville = <b>${D.ids[c]}</b></div></div>`).join("");
+
+// summary
+const sumBody=document.getElementById("summarybody");
+if(!hasComp){
+  document.getElementById("sumtitle").textContent="No official data for this range";
+  sumBody.innerHTML=`<div class="banner"><b>Calculated-only.</b> The live Habous site publishes only the
+    current Hijri month, so official times for ${D.from}–${D.to} could not be fetched. To compare a past or
+    future range, archive each month as it is published (<span class="mono">research fetch-habous</span>) and
+    regenerate from the stored snapshots.</div>`;
+  document.getElementById("legend").innerHTML="";
+  document.getElementById("detitle").textContent="Calculated schedule";
+}else{
+  document.getElementById("sumsub").textContent=`${D.overall.n} observations`;
+  const o=D.overall;
+  const tiles=[["Observations",o.n,""],["Exact match",o.exact,pct(o.exact,o.n)],
+    ["Within ±1 min",o.within1,pct(o.within1,o.n)],["Mean abs error",o.mae,"min"],
+    ["Max error",o.max,"min"],["Mean bias",sg(o.bias),"min"]]
+    .map(([k,v,u])=>`<div class="tile"><div class="k">${k}</div><div class="v mono">${v}</div><div class="u">${u}</div></div>`).join("");
+  let pp=`<thead><tr><th>Prayer</th><th>Exact</th><th>≤1 min</th><th>MAE</th><th>Max</th><th>Bias</th></tr></thead><tbody>`;
+  let worst=P.map(p=>[p,D.perPrayer[p].mae]).sort((a,b)=>b[1]-a[1])[0][0];
+  P.forEach(p=>{const s=D.perPrayer[p];const bad=(p===worst&&s.mae>=2);
+    pp+=`<tr class="${bad?'rowbad':''}"><td>${L[p]}</td><td class="t">${s.exact}/${s.n} <span class="muted">${pct(s.exact,s.n)}</span></td>`
+      +`<td class="t">${pct(s.within1,s.n)}</td><td class="t">${s.mae}</td><td class="t">${s.max}</td><td class="t">${sg(s.bias)}</td></tr>`;});
+  let cc=`<thead><tr><th>City</th><th>ville</th><th>Exact</th><th>≤1 min</th><th>MAE</th><th>Max</th></tr></thead><tbody>`;
+  D.cities.forEach(c=>{const s=D.perCity[c];cc+=`<tr><td>${D.display[c]}</td><td class="t">${D.ids[c]}</td>`
+    +`<td class="t">${pct(s.exact,s.n)}</td><td class="t">${pct(s.within1,s.n)}</td><td class="t">${s.mae}</td><td class="t">${s.max}</td></tr>`;});
+  const worstS=D.perPrayer[worst];
+  const callout = worstS.mae>=2
+    ? `<div class="callout"><b>${L[worst]} carries most of the error</b> (MAE ${worstS.mae} min, bias ${sg(worstS.bias)}), while every other prayer stays within about a minute.</div>`
+    : ``;
+  sumBody.innerHTML=`<div class="tiles">${tiles}</div>`
+    +`<div class="card"><div class="cap"><span class="city">By prayer</span></div><div class="scroll"><table>${pp}</tbody></table></div></div>`
+    +callout
+    +`<div class="card" style="margin-top:18px"><div class="cap"><span class="city">By city</span></div><div class="scroll"><table>${cc}</tbody></table></div></div>`;
+  document.getElementById("legend").innerHTML=
+    `<span><span class="dot" style="background:var(--good)"></span>exact</span>`
+    +`<span><span class="dot" style="background:var(--warn)"></span>±1 min</span>`
+    +`<span><span class="dot" style="background:var(--bad)"></span>≥2 min</span>`;
+  document.getElementById("detitle").textContent="Day by day · official time with Δ";
+}
+
+// detail tables
+document.getElementById("citytables").innerHTML=D.cities.map(c=>{
+  const off=D.official[c]||{}, cal=D.calc[c]||{};
+  const rows=D.dates.filter(dt=>cal[dt]).map(dt=>{
+    return `<tr><td class="time">${md(dt)}</td>`+P.map(p=>{
+      const cv=cal[dt][p];
+      if(off[dt]){
+        const ov=off[dt][p];
+        const diff=(parseInt(cv.slice(0,2))*60+parseInt(cv.slice(3)))-(parseInt(ov.slice(0,2))*60+parseInt(ov.slice(3)));
+        return `<td class="time${p==='sunrise'?' sunrise':''}"><span class="t">${ov}</span><span class="chip ${cls(diff)}">${sg(diff)}</span></td>`;
+      }
+      return `<td class="time${p==='sunrise'?' sunrise':''}"><span class="t muted">${cv}</span></td>`;
+    }).join("")+`</tr>`;
+  }).join("");
+  const s=D.perCity[c];
+  const st = (s&&s.n) ? `exact <b>${pct(s.exact,s.n)}</b> · MAE <b>${s.mae}</b> min` : `calculated only`;
+  return `<div class="card"><div class="cap"><span class="city">${D.display[c]}</span>
+    <span class="ar" dir="rtl">${D.arabic[c]||""}</span><span class="st">${st}</span></div>
+    <div class="scroll"><table>
+    <thead><tr><th>Date</th>${P.map(p=>`<th${p==='sunrise'?' class="sunrise"':''}>${L[p]}</th>`).join("")}</tr></thead>
+    <tbody>${rows}</tbody></table></div></div>`;
+}).join("");
+
+document.getElementById("foot").innerHTML=`Generated ${D.generatedAt} by <span class="mono">scripts/habous_report.py</span>.
+  Calculated times from the production engine (<span class="mono">range</span> CLI);
+  official times, where shown, fetched live from <span class="mono">habous.gov.ma/prieres/index.php?ville=&lt;id&gt;</span>.
+  No production calculation parameters were changed.`;
+</script>
+</body>
+</html>

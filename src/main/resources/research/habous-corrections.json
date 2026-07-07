@@ -1,0 +1,5 @@
+{
+  "note": "Approved per-city minute corrections for the reconstructed Habous method. Empty by design: the reconstruction is a PURE global formula with no per-city corrections. Each entry, if added, must carry approved=true and a sourceChecksum matching the city's current dataset checksum to be applied.",
+  "version": 1,
+  "corrections": []
+}

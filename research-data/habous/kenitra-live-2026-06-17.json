@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "kenitra",
+  "habousVilleId": "7",
+  "habousArabicName": "القنيطرة",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=7",
+  "fetchedAt": "2026-07-07T18:09:25.312517Z",
+  "sourceSha256": "8674781f814a7682b36d7070797465bdff017e0799882398a318c14035958fe8",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "kenitra",
+      "date": "2026-06-17",
+      "fajr": "04:21",
+      "sunrise": "06:10",
+      "dhuhr": "13:32",
+      "asr": "17:13",
+      "maghrib": "20:45",
+      "isha": "22:19"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-06-18",
+      "fajr": "04:22",
+      "sunrise": "06:11",
+      "dhuhr": "13:33",
+      "asr": "17:13",
+      "maghrib": "20:45",
+      "isha": "22:19"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-06-19",
+      "fajr": "04:22",
+      "sunrise": "06:11",
+      "dhuhr": "13:33",
+      "asr": "17:14",
+      "maghrib": "20:46",
+      "isha": "22:19"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-06-20",
+      "fajr": "04:22",
+      "sunrise": "06:11",
+      "dhuhr": "13:33",
+      "asr": "17:14",
+      "maghrib": "20:46",
+      "isha": "22:20"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-06-21",
+      "fajr": "04:22",
+      "sunrise": "06:11",
+      "dhuhr": "13:33",
+      "asr": "17:14",
+      "maghrib": "20:46",
+      "isha": "22:20"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-06-22",
+      "fajr": "04:22",
+      "sunrise": "06:11",
+      "dhuhr": "13:33",
+      "asr": "17:14",
+      "maghrib": "20:46",
+      "isha": "22:20"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-06-23",
+      "fajr": "04:22",
+      "sunrise": "06:12",
+      "dhuhr": "13:34",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:20"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-06-24",
+      "fajr": "04:23",
+      "sunrise": "06:12",
+      "dhuhr": "13:34",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:20"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-06-25",
+      "fajr": "04:23",
+      "sunrise": "06:12",
+      "dhuhr": "13:34",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:20"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-06-26",
+      "fajr": "04:23",
+      "sunrise": "06:13",
+      "dhuhr": "13:34",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:20"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-06-27",
+      "fajr": "04:24",
+      "sunrise": "06:13",
+      "dhuhr": "13:35",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:20"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-06-28",
+      "fajr": "04:24",
+      "sunrise": "06:13",
+      "dhuhr": "13:35",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:20"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-06-29",
+      "fajr": "04:25",
+      "sunrise": "06:14",
+      "dhuhr": "13:35",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:20"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-06-30",
+      "fajr": "04:25",
+      "sunrise": "06:14",
+      "dhuhr": "13:35",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:20"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-01",
+      "fajr": "04:26",
+      "sunrise": "06:14",
+      "dhuhr": "13:35",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:20"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-02",
+      "fajr": "04:27",
+      "sunrise": "06:15",
+      "dhuhr": "13:36",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:20"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-03",
+      "fajr": "04:27",
+      "sunrise": "06:15",
+      "dhuhr": "13:36",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:19"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-04",
+      "fajr": "04:28",
+      "sunrise": "06:16",
+      "dhuhr": "13:36",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:19"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-05",
+      "fajr": "04:28",
+      "sunrise": "06:16",
+      "dhuhr": "13:36",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:19"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-06",
+      "fajr": "04:29",
+      "sunrise": "06:17",
+      "dhuhr": "13:36",
+      "asr": "17:17",
+      "maghrib": "20:46",
+      "isha": "22:19"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-07",
+      "fajr": "04:30",
+      "sunrise": "06:17",
+      "dhuhr": "13:36",
+      "asr": "17:17",
+      "maghrib": "20:46",
+      "isha": "22:18"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-08",
+      "fajr": "04:31",
+      "sunrise": "06:18",
+      "dhuhr": "13:37",
+      "asr": "17:17",
+      "maghrib": "20:46",
+      "isha": "22:18"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-09",
+      "fajr": "04:32",
+      "sunrise": "06:18",
+      "dhuhr": "13:37",
+      "asr": "17:17",
+      "maghrib": "20:46",
+      "isha": "22:17"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-10",
+      "fajr": "04:32",
+      "sunrise": "06:19",
+      "dhuhr": "13:37",
+      "asr": "17:18",
+      "maghrib": "20:45",
+      "isha": "22:17"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-11",
+      "fajr": "04:33",
+      "sunrise": "06:19",
+      "dhuhr": "13:37",
+      "asr": "17:18",
+      "maghrib": "20:45",
+      "isha": "22:16"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-12",
+      "fajr": "04:34",
+      "sunrise": "06:20",
+      "dhuhr": "13:37",
+      "asr": "17:18",
+      "maghrib": "20:45",
+      "isha": "22:16"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-13",
+      "fajr": "04:35",
+      "sunrise": "06:21",
+      "dhuhr": "13:37",
+      "asr": "17:18",
+      "maghrib": "20:44",
+      "isha": "22:15"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-14",
+      "fajr": "04:36",
+      "sunrise": "06:21",
+      "dhuhr": "13:37",
+      "asr": "17:18",
+      "maghrib": "20:44",
+      "isha": "22:14"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-15",
+      "fajr": "04:37",
+      "sunrise": "06:22",
+      "dhuhr": "13:37",
+      "asr": "17:18",
+      "maghrib": "20:43",
+      "isha": "22:14"
+    },
+    {
+      "city": "kenitra",
+      "date": "2026-07-16",
+      "fajr": "04:38",
+      "sunrise": "06:23",
+      "dhuhr": "13:38",
+      "asr": "17:18",
+      "maghrib": "20:43",
+      "isha": "22:13"
+    }
+  ]
+}

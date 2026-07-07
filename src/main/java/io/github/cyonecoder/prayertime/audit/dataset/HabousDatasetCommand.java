@@ -70,6 +70,37 @@ public final class HabousDatasetCommand {
         out.println("Coverage report written to " + report);
     }
 
+    /**
+     * Handles {@code research fetch-habous-live}: fetches the current live Hijri
+     * month for the given cities using the trust-augmented client and the
+     * nine-column parser, writing dataset JSON with source provenance.
+     */
+    public void fetchLive(Map<String, String> flags, PrintStream out) {
+        HabousCityMapping mapping = HabousCityMapping.load();
+        List<String> cities = resolveCities(require(flags, "cities"), mapping);
+        Path datasetRoot = flags.containsKey("output") ? Path.of(flags.get("output")) : DEFAULT_DATASET;
+        Duration delay = Duration.ofSeconds(longFlag(flags, "delay-seconds", 2));
+
+        List<LiveHabousCollector.Result> results =
+                LiveHabousCollector.live(delay).collect(cities, datasetRoot);
+
+        Map<LiveHabousCollector.Status, Integer> counts =
+                new EnumMap<>(LiveHabousCollector.Status.class);
+        int totalDays = 0;
+        for (LiveHabousCollector.Result r : results) {
+            counts.merge(r.status(), 1, Integer::sum);
+            totalDays += r.dayCount();
+            out.printf(Locale.ROOT, "  %-12s %-14s %s%n", r.city(), r.status(),
+                    r.isSaved() ? (r.firstDate() + ".." + r.lastDate() + " (" + r.dayCount() + "d)")
+                            : r.message());
+        }
+        out.println("Live collection: " + results.size() + " cities, " + totalDays
+                + " day-records written to " + datasetRoot);
+        for (Map.Entry<LiveHabousCollector.Status, Integer> e : counts.entrySet()) {
+            out.printf(Locale.ROOT, "  %-16s %d%n", e.getKey(), e.getValue());
+        }
+    }
+
     /** Handles {@code research dataset-coverage}. */
     public void coverage(Map<String, String> flags, PrintStream out) {
         HabousCityMapping mapping = HabousCityMapping.load();

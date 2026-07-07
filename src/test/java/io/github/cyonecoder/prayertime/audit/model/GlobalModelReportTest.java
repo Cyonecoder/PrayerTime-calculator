@@ -45,14 +45,16 @@ class GlobalModelReportTest {
     }
 
     @Test
-    void holdoutOutputsReflectTheAbsentHoldoutPartition(@TempDir Path out) throws Exception {
+    void holdoutOutputsReflectThePresentHoldoutPartition(@TempDir Path out) throws Exception {
         new GlobalModelReportWriter().write(out, run());
-        // The committed snapshot has no holdout cities: the holdout CSV records
-        // that, and reproducibility.json reports the holdout was not evaluated.
-        assertThat(Files.readString(out.resolve("holdout-results.csv")))
-                .contains("no holdout observations present");
+        // The live dataset contains the holdout cities, so the holdout is scored
+        // once after the freeze: the CSV carries real residual rows and
+        // reproducibility.json records that the holdout was evaluated.
+        String holdoutCsv = Files.readString(out.resolve("holdout-results.csv"));
+        assertThat(holdoutCsv).doesNotContain("no holdout observations present");
+        assertThat(holdoutCsv).contains("dakhla");
         assertThat(Files.readString(out.resolve("reproducibility.json")))
-                .contains("\"holdoutEvaluated\": false");
+                .contains("\"holdoutEvaluated\": true");
     }
 
     @Test

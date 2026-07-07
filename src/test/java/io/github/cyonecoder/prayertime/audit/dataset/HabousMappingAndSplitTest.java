@@ -24,13 +24,17 @@ class HabousMappingAndSplitTest {
         assertThat(mapping.forCity("rabat").orElseThrow().habousCityId()).isEqualTo("1");
         assertThat(mapping.forCity("fez").orElseThrow().habousCityId()).isEqualTo("81");
         assertThat(mapping.forCity("laayoune").orElseThrow().habousCityId()).isEqualTo("156");
+        // The ten formerly-placeholder ids were recovered from the official ville
+        // dropdown and are now real numeric ids.
+        assertThat(mapping.forCity("tangier").orElseThrow().habousCityId()).isEqualTo("14");
+        assertThat(mapping.forCity("kenitra").orElseThrow().habousCityId()).isEqualTo("7");
+        assertThat(mapping.forCity("ouarzazate").orElseThrow().habousCityId()).isEqualTo("138");
 
-        // Only the confirmed cities are marked verified; the rest remain placeholders.
+        // Every mapped city now carries a verified numeric ville id.
+        assertThat(mapping.mappedCityIds())
+                .allSatisfy(city -> assertThat(mapping.forCity(city).orElseThrow().verified()).isTrue());
         assertThat(mapping.forCity("casablanca").orElseThrow().verified()).isTrue();
-        assertThat(mapping.forCity("rabat").orElseThrow().verified()).isTrue();
-        assertThat(mapping.forCity("fez").orElseThrow().verified()).isTrue();
-        assertThat(mapping.forCity("laayoune").orElseThrow().verified()).isTrue();
-        assertThat(mapping.forCity("tangier").orElseThrow().verified()).isFalse();
+        assertThat(mapping.forCity("tangier").orElseThrow().verified()).isTrue();
     }
 
     @Test
