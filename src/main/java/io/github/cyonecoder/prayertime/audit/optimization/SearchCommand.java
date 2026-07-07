@@ -82,6 +82,9 @@ public final class SearchCommand {
                 case "rank-candidates" -> rankCandidates(flags, out);
                 case "fetch-habous" -> new HabousDatasetCommand().fetch(flags, out);
                 case "dataset-coverage" -> new HabousDatasetCommand().coverage(flags, out);
+                case "infer-global-model" ->
+                        new io.github.cyonecoder.prayertime.audit.model.GlobalModelCommand(
+                                locations, engine).infer(flags, out);
                 default -> throw new UsageException("unknown research subcommand: " + sub);
             }
             return 0;
@@ -387,5 +390,6 @@ public final class SearchCommand {
                 + "[--output dir] [--delay-seconds n] [--retries n] [--refresh] [--report dir]");
         out.println("  research dataset-coverage --dataset <dir> --year <y> --months <1-12|1,2> "
                 + "[--output dir]");
+        out.println("  research infer-global-model --dataset <dir> [--output dir]");
     }
 }

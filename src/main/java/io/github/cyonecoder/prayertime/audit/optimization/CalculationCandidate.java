@@ -56,6 +56,7 @@ public final class CalculationCandidate {
     private final int ishaAdjustmentSeconds;
     private final RoundingPolicy roundingPolicy;
     private final OperationOrder operationOrder;
+    private final boolean elevationAdjustedHorizon;
     private final Set<Knob> tuned;
 
     private CalculationCandidate(Builder b) {
@@ -72,6 +73,7 @@ public final class CalculationCandidate {
         this.ishaAdjustmentSeconds = b.ishaAdjustmentSeconds;
         this.roundingPolicy = b.roundingPolicy;
         this.operationOrder = b.operationOrder;
+        this.elevationAdjustedHorizon = b.elevationAdjustedHorizon;
         this.tuned = b.tuned.isEmpty()
                 ? EnumSet.noneOf(Knob.class)
                 : EnumSet.copyOf(b.tuned);
@@ -98,6 +100,7 @@ public final class CalculationCandidate {
         b.ishaAdjustmentSeconds = ishaAdjustmentSeconds;
         b.roundingPolicy = roundingPolicy;
         b.operationOrder = operationOrder;
+        b.elevationAdjustedHorizon = elevationAdjustedHorizon;
         b.tuned.addAll(tuned);
         return b;
     }
@@ -154,6 +157,16 @@ public final class CalculationCandidate {
         return operationOrder;
     }
 
+    /**
+     * Whether the sunrise/Maghrib horizon altitude is corrected for the
+     * observer's elevation via a global dip function (no per-city constant).
+     *
+     * @return {@code true} if the elevation dip is applied to sunrise/Maghrib
+     */
+    public boolean elevationAdjustedHorizon() {
+        return elevationAdjustedHorizon;
+    }
+
     /** @return an immutable view of the tuned knobs. */
     public Set<Knob> tuned() {
         return java.util.Collections.unmodifiableSet(tuned);
@@ -185,6 +198,7 @@ public final class CalculationCandidate {
                 && ishaAdjustmentSeconds == other.ishaAdjustmentSeconds
                 && roundingPolicy == other.roundingPolicy
                 && operationOrder == other.operationOrder
+                && elevationAdjustedHorizon == other.elevationAdjustedHorizon
                 && tuned.equals(other.tuned);
     }
 
@@ -193,7 +207,8 @@ public final class CalculationCandidate {
         return Objects.hash(fajrAngle, ishaAngle, asrShadowFactor, sunriseAltitudeDegrees,
                 maghribAltitudeDegrees, fajrAdjustmentSeconds, sunriseAdjustmentSeconds,
                 dhuhrAdjustmentSeconds, asrAdjustmentSeconds, maghribAdjustmentSeconds,
-                ishaAdjustmentSeconds, roundingPolicy, operationOrder, tuned);
+                ishaAdjustmentSeconds, roundingPolicy, operationOrder, elevationAdjustedHorizon,
+                tuned);
     }
 
     @Override
@@ -206,6 +221,7 @@ public final class CalculationCandidate {
                 + ", maghribAltitude=" + maghribAltitudeDegrees
                 + ", roundingPolicy=" + roundingPolicy
                 + ", operationOrder=" + operationOrder
+                + ", elevationAdjustedHorizon=" + elevationAdjustedHorizon
                 + ", parameterCount=" + parameterCount()
                 + '}';
     }
@@ -225,6 +241,7 @@ public final class CalculationCandidate {
         private int ishaAdjustmentSeconds;
         private RoundingPolicy roundingPolicy = RoundingPolicy.NEAREST_MINUTE;
         private OperationOrder operationOrder = OperationOrder.RAW_THEN_ADJUST_THEN_ROUND;
+        private boolean elevationAdjustedHorizon;
         private final EnumSet<Knob> tuned = EnumSet.noneOf(Knob.class);
 
         private Builder() {
@@ -317,6 +334,20 @@ public final class CalculationCandidate {
         /** Sets the operation order without counting it as a tuned parameter. */
         public Builder operationOrderFixed(OperationOrder order) {
             this.operationOrder = Objects.requireNonNull(order, "order");
+            return this;
+        }
+
+        /**
+         * Enables or disables the global elevation-dip correction on the
+         * sunrise/Maghrib horizon altitude. This is a structural choice of the
+         * model family, not a fitted parameter, so it is not added to the tuned
+         * set and does not affect {@link #parameterCount()}.
+         *
+         * @param enabled whether to apply the elevation dip
+         * @return this builder
+         */
+        public Builder elevationAdjustedHorizon(boolean enabled) {
+            this.elevationAdjustedHorizon = enabled;
             return this;
         }
 

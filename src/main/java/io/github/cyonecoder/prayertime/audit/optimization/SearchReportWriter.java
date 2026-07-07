@@ -200,6 +200,7 @@ public final class SearchReportWriter {
         m.put("ishaAdjustmentSeconds", c.ishaAdjustmentSeconds());
         m.put("roundingPolicy", c.roundingPolicy().name());
         m.put("operationOrder", c.operationOrder().name());
+        m.put("elevationAdjustedHorizon", c.elevationAdjustedHorizon());
         m.put("parameterCount", c.parameterCount());
         return m;
     }

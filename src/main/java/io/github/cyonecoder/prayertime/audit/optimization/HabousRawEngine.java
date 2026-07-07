@@ -29,6 +29,14 @@ public final class HabousRawEngine {
 
     private static final double SECONDS_PER_HOUR = 3600.0;
 
+    /**
+     * Horizon-dip coefficient (degrees per √metre) for the elevation-adjusted
+     * horizon family. Matches the widely-used PrayTimes convention
+     * {@code angle = 0.833 + 0.0347·√elevation}, applied here as a global
+     * function of the observer's elevation (never a per-city constant).
+     */
+    private static final double ELEVATION_DIP_COEFFICIENT = 0.0347;
+
     private final JulianDateCalculator julianDateCalculator;
     private final SolarPositionCalculator solarPositionCalculator;
     private final HourAngleCalculator hourAngleCalculator;
@@ -73,12 +81,14 @@ public final class HabousRawEngine {
         double declination = solar.declinationDegrees();
         double noonHours = solar.solarNoonDecimalHours();
         double latitude = coordinates.latitude();
+        double elevationDip = elevationDipDegrees(candidate, coordinates);
 
         double eventHours = switch (prayer) {
             case FAJR -> noonHours + hourAngleCalculator.hourOffsetHours(
                     Direction.MORNING, -candidate.fajrAngle(), latitude, declination);
             case SUNRISE -> noonHours + hourAngleCalculator.hourOffsetHours(
-                    Direction.MORNING, candidate.sunriseAltitudeDegrees(), latitude, declination);
+                    Direction.MORNING, candidate.sunriseAltitudeDegrees() - elevationDip,
+                    latitude, declination);
             case DHUHR -> noonHours;
             case ASR -> {
                 double asrAltitude = hourAngleCalculator.asrAltitudeDegrees(
@@ -87,11 +97,25 @@ public final class HabousRawEngine {
                         Direction.EVENING, asrAltitude, latitude, declination);
             }
             case MAGHRIB -> noonHours + hourAngleCalculator.hourOffsetHours(
-                    Direction.EVENING, candidate.maghribAltitudeDegrees(), latitude, declination);
+                    Direction.EVENING, candidate.maghribAltitudeDegrees() - elevationDip,
+                    latitude, declination);
             case ISHA -> noonHours + hourAngleCalculator.hourOffsetHours(
                     Direction.EVENING, -candidate.ishaAngle(), latitude, declination);
         };
         return eventHours * SECONDS_PER_HOUR;
+    }
+
+    /**
+     * The elevation dip (in degrees, non-negative) subtracted from the
+     * sunrise/Maghrib altitude when the candidate uses the elevation-adjusted
+     * horizon. Returns zero for sea-level treatment (the default).
+     */
+    private static double elevationDipDegrees(CalculationCandidate candidate, Coordinates coordinates) {
+        if (!candidate.elevationAdjustedHorizon()) {
+            return 0.0;
+        }
+        double elevation = Math.max(0.0, coordinates.elevationMeters());
+        return ELEVATION_DIP_COEFFICIENT * Math.sqrt(elevation);
     }
 
     /**
