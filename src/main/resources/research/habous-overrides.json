@@ -1,0 +1,5 @@
+{
+  "note": "Reviewed official per-date overrides (isolated official values that differ from the formula). Empty by design. Each entry, if added, must carry reviewed=true and a sourceChecksum matching the city's current dataset checksum to be applied.",
+  "version": 1,
+  "overrides": []
+}

@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "errachidia",
+  "habousVilleId": "128",
+  "habousArabicName": "الرشيدية",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=128",
+  "fetchedAt": "2026-07-07T18:09:07.033604Z",
+  "sourceSha256": "6f767cdc5b6fd37c3e62ec968c3ffa278ca7707c4e2ed2613b0a6b9c99fdac34",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "errachidia",
+      "date": "2026-06-17",
+      "fajr": "04:25",
+      "sunrise": "06:05",
+      "dhuhr": "13:24",
+      "asr": "16:59",
+      "maghrib": "20:33",
+      "isha": "22:00"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-06-18",
+      "fajr": "04:25",
+      "sunrise": "06:05",
+      "dhuhr": "13:24",
+      "asr": "16:59",
+      "maghrib": "20:33",
+      "isha": "22:00"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-06-19",
+      "fajr": "04:25",
+      "sunrise": "06:05",
+      "dhuhr": "13:24",
+      "asr": "17:00",
+      "maghrib": "20:34",
+      "isha": "22:00"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-06-20",
+      "fajr": "04:25",
+      "sunrise": "06:06",
+      "dhuhr": "13:24",
+      "asr": "17:00",
+      "maghrib": "20:34",
+      "isha": "22:00"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-06-21",
+      "fajr": "04:25",
+      "sunrise": "06:06",
+      "dhuhr": "13:25",
+      "asr": "17:00",
+      "maghrib": "20:34",
+      "isha": "22:01"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-06-22",
+      "fajr": "04:25",
+      "sunrise": "06:06",
+      "dhuhr": "13:25",
+      "asr": "17:00",
+      "maghrib": "20:34",
+      "isha": "22:01"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-06-23",
+      "fajr": "04:26",
+      "sunrise": "06:06",
+      "dhuhr": "13:25",
+      "asr": "17:00",
+      "maghrib": "20:34",
+      "isha": "22:01"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-06-24",
+      "fajr": "04:26",
+      "sunrise": "06:06",
+      "dhuhr": "13:25",
+      "asr": "17:01",
+      "maghrib": "20:35",
+      "isha": "22:01"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-06-25",
+      "fajr": "04:26",
+      "sunrise": "06:07",
+      "dhuhr": "13:25",
+      "asr": "17:01",
+      "maghrib": "20:35",
+      "isha": "22:01"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-06-26",
+      "fajr": "04:27",
+      "sunrise": "06:07",
+      "dhuhr": "13:26",
+      "asr": "17:01",
+      "maghrib": "20:35",
+      "isha": "22:01"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-06-27",
+      "fajr": "04:27",
+      "sunrise": "06:07",
+      "dhuhr": "13:26",
+      "asr": "17:01",
+      "maghrib": "20:35",
+      "isha": "22:01"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-06-28",
+      "fajr": "04:27",
+      "sunrise": "06:08",
+      "dhuhr": "13:26",
+      "asr": "17:01",
+      "maghrib": "20:35",
+      "isha": "22:01"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-06-29",
+      "fajr": "04:28",
+      "sunrise": "06:08",
+      "dhuhr": "13:26",
+      "asr": "17:02",
+      "maghrib": "20:35",
+      "isha": "22:01"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-06-30",
+      "fajr": "04:28",
+      "sunrise": "06:08",
+      "dhuhr": "13:27",
+      "asr": "17:02",
+      "maghrib": "20:35",
+      "isha": "22:01"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-01",
+      "fajr": "04:29",
+      "sunrise": "06:09",
+      "dhuhr": "13:27",
+      "asr": "17:02",
+      "maghrib": "20:35",
+      "isha": "22:01"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-02",
+      "fajr": "04:29",
+      "sunrise": "06:09",
+      "dhuhr": "13:27",
+      "asr": "17:02",
+      "maghrib": "20:35",
+      "isha": "22:01"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-03",
+      "fajr": "04:30",
+      "sunrise": "06:10",
+      "dhuhr": "13:27",
+      "asr": "17:03",
+      "maghrib": "20:35",
+      "isha": "22:00"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-04",
+      "fajr": "04:31",
+      "sunrise": "06:10",
+      "dhuhr": "13:27",
+      "asr": "17:03",
+      "maghrib": "20:35",
+      "isha": "22:00"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-05",
+      "fajr": "04:31",
+      "sunrise": "06:11",
+      "dhuhr": "13:27",
+      "asr": "17:03",
+      "maghrib": "20:35",
+      "isha": "22:00"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-06",
+      "fajr": "04:32",
+      "sunrise": "06:11",
+      "dhuhr": "13:28",
+      "asr": "17:03",
+      "maghrib": "20:34",
+      "isha": "22:00"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-07",
+      "fajr": "04:32",
+      "sunrise": "06:12",
+      "dhuhr": "13:28",
+      "asr": "17:03",
+      "maghrib": "20:34",
+      "isha": "21:59"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-08",
+      "fajr": "04:33",
+      "sunrise": "06:12",
+      "dhuhr": "13:28",
+      "asr": "17:03",
+      "maghrib": "20:34",
+      "isha": "21:59"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-09",
+      "fajr": "04:34",
+      "sunrise": "06:13",
+      "dhuhr": "13:28",
+      "asr": "17:04",
+      "maghrib": "20:34",
+      "isha": "21:59"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-10",
+      "fajr": "04:35",
+      "sunrise": "06:13",
+      "dhuhr": "13:28",
+      "asr": "17:04",
+      "maghrib": "20:34",
+      "isha": "21:58"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-11",
+      "fajr": "04:35",
+      "sunrise": "06:14",
+      "dhuhr": "13:28",
+      "asr": "17:04",
+      "maghrib": "20:33",
+      "isha": "21:58"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-12",
+      "fajr": "04:36",
+      "sunrise": "06:14",
+      "dhuhr": "13:28",
+      "asr": "17:04",
+      "maghrib": "20:33",
+      "isha": "21:57"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-13",
+      "fajr": "04:37",
+      "sunrise": "06:15",
+      "dhuhr": "13:29",
+      "asr": "17:04",
+      "maghrib": "20:33",
+      "isha": "21:57"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-14",
+      "fajr": "04:38",
+      "sunrise": "06:15",
+      "dhuhr": "13:29",
+      "asr": "17:04",
+      "maghrib": "20:32",
+      "isha": "21:56"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-15",
+      "fajr": "04:39",
+      "sunrise": "06:16",
+      "dhuhr": "13:29",
+      "asr": "17:04",
+      "maghrib": "20:32",
+      "isha": "21:55"
+    },
+    {
+      "city": "errachidia",
+      "date": "2026-07-16",
+      "fajr": "04:39",
+      "sunrise": "06:17",
+      "dhuhr": "13:29",
+      "asr": "17:05",
+      "maghrib": "20:31",
+      "isha": "21:55"
+    }
+  ]
+}

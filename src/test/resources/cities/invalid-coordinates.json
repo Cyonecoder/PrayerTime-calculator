@@ -1,0 +1,13 @@
+{
+  "cities": [
+    {
+      "slug": "badcity",
+      "displayName": "Bad City",
+      "latitude": 100.0,
+      "longitude": -7.5898,
+      "elevationMeters": 50,
+      "zoneId": "Africa/Casablanca",
+      "aliases": ["bad"]
+    }
+  ]
+}

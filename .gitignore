@@ -27,3 +27,20 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Gradle ###
+.gradle/
+build/
+
+### Compiled Java class files ###
+*.class
+
+### IntelliJ IDEA project files ###
+.idea/
+*.iml
+
+### Claude Code ###
+.claude/
+
+### Local-only notes (kept out of version control) ###
+docs/HABOUS_WALKTHROUGH.txt

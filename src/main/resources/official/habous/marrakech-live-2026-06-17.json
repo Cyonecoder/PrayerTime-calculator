@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "marrakech",
+  "habousVilleId": "104",
+  "habousArabicName": "مراكش",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=104",
+  "fetchedAt": "2026-07-07T18:09:00.924826Z",
+  "sourceSha256": "a10591fb410e1e677a05504aa30663e34328c6830b89d380c25a7547ebb9ea2e",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "marrakech",
+      "date": "2026-06-17",
+      "fajr": "04:40",
+      "sunrise": "06:21",
+      "dhuhr": "13:38",
+      "asr": "17:13",
+      "maghrib": "20:46",
+      "isha": "22:13"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-06-18",
+      "fajr": "04:40",
+      "sunrise": "06:22",
+      "dhuhr": "13:38",
+      "asr": "17:13",
+      "maghrib": "20:46",
+      "isha": "22:13"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-06-19",
+      "fajr": "04:40",
+      "sunrise": "06:22",
+      "dhuhr": "13:39",
+      "asr": "17:13",
+      "maghrib": "20:46",
+      "isha": "22:13"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-06-20",
+      "fajr": "04:41",
+      "sunrise": "06:22",
+      "dhuhr": "13:39",
+      "asr": "17:13",
+      "maghrib": "20:46",
+      "isha": "22:13"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-06-21",
+      "fajr": "04:41",
+      "sunrise": "06:22",
+      "dhuhr": "13:39",
+      "asr": "17:14",
+      "maghrib": "20:47",
+      "isha": "22:14"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-06-22",
+      "fajr": "04:41",
+      "sunrise": "06:22",
+      "dhuhr": "13:39",
+      "asr": "17:14",
+      "maghrib": "20:47",
+      "isha": "22:14"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-06-23",
+      "fajr": "04:41",
+      "sunrise": "06:23",
+      "dhuhr": "13:39",
+      "asr": "17:14",
+      "maghrib": "20:47",
+      "isha": "22:14"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-06-24",
+      "fajr": "04:42",
+      "sunrise": "06:23",
+      "dhuhr": "13:40",
+      "asr": "17:14",
+      "maghrib": "20:47",
+      "isha": "22:14"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-06-25",
+      "fajr": "04:42",
+      "sunrise": "06:23",
+      "dhuhr": "13:40",
+      "asr": "17:14",
+      "maghrib": "20:47",
+      "isha": "22:14"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-06-26",
+      "fajr": "04:42",
+      "sunrise": "06:23",
+      "dhuhr": "13:40",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:14"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-06-27",
+      "fajr": "04:43",
+      "sunrise": "06:24",
+      "dhuhr": "13:40",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:14"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-06-28",
+      "fajr": "04:43",
+      "sunrise": "06:24",
+      "dhuhr": "13:40",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:14"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-06-29",
+      "fajr": "04:44",
+      "sunrise": "06:24",
+      "dhuhr": "13:41",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:14"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-06-30",
+      "fajr": "04:44",
+      "sunrise": "06:25",
+      "dhuhr": "13:41",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:14"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-01",
+      "fajr": "04:45",
+      "sunrise": "06:25",
+      "dhuhr": "13:41",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:14"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-02",
+      "fajr": "04:45",
+      "sunrise": "06:26",
+      "dhuhr": "13:41",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:14"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-03",
+      "fajr": "04:46",
+      "sunrise": "06:26",
+      "dhuhr": "13:41",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:14"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-04",
+      "fajr": "04:46",
+      "sunrise": "06:27",
+      "dhuhr": "13:42",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:13"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-05",
+      "fajr": "04:47",
+      "sunrise": "06:27",
+      "dhuhr": "13:42",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:13"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-06",
+      "fajr": "04:48",
+      "sunrise": "06:27",
+      "dhuhr": "13:42",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:13"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-07",
+      "fajr": "04:48",
+      "sunrise": "06:28",
+      "dhuhr": "13:42",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:12"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-08",
+      "fajr": "04:49",
+      "sunrise": "06:28",
+      "dhuhr": "13:42",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:12"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-09",
+      "fajr": "04:50",
+      "sunrise": "06:29",
+      "dhuhr": "13:42",
+      "asr": "17:17",
+      "maghrib": "20:46",
+      "isha": "22:12"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-10",
+      "fajr": "04:50",
+      "sunrise": "06:29",
+      "dhuhr": "13:43",
+      "asr": "17:17",
+      "maghrib": "20:46",
+      "isha": "22:11"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-11",
+      "fajr": "04:51",
+      "sunrise": "06:30",
+      "dhuhr": "13:43",
+      "asr": "17:18",
+      "maghrib": "20:46",
+      "isha": "22:11"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-12",
+      "fajr": "04:52",
+      "sunrise": "06:31",
+      "dhuhr": "13:43",
+      "asr": "17:18",
+      "maghrib": "20:46",
+      "isha": "22:10"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-13",
+      "fajr": "04:53",
+      "sunrise": "06:31",
+      "dhuhr": "13:43",
+      "asr": "17:18",
+      "maghrib": "20:45",
+      "isha": "22:10"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-14",
+      "fajr": "04:53",
+      "sunrise": "06:32",
+      "dhuhr": "13:43",
+      "asr": "17:18",
+      "maghrib": "20:45",
+      "isha": "22:09"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-15",
+      "fajr": "04:54",
+      "sunrise": "06:32",
+      "dhuhr": "13:43",
+      "asr": "17:18",
+      "maghrib": "20:44",
+      "isha": "22:09"
+    },
+    {
+      "city": "marrakech",
+      "date": "2026-07-16",
+      "fajr": "04:55",
+      "sunrise": "06:33",
+      "dhuhr": "13:43",
+      "asr": "17:18",
+      "maghrib": "20:44",
+      "isha": "22:08"
+    }
+  ]
+}

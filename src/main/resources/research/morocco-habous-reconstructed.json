@@ -1,0 +1,18 @@
+{
+  "fajrAngle": 19.026,
+  "ishaAngle": 16.866,
+  "asrShadowFactor": 1.009,
+  "sunriseAltitudeDegrees": -1.45,
+  "maghribAltitudeDegrees": -1.83,
+  "fajrAdjustmentSeconds": -20,
+  "sunriseAdjustmentSeconds": 53,
+  "dhuhrAdjustmentSeconds": 304,
+  "asrAdjustmentSeconds": -50,
+  "maghribAdjustmentSeconds": -65,
+  "ishaAdjustmentSeconds": 50,
+  "sunriseHorizonDipCoefficient": 0.0245,
+  "maghribHorizonDipCoefficient": 0.018,
+  "roundingPolicy": "NEAREST_MINUTE",
+  "operationOrder": "RAW_THEN_ADJUST_THEN_ROUND",
+  "elevationAdjustedHorizon": false
+}

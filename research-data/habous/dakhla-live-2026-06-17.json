@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "dakhla",
+  "habousVilleId": "165",
+  "habousArabicName": "الداخلة",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=165",
+  "fetchedAt": "2026-07-07T18:09:13.140307Z",
+  "sourceSha256": "c1efca04c2d3c1dd5daa29d1c31c0e15186102eb909457d4c58e8c9ead393c9f",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "dakhla",
+      "date": "2026-06-17",
+      "fajr": "05:43",
+      "sunrise": "07:14",
+      "dhuhr": "14:10",
+      "asr": "17:23",
+      "maghrib": "20:57",
+      "isha": "22:15"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-06-18",
+      "fajr": "05:43",
+      "sunrise": "07:14",
+      "dhuhr": "14:10",
+      "asr": "17:23",
+      "maghrib": "20:57",
+      "isha": "22:15"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-06-19",
+      "fajr": "05:44",
+      "sunrise": "07:14",
+      "dhuhr": "14:10",
+      "asr": "17:23",
+      "maghrib": "20:57",
+      "isha": "22:16"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-06-20",
+      "fajr": "05:44",
+      "sunrise": "07:14",
+      "dhuhr": "14:11",
+      "asr": "17:24",
+      "maghrib": "20:58",
+      "isha": "22:16"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-06-21",
+      "fajr": "05:44",
+      "sunrise": "07:15",
+      "dhuhr": "14:11",
+      "asr": "17:24",
+      "maghrib": "20:58",
+      "isha": "22:16"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-06-22",
+      "fajr": "05:44",
+      "sunrise": "07:15",
+      "dhuhr": "14:11",
+      "asr": "17:24",
+      "maghrib": "20:58",
+      "isha": "22:16"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-06-23",
+      "fajr": "05:44",
+      "sunrise": "07:15",
+      "dhuhr": "14:11",
+      "asr": "17:24",
+      "maghrib": "20:58",
+      "isha": "22:16"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-06-24",
+      "fajr": "05:45",
+      "sunrise": "07:15",
+      "dhuhr": "14:11",
+      "asr": "17:25",
+      "maghrib": "20:58",
+      "isha": "22:17"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-06-25",
+      "fajr": "05:45",
+      "sunrise": "07:16",
+      "dhuhr": "14:12",
+      "asr": "17:25",
+      "maghrib": "20:58",
+      "isha": "22:17"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-06-26",
+      "fajr": "05:45",
+      "sunrise": "07:16",
+      "dhuhr": "14:12",
+      "asr": "17:25",
+      "maghrib": "20:59",
+      "isha": "22:17"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-06-27",
+      "fajr": "05:46",
+      "sunrise": "07:16",
+      "dhuhr": "14:12",
+      "asr": "17:25",
+      "maghrib": "20:59",
+      "isha": "22:17"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-06-28",
+      "fajr": "05:46",
+      "sunrise": "07:17",
+      "dhuhr": "14:12",
+      "asr": "17:26",
+      "maghrib": "20:59",
+      "isha": "22:17"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-06-29",
+      "fajr": "05:46",
+      "sunrise": "07:17",
+      "dhuhr": "14:12",
+      "asr": "17:26",
+      "maghrib": "20:59",
+      "isha": "22:17"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-06-30",
+      "fajr": "05:47",
+      "sunrise": "07:17",
+      "dhuhr": "14:13",
+      "asr": "17:26",
+      "maghrib": "20:59",
+      "isha": "22:17"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-01",
+      "fajr": "05:47",
+      "sunrise": "07:18",
+      "dhuhr": "14:13",
+      "asr": "17:26",
+      "maghrib": "20:59",
+      "isha": "22:17"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-02",
+      "fajr": "05:48",
+      "sunrise": "07:18",
+      "dhuhr": "14:13",
+      "asr": "17:27",
+      "maghrib": "20:59",
+      "isha": "22:17"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-03",
+      "fajr": "05:48",
+      "sunrise": "07:18",
+      "dhuhr": "14:13",
+      "asr": "17:27",
+      "maghrib": "20:59",
+      "isha": "22:17"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-04",
+      "fajr": "05:49",
+      "sunrise": "07:19",
+      "dhuhr": "14:13",
+      "asr": "17:27",
+      "maghrib": "20:59",
+      "isha": "22:17"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-05",
+      "fajr": "05:49",
+      "sunrise": "07:19",
+      "dhuhr": "14:14",
+      "asr": "17:28",
+      "maghrib": "20:59",
+      "isha": "22:17"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-06",
+      "fajr": "05:50",
+      "sunrise": "07:19",
+      "dhuhr": "14:14",
+      "asr": "17:28",
+      "maghrib": "20:59",
+      "isha": "22:16"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-07",
+      "fajr": "05:50",
+      "sunrise": "07:20",
+      "dhuhr": "14:14",
+      "asr": "17:28",
+      "maghrib": "20:59",
+      "isha": "22:16"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-08",
+      "fajr": "05:51",
+      "sunrise": "07:20",
+      "dhuhr": "14:14",
+      "asr": "17:28",
+      "maghrib": "20:59",
+      "isha": "22:16"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-09",
+      "fajr": "05:51",
+      "sunrise": "07:21",
+      "dhuhr": "14:14",
+      "asr": "17:29",
+      "maghrib": "20:59",
+      "isha": "22:16"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-10",
+      "fajr": "05:52",
+      "sunrise": "07:21",
+      "dhuhr": "14:14",
+      "asr": "17:29",
+      "maghrib": "20:59",
+      "isha": "22:16"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-11",
+      "fajr": "05:52",
+      "sunrise": "07:21",
+      "dhuhr": "14:14",
+      "asr": "17:29",
+      "maghrib": "20:58",
+      "isha": "22:15"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-12",
+      "fajr": "05:53",
+      "sunrise": "07:22",
+      "dhuhr": "14:15",
+      "asr": "17:30",
+      "maghrib": "20:58",
+      "isha": "22:15"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-13",
+      "fajr": "05:53",
+      "sunrise": "07:22",
+      "dhuhr": "14:15",
+      "asr": "17:30",
+      "maghrib": "20:58",
+      "isha": "22:15"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-14",
+      "fajr": "05:54",
+      "sunrise": "07:23",
+      "dhuhr": "14:15",
+      "asr": "17:30",
+      "maghrib": "20:58",
+      "isha": "22:14"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-15",
+      "fajr": "05:55",
+      "sunrise": "07:23",
+      "dhuhr": "14:15",
+      "asr": "17:31",
+      "maghrib": "20:58",
+      "isha": "22:14"
+    },
+    {
+      "city": "dakhla",
+      "date": "2026-07-16",
+      "fajr": "05:55",
+      "sunrise": "07:23",
+      "dhuhr": "14:15",
+      "asr": "17:31",
+      "maghrib": "20:57",
+      "isha": "22:14"
+    }
+  ]
+}

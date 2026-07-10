@@ -1,0 +1,154 @@
+{
+  "cities": [
+    {
+      "slug": "rabat",
+      "displayName": "Rabat",
+      "latitude": 34.0209,
+      "longitude": -6.8416,
+      "elevationMeters": 75,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["rabat"]
+    },
+    {
+      "slug": "sale",
+      "displayName": "Salé",
+      "latitude": 34.0531,
+      "longitude": -6.7985,
+      "elevationMeters": 20,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["sale", "salé"]
+    },
+    {
+      "slug": "casablanca",
+      "displayName": "Casablanca",
+      "latitude": 33.5731,
+      "longitude": -7.5898,
+      "elevationMeters": 50,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["casablanca", "casa"]
+    },
+    {
+      "slug": "fez",
+      "displayName": "Fez",
+      "latitude": 34.0331,
+      "longitude": -5.0003,
+      "elevationMeters": 400,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["fez", "fes", "fès"]
+    },
+    {
+      "slug": "marrakech",
+      "displayName": "Marrakech",
+      "latitude": 31.6295,
+      "longitude": -7.9811,
+      "elevationMeters": 466,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["marrakech", "marrakesh"]
+    },
+    {
+      "slug": "tangier",
+      "displayName": "Tangier",
+      "latitude": 35.7595,
+      "longitude": -5.8340,
+      "elevationMeters": 20,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["tangier", "tanger"]
+    },
+    {
+      "slug": "agadir",
+      "displayName": "Agadir",
+      "latitude": 30.4278,
+      "longitude": -9.5981,
+      "elevationMeters": 25,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["agadir"]
+    },
+    {
+      "slug": "oujda",
+      "displayName": "Oujda",
+      "latitude": 34.6867,
+      "longitude": -1.9114,
+      "elevationMeters": 470,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["oujda"]
+    },
+    {
+      "slug": "meknes",
+      "displayName": "Meknès",
+      "latitude": 33.8935,
+      "longitude": -5.5473,
+      "elevationMeters": 546,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["meknes", "meknès"]
+    },
+    {
+      "slug": "kenitra",
+      "displayName": "Kénitra",
+      "latitude": 34.2610,
+      "longitude": -6.5802,
+      "elevationMeters": 15,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["kenitra", "kénitra"]
+    },
+    {
+      "slug": "tetouan",
+      "displayName": "Tétouan",
+      "latitude": 35.5785,
+      "longitude": -5.3684,
+      "elevationMeters": 85,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["tetouan", "tétouan", "tetuan"]
+    },
+    {
+      "slug": "laayoune",
+      "displayName": "Laâyoune",
+      "latitude": 27.1536,
+      "longitude": -13.2033,
+      "elevationMeters": 60,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["laayoune", "laâyoune", "el aaiun"]
+    },
+    {
+      "slug": "dakhla",
+      "displayName": "Dakhla",
+      "latitude": 23.6848,
+      "longitude": -15.9570,
+      "elevationMeters": 11,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["dakhla"]
+    },
+    {
+      "slug": "errachidia",
+      "displayName": "Errachidia",
+      "latitude": 31.9314,
+      "longitude": -4.4247,
+      "elevationMeters": 1060,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["errachidia", "er-rachidia"]
+    },
+    {
+      "slug": "ouarzazate",
+      "displayName": "Ouarzazate",
+      "latitude": 30.9200,
+      "longitude": -6.9100,
+      "elevationMeters": 1160,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["ouarzazate"]
+    }
+  ]
+}

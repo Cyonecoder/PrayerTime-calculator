@@ -1,0 +1,160 @@
+plugins {
+    id 'java-library'
+    id 'application'
+    id 'jacoco'
+    id 'com.diffplug.spotless' version '6.25.0'
+}
+
+group = 'io.github.cyonecoder'
+version = '0.1.0'
+
+java {
+    toolchain {
+        // Requirement: build/compile/run on a Java 21 toolchain.
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    // Needed for the test dependencies (JUnit 5, AssertJ). No application
+    // runtime/network dependencies are declared yet.
+    mavenCentral()
+}
+
+// Reproducible builds: lock resolved dependency versions. Lockfiles
+// (gradle.lockfile) are committed as source; regenerate with --write-locks.
+dependencyLocking {
+    lockAllConfigurations()
+}
+
+dependencies {
+    // JSON parsing for the bundled city registry resource (not a network dependency).
+    implementation 'com.google.code.gson:gson:2.11.0'
+    // HTML parsing for the Habous official timetable adapter.
+    implementation 'org.jsoup:jsoup:1.18.1'
+
+    testImplementation platform('org.junit:junit-bom:5.11.3')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'org.assertj:assertj-core:3.26.3'
+}
+
+application {
+    // The CLI is the entry point. The legacy calculation still exists as a
+    // class (LegacyMain) for the characterization test, but is no longer the
+    // run target.
+    mainClass = 'io.github.cyonecoder.prayertime.cli.Main'
+}
+
+tasks.named('test') {
+    useJUnitPlatform {
+        // Live network tests (e.g. hitting Habous) are opt-in only, so the
+        // normal build passes even when Habous is offline.
+        excludeTags 'live'
+    }
+}
+
+// Opt-in task that runs ONLY the live/network tests.
+tasks.register('liveTest', Test) {
+    description = 'Runs live network tests tagged "live" (requires internet).'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform {
+        includeTags 'live'
+    }
+}
+
+// Permanent Habous compatibility gate: the exact-official-agreement suites plus
+// the release-validation guard. Offline and deterministic; run in CI to fail the
+// build on any Habous regression. Writes reports under
+// build/reports/habous-compatibility.
+tasks.register('habousCompatibilityTest', Test) {
+    description = 'Enforces exact Habous official compatibility and formula accuracy.'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform {
+        excludeTags 'live'
+    }
+    filter {
+        includeTestsMatching 'io.github.cyonecoder.prayertime.application.provider.*'
+        includeTestsMatching 'io.github.cyonecoder.prayertime.audit.release.ReleaseValidationTest'
+    }
+}
+
+// --- Code style (Spotless) --------------------------------------------------
+spotless {
+    java {
+        target 'src/**/*.java'
+        removeUnusedImports()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+}
+
+// --- Coverage (JaCoCo) ------------------------------------------------------
+jacoco {
+    toolVersion = '0.8.12'
+}
+
+tasks.named('test') {
+    finalizedBy tasks.named('jacocoTestReport')
+}
+
+tasks.named('jacocoTestReport') {
+    dependsOn tasks.named('test')
+    reports {
+        xml.required = true
+        html.required = true
+        csv.required = true
+    }
+}
+
+tasks.named('jacocoTestCoverageVerification') {
+    dependsOn tasks.named('test')
+    violationRules {
+        // Total project line coverage.
+        rule {
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.80
+            }
+        }
+        // Core astronomical calculation domain.
+        rule {
+            element = 'PACKAGE'
+            includes = ['io.github.cyonecoder.prayertime.domain.calculation']
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.90
+            }
+        }
+        // Morocco civil-time module.
+        rule {
+            element = 'PACKAGE'
+            includes = ['io.github.cyonecoder.prayertime.time']
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.95
+            }
+        }
+        // Habous HTML parser (class-level rule).
+        rule {
+            element = 'CLASS'
+            includes = ['io.github.cyonecoder.prayertime.infrastructure.habous.HabousHtmlParser']
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.90
+            }
+        }
+    }
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('jacocoTestCoverageVerification')
+}

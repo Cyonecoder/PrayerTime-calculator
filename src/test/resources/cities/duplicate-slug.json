@@ -1,0 +1,22 @@
+{
+  "cities": [
+    {
+      "slug": "casablanca",
+      "displayName": "Casablanca",
+      "latitude": 33.5731,
+      "longitude": -7.5898,
+      "elevationMeters": 50,
+      "zoneId": "Africa/Casablanca",
+      "aliases": ["casa"]
+    },
+    {
+      "slug": "casablanca",
+      "displayName": "Casablanca Duplicate",
+      "latitude": 33.5,
+      "longitude": -7.5,
+      "elevationMeters": 50,
+      "zoneId": "Africa/Casablanca",
+      "aliases": ["casa2"]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "note": "External research mapping: application city slug -> Habous 'ville' external identifier and Arabic name. This file is research/audit input only; it does NOT modify the production city model (MoroccoCityRegistry / morocco-cities.json) and does not change production prayer outputs.",
+  "verificationNote": "habousCityId is the numeric Habous 'ville' identifier used by https://www.habous.gov.ma/prieres/index.php?ville=<id>. All numeric ids below were recovered from the official <select name=\"ville\"> dropdown embedded in the live Habous page on 2026-07-07 and cross-checked against the four previously hand-verified ids (rabat=1, casablanca=58, fez=81, laayoune=156), which matched exactly.",
+  "ifraneNote": "Ifrane is listed in the research split but has no entry here because there is no 'ifrane' city in the application city model; per the 'do not redesign the city model' constraint it cannot be mapped until an application city exists.",
+  "version": 2,
+  "parserVersion": "habous-html-1",
+  "mappings": [
+    { "applicationCityId": "casablanca",  "habousCityId": "58",  "habousArabicName": "الدار البيضاء", "verified": true },
+    { "applicationCityId": "rabat",       "habousCityId": "1",   "habousArabicName": "الرباط",        "verified": true },
+    { "applicationCityId": "tangier",     "habousCityId": "14",  "habousArabicName": "طنجة",          "verified": true },
+    { "applicationCityId": "oujda",       "habousCityId": "31",  "habousArabicName": "وجدة",          "verified": true },
+    { "applicationCityId": "marrakech",   "habousCityId": "104", "habousArabicName": "مراكش",         "verified": true },
+    { "applicationCityId": "agadir",      "habousCityId": "117", "habousArabicName": "أكادير",        "verified": true },
+    { "applicationCityId": "errachidia",  "habousCityId": "128", "habousArabicName": "الرشيدية",      "verified": true },
+    { "applicationCityId": "laayoune",    "habousCityId": "156", "habousArabicName": "العيون",        "verified": true },
+    { "applicationCityId": "dakhla",      "habousCityId": "165", "habousArabicName": "الداخلة",       "verified": true },
+    { "applicationCityId": "fez",         "habousCityId": "81",  "habousArabicName": "فاس",           "verified": true },
+    { "applicationCityId": "meknes",      "habousCityId": "99",  "habousArabicName": "مكناس",         "verified": true },
+    { "applicationCityId": "tetouan",     "habousCityId": "15",  "habousArabicName": "تطوان",         "verified": true },
+    { "applicationCityId": "kenitra",     "habousCityId": "7",   "habousArabicName": "القنيطرة",      "verified": true },
+    { "applicationCityId": "ouarzazate",  "habousCityId": "138", "habousArabicName": "ورزازات",       "verified": true }
+  ]
+}
