@@ -114,3 +114,39 @@ The acceptance criteria for an "exact reconstructed model" (100% exact, 0 unreso
 
 To progress toward a defensible exactness claim, the next step is **more data** (a full
 civil year, and a held-out later year), not more parameters on this window.
+
+## Addendum — all-city best-match refit
+
+A later iteration re-fit the method **per prayer on all 14 cities** (rather than
+the training-only split above) to maximise exact agreement across every city, as
+requested. Each prayer's parameters were optimised independently (the six prayers
+are independent given their parameters) for exact-minute count, tie-broken by
+within-1-minute then MAE.
+
+Result on all 2520 observations:
+
+| Metric | Split-fit (above) | All-city refit |
+|--------|------------------:|---------------:|
+| Exact | 76.90% | **80.91%** |
+| Within ±1 min | 97.10% | **98.53%** |
+| Max error | 2 min | 2 min |
+| MAE | 0.260 | **0.206** |
+
+Per prayer (exact): Fajr 89.3%, Dhuhr 93.1%, Asr 92.6%, Isha 86.4%, Maghrib 67.9%,
+Chourouk 56.2%.
+
+This is an **in-sample** fit (no held-out cities) — the objective was explicitly
+"best match for all cities", so the city split was not used to hold data back. It
+is therefore a best smooth-global approximation, not a cross-validated one, and is
+still not exact. Investigations that did **not** materially help and were rejected
+to avoid memorising the timetable:
+
+- **Per-city reference latitude** (Level 2): optimal shifts were tiny (< 0.05°)
+  and lifted overall exact by only ~0.9% — the sunrise residual in the northern
+  coastal cities is sunrise-only, which a latitude change (which moves sunrise and
+  sunset oppositely) cannot fix.
+- **Finer horizon resolution**: sunrise gained only ~0.5%, confirming the ~56%
+  sunrise ceiling for a smooth global formula.
+
+The unresolved ±1-minute residual is city-specific published-table rounding, which
+is reproduced exactly — and losslessly — by `OFFICIAL`/`AUTO` mode instead.

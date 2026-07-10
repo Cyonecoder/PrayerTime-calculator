@@ -1,0 +1,55 @@
+name: Habous Compatibility
+
+on:
+  push:
+  pull_request:
+
+# Least-privilege: read-only, no secrets. Never contacts the live Habous site;
+# runs entirely against the committed, validated official snapshots.
+permissions:
+  contents: read
+
+jobs:
+  habous-compatibility:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Gradle (with dependency cache)
+        uses: gradle/actions/setup-gradle@v4
+
+      # Full suite first (offline; excludes the "live" tag).
+      - name: Run tests
+        run: ./gradlew clean test
+
+      # Permanent exact-compatibility gate. Fails the build on ANY Habous
+      # regression: an official-mode mismatch, a missing city mapping, an
+      # incomplete/duplicate/altered snapshot, or a formula drop below its band.
+      - name: Enforce Habous compatibility
+        run: ./gradlew habousCompatibilityTest
+
+      - name: Upload Habous compatibility reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: habous-compatibility-reports
+          path: |
+            build/reports/habous-compatibility
+            build/reports/habous-release
+            reports/habous-reconstruction-prompt7.md
+          retention-days: 14
+
+      - name: Upload test reports on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: habous-test-reports
+          path: build/reports/tests
+          retention-days: 7

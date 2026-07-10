@@ -1,0 +1,160 @@
+{
+  "note": "Index of validated official Habous snapshots bundled for OFFICIAL/AUTO source modes. These are the final authority for exact-output mode; they are never rounded, corrected, or recomputed. Regenerate only through the reviewed snapshot-approval process (see docs/HABOUS_DATA_REVIEW.md).",
+  "version": 1,
+  "snapshots": [
+    {
+      "cityId": "agadir",
+      "habousCityId": "117",
+      "file": "agadir-live-2026-06-17.json",
+      "firstDate": "2026-06-17",
+      "lastDate": "2026-07-16",
+      "dayCount": 30,
+      "sourceChecksum": "9588c7c41ff3d94235555d32e03ae761a14fbe71b13e9974341271ab0e2f9203",
+      "parserVersion": "habous-live-1",
+      "fetchedAt": "2026-07-07T18:09:03.971600Z"
+    },
+    {
+      "cityId": "casablanca",
+      "habousCityId": "58",
+      "file": "casablanca-live-2026-06-17.json",
+      "firstDate": "2026-06-17",
+      "lastDate": "2026-07-16",
+      "dayCount": 30,
+      "sourceChecksum": "7ab1d6598eebe65d555098bceeac94878d231b29e2750134ada961eb92324401",
+      "parserVersion": "habous-live-1",
+      "fetchedAt": "2026-07-07T18:08:48.709837Z"
+    },
+    {
+      "cityId": "dakhla",
+      "habousCityId": "165",
+      "file": "dakhla-live-2026-06-17.json",
+      "firstDate": "2026-06-17",
+      "lastDate": "2026-07-16",
+      "dayCount": 30,
+      "sourceChecksum": "c1efca04c2d3c1dd5daa29d1c31c0e15186102eb909457d4c58e8c9ead393c9f",
+      "parserVersion": "habous-live-1",
+      "fetchedAt": "2026-07-07T18:09:13.140307Z"
+    },
+    {
+      "cityId": "errachidia",
+      "habousCityId": "128",
+      "file": "errachidia-live-2026-06-17.json",
+      "firstDate": "2026-06-17",
+      "lastDate": "2026-07-16",
+      "dayCount": 30,
+      "sourceChecksum": "6f767cdc5b6fd37c3e62ec968c3ffa278ca7707c4e2ed2613b0a6b9c99fdac34",
+      "parserVersion": "habous-live-1",
+      "fetchedAt": "2026-07-07T18:09:07.033604Z"
+    },
+    {
+      "cityId": "fez",
+      "habousCityId": "81",
+      "file": "fez-live-2026-06-17.json",
+      "firstDate": "2026-06-17",
+      "lastDate": "2026-07-16",
+      "dayCount": 30,
+      "sourceChecksum": "d0a3905f08be5c2972b2401138d381a4181a9eefeebbd77935c38bb012e3faa5",
+      "parserVersion": "habous-live-1",
+      "fetchedAt": "2026-07-07T18:09:16.180321Z"
+    },
+    {
+      "cityId": "kenitra",
+      "habousCityId": "7",
+      "file": "kenitra-live-2026-06-17.json",
+      "firstDate": "2026-06-17",
+      "lastDate": "2026-07-16",
+      "dayCount": 30,
+      "sourceChecksum": "8674781f814a7682b36d7070797465bdff017e0799882398a318c14035958fe8",
+      "parserVersion": "habous-live-1",
+      "fetchedAt": "2026-07-07T18:09:25.312517Z"
+    },
+    {
+      "cityId": "laayoune",
+      "habousCityId": "156",
+      "file": "laayoune-live-2026-06-17.json",
+      "firstDate": "2026-06-17",
+      "lastDate": "2026-07-16",
+      "dayCount": 30,
+      "sourceChecksum": "2f91d79042bf032554e26d5d9d281432f83f35adf33267beff3d57e7bcb8dac6",
+      "parserVersion": "habous-live-1",
+      "fetchedAt": "2026-07-07T18:09:10.087944Z"
+    },
+    {
+      "cityId": "marrakech",
+      "habousCityId": "104",
+      "file": "marrakech-live-2026-06-17.json",
+      "firstDate": "2026-06-17",
+      "lastDate": "2026-07-16",
+      "dayCount": 30,
+      "sourceChecksum": "a10591fb410e1e677a05504aa30663e34328c6830b89d380c25a7547ebb9ea2e",
+      "parserVersion": "habous-live-1",
+      "fetchedAt": "2026-07-07T18:09:00.924826Z"
+    },
+    {
+      "cityId": "meknes",
+      "habousCityId": "99",
+      "file": "meknes-live-2026-06-17.json",
+      "firstDate": "2026-06-17",
+      "lastDate": "2026-07-16",
+      "dayCount": 30,
+      "sourceChecksum": "376d78f2adf9a56cf5178f95ccf87d19b6c9a2a92e647b653e3c8706007d370a",
+      "parserVersion": "habous-live-1",
+      "fetchedAt": "2026-07-07T18:09:19.222989Z"
+    },
+    {
+      "cityId": "ouarzazate",
+      "habousCityId": "138",
+      "file": "ouarzazate-live-2026-06-17.json",
+      "firstDate": "2026-06-17",
+      "lastDate": "2026-07-16",
+      "dayCount": 30,
+      "sourceChecksum": "2b83deb48195385b2778329275d001115f99f7e1528a8b93c790078fe32e6952",
+      "parserVersion": "habous-live-1",
+      "fetchedAt": "2026-07-07T18:09:28.360462Z"
+    },
+    {
+      "cityId": "oujda",
+      "habousCityId": "31",
+      "file": "oujda-live-2026-06-17.json",
+      "firstDate": "2026-06-17",
+      "lastDate": "2026-07-16",
+      "dayCount": 30,
+      "sourceChecksum": "e32f30a73d426fbd8b1aee0a3370c2d4a57626ca5c272acdf730de7c5edff8d7",
+      "parserVersion": "habous-live-1",
+      "fetchedAt": "2026-07-07T18:08:57.880293Z"
+    },
+    {
+      "cityId": "rabat",
+      "habousCityId": "1",
+      "file": "rabat-live-2026-06-17.json",
+      "firstDate": "2026-06-17",
+      "lastDate": "2026-07-16",
+      "dayCount": 30,
+      "sourceChecksum": "1a98bfe79d2840d95916d61d2fce950811b434a347591ea9818bcc0c7a52f04b",
+      "parserVersion": "habous-live-1",
+      "fetchedAt": "2026-07-07T18:08:51.768615Z"
+    },
+    {
+      "cityId": "tangier",
+      "habousCityId": "14",
+      "file": "tangier-live-2026-06-17.json",
+      "firstDate": "2026-06-17",
+      "lastDate": "2026-07-16",
+      "dayCount": 30,
+      "sourceChecksum": "6ba0a53ca0bcc46a5a3b58ca98e147535c27ef66e159286fae93b0c926d96225",
+      "parserVersion": "habous-live-1",
+      "fetchedAt": "2026-07-07T18:08:54.826610Z"
+    },
+    {
+      "cityId": "tetouan",
+      "habousCityId": "15",
+      "file": "tetouan-live-2026-06-17.json",
+      "firstDate": "2026-06-17",
+      "lastDate": "2026-07-16",
+      "dayCount": 30,
+      "sourceChecksum": "f08187ffd4881e1d89fea2c4225c557265f6e59e40bbb985f88ce64bc43cfb4c",
+      "parserVersion": "habous-live-1",
+      "fetchedAt": "2026-07-07T18:09:22.274820Z"
+    }
+  ]
+}

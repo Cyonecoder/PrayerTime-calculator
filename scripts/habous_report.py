@@ -66,12 +66,18 @@ def run_calc(city, frm, to):
                           cwd=REPO, capture_output=True, text=True)
     if proc.returncode != 0:
         raise SystemExit(f"gradle range failed for {city}:\n{proc.stderr}")
+    # Robust to extra columns (e.g. a "Src" label): take the leading ISO date and
+    # the first six HH:MM tokens on the line.
     out = {}
-    row_re = re.compile(r'^(\d{4}-\d{2}-\d{2})' + r'\s+(\d{1,2}:\d{2})' * 6)
+    date_re = re.compile(r'^(\d{4}-\d{2}-\d{2})\b')
+    time_re = re.compile(r'\b(\d{1,2}:\d{2})\b')
     for line in proc.stdout.splitlines():
-        m = row_re.match(line)
-        if m:
-            out[m.group(1)] = dict(zip(PRAYERS, m.groups()[1:]))
+        dm = date_re.match(line)
+        if not dm:
+            continue
+        times = time_re.findall(line)
+        if len(times) >= 6:
+            out[dm.group(1)] = dict(zip(PRAYERS, times[:6]))
     return out
 
 

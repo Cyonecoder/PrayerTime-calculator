@@ -65,6 +65,24 @@ tasks.register('liveTest', Test) {
     }
 }
 
+// Permanent Habous compatibility gate: the exact-official-agreement suites plus
+// the release-validation guard. Offline and deterministic; run in CI to fail the
+// build on any Habous regression. Writes reports under
+// build/reports/habous-compatibility.
+tasks.register('habousCompatibilityTest', Test) {
+    description = 'Enforces exact Habous official compatibility and formula accuracy.'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform {
+        excludeTags 'live'
+    }
+    filter {
+        includeTestsMatching 'io.github.cyonecoder.prayertime.application.provider.*'
+        includeTestsMatching 'io.github.cyonecoder.prayertime.audit.release.ReleaseValidationTest'
+    }
+}
+
 // --- Code style (Spotless) --------------------------------------------------
 spotless {
     java {

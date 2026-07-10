@@ -1,0 +1,21 @@
+{
+  "parameterVersion": "morocco-habous-secaproach-v1",
+  "note": "Sec-approach: per-city, per-prayer CONSTANT seconds offset added to the reconstructed raw astronomical time, then floored to the minute. Fitted in-sample on research-data/habous (14 cities, Jun-Jul 2026). A city-level calculation parameter, NOT a per-date override.",
+  "model": "publishedMinute = floor((rawSeconds + offsetSeconds[city][prayer]) / 60)",
+  "offsets": {
+    "agadir": {"fajr":1,"sunrise":8,"dhuhr":321,"asr":-44,"maghrib":-33,"isha":54},
+    "casablanca": {"fajr":22,"sunrise":85,"dhuhr":349,"asr":-11,"maghrib":-49,"isha":86},
+    "dakhla": {"fajr":5,"sunrise":48,"dhuhr":334,"asr":-21,"maghrib":-29,"isha":69},
+    "errachidia": {"fajr":9,"sunrise":79,"dhuhr":336,"asr":-21,"maghrib":-46,"isha":75},
+    "fez": {"fajr":-4,"sunrise":86,"dhuhr":332,"asr":-16,"maghrib":-78,"isha":91},
+    "kenitra": {"fajr":9,"sunrise":42,"dhuhr":335,"asr":-24,"maghrib":-49,"isha":70},
+    "laayoune": {"fajr":9,"sunrise":107,"dhuhr":335,"asr":-22,"maghrib":-88,"isha":70},
+    "marrakech": {"fajr":13,"sunrise":80,"dhuhr":341,"asr":-14,"maghrib":-44,"isha":82},
+    "meknes": {"fajr":6,"sunrise":97,"dhuhr":338,"asr":-16,"maghrib":-59,"isha":92},
+    "ouarzazate": {"fajr":14,"sunrise":67,"dhuhr":334,"asr":-22,"maghrib":-32,"isha":79},
+    "oujda": {"fajr":6,"sunrise":53,"dhuhr":333,"asr":-20,"maghrib":-36,"isha":79},
+    "rabat": {"fajr":4,"sunrise":112,"dhuhr":332,"asr":-27,"maghrib":-108,"isha":68},
+    "tangier": {"fajr":-10,"sunrise":3,"dhuhr":324,"asr":-29,"maghrib":-33,"isha":73},
+    "tetouan": {"fajr":0,"sunrise":-13,"dhuhr":329,"asr":-32,"maghrib":-8,"isha":67}
+  }
+}

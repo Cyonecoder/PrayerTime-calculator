@@ -63,8 +63,8 @@ class ReleaseValidationTest {
         // reconstruction reaches its improved accuracy band on the committed data,
         // while still leaving real residuals (so it is never declared exact).
         var g = validateReal(empty()).group(Group.FORMULA_ONLY);
-        assertThat(g.exactPercentage()).isGreaterThan(75.0).isLessThan(100.0);
-        assertThat(g.withinOnePercentage()).isGreaterThan(96.0);
+        assertThat(g.exactPercentage()).isGreaterThan(78.0).isLessThan(100.0);
+        assertThat(g.withinOnePercentage()).isGreaterThan(98.0);
         assertThat(g.maxAbsolute()).isLessThanOrEqualTo(2);
         // The frozen reconstruction actually carries the fitted dip coefficients.
         assertThat(ReconstructedMethod.frozen().sunriseHorizonDipCoefficient()).isGreaterThan(0.0);

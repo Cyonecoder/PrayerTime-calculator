@@ -41,3 +41,6 @@ build/
 
 ### Claude Code ###
 .claude/
+
+### Local-only notes (kept out of version control) ###
+docs/HABOUS_WALKTHROUGH.txt

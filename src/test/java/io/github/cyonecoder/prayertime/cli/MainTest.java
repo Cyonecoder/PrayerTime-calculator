@@ -48,14 +48,53 @@ class MainTest {
     }
 
     @Test
-    void calculatePrintsFullHeaderAndSixTimes() {
+    void calculateDefaultsToReconstructedCalculation() {
         int code = run("calculate", "--city", "rabat", "--date", "2026-07-03");
 
         assertThat(code).isZero();
         String o = out();
         assertThat(o).contains("Rabat", "2026-07-03", "Africa/Casablanca", "+01:00",
-                "Morocco (Habous)", "astronomical");
+                "Morocco Habous Reconstructed", "Source:      calculated",
+                "morocco-habous-v1");
         assertThat(o).contains("Fajr:", "Sunrise:", "Dhuhr:", "Asr:", "Maghrib:", "Isha:");
+    }
+
+    @Test
+    void calculateOfficialSourceReturnsExactOfficialValues() {
+        int code = run("calculate", "--city", "casablanca", "--date", "2026-07-07",
+                "--source", "official");
+
+        assertThat(code).isZero();
+        String o = out();
+        assertThat(o).contains("Habous Official", "Source:      official",
+                "Fajr:    04:38", "Sunrise: 06:23", "Maghrib: 20:49");
+    }
+
+    @Test
+    void calculateOfficialSourceFailsClosedWhenUnavailable() {
+        int code = run("calculate", "--city", "casablanca", "--date", "2026-01-01",
+                "--source", "official");
+
+        assertThat(code).isEqualTo(2);
+        assertThat(out()).contains("UNAVAILABLE");
+        assertThat(err()).contains("HABOUS_OFFICIAL_DATA_UNAVAILABLE");
+    }
+
+    @Test
+    void calculateAutoSourceFallsBackFlagged() {
+        int code = run("calculate", "--city", "casablanca", "--date", "2026-01-01",
+                "--source", "auto");
+
+        assertThat(code).isZero();
+        assertThat(out()).contains("auto (calculated fallback)", "morocco-habous-v1");
+    }
+
+    @Test
+    void unknownSourceIsRejected() {
+        int code = run("calculate", "--city", "rabat", "--date", "2026-07-03", "--source", "bogus");
+
+        assertThat(code).isEqualTo(2);
+        assertThat(err()).contains("unknown --source");
     }
 
     @Test
@@ -82,6 +121,78 @@ class MainTest {
 
         assertThat(code).isZero();
         assertThat(out()).contains("2026-07-03", "2026-07-04", "2026-07-05");
+    }
+
+    @Test
+    void calculateWithSecondsShowsRawSubMinuteTime() {
+        int code = run("calculate", "--city", "casablanca", "--date", "2026-07-07", "--seconds");
+
+        assertThat(code).isZero();
+        assertThat(out())
+                .contains("before minute-rounding")
+                .containsPattern("Fajr:\\s+\\d\\d:\\d\\d:\\d\\d");
+    }
+
+    @Test
+    void compareWithSecondsShowsDeltaSecondsAndPublished() {
+        int code = run("calculate", "--city", "casablanca", "--date", "2026-07-07",
+                "--source", "compare", "--seconds");
+
+        assertThat(code).isZero();
+        assertThat(out()).contains("Calc(raw)", "Δsec", "Δpub");
+    }
+
+    @Test
+    void monthCompareShowsPerDayDifferences() {
+        int code = run("month", "--city", "casablanca", "--year", "2026", "--month", "7",
+                "--source", "compare");
+
+        assertThat(code).isZero();
+        assertThat(out()).contains("official − calculated", "Compared", "max abs error");
+    }
+
+    @Test
+    void secaproachDayMatchesOfficialExactly() {
+        int code = run("secaproach", "--city", "casablanca", "--date", "2026-07-07");
+
+        assertThat(code).isZero();
+        String o = out();
+        assertThat(o).contains("Sec-Approach", "morocco-habous-secaproach-v1", "SecApp", "Official");
+        // Every prayer difference against official is +0 on this date.
+        assertThat(o).contains("fajr", "+0");
+    }
+
+    @Test
+    void secaproachMonthReportsMatchRate() {
+        int code = run("secaproach", "--city", "tetouan", "--year", "2026", "--month", "7");
+
+        assertThat(code).isZero();
+        assertThat(out()).contains("Sec-Approach", "vs official", "Matched official");
+    }
+
+    @Test
+    void secaproachCompareShowsPerDayDifferenceTable() {
+        int code = run("secaproach", "--city", "casablanca", "--year", "2026", "--month", "7",
+                "--compare");
+
+        assertThat(code).isZero();
+        assertThat(out()).contains("official − sec-approach", "|max|", "Compared", "exact");
+    }
+
+    @Test
+    void secaproachSecondsShowsRawBeforeFloor() {
+        int code = run("secaproach", "--city", "casablanca", "--date", "2026-07-07", "--seconds");
+
+        assertThat(code).isZero();
+        assertThat(out()).containsPattern("fajr\\s+\\d\\d:\\d\\d:\\d\\d");
+    }
+
+    @Test
+    void secaproachUnknownCityFailsClosed() {
+        int code = run("secaproach", "--city", "atlantis", "--date", "2026-07-07");
+
+        assertThat(code).isEqualTo(2);
+        assertThat(err()).contains("unknown city");
     }
 
     @Test
