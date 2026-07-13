@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "essaouira",
+  "habousVilleId": "106",
+  "habousArabicName": "الصويرة",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=106",
+  "fetchedAt": "2026-07-13T12:55:32.076305Z",
+  "sourceSha256": "08b82133c767243aacbf109e2315f312718305117fe13006a2b255dfb564fdc4",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "essaouira",
+      "date": "2026-06-17",
+      "fajr": "04:48",
+      "sunrise": "06:31",
+      "dhuhr": "13:45",
+      "asr": "17:19",
+      "maghrib": "20:50",
+      "isha": "22:19"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-06-18",
+      "fajr": "04:48",
+      "sunrise": "06:31",
+      "dhuhr": "13:45",
+      "asr": "17:20",
+      "maghrib": "20:50",
+      "isha": "22:19"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-06-19",
+      "fajr": "04:48",
+      "sunrise": "06:31",
+      "dhuhr": "13:46",
+      "asr": "17:20",
+      "maghrib": "20:51",
+      "isha": "22:20"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-06-20",
+      "fajr": "04:48",
+      "sunrise": "06:32",
+      "dhuhr": "13:46",
+      "asr": "17:20",
+      "maghrib": "20:51",
+      "isha": "22:20"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-06-21",
+      "fajr": "04:48",
+      "sunrise": "06:32",
+      "dhuhr": "13:46",
+      "asr": "17:20",
+      "maghrib": "20:51",
+      "isha": "22:20"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-06-22",
+      "fajr": "04:49",
+      "sunrise": "06:32",
+      "dhuhr": "13:46",
+      "asr": "17:20",
+      "maghrib": "20:51",
+      "isha": "22:20"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-06-23",
+      "fajr": "04:49",
+      "sunrise": "06:32",
+      "dhuhr": "13:46",
+      "asr": "17:21",
+      "maghrib": "20:52",
+      "isha": "22:20"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-06-24",
+      "fajr": "04:49",
+      "sunrise": "06:32",
+      "dhuhr": "13:47",
+      "asr": "17:21",
+      "maghrib": "20:52",
+      "isha": "22:21"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-06-25",
+      "fajr": "04:49",
+      "sunrise": "06:33",
+      "dhuhr": "13:47",
+      "asr": "17:21",
+      "maghrib": "20:52",
+      "isha": "22:21"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-06-26",
+      "fajr": "04:50",
+      "sunrise": "06:33",
+      "dhuhr": "13:47",
+      "asr": "17:21",
+      "maghrib": "20:52",
+      "isha": "22:21"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-06-27",
+      "fajr": "04:50",
+      "sunrise": "06:33",
+      "dhuhr": "13:47",
+      "asr": "17:22",
+      "maghrib": "20:52",
+      "isha": "22:21"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-06-28",
+      "fajr": "04:51",
+      "sunrise": "06:34",
+      "dhuhr": "13:47",
+      "asr": "17:22",
+      "maghrib": "20:52",
+      "isha": "22:21"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-06-29",
+      "fajr": "04:51",
+      "sunrise": "06:34",
+      "dhuhr": "13:48",
+      "asr": "17:22",
+      "maghrib": "20:52",
+      "isha": "22:21"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-06-30",
+      "fajr": "04:52",
+      "sunrise": "06:34",
+      "dhuhr": "13:48",
+      "asr": "17:22",
+      "maghrib": "20:52",
+      "isha": "22:21"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-01",
+      "fajr": "04:52",
+      "sunrise": "06:35",
+      "dhuhr": "13:48",
+      "asr": "17:22",
+      "maghrib": "20:52",
+      "isha": "22:20"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-02",
+      "fajr": "04:53",
+      "sunrise": "06:35",
+      "dhuhr": "13:48",
+      "asr": "17:23",
+      "maghrib": "20:52",
+      "isha": "22:20"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-03",
+      "fajr": "04:53",
+      "sunrise": "06:36",
+      "dhuhr": "13:48",
+      "asr": "17:23",
+      "maghrib": "20:52",
+      "isha": "22:20"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-04",
+      "fajr": "04:54",
+      "sunrise": "06:36",
+      "dhuhr": "13:49",
+      "asr": "17:23",
+      "maghrib": "20:52",
+      "isha": "22:20"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-05",
+      "fajr": "04:54",
+      "sunrise": "06:37",
+      "dhuhr": "13:49",
+      "asr": "17:23",
+      "maghrib": "20:52",
+      "isha": "22:20"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-06",
+      "fajr": "04:55",
+      "sunrise": "06:37",
+      "dhuhr": "13:49",
+      "asr": "17:23",
+      "maghrib": "20:52",
+      "isha": "22:19"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-07",
+      "fajr": "04:56",
+      "sunrise": "06:38",
+      "dhuhr": "13:49",
+      "asr": "17:24",
+      "maghrib": "20:51",
+      "isha": "22:19"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-08",
+      "fajr": "04:56",
+      "sunrise": "06:38",
+      "dhuhr": "13:49",
+      "asr": "17:24",
+      "maghrib": "20:51",
+      "isha": "22:19"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-09",
+      "fajr": "04:57",
+      "sunrise": "06:39",
+      "dhuhr": "13:49",
+      "asr": "17:24",
+      "maghrib": "20:51",
+      "isha": "22:18"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-10",
+      "fajr": "04:58",
+      "sunrise": "06:39",
+      "dhuhr": "13:50",
+      "asr": "17:24",
+      "maghrib": "20:51",
+      "isha": "22:18"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-11",
+      "fajr": "04:59",
+      "sunrise": "06:40",
+      "dhuhr": "13:50",
+      "asr": "17:24",
+      "maghrib": "20:51",
+      "isha": "22:17"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-12",
+      "fajr": "04:59",
+      "sunrise": "06:40",
+      "dhuhr": "13:50",
+      "asr": "17:24",
+      "maghrib": "20:50",
+      "isha": "22:17"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-13",
+      "fajr": "05:00",
+      "sunrise": "06:41",
+      "dhuhr": "13:50",
+      "asr": "17:25",
+      "maghrib": "20:50",
+      "isha": "22:16"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-14",
+      "fajr": "05:01",
+      "sunrise": "06:41",
+      "dhuhr": "13:50",
+      "asr": "17:25",
+      "maghrib": "20:50",
+      "isha": "22:16"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-15",
+      "fajr": "05:02",
+      "sunrise": "06:42",
+      "dhuhr": "13:50",
+      "asr": "17:25",
+      "maghrib": "20:49",
+      "isha": "22:15"
+    },
+    {
+      "city": "essaouira",
+      "date": "2026-07-16",
+      "fajr": "05:03",
+      "sunrise": "06:42",
+      "dhuhr": "13:50",
+      "asr": "17:25",
+      "maghrib": "20:49",
+      "isha": "22:15"
+    }
+  ]
+}

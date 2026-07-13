@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "larache",
+  "habousVilleId": "16",
+  "habousArabicName": "العرائش",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=16",
+  "fetchedAt": "2026-07-13T12:55:42.481791Z",
+  "sourceSha256": "ba69b071270fe0688c7fa34217cec0aaba4460a51079c9eb0b83e2242b57794f",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "larache",
+      "date": "2026-06-17",
+      "fajr": "04:15",
+      "sunrise": "06:07",
+      "dhuhr": "13:31",
+      "asr": "17:14",
+      "maghrib": "20:45",
+      "isha": "22:22"
+    },
+    {
+      "city": "larache",
+      "date": "2026-06-18",
+      "fajr": "04:15",
+      "sunrise": "06:07",
+      "dhuhr": "13:31",
+      "asr": "17:14",
+      "maghrib": "20:46",
+      "isha": "22:22"
+    },
+    {
+      "city": "larache",
+      "date": "2026-06-19",
+      "fajr": "04:15",
+      "sunrise": "06:07",
+      "dhuhr": "13:31",
+      "asr": "17:14",
+      "maghrib": "20:46",
+      "isha": "22:22"
+    },
+    {
+      "city": "larache",
+      "date": "2026-06-20",
+      "fajr": "04:15",
+      "sunrise": "06:07",
+      "dhuhr": "13:31",
+      "asr": "17:14",
+      "maghrib": "20:46",
+      "isha": "22:23"
+    },
+    {
+      "city": "larache",
+      "date": "2026-06-21",
+      "fajr": "04:15",
+      "sunrise": "06:07",
+      "dhuhr": "13:31",
+      "asr": "17:15",
+      "maghrib": "20:46",
+      "isha": "22:23"
+    },
+    {
+      "city": "larache",
+      "date": "2026-06-22",
+      "fajr": "04:15",
+      "sunrise": "06:08",
+      "dhuhr": "13:32",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:23"
+    },
+    {
+      "city": "larache",
+      "date": "2026-06-23",
+      "fajr": "04:16",
+      "sunrise": "06:08",
+      "dhuhr": "13:32",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:23"
+    },
+    {
+      "city": "larache",
+      "date": "2026-06-24",
+      "fajr": "04:16",
+      "sunrise": "06:08",
+      "dhuhr": "13:32",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:23"
+    },
+    {
+      "city": "larache",
+      "date": "2026-06-25",
+      "fajr": "04:16",
+      "sunrise": "06:09",
+      "dhuhr": "13:32",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:23"
+    },
+    {
+      "city": "larache",
+      "date": "2026-06-26",
+      "fajr": "04:17",
+      "sunrise": "06:09",
+      "dhuhr": "13:33",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:23"
+    },
+    {
+      "city": "larache",
+      "date": "2026-06-27",
+      "fajr": "04:17",
+      "sunrise": "06:09",
+      "dhuhr": "13:33",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:23"
+    },
+    {
+      "city": "larache",
+      "date": "2026-06-28",
+      "fajr": "04:17",
+      "sunrise": "06:10",
+      "dhuhr": "13:33",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:23"
+    },
+    {
+      "city": "larache",
+      "date": "2026-06-29",
+      "fajr": "04:18",
+      "sunrise": "06:10",
+      "dhuhr": "13:33",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:23"
+    },
+    {
+      "city": "larache",
+      "date": "2026-06-30",
+      "fajr": "04:19",
+      "sunrise": "06:10",
+      "dhuhr": "13:33",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:23"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-01",
+      "fajr": "04:19",
+      "sunrise": "06:11",
+      "dhuhr": "13:34",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:23"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-02",
+      "fajr": "04:20",
+      "sunrise": "06:11",
+      "dhuhr": "13:34",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:23"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-03",
+      "fajr": "04:20",
+      "sunrise": "06:12",
+      "dhuhr": "13:34",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:22"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-04",
+      "fajr": "04:21",
+      "sunrise": "06:12",
+      "dhuhr": "13:34",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:22"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-05",
+      "fajr": "04:22",
+      "sunrise": "06:13",
+      "dhuhr": "13:34",
+      "asr": "17:17",
+      "maghrib": "20:47",
+      "isha": "22:22"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-06",
+      "fajr": "04:22",
+      "sunrise": "06:13",
+      "dhuhr": "13:34",
+      "asr": "17:17",
+      "maghrib": "20:46",
+      "isha": "22:21"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-07",
+      "fajr": "04:23",
+      "sunrise": "06:14",
+      "dhuhr": "13:35",
+      "asr": "17:17",
+      "maghrib": "20:46",
+      "isha": "22:21"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-08",
+      "fajr": "04:24",
+      "sunrise": "06:14",
+      "dhuhr": "13:35",
+      "asr": "17:18",
+      "maghrib": "20:46",
+      "isha": "22:20"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-09",
+      "fajr": "04:25",
+      "sunrise": "06:15",
+      "dhuhr": "13:35",
+      "asr": "17:18",
+      "maghrib": "20:46",
+      "isha": "22:20"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-10",
+      "fajr": "04:26",
+      "sunrise": "06:15",
+      "dhuhr": "13:35",
+      "asr": "17:18",
+      "maghrib": "20:45",
+      "isha": "22:19"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-11",
+      "fajr": "04:27",
+      "sunrise": "06:16",
+      "dhuhr": "13:35",
+      "asr": "17:18",
+      "maghrib": "20:45",
+      "isha": "22:19"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-12",
+      "fajr": "04:28",
+      "sunrise": "06:17",
+      "dhuhr": "13:35",
+      "asr": "17:18",
+      "maghrib": "20:45",
+      "isha": "22:18"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-13",
+      "fajr": "04:28",
+      "sunrise": "06:17",
+      "dhuhr": "13:35",
+      "asr": "17:18",
+      "maghrib": "20:44",
+      "isha": "22:17"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-14",
+      "fajr": "04:29",
+      "sunrise": "06:18",
+      "dhuhr": "13:36",
+      "asr": "17:18",
+      "maghrib": "20:44",
+      "isha": "22:17"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-15",
+      "fajr": "04:30",
+      "sunrise": "06:18",
+      "dhuhr": "13:36",
+      "asr": "17:18",
+      "maghrib": "20:43",
+      "isha": "22:16"
+    },
+    {
+      "city": "larache",
+      "date": "2026-07-16",
+      "fajr": "04:31",
+      "sunrise": "06:19",
+      "dhuhr": "13:36",
+      "asr": "17:18",
+      "maghrib": "20:43",
+      "isha": "22:15"
+    }
+  ]
+}

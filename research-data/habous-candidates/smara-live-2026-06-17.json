@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "smara",
+  "habousVilleId": "157",
+  "habousArabicName": "السمارة",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=157",
+  "fetchedAt": "2026-07-13T12:55:33.118755Z",
+  "sourceSha256": "f1afecdb0280589102a9c9ab68beb694d894520fe570fd59257695cbc59be3f8",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "smara",
+      "date": "2026-06-17",
+      "fajr": "05:15",
+      "sunrise": "06:49",
+      "dhuhr": "13:53",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:08"
+    },
+    {
+      "city": "smara",
+      "date": "2026-06-18",
+      "fajr": "05:15",
+      "sunrise": "06:49",
+      "dhuhr": "13:53",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:08"
+    },
+    {
+      "city": "smara",
+      "date": "2026-06-19",
+      "fajr": "05:15",
+      "sunrise": "06:49",
+      "dhuhr": "13:53",
+      "asr": "17:15",
+      "maghrib": "20:48",
+      "isha": "22:09"
+    },
+    {
+      "city": "smara",
+      "date": "2026-06-20",
+      "fajr": "05:16",
+      "sunrise": "06:50",
+      "dhuhr": "13:53",
+      "asr": "17:15",
+      "maghrib": "20:48",
+      "isha": "22:09"
+    },
+    {
+      "city": "smara",
+      "date": "2026-06-21",
+      "fajr": "05:16",
+      "sunrise": "06:50",
+      "dhuhr": "13:54",
+      "asr": "17:15",
+      "maghrib": "20:48",
+      "isha": "22:09"
+    },
+    {
+      "city": "smara",
+      "date": "2026-06-22",
+      "fajr": "05:16",
+      "sunrise": "06:50",
+      "dhuhr": "13:54",
+      "asr": "17:16",
+      "maghrib": "20:48",
+      "isha": "22:09"
+    },
+    {
+      "city": "smara",
+      "date": "2026-06-23",
+      "fajr": "05:16",
+      "sunrise": "06:50",
+      "dhuhr": "13:54",
+      "asr": "17:16",
+      "maghrib": "20:49",
+      "isha": "22:10"
+    },
+    {
+      "city": "smara",
+      "date": "2026-06-24",
+      "fajr": "05:17",
+      "sunrise": "06:51",
+      "dhuhr": "13:54",
+      "asr": "17:16",
+      "maghrib": "20:49",
+      "isha": "22:10"
+    },
+    {
+      "city": "smara",
+      "date": "2026-06-25",
+      "fajr": "05:17",
+      "sunrise": "06:51",
+      "dhuhr": "13:54",
+      "asr": "17:16",
+      "maghrib": "20:49",
+      "isha": "22:10"
+    },
+    {
+      "city": "smara",
+      "date": "2026-06-26",
+      "fajr": "05:17",
+      "sunrise": "06:51",
+      "dhuhr": "13:55",
+      "asr": "17:17",
+      "maghrib": "20:49",
+      "isha": "22:10"
+    },
+    {
+      "city": "smara",
+      "date": "2026-06-27",
+      "fajr": "05:18",
+      "sunrise": "06:51",
+      "dhuhr": "13:55",
+      "asr": "17:17",
+      "maghrib": "20:49",
+      "isha": "22:10"
+    },
+    {
+      "city": "smara",
+      "date": "2026-06-28",
+      "fajr": "05:18",
+      "sunrise": "06:52",
+      "dhuhr": "13:55",
+      "asr": "17:17",
+      "maghrib": "20:49",
+      "isha": "22:10"
+    },
+    {
+      "city": "smara",
+      "date": "2026-06-29",
+      "fajr": "05:18",
+      "sunrise": "06:52",
+      "dhuhr": "13:55",
+      "asr": "17:17",
+      "maghrib": "20:49",
+      "isha": "22:10"
+    },
+    {
+      "city": "smara",
+      "date": "2026-06-30",
+      "fajr": "05:19",
+      "sunrise": "06:52",
+      "dhuhr": "13:55",
+      "asr": "17:18",
+      "maghrib": "20:49",
+      "isha": "22:10"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-01",
+      "fajr": "05:19",
+      "sunrise": "06:53",
+      "dhuhr": "13:56",
+      "asr": "17:18",
+      "maghrib": "20:49",
+      "isha": "22:10"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-02",
+      "fajr": "05:20",
+      "sunrise": "06:53",
+      "dhuhr": "13:56",
+      "asr": "17:18",
+      "maghrib": "20:49",
+      "isha": "22:10"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-03",
+      "fajr": "05:20",
+      "sunrise": "06:54",
+      "dhuhr": "13:56",
+      "asr": "17:18",
+      "maghrib": "20:49",
+      "isha": "22:10"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-04",
+      "fajr": "05:21",
+      "sunrise": "06:54",
+      "dhuhr": "13:56",
+      "asr": "17:19",
+      "maghrib": "20:49",
+      "isha": "22:10"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-05",
+      "fajr": "05:21",
+      "sunrise": "06:54",
+      "dhuhr": "13:56",
+      "asr": "17:19",
+      "maghrib": "20:49",
+      "isha": "22:09"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-06",
+      "fajr": "05:22",
+      "sunrise": "06:55",
+      "dhuhr": "13:57",
+      "asr": "17:19",
+      "maghrib": "20:49",
+      "isha": "22:09"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-07",
+      "fajr": "05:22",
+      "sunrise": "06:55",
+      "dhuhr": "13:57",
+      "asr": "17:19",
+      "maghrib": "20:49",
+      "isha": "22:09"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-08",
+      "fajr": "05:23",
+      "sunrise": "06:56",
+      "dhuhr": "13:57",
+      "asr": "17:20",
+      "maghrib": "20:49",
+      "isha": "22:09"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-09",
+      "fajr": "05:24",
+      "sunrise": "06:56",
+      "dhuhr": "13:57",
+      "asr": "17:20",
+      "maghrib": "20:49",
+      "isha": "22:08"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-10",
+      "fajr": "05:24",
+      "sunrise": "06:56",
+      "dhuhr": "13:57",
+      "asr": "17:20",
+      "maghrib": "20:49",
+      "isha": "22:08"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-11",
+      "fajr": "05:25",
+      "sunrise": "06:57",
+      "dhuhr": "13:57",
+      "asr": "17:20",
+      "maghrib": "20:48",
+      "isha": "22:08"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-12",
+      "fajr": "05:25",
+      "sunrise": "06:57",
+      "dhuhr": "13:57",
+      "asr": "17:21",
+      "maghrib": "20:48",
+      "isha": "22:07"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-13",
+      "fajr": "05:26",
+      "sunrise": "06:58",
+      "dhuhr": "13:58",
+      "asr": "17:21",
+      "maghrib": "20:48",
+      "isha": "22:07"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-14",
+      "fajr": "05:27",
+      "sunrise": "06:58",
+      "dhuhr": "13:58",
+      "asr": "17:21",
+      "maghrib": "20:48",
+      "isha": "22:07"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-15",
+      "fajr": "05:27",
+      "sunrise": "06:59",
+      "dhuhr": "13:58",
+      "asr": "17:21",
+      "maghrib": "20:47",
+      "isha": "22:06"
+    },
+    {
+      "city": "smara",
+      "date": "2026-07-16",
+      "fajr": "05:28",
+      "sunrise": "06:59",
+      "dhuhr": "13:58",
+      "asr": "17:21",
+      "maghrib": "20:47",
+      "isha": "22:06"
+    }
+  ]
+}

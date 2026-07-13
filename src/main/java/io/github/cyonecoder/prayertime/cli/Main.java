@@ -606,8 +606,7 @@ public final class Main {
         if (!provider.supports(city.id())) {
             throw new CliException("no sec-approach offsets for city '" + city.id() + "'");
         }
-        var official = new io.github.cyonecoder.prayertime.application.provider
-                .HabousOfficialPrayerTimesProvider();
+        var official = new SecApproachOfficial();
         if (flags.containsKey("date")) {
             secaproachDay(out, provider, official, city, requireDate(flags, "date"), seconds);
         } else {
@@ -618,13 +617,18 @@ public final class Main {
                 secaproachTable(out, provider, official, city, dates, seconds);
             }
         }
+        if (official.usedResearchOracle()) {
+            out.println();
+            out.println("(vs official uses the off-classpath research oracle for this city; "
+                    + "official data is not bundled into production)");
+        }
     }
 
     /** Per-day official − sec-approach difference table (minutes, or seconds). */
     private void secaproachDiffTable(
             PrintStream out,
             io.github.cyonecoder.prayertime.application.provider.SecondsApproachPrayerTimesProvider provider,
-            io.github.cyonecoder.prayertime.application.provider.HabousOfficialPrayerTimesProvider official,
+            SecApproachOfficial official,
             City city, List<LocalDate> dates, boolean seconds) {
         String unit = seconds ? "seconds" : "minutes";
         out.println("City:        " + city.displayName() + " (" + city.id() + ")");
@@ -709,7 +713,7 @@ public final class Main {
     private void secaproachDay(
             PrintStream out,
             io.github.cyonecoder.prayertime.application.provider.SecondsApproachPrayerTimesProvider provider,
-            io.github.cyonecoder.prayertime.application.provider.HabousOfficialPrayerTimesProvider official,
+            SecApproachOfficial official,
             City city, LocalDate date, boolean seconds) {
         out.println("City:        " + city.displayName() + " (" + city.id() + ")");
         out.println("Subject:     " + date);
@@ -746,7 +750,7 @@ public final class Main {
     private void secaproachTable(
             PrintStream out,
             io.github.cyonecoder.prayertime.application.provider.SecondsApproachPrayerTimesProvider provider,
-            io.github.cyonecoder.prayertime.application.provider.HabousOfficialPrayerTimesProvider official,
+            SecApproachOfficial official,
             City city, List<LocalDate> dates, boolean seconds) {
         DateTimeFormatter fmt = seconds ? HMS : HM;
         int w = seconds ? 8 : 6;
@@ -809,6 +813,64 @@ public final class Main {
 
     private static int minuteOf(java.time.LocalTime t) {
         return t.getHour() * 60 + t.getMinute();
+    }
+
+    /**
+     * Resolves official Habous times for the sec-approach diagnostic: the bundled
+     * production snapshots first, then the off-classpath research oracle
+     * ({@code research-data/habous} and {@code research-data/habous-candidates}).
+     *
+     * <p>The research oracle is used <strong>only</strong> for this local
+     * diagnostic comparison; it is never served as production output and is
+     * absent from a packaged jar (in which case the diagnostic simply shows no
+     * comparison for cities without a bundled snapshot).
+     */
+    private static final class SecApproachOfficial {
+        private final io.github.cyonecoder.prayertime.application.provider
+                .HabousOfficialPrayerTimesProvider production =
+                new io.github.cyonecoder.prayertime.application.provider
+                        .HabousOfficialPrayerTimesProvider();
+        private final Map<String, Map<LocalDate, PrayerTimes>> research = loadResearch();
+        private boolean usedResearch;
+
+        Optional<PrayerTimes> officialTimes(String cityId, LocalDate date) {
+            Optional<PrayerTimes> bundled = production.officialTimes(cityId, date);
+            if (bundled.isPresent()) {
+                return bundled;
+            }
+            Map<LocalDate, PrayerTimes> byDate = research.get(cityId.toLowerCase(Locale.ROOT));
+            if (byDate != null && byDate.containsKey(date)) {
+                usedResearch = true;
+                return Optional.of(byDate.get(date));
+            }
+            return Optional.empty();
+        }
+
+        /** @return whether any served comparison came from the research oracle. */
+        boolean usedResearchOracle() {
+            return usedResearch;
+        }
+
+        private static Map<String, Map<LocalDate, PrayerTimes>> loadResearch() {
+            Map<String, Map<LocalDate, PrayerTimes>> out = new java.util.HashMap<>();
+            for (String dir : new String[] {"research-data/habous", "research-data/habous-candidates"}) {
+                java.nio.file.Path path = java.nio.file.Path.of(dir);
+                if (!java.nio.file.Files.isDirectory(path)) {
+                    continue;
+                }
+                try {
+                    for (var o : io.github.cyonecoder.prayertime.audit.optimization
+                            .ReferenceDataset.load(path).observations()) {
+                        out.computeIfAbsent(o.city(), k -> new java.util.HashMap<>())
+                                .put(o.date(), new PrayerTimes(o.date(), o.fajr(), o.sunrise(),
+                                        o.dhuhr(), o.asr(), o.maghrib(), o.isha()));
+                    }
+                } catch (RuntimeException e) {
+                    // Research data absent or unreadable: no diagnostic comparison.
+                }
+            }
+            return out;
+        }
     }
 
     /**

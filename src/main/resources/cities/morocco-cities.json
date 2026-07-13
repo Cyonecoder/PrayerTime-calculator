@@ -149,6 +149,526 @@
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
       "aliases": ["ouarzazate"]
+    },
+    {
+      "slug": "al-hoceima",
+      "displayName": "Al Hoceima",
+      "latitude": 35.2517,
+      "longitude": -3.9372,
+      "elevationMeters": 76,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["al-hoceima", "al hoceima", "الحسيمة"]
+    },
+    {
+      "slug": "assilah",
+      "displayName": "Assilah",
+      "latitude": 35.465,
+      "longitude": -6.0347,
+      "elevationMeters": 15,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["assilah", "asilah", "أصيلة"]
+    },
+    {
+      "slug": "azrou",
+      "displayName": "Azrou",
+      "latitude": 33.4342,
+      "longitude": -5.2214,
+      "elevationMeters": 1250,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["azrou", "أزرو"]
+    },
+    {
+      "slug": "beni-mellal",
+      "displayName": "Beni Mellal",
+      "latitude": 32.3373,
+      "longitude": -6.3498,
+      "elevationMeters": 626,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["beni-mellal", "beni mellal", "بني ملال"]
+    },
+    {
+      "slug": "benslimane",
+      "displayName": "Benslimane",
+      "latitude": 33.6128,
+      "longitude": -7.1211,
+      "elevationMeters": 200,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["benslimane", "ben slimane", "بن سليمان"]
+    },
+    {
+      "slug": "berkane",
+      "displayName": "Berkane",
+      "latitude": 34.92,
+      "longitude": -2.32,
+      "elevationMeters": 172,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["berkane", "بركان"]
+    },
+    {
+      "slug": "berrechid",
+      "displayName": "Berrechid",
+      "latitude": 33.2655,
+      "longitude": -7.5872,
+      "elevationMeters": 190,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["berrechid", "برشيد"]
+    },
+    {
+      "slug": "boujdour",
+      "displayName": "Boujdour",
+      "latitude": 26.1265,
+      "longitude": -14.4842,
+      "elevationMeters": 20,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["boujdour", "بوجدور"]
+    },
+    {
+      "slug": "bouskoura",
+      "displayName": "Bouskoura",
+      "latitude": 33.45,
+      "longitude": -7.65,
+      "elevationMeters": 120,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["bouskoura", "بوسكورة"]
+    },
+    {
+      "slug": "bouznika",
+      "displayName": "Bouznika",
+      "latitude": 33.7897,
+      "longitude": -7.1592,
+      "elevationMeters": 25,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["bouznika", "بوزنيقة"]
+    },
+    {
+      "slug": "chefchaouen",
+      "displayName": "Chefchaouen",
+      "latitude": 35.1688,
+      "longitude": -5.2636,
+      "elevationMeters": 564,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["chefchaouen", "chefchaouan", "chaouen", "شفشاون"]
+    },
+    {
+      "slug": "el-hajeb",
+      "displayName": "El Hajeb",
+      "latitude": 33.6928,
+      "longitude": -5.3706,
+      "elevationMeters": 1058,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["el-hajeb", "el hajeb", "الحاجب"]
+    },
+    {
+      "slug": "el-jadida",
+      "displayName": "El Jadida",
+      "latitude": 33.2316,
+      "longitude": -8.5007,
+      "elevationMeters": 15,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["el-jadida", "el jadida", "الجديدة"]
+    },
+    {
+      "slug": "essaouira",
+      "displayName": "Essaouira",
+      "latitude": 31.5085,
+      "longitude": -9.7595,
+      "elevationMeters": 10,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["essaouira", "الصويرة"]
+    },
+    {
+      "slug": "smara",
+      "displayName": "Smara",
+      "latitude": 26.7384,
+      "longitude": -11.6719,
+      "elevationMeters": 300,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["smara", "es smara", "السمارة"]
+    },
+    {
+      "slug": "fkih-ben-salah",
+      "displayName": "Fkih Ben Salah",
+      "latitude": 32.5,
+      "longitude": -6.69,
+      "elevationMeters": 405,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["fkih-ben-salah", "fkih ben salah", "fquih ben salah", "الفقيه بن صالح"]
+    },
+    {
+      "slug": "guelmim",
+      "displayName": "Guelmim",
+      "latitude": 28.987,
+      "longitude": -10.0574,
+      "elevationMeters": 300,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["guelmim", "goulimine", "كلميم"]
+    },
+    {
+      "slug": "guercif",
+      "displayName": "Guercif",
+      "latitude": 34.226,
+      "longitude": -3.353,
+      "elevationMeters": 350,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["guercif", "كرسيف", "جرسيف"]
+    },
+    {
+      "slug": "ifrane",
+      "displayName": "Ifrane",
+      "latitude": 33.5228,
+      "longitude": -5.1106,
+      "elevationMeters": 1665,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["ifrane", "يفرن", "إفران"]
+    },
+    {
+      "slug": "kabila",
+      "displayName": "Kabila",
+      "latitude": 35.69,
+      "longitude": -5.31,
+      "elevationMeters": 20,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["kabila", "كابيلا"]
+    },
+    {
+      "slug": "khenifra",
+      "displayName": "Khenifra",
+      "latitude": 32.9394,
+      "longitude": -5.6683,
+      "elevationMeters": 830,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["khenifra", "خنيفرة"]
+    },
+    {
+      "slug": "khemisset",
+      "displayName": "Khemisset",
+      "latitude": 33.8242,
+      "longitude": -6.0658,
+      "elevationMeters": 480,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["khemisset", "الخميسات"]
+    },
+    {
+      "slug": "khouribga",
+      "displayName": "Khouribga",
+      "latitude": 32.8811,
+      "longitude": -6.9063,
+      "elevationMeters": 800,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["khouribga", "خريبكة"]
+    },
+    {
+      "slug": "ksar-el-kebir",
+      "displayName": "Ksar El Kebir",
+      "latitude": 35.0014,
+      "longitude": -5.9006,
+      "elevationMeters": 15,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["ksar-el-kebir", "ksar el kebir", "ksar-el-kbir", "القصر الكبير"]
+    },
+    {
+      "slug": "larache",
+      "displayName": "Larache",
+      "latitude": 35.1932,
+      "longitude": -6.1557,
+      "elevationMeters": 20,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["larache", "العرائش"]
+    },
+    {
+      "slug": "martil",
+      "displayName": "Martil",
+      "latitude": 35.6167,
+      "longitude": -5.275,
+      "elevationMeters": 5,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["martil", "مرتيل"]
+    },
+    {
+      "slug": "melilia",
+      "displayName": "Melilia",
+      "latitude": 35.2923,
+      "longitude": -2.9381,
+      "elevationMeters": 30,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["melilia", "melilla", "مليلية"]
+    },
+    {
+      "slug": "midelt",
+      "displayName": "Midelt",
+      "latitude": 32.68,
+      "longitude": -4.735,
+      "elevationMeters": 1508,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["midelt", "ميدلت"]
+    },
+    {
+      "slug": "mohammedia",
+      "displayName": "Mohammedia",
+      "latitude": 33.6861,
+      "longitude": -7.3829,
+      "elevationMeters": 20,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["mohammedia", "المحمدية"]
+    },
+    {
+      "slug": "nador",
+      "displayName": "Nador",
+      "latitude": 35.1681,
+      "longitude": -2.9287,
+      "elevationMeters": 20,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["nador", "الناظور"]
+    },
+    {
+      "slug": "oualidia",
+      "displayName": "Oualidia",
+      "latitude": 32.7378,
+      "longitude": -9.03,
+      "elevationMeters": 10,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["oualidia", "الوليدية", "الوالدية"]
+    },
+    {
+      "slug": "ouazzane",
+      "displayName": "Ouazzane",
+      "latitude": 34.7936,
+      "longitude": -5.5847,
+      "elevationMeters": 300,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["ouazzane", "wazzan", "وزان"]
+    },
+    {
+      "slug": "safi",
+      "displayName": "Safi",
+      "latitude": 32.2994,
+      "longitude": -9.2372,
+      "elevationMeters": 40,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["safi", "asfi", "آسَفي", "آسفي"]
+    },
+    {
+      "slug": "saidia",
+      "displayName": "Saidia",
+      "latitude": 35.0847,
+      "longitude": -2.2333,
+      "elevationMeters": 5,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["saidia", "saïdia", "السعيدية"]
+    },
+    {
+      "slug": "sebta",
+      "displayName": "Sebta",
+      "latitude": 35.8894,
+      "longitude": -5.3213,
+      "elevationMeters": 30,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["sebta", "ceuta", "سبتة"]
+    },
+    {
+      "slug": "sefrou",
+      "displayName": "Sefrou",
+      "latitude": 33.8306,
+      "longitude": -4.829,
+      "elevationMeters": 850,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["sefrou", "صفرو"]
+    },
+    {
+      "slug": "settat",
+      "displayName": "Settat",
+      "latitude": 33.0011,
+      "longitude": -7.6166,
+      "elevationMeters": 370,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["settat", "سطات"]
+    },
+    {
+      "slug": "sidi-bennour",
+      "displayName": "Sidi Bennour",
+      "latitude": 32.6522,
+      "longitude": -8.4267,
+      "elevationMeters": 180,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["sidi-bennour", "sidi bennour", "سيدي بنور"]
+    },
+    {
+      "slug": "sidi-ifni",
+      "displayName": "Sidi Ifni",
+      "latitude": 29.3797,
+      "longitude": -10.173,
+      "elevationMeters": 60,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["sidi-ifni", "sidi ifni", "سيدي إفني"]
+    },
+    {
+      "slug": "sidi-kacem",
+      "displayName": "Sidi Kacem",
+      "latitude": 34.2214,
+      "longitude": -5.7086,
+      "elevationMeters": 60,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["sidi-kacem", "sidi kacem", "سيدي قاسم"]
+    },
+    {
+      "slug": "sidi-rahal",
+      "displayName": "Sidi Rahal",
+      "latitude": 31.65,
+      "longitude": -7.4667,
+      "elevationMeters": 400,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["sidi-rahal", "sidi rahal", "سيدي رحال"]
+    },
+    {
+      "slug": "sidi-slimane",
+      "displayName": "Sidi Slimane",
+      "latitude": 34.265,
+      "longitude": -5.9264,
+      "elevationMeters": 45,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["sidi-slimane", "sidi slimane", "سيدي سليمان"]
+    },
+    {
+      "slug": "tamansourt",
+      "displayName": "Tamansourt",
+      "latitude": 31.75,
+      "longitude": -8.1167,
+      "elevationMeters": 450,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["tamansourt", "tamensourte", "تامنصورت"]
+    },
+    {
+      "slug": "tamesna",
+      "displayName": "Tamesna",
+      "latitude": 33.8,
+      "longitude": -6.75,
+      "elevationMeters": 200,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["tamesna", "تامسنا"]
+    },
+    {
+      "slug": "tan-tan",
+      "displayName": "Tan-Tan",
+      "latitude": 28.438,
+      "longitude": -11.103,
+      "elevationMeters": 60,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["tan-tan", "tantan", "طانطان"]
+    },
+    {
+      "slug": "tarfaya",
+      "displayName": "Tarfaya",
+      "latitude": 27.9385,
+      "longitude": -12.926,
+      "elevationMeters": 5,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["tarfaya", "طرفاية"]
+    },
+    {
+      "slug": "taroudant",
+      "displayName": "Taroudant",
+      "latitude": 30.4703,
+      "longitude": -8.8766,
+      "elevationMeters": 250,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["taroudant", "تارودانت"]
+    },
+    {
+      "slug": "taza",
+      "displayName": "Taza",
+      "latitude": 34.21,
+      "longitude": -4.01,
+      "elevationMeters": 585,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["taza", "تازة"]
+    },
+    {
+      "slug": "temara",
+      "displayName": "Temara",
+      "latitude": 33.9287,
+      "longitude": -6.9067,
+      "elevationMeters": 60,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["temara", "تمارة"]
+    },
+    {
+      "slug": "tiflet",
+      "displayName": "Tiflet",
+      "latitude": 33.8951,
+      "longitude": -6.3067,
+      "elevationMeters": 220,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["tiflet", "تيفلت"]
+    },
+    {
+      "slug": "tinghir",
+      "displayName": "Tinghir",
+      "latitude": 31.5147,
+      "longitude": -5.5326,
+      "elevationMeters": 1342,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["tinghir", "tinerhir", "تنغير"]
+    },
+    {
+      "slug": "tiznit",
+      "displayName": "Tiznit",
+      "latitude": 29.6974,
+      "longitude": -9.7316,
+      "elevationMeters": 220,
+      "zoneId": "Africa/Casablanca",
+      "habousCityId": null,
+      "aliases": ["tiznit", "تزنيت"]
     }
   ]
 }

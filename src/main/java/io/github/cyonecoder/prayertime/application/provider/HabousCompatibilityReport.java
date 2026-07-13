@@ -116,7 +116,9 @@ public final class HabousCompatibilityReport {
             }
         }
 
-        List<String> mapped = new ArrayList<>(new TreeSet<>(mapping.mappedCityIds()));
+        // Production OFFICIAL coverage is measured against the hand-verified set;
+        // research-only (verified=false) mappings have no bundled production snapshot.
+        List<String> mapped = new ArrayList<>(new TreeSet<>(mapping.verifiedCityIds()));
         List<String> supported = store.supportedCityIds();
         List<String> gap = new ArrayList<>();
         for (String c : mapped) {

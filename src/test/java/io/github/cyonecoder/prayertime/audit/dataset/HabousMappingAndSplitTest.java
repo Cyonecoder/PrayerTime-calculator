@@ -14,8 +14,13 @@ class HabousMappingAndSplitTest {
                 .contains("casablanca", "rabat", "tangier", "oujda", "marrakech", "agadir",
                         "errachidia", "laayoune", "dakhla", "fez", "meknes", "tetouan",
                         "kenitra", "ouarzazate");
-        // Ifrane has no application city, so it is deliberately unmapped.
-        assertThat(mapping.forCity("ifrane")).isEmpty();
+        // Ifrane now exists as an application city and maps to its ville id (يفرن).
+        assertThat(mapping.forCity("ifrane").orElseThrow().habousCityId()).isEqualTo("100");
+        // Seven candidate cities have no dedicated Habous page and stay unmapped
+        // (no fallback): kabila, sale, sidi-rahal, tamansourt, tamesna, temara, bouskoura.
+        assertThat(mapping.forCity("sale")).isEmpty();
+        assertThat(mapping.forCity("temara")).isEmpty();
+        assertThat(mapping.forCity("bouskoura")).isEmpty();
         // Arabic name is preserved intact, and the verified cities carry their
         // real numeric Habous ville id.
         assertThat(mapping.forCity("casablanca").orElseThrow().habousArabicName())
@@ -30,11 +35,15 @@ class HabousMappingAndSplitTest {
         assertThat(mapping.forCity("kenitra").orElseThrow().habousCityId()).isEqualTo("7");
         assertThat(mapping.forCity("ouarzazate").orElseThrow().habousCityId()).isEqualTo("138");
 
-        // Every mapped city now carries a verified numeric ville id.
-        assertThat(mapping.mappedCityIds())
-                .allSatisfy(city -> assertThat(mapping.forCity(city).orElseThrow().verified()).isTrue());
+        // Every mapped city carries a non-blank numeric ville id.
+        assertThat(mapping.mappedCityIds()).allSatisfy(city ->
+                assertThat(mapping.forCity(city).orElseThrow().habousCityId()).isNotBlank());
+        // The 14 original cities are hand-verified; the added candidate cities are
+        // index-matched (verified=false) and confirmed at fetch time instead.
         assertThat(mapping.forCity("casablanca").orElseThrow().verified()).isTrue();
         assertThat(mapping.forCity("tangier").orElseThrow().verified()).isTrue();
+        assertThat(mapping.forCity("safi").orElseThrow().verified()).isFalse();
+        assertThat(mapping.forCity("safi").orElseThrow().habousCityId()).isEqualTo("111");
     }
 
     @Test

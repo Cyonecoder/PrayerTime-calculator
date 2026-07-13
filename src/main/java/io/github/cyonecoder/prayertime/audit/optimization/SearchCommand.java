@@ -4,6 +4,7 @@ import io.github.cyonecoder.prayertime.audit.dataset.HabousDatasetCommand;
 import io.github.cyonecoder.prayertime.audit.optimization.ParameterSearchService.PrayerSearchResult;
 import io.github.cyonecoder.prayertime.audit.optimization.PrayerParameterSearch.CombinedResult;
 import io.github.cyonecoder.prayertime.domain.model.Prayer;
+import io.github.cyonecoder.prayertime.infrastructure.city.MoroccoCityRegistry;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.UncheckedIOException;
@@ -82,6 +83,8 @@ public final class SearchCommand {
                 case "rank-candidates" -> rankCandidates(flags, out);
                 case "fetch-habous" -> new HabousDatasetCommand().fetch(flags, out);
                 case "fetch-habous-live" -> new HabousDatasetCommand().fetchLive(flags, out);
+                case "fit-secaproach" -> new SecondsApproachFitCommand(
+                        new MoroccoCityRegistry(), engine).run(flags, out);
                 case "dataset-coverage" -> new HabousDatasetCommand().coverage(flags, out);
                 case "infer-global-model" ->
                         new io.github.cyonecoder.prayertime.audit.model.GlobalModelCommand(
@@ -394,5 +397,7 @@ public final class SearchCommand {
         out.println("  research infer-global-model --dataset <dir> [--output dir]");
         out.println("  research fetch-habous-live --cities <all-mapped|a,b> "
                 + "[--output dir] [--delay-seconds n]");
+        out.println("  research fit-secaproach --dataset <dir> "
+                + "[--cities a,b] [--output file] [--min-exact 0.95]");
     }
 }

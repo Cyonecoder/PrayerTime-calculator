@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "tarfaya",
+  "habousVilleId": "159",
+  "habousArabicName": "طرفاية",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=159",
+  "fetchedAt": "2026-07-13T12:56:01.201396Z",
+  "sourceSha256": "ed9062984c985beb2a4e74dc68e14e76c33d719e154f1c0519058218a051d850",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "tarfaya",
+      "date": "2026-06-17",
+      "fajr": "05:16",
+      "sunrise": "06:53",
+      "dhuhr": "13:58",
+      "asr": "17:23",
+      "maghrib": "20:54",
+      "isha": "22:17"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-06-18",
+      "fajr": "05:16",
+      "sunrise": "06:53",
+      "dhuhr": "13:58",
+      "asr": "17:23",
+      "maghrib": "20:54",
+      "isha": "22:18"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-06-19",
+      "fajr": "05:16",
+      "sunrise": "06:53",
+      "dhuhr": "13:58",
+      "asr": "17:23",
+      "maghrib": "20:54",
+      "isha": "22:18"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-06-20",
+      "fajr": "05:16",
+      "sunrise": "06:53",
+      "dhuhr": "13:58",
+      "asr": "17:23",
+      "maghrib": "20:55",
+      "isha": "22:18"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-06-21",
+      "fajr": "05:16",
+      "sunrise": "06:53",
+      "dhuhr": "13:59",
+      "asr": "17:24",
+      "maghrib": "20:55",
+      "isha": "22:18"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-06-22",
+      "fajr": "05:17",
+      "sunrise": "06:54",
+      "dhuhr": "13:59",
+      "asr": "17:24",
+      "maghrib": "20:55",
+      "isha": "22:19"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-06-23",
+      "fajr": "05:17",
+      "sunrise": "06:54",
+      "dhuhr": "13:59",
+      "asr": "17:24",
+      "maghrib": "20:55",
+      "isha": "22:19"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-06-24",
+      "fajr": "05:17",
+      "sunrise": "06:54",
+      "dhuhr": "13:59",
+      "asr": "17:24",
+      "maghrib": "20:55",
+      "isha": "22:19"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-06-25",
+      "fajr": "05:17",
+      "sunrise": "06:54",
+      "dhuhr": "13:59",
+      "asr": "17:25",
+      "maghrib": "20:55",
+      "isha": "22:19"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-06-26",
+      "fajr": "05:18",
+      "sunrise": "06:55",
+      "dhuhr": "14:00",
+      "asr": "17:25",
+      "maghrib": "20:56",
+      "isha": "22:19"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-06-27",
+      "fajr": "05:18",
+      "sunrise": "06:55",
+      "dhuhr": "14:00",
+      "asr": "17:25",
+      "maghrib": "20:56",
+      "isha": "22:19"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-06-28",
+      "fajr": "05:19",
+      "sunrise": "06:55",
+      "dhuhr": "14:00",
+      "asr": "17:25",
+      "maghrib": "20:56",
+      "isha": "22:19"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-06-29",
+      "fajr": "05:19",
+      "sunrise": "06:56",
+      "dhuhr": "14:00",
+      "asr": "17:26",
+      "maghrib": "20:56",
+      "isha": "22:19"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-06-30",
+      "fajr": "05:19",
+      "sunrise": "06:56",
+      "dhuhr": "14:00",
+      "asr": "17:26",
+      "maghrib": "20:56",
+      "isha": "22:19"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-01",
+      "fajr": "05:20",
+      "sunrise": "06:56",
+      "dhuhr": "14:01",
+      "asr": "17:26",
+      "maghrib": "20:56",
+      "isha": "22:19"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-02",
+      "fajr": "05:20",
+      "sunrise": "06:57",
+      "dhuhr": "14:01",
+      "asr": "17:26",
+      "maghrib": "20:56",
+      "isha": "22:19"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-03",
+      "fajr": "05:21",
+      "sunrise": "06:57",
+      "dhuhr": "14:01",
+      "asr": "17:26",
+      "maghrib": "20:56",
+      "isha": "22:19"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-04",
+      "fajr": "05:21",
+      "sunrise": "06:57",
+      "dhuhr": "14:01",
+      "asr": "17:27",
+      "maghrib": "20:56",
+      "isha": "22:19"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-05",
+      "fajr": "05:22",
+      "sunrise": "06:58",
+      "dhuhr": "14:01",
+      "asr": "17:27",
+      "maghrib": "20:56",
+      "isha": "22:18"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-06",
+      "fajr": "05:22",
+      "sunrise": "06:58",
+      "dhuhr": "14:02",
+      "asr": "17:27",
+      "maghrib": "20:56",
+      "isha": "22:18"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-07",
+      "fajr": "05:23",
+      "sunrise": "06:59",
+      "dhuhr": "14:02",
+      "asr": "17:27",
+      "maghrib": "20:55",
+      "isha": "22:18"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-08",
+      "fajr": "05:24",
+      "sunrise": "06:59",
+      "dhuhr": "14:02",
+      "asr": "17:28",
+      "maghrib": "20:55",
+      "isha": "22:18"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-09",
+      "fajr": "05:24",
+      "sunrise": "07:00",
+      "dhuhr": "14:02",
+      "asr": "17:28",
+      "maghrib": "20:55",
+      "isha": "22:17"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-10",
+      "fajr": "05:25",
+      "sunrise": "07:00",
+      "dhuhr": "14:02",
+      "asr": "17:28",
+      "maghrib": "20:55",
+      "isha": "22:17"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-11",
+      "fajr": "05:26",
+      "sunrise": "07:01",
+      "dhuhr": "14:02",
+      "asr": "17:28",
+      "maghrib": "20:55",
+      "isha": "22:17"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-12",
+      "fajr": "05:26",
+      "sunrise": "07:01",
+      "dhuhr": "14:02",
+      "asr": "17:29",
+      "maghrib": "20:55",
+      "isha": "22:16"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-13",
+      "fajr": "05:27",
+      "sunrise": "07:02",
+      "dhuhr": "14:03",
+      "asr": "17:29",
+      "maghrib": "20:54",
+      "isha": "22:16"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-14",
+      "fajr": "05:28",
+      "sunrise": "07:02",
+      "dhuhr": "14:03",
+      "asr": "17:29",
+      "maghrib": "20:54",
+      "isha": "22:15"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-15",
+      "fajr": "05:28",
+      "sunrise": "07:03",
+      "dhuhr": "14:03",
+      "asr": "17:29",
+      "maghrib": "20:54",
+      "isha": "22:15"
+    },
+    {
+      "city": "tarfaya",
+      "date": "2026-07-16",
+      "fajr": "05:29",
+      "sunrise": "07:03",
+      "dhuhr": "14:03",
+      "asr": "17:29",
+      "maghrib": "20:53",
+      "isha": "22:14"
+    }
+  ]
+}

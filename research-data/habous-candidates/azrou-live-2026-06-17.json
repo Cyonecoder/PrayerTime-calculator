@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "azrou",
+  "habousVilleId": "103",
+  "habousArabicName": "آزرو",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=103",
+  "fetchedAt": "2026-07-13T12:55:21.626770Z",
+  "sourceSha256": "d8ccac60f79b8dfd3a7f0dbb975547814fd8bdd2bd78f5aceaa5bdadaa05c0b5",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "azrou",
+      "date": "2026-06-17",
+      "fajr": "04:20",
+      "sunrise": "06:03",
+      "dhuhr": "13:27",
+      "asr": "17:06",
+      "maghrib": "20:41",
+      "isha": "22:09"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-06-18",
+      "fajr": "04:20",
+      "sunrise": "06:03",
+      "dhuhr": "13:27",
+      "asr": "17:06",
+      "maghrib": "20:41",
+      "isha": "22:10"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-06-19",
+      "fajr": "04:20",
+      "sunrise": "06:03",
+      "dhuhr": "13:27",
+      "asr": "17:06",
+      "maghrib": "20:42",
+      "isha": "22:10"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-06-20",
+      "fajr": "04:21",
+      "sunrise": "06:04",
+      "dhuhr": "13:28",
+      "asr": "17:07",
+      "maghrib": "20:42",
+      "isha": "22:10"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-06-21",
+      "fajr": "04:21",
+      "sunrise": "06:04",
+      "dhuhr": "13:28",
+      "asr": "17:07",
+      "maghrib": "20:42",
+      "isha": "22:11"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-06-22",
+      "fajr": "04:21",
+      "sunrise": "06:04",
+      "dhuhr": "13:28",
+      "asr": "17:07",
+      "maghrib": "20:42",
+      "isha": "22:11"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-06-23",
+      "fajr": "04:21",
+      "sunrise": "06:04",
+      "dhuhr": "13:28",
+      "asr": "17:07",
+      "maghrib": "20:42",
+      "isha": "22:11"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-06-24",
+      "fajr": "04:22",
+      "sunrise": "06:04",
+      "dhuhr": "13:28",
+      "asr": "17:07",
+      "maghrib": "20:43",
+      "isha": "22:11"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-06-25",
+      "fajr": "04:22",
+      "sunrise": "06:05",
+      "dhuhr": "13:29",
+      "asr": "17:08",
+      "maghrib": "20:43",
+      "isha": "22:11"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-06-26",
+      "fajr": "04:22",
+      "sunrise": "06:05",
+      "dhuhr": "13:29",
+      "asr": "17:08",
+      "maghrib": "20:43",
+      "isha": "22:11"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-06-27",
+      "fajr": "04:23",
+      "sunrise": "06:05",
+      "dhuhr": "13:29",
+      "asr": "17:08",
+      "maghrib": "20:43",
+      "isha": "22:11"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-06-28",
+      "fajr": "04:23",
+      "sunrise": "06:06",
+      "dhuhr": "13:29",
+      "asr": "17:08",
+      "maghrib": "20:43",
+      "isha": "22:11"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-06-29",
+      "fajr": "04:24",
+      "sunrise": "06:06",
+      "dhuhr": "13:29",
+      "asr": "17:08",
+      "maghrib": "20:43",
+      "isha": "22:11"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-06-30",
+      "fajr": "04:24",
+      "sunrise": "06:07",
+      "dhuhr": "13:30",
+      "asr": "17:09",
+      "maghrib": "20:43",
+      "isha": "22:11"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-01",
+      "fajr": "04:25",
+      "sunrise": "06:07",
+      "dhuhr": "13:30",
+      "asr": "17:09",
+      "maghrib": "20:43",
+      "isha": "22:11"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-02",
+      "fajr": "04:25",
+      "sunrise": "06:07",
+      "dhuhr": "13:30",
+      "asr": "17:09",
+      "maghrib": "20:43",
+      "isha": "22:10"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-03",
+      "fajr": "04:26",
+      "sunrise": "06:08",
+      "dhuhr": "13:30",
+      "asr": "17:09",
+      "maghrib": "20:43",
+      "isha": "22:10"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-04",
+      "fajr": "04:26",
+      "sunrise": "06:08",
+      "dhuhr": "13:30",
+      "asr": "17:09",
+      "maghrib": "20:43",
+      "isha": "22:10"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-05",
+      "fajr": "04:27",
+      "sunrise": "06:09",
+      "dhuhr": "13:31",
+      "asr": "17:10",
+      "maghrib": "20:42",
+      "isha": "22:10"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-06",
+      "fajr": "04:28",
+      "sunrise": "06:09",
+      "dhuhr": "13:31",
+      "asr": "17:10",
+      "maghrib": "20:42",
+      "isha": "22:09"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-07",
+      "fajr": "04:29",
+      "sunrise": "06:10",
+      "dhuhr": "13:31",
+      "asr": "17:10",
+      "maghrib": "20:42",
+      "isha": "22:09"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-08",
+      "fajr": "04:29",
+      "sunrise": "06:10",
+      "dhuhr": "13:31",
+      "asr": "17:10",
+      "maghrib": "20:42",
+      "isha": "22:09"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-09",
+      "fajr": "04:30",
+      "sunrise": "06:11",
+      "dhuhr": "13:31",
+      "asr": "17:10",
+      "maghrib": "20:42",
+      "isha": "22:08"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-10",
+      "fajr": "04:31",
+      "sunrise": "06:11",
+      "dhuhr": "13:31",
+      "asr": "17:10",
+      "maghrib": "20:41",
+      "isha": "22:08"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-11",
+      "fajr": "04:32",
+      "sunrise": "06:12",
+      "dhuhr": "13:31",
+      "asr": "17:10",
+      "maghrib": "20:41",
+      "isha": "22:07"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-12",
+      "fajr": "04:32",
+      "sunrise": "06:13",
+      "dhuhr": "13:32",
+      "asr": "17:11",
+      "maghrib": "20:41",
+      "isha": "22:07"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-13",
+      "fajr": "04:33",
+      "sunrise": "06:13",
+      "dhuhr": "13:32",
+      "asr": "17:11",
+      "maghrib": "20:40",
+      "isha": "22:06"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-14",
+      "fajr": "04:34",
+      "sunrise": "06:14",
+      "dhuhr": "13:32",
+      "asr": "17:11",
+      "maghrib": "20:40",
+      "isha": "22:05"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-15",
+      "fajr": "04:35",
+      "sunrise": "06:14",
+      "dhuhr": "13:32",
+      "asr": "17:11",
+      "maghrib": "20:40",
+      "isha": "22:05"
+    },
+    {
+      "city": "azrou",
+      "date": "2026-07-16",
+      "fajr": "04:36",
+      "sunrise": "06:15",
+      "dhuhr": "13:32",
+      "asr": "17:11",
+      "maghrib": "20:39",
+      "isha": "22:04"
+    }
+  ]
+}

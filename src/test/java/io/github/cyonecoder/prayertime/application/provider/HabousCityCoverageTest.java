@@ -17,8 +17,8 @@ class HabousCityCoverageTest {
     void everyMappedCityHasAValidBundledSnapshot() {
         HabousCityMapping mapping = HabousCityMapping.load();
         assertThat(store.supportedCityIds())
-                .as("official snapshots for all mapped cities")
-                .containsAll(mapping.mappedCityIds());
+                .as("official snapshots for all verified (production-official) cities")
+                .containsAll(mapping.verifiedCityIds());
     }
 
     @Test

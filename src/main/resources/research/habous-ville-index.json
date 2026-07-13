@@ -1,0 +1,772 @@
+{
+  "note": "Reference index of the official Habous 'ville' dropdown: every numeric ville id and its Arabic name, as embedded in the live Habous prayer page. Research/audit input only — it does NOT modify the production city model and does not change production prayer outputs. Use it to map an application city slug to its Habous ville id when onboarding a new city (add the pair to habous-city-mapping.json).",
+  "source": "https://www.habous.gov.ma/prieres/index.php?ville=<id>",
+  "capturedFrom": "src/test/resources/fixtures/habous/horaire-rabat-live-2026-muharram.html",
+  "villeCount": 191,
+  "villes": [
+    {
+      "habousCityId": "1",
+      "habousArabicName": "الرباط"
+    },
+    {
+      "habousCityId": "2",
+      "habousArabicName": "الخميسات"
+    },
+    {
+      "habousCityId": "3",
+      "habousArabicName": "تيفلت"
+    },
+    {
+      "habousCityId": "4",
+      "habousArabicName": "الرماني"
+    },
+    {
+      "habousCityId": "5",
+      "habousArabicName": "والماس"
+    },
+    {
+      "habousCityId": "6",
+      "habousArabicName": "بوزنيقة"
+    },
+    {
+      "habousCityId": "7",
+      "habousArabicName": "القنيطرة"
+    },
+    {
+      "habousCityId": "8",
+      "habousArabicName": "سيدي قاسم"
+    },
+    {
+      "habousCityId": "9",
+      "habousArabicName": "سيدي يحيى الغرب"
+    },
+    {
+      "habousCityId": "10",
+      "habousArabicName": "سيدي سليمان"
+    },
+    {
+      "habousCityId": "11",
+      "habousArabicName": "سوق أربعاء الغرب"
+    },
+    {
+      "habousCityId": "12",
+      "habousArabicName": "عرباوة"
+    },
+    {
+      "habousCityId": "13",
+      "habousArabicName": "مولاي بوسلهام"
+    },
+    {
+      "habousCityId": "14",
+      "habousArabicName": "طنجة"
+    },
+    {
+      "habousCityId": "15",
+      "habousArabicName": "تطوان"
+    },
+    {
+      "habousCityId": "16",
+      "habousArabicName": "العرائش"
+    },
+    {
+      "habousCityId": "17",
+      "habousArabicName": "أصيلة"
+    },
+    {
+      "habousCityId": "18",
+      "habousArabicName": "شفشاون"
+    },
+    {
+      "habousCityId": "19",
+      "habousArabicName": "مرتيل"
+    },
+    {
+      "habousCityId": "20",
+      "habousArabicName": "المضيق"
+    },
+    {
+      "habousCityId": "21",
+      "habousArabicName": "القصر الكبير"
+    },
+    {
+      "habousCityId": "22",
+      "habousArabicName": "القصر الصغير"
+    },
+    {
+      "habousCityId": "23",
+      "habousArabicName": "الحسيمة"
+    },
+    {
+      "habousCityId": "24",
+      "habousArabicName": "سبتة"
+    },
+    {
+      "habousCityId": "25",
+      "habousArabicName": "الفنيدق"
+    },
+    {
+      "habousCityId": "26",
+      "habousArabicName": "الجبهة"
+    },
+    {
+      "habousCityId": "27",
+      "habousArabicName": "واد لاو"
+    },
+    {
+      "habousCityId": "28",
+      "habousArabicName": "باب برد"
+    },
+    {
+      "habousCityId": "29",
+      "habousArabicName": "وزان"
+    },
+    {
+      "habousCityId": "30",
+      "habousArabicName": "بوسكور"
+    },
+    {
+      "habousCityId": "31",
+      "habousArabicName": "وجدة"
+    },
+    {
+      "habousCityId": "32",
+      "habousArabicName": "بركان"
+    },
+    {
+      "habousCityId": "33",
+      "habousArabicName": "فكيك"
+    },
+    {
+      "habousCityId": "34",
+      "habousArabicName": "بوعرفة"
+    },
+    {
+      "habousCityId": "35",
+      "habousArabicName": "كرسيف"
+    },
+    {
+      "habousCityId": "36",
+      "habousArabicName": "جرادة"
+    },
+    {
+      "habousCityId": "37",
+      "habousArabicName": "عين الشعير"
+    },
+    {
+      "habousCityId": "38",
+      "habousArabicName": "تاوريرت"
+    },
+    {
+      "habousCityId": "39",
+      "habousArabicName": "الناظور"
+    },
+    {
+      "habousCityId": "40",
+      "habousArabicName": "مليلية"
+    },
+    {
+      "habousCityId": "41",
+      "habousArabicName": "دبدو"
+    },
+    {
+      "habousCityId": "42",
+      "habousArabicName": "سلوان"
+    },
+    {
+      "habousCityId": "43",
+      "habousArabicName": "بني أنصار"
+    },
+    {
+      "habousCityId": "44",
+      "habousArabicName": "فرخانة"
+    },
+    {
+      "habousCityId": "45",
+      "habousArabicName": "تالسينت"
+    },
+    {
+      "habousCityId": "46",
+      "habousArabicName": "تندرارة"
+    },
+    {
+      "habousCityId": "47",
+      "habousArabicName": "العيون الشرقية"
+    },
+    {
+      "habousCityId": "48",
+      "habousArabicName": "بني ادرار"
+    },
+    {
+      "habousCityId": "49",
+      "habousArabicName": "السعيدية"
+    },
+    {
+      "habousCityId": "50",
+      "habousArabicName": "رأس الماء"
+    },
+    {
+      "habousCityId": "51",
+      "habousArabicName": "تافوغالت"
+    },
+    {
+      "habousCityId": "52",
+      "habousArabicName": "فزوان"
+    },
+    {
+      "habousCityId": "53",
+      "habousArabicName": "أحفير"
+    },
+    {
+      "habousCityId": "54",
+      "habousArabicName": "زايو"
+    },
+    {
+      "habousCityId": "55",
+      "habousArabicName": "دريوش"
+    },
+    {
+      "habousCityId": "56",
+      "habousArabicName": "بني تجيت"
+    },
+    {
+      "habousCityId": "57",
+      "habousArabicName": "بوعنان"
+    },
+    {
+      "habousCityId": "58",
+      "habousArabicName": "الدار البيضاء"
+    },
+    {
+      "habousCityId": "59",
+      "habousArabicName": "المحمدية"
+    },
+    {
+      "habousCityId": "60",
+      "habousArabicName": "بن سليمان"
+    },
+    {
+      "habousCityId": "61",
+      "habousArabicName": "سطات"
+    },
+    {
+      "habousCityId": "62",
+      "habousArabicName": "الكارة"
+    },
+    {
+      "habousCityId": "63",
+      "habousArabicName": "البروج"
+    },
+    {
+      "habousCityId": "64",
+      "habousArabicName": "ابن أحمد"
+    },
+    {
+      "habousCityId": "65",
+      "habousArabicName": "برشيد"
+    },
+    {
+      "habousCityId": "66",
+      "habousArabicName": "الجديدة"
+    },
+    {
+      "habousCityId": "67",
+      "habousArabicName": "أزمور"
+    },
+    {
+      "habousCityId": "68",
+      "habousArabicName": "سيدي بنور"
+    },
+    {
+      "habousCityId": "69",
+      "habousArabicName": "خميس الزمامرة"
+    },
+    {
+      "habousCityId": "70",
+      "habousArabicName": "خنيفرة"
+    },
+    {
+      "habousCityId": "71",
+      "habousArabicName": "مولاي بوعزة"
+    },
+    {
+      "habousCityId": "72",
+      "habousArabicName": "زاوية أحنصال"
+    },
+    {
+      "habousCityId": "73",
+      "habousArabicName": "بني ملال"
+    },
+    {
+      "habousCityId": "74",
+      "habousArabicName": "أزيلال"
+    },
+    {
+      "habousCityId": "75",
+      "habousArabicName": "الفقيه بنصالح"
+    },
+    {
+      "habousCityId": "76",
+      "habousArabicName": "دمنات"
+    },
+    {
+      "habousCityId": "77",
+      "habousArabicName": "القصيبة"
+    },
+    {
+      "habousCityId": "78",
+      "habousArabicName": "قصبة تادلة"
+    },
+    {
+      "habousCityId": "79",
+      "habousArabicName": "خريبكة"
+    },
+    {
+      "habousCityId": "80",
+      "habousArabicName": "وادي زم"
+    },
+    {
+      "habousCityId": "81",
+      "habousArabicName": "فاس"
+    },
+    {
+      "habousCityId": "82",
+      "habousArabicName": "صفرو"
+    },
+    {
+      "habousCityId": "83",
+      "habousArabicName": "مولاي يعقوب"
+    },
+    {
+      "habousCityId": "84",
+      "habousArabicName": "بولمان"
+    },
+    {
+      "habousCityId": "85",
+      "habousArabicName": "ميسور"
+    },
+    {
+      "habousCityId": "86",
+      "habousArabicName": "رباط الخير"
+    },
+    {
+      "habousCityId": "87",
+      "habousArabicName": "المنزل بني يازغة"
+    },
+    {
+      "habousCityId": "88",
+      "habousArabicName": "إموزار كندر"
+    },
+    {
+      "habousCityId": "89",
+      "habousArabicName": "تازة"
+    },
+    {
+      "habousCityId": "90",
+      "habousArabicName": "تاونات"
+    },
+    {
+      "habousCityId": "91",
+      "habousArabicName": "أكنول"
+    },
+    {
+      "habousCityId": "92",
+      "habousArabicName": "تيزي وسلي"
+    },
+    {
+      "habousCityId": "93",
+      "habousArabicName": "بورد"
+    },
+    {
+      "habousCityId": "94",
+      "habousArabicName": "تاهلة"
+    },
+    {
+      "habousCityId": "95",
+      "habousArabicName": "تيسة"
+    },
+    {
+      "habousCityId": "96",
+      "habousArabicName": "قرية با محمد"
+    },
+    {
+      "habousCityId": "97",
+      "habousArabicName": "كتامة"
+    },
+    {
+      "habousCityId": "98",
+      "habousArabicName": "واد أمليل"
+    },
+    {
+      "habousCityId": "99",
+      "habousArabicName": "مكناس"
+    },
+    {
+      "habousCityId": "100",
+      "habousArabicName": "يفرن"
+    },
+    {
+      "habousCityId": "101",
+      "habousArabicName": "الحاجب"
+    },
+    {
+      "habousCityId": "102",
+      "habousArabicName": "زرهون"
+    },
+    {
+      "habousCityId": "103",
+      "habousArabicName": "آزرو"
+    },
+    {
+      "habousCityId": "104",
+      "habousArabicName": "مراكش"
+    },
+    {
+      "habousCityId": "105",
+      "habousArabicName": "قلعة السراغنة"
+    },
+    {
+      "habousCityId": "106",
+      "habousArabicName": "الصويرة"
+    },
+    {
+      "habousCityId": "107",
+      "habousArabicName": "شيشاوة"
+    },
+    {
+      "habousCityId": "108",
+      "habousArabicName": "بنجرير"
+    },
+    {
+      "habousCityId": "109",
+      "habousArabicName": "الرحامنة"
+    },
+    {
+      "habousCityId": "110",
+      "habousArabicName": "تمنار"
+    },
+    {
+      "habousCityId": "111",
+      "habousArabicName": "آسفي"
+    },
+    {
+      "habousCityId": "112",
+      "habousArabicName": "الوليدية"
+    },
+    {
+      "habousCityId": "113",
+      "habousArabicName": "اليوسفية"
+    },
+    {
+      "habousCityId": "114",
+      "habousArabicName": "تسلطانت"
+    },
+    {
+      "habousCityId": "115",
+      "habousArabicName": "تامصلوحت"
+    },
+    {
+      "habousCityId": "116",
+      "habousArabicName": "قطارة"
+    },
+    {
+      "habousCityId": "117",
+      "habousArabicName": "أكادير"
+    },
+    {
+      "habousCityId": "118",
+      "habousArabicName": "تارودانت"
+    },
+    {
+      "habousCityId": "119",
+      "habousArabicName": "تزنيت"
+    },
+    {
+      "habousCityId": "120",
+      "habousArabicName": "إغرم"
+    },
+    {
+      "habousCityId": "121",
+      "habousArabicName": "تالوين"
+    },
+    {
+      "habousCityId": "122",
+      "habousArabicName": "تافراوت"
+    },
+    {
+      "habousCityId": "123",
+      "habousArabicName": "طاطا"
+    },
+    {
+      "habousCityId": "124",
+      "habousArabicName": "أقا"
+    },
+    {
+      "habousCityId": "125",
+      "habousArabicName": "فم لحصن"
+    },
+    {
+      "habousCityId": "126",
+      "habousArabicName": "بويكرة"
+    },
+    {
+      "habousCityId": "127",
+      "habousArabicName": "أولاد تايمة"
+    },
+    {
+      "habousCityId": "128",
+      "habousArabicName": "الرشيدية"
+    },
+    {
+      "habousCityId": "129",
+      "habousArabicName": "الريصاني"
+    },
+    {
+      "habousCityId": "130",
+      "habousArabicName": "أرفود"
+    },
+    {
+      "habousCityId": "131",
+      "habousArabicName": "تنديت"
+    },
+    {
+      "habousCityId": "132",
+      "habousArabicName": "كلميمة"
+    },
+    {
+      "habousCityId": "133",
+      "habousArabicName": "إملشيل"
+    },
+    {
+      "habousCityId": "134",
+      "habousArabicName": "تنجداد"
+    },
+    {
+      "habousCityId": "135",
+      "habousArabicName": "الريش"
+    },
+    {
+      "habousCityId": "136",
+      "habousArabicName": "ميدلت"
+    },
+    {
+      "habousCityId": "137",
+      "habousArabicName": "زاكورة"
+    },
+    {
+      "habousCityId": "138",
+      "habousArabicName": "ورزازات"
+    },
+    {
+      "habousCityId": "139",
+      "habousArabicName": "تنغير"
+    },
+    {
+      "habousCityId": "140",
+      "habousArabicName": "هسكورة"
+    },
+    {
+      "habousCityId": "141",
+      "habousArabicName": "قلعة مكونة"
+    },
+    {
+      "habousCityId": "142",
+      "habousArabicName": "أكدز"
+    },
+    {
+      "habousCityId": "143",
+      "habousArabicName": "بومالن دادس"
+    },
+    {
+      "habousCityId": "144",
+      "habousArabicName": "النيف"
+    },
+    {
+      "habousCityId": "145",
+      "habousArabicName": "أسول"
+    },
+    {
+      "habousCityId": "146",
+      "habousArabicName": "أمسمرير"
+    },
+    {
+      "habousCityId": "147",
+      "habousArabicName": "تازارين"
+    },
+    {
+      "habousCityId": "148",
+      "habousArabicName": "سيدي إفني"
+    },
+    {
+      "habousCityId": "149",
+      "habousArabicName": "كلميم"
+    },
+    {
+      "habousCityId": "150",
+      "habousArabicName": "أسا"
+    },
+    {
+      "habousCityId": "151",
+      "habousArabicName": "الزاك"
+    },
+    {
+      "habousCityId": "152",
+      "habousArabicName": "طانطان"
+    },
+    {
+      "habousCityId": "153",
+      "habousArabicName": "بويزكارن"
+    },
+    {
+      "habousCityId": "154",
+      "habousArabicName": "المحبس"
+    },
+    {
+      "habousCityId": "155",
+      "habousArabicName": "لمسيد"
+    },
+    {
+      "habousCityId": "156",
+      "habousArabicName": "العيون"
+    },
+    {
+      "habousCityId": "157",
+      "habousArabicName": "السمارة"
+    },
+    {
+      "habousCityId": "158",
+      "habousArabicName": "بوجدور"
+    },
+    {
+      "habousCityId": "159",
+      "habousArabicName": "طرفاية"
+    },
+    {
+      "habousCityId": "160",
+      "habousArabicName": "تفاريتي"
+    },
+    {
+      "habousCityId": "161",
+      "habousArabicName": "بوكراع"
+    },
+    {
+      "habousCityId": "162",
+      "habousArabicName": "كلتة زمور"
+    },
+    {
+      "habousCityId": "163",
+      "habousArabicName": "أمكالة"
+    },
+    {
+      "habousCityId": "164",
+      "habousArabicName": "أخفنير"
+    },
+    {
+      "habousCityId": "165",
+      "habousArabicName": "الداخلة"
+    },
+    {
+      "habousCityId": "166",
+      "habousArabicName": "الكويرة"
+    },
+    {
+      "habousCityId": "167",
+      "habousArabicName": "أوسرد"
+    },
+    {
+      "habousCityId": "168",
+      "habousArabicName": "بئر كندوز"
+    },
+    {
+      "habousCityId": "169",
+      "habousArabicName": "بئر أنزاران"
+    },
+    {
+      "habousCityId": "301",
+      "habousArabicName": "خميس سيدي عبد الجليل"
+    },
+    {
+      "habousCityId": "302",
+      "habousArabicName": "أولاد عياد"
+    },
+    {
+      "habousCityId": "303",
+      "habousArabicName": "تاهلة"
+    },
+    {
+      "habousCityId": "304",
+      "habousArabicName": "مطماطة"
+    },
+    {
+      "habousCityId": "305",
+      "habousArabicName": "إيمنتانوت"
+    },
+    {
+      "habousCityId": "306",
+      "habousArabicName": "سيدي غانم"
+    },
+    {
+      "habousCityId": "307",
+      "habousArabicName": "تفنتان"
+    },
+    {
+      "habousCityId": "308",
+      "habousArabicName": "آيت القاق"
+    },
+    {
+      "habousCityId": "309",
+      "habousArabicName": "أكدال أملشيل"
+    },
+    {
+      "habousCityId": "310",
+      "habousArabicName": "اكودال املشيل ميدلت"
+    },
+    {
+      "habousCityId": "311",
+      "habousArabicName": "أكايوار"
+    },
+    {
+      "habousCityId": "312",
+      "habousArabicName": "عين العودة"
+    },
+    {
+      "habousCityId": "313",
+      "habousArabicName": "أسكين"
+    },
+    {
+      "habousCityId": "314",
+      "habousArabicName": "آيت ورير"
+    },
+    {
+      "habousCityId": "315",
+      "habousArabicName": "زاوية مولاي ابراهيم"
+    },
+    {
+      "habousCityId": "316",
+      "habousArabicName": "تولكولت"
+    },
+    {
+      "habousCityId": "317",
+      "habousArabicName": "إيكس"
+    },
+    {
+      "habousCityId": "318",
+      "habousArabicName": "كرس"
+    },
+    {
+      "habousCityId": "319",
+      "habousArabicName": "تيسنت"
+    },
+    {
+      "habousCityId": "320",
+      "habousArabicName": "فم زكيد"
+    },
+    {
+      "habousCityId": "321",
+      "habousArabicName": "قصر إيش"
+    },
+    {
+      "habousCityId": "322",
+      "habousArabicName": "إيمين ثلاث"
+    }
+  ]
+}

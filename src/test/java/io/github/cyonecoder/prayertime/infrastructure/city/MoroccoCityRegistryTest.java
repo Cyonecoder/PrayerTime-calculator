@@ -14,9 +14,20 @@ class MoroccoCityRegistryTest {
 
     private static final ZoneId MOROCCO = ZoneId.of("Africa/Casablanca");
     private static final List<String> EXPECTED_SLUGS = List.of(
+            // The 15 original registry cities.
             "rabat", "sale", "casablanca", "fez", "marrakech", "tangier", "agadir",
             "oujda", "meknes", "kenitra", "tetouan", "laayoune", "dakhla",
-            "errachidia", "ouarzazate");
+            "errachidia", "ouarzazate",
+            // The 52 candidate cities added from the authoritative 67-city inventory.
+            "al-hoceima", "assilah", "azrou", "beni-mellal", "benslimane", "berkane",
+            "berrechid", "boujdour", "bouskoura", "bouznika", "chefchaouen", "el-hajeb",
+            "el-jadida", "essaouira", "smara", "fkih-ben-salah", "guelmim", "guercif",
+            "ifrane", "kabila", "khenifra", "khemisset", "khouribga", "ksar-el-kebir",
+            "larache", "martil", "melilia", "midelt", "mohammedia", "nador", "oualidia",
+            "ouazzane", "safi", "saidia", "sebta", "sefrou", "settat", "sidi-bennour",
+            "sidi-ifni", "sidi-kacem", "sidi-rahal", "sidi-slimane", "tamansourt",
+            "tamesna", "tan-tan", "tarfaya", "taroudant", "taza", "temara", "tiflet",
+            "tinghir", "tiznit");
 
     private final MoroccoCityRegistry registry = new MoroccoCityRegistry();
 

@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "tinghir",
+  "habousVilleId": "139",
+  "habousArabicName": "تنغير",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=139",
+  "fetchedAt": "2026-07-13T12:56:05.355549Z",
+  "sourceSha256": "8f53e684c04895add1ed2d870d9516fa27c65f6aa5daa7418c57d32814738307",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "tinghir",
+      "date": "2026-06-17",
+      "fajr": "04:31",
+      "sunrise": "06:09",
+      "dhuhr": "13:28",
+      "asr": "17:02",
+      "maghrib": "20:37",
+      "isha": "22:02"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-06-18",
+      "fajr": "04:31",
+      "sunrise": "06:09",
+      "dhuhr": "13:28",
+      "asr": "17:03",
+      "maghrib": "20:37",
+      "isha": "22:02"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-06-19",
+      "fajr": "04:31",
+      "sunrise": "06:10",
+      "dhuhr": "13:29",
+      "asr": "17:03",
+      "maghrib": "20:38",
+      "isha": "22:03"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-06-20",
+      "fajr": "04:31",
+      "sunrise": "06:10",
+      "dhuhr": "13:29",
+      "asr": "17:03",
+      "maghrib": "20:38",
+      "isha": "22:03"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-06-21",
+      "fajr": "04:31",
+      "sunrise": "06:10",
+      "dhuhr": "13:29",
+      "asr": "17:03",
+      "maghrib": "20:38",
+      "isha": "22:03"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-06-22",
+      "fajr": "04:32",
+      "sunrise": "06:10",
+      "dhuhr": "13:29",
+      "asr": "17:03",
+      "maghrib": "20:38",
+      "isha": "22:03"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-06-23",
+      "fajr": "04:32",
+      "sunrise": "06:10",
+      "dhuhr": "13:29",
+      "asr": "17:04",
+      "maghrib": "20:39",
+      "isha": "22:03"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-06-24",
+      "fajr": "04:32",
+      "sunrise": "06:11",
+      "dhuhr": "13:30",
+      "asr": "17:04",
+      "maghrib": "20:39",
+      "isha": "22:03"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-06-25",
+      "fajr": "04:33",
+      "sunrise": "06:11",
+      "dhuhr": "13:30",
+      "asr": "17:04",
+      "maghrib": "20:39",
+      "isha": "22:04"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-06-26",
+      "fajr": "04:33",
+      "sunrise": "06:11",
+      "dhuhr": "13:30",
+      "asr": "17:04",
+      "maghrib": "20:39",
+      "isha": "22:04"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-06-27",
+      "fajr": "04:33",
+      "sunrise": "06:12",
+      "dhuhr": "13:30",
+      "asr": "17:05",
+      "maghrib": "20:39",
+      "isha": "22:04"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-06-28",
+      "fajr": "04:34",
+      "sunrise": "06:12",
+      "dhuhr": "13:30",
+      "asr": "17:05",
+      "maghrib": "20:39",
+      "isha": "22:04"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-06-29",
+      "fajr": "04:34",
+      "sunrise": "06:12",
+      "dhuhr": "13:31",
+      "asr": "17:05",
+      "maghrib": "20:39",
+      "isha": "22:04"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-06-30",
+      "fajr": "04:35",
+      "sunrise": "06:13",
+      "dhuhr": "13:31",
+      "asr": "17:05",
+      "maghrib": "20:39",
+      "isha": "22:03"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-01",
+      "fajr": "04:35",
+      "sunrise": "06:13",
+      "dhuhr": "13:31",
+      "asr": "17:05",
+      "maghrib": "20:39",
+      "isha": "22:03"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-02",
+      "fajr": "04:36",
+      "sunrise": "06:14",
+      "dhuhr": "13:31",
+      "asr": "17:06",
+      "maghrib": "20:39",
+      "isha": "22:03"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-03",
+      "fajr": "04:36",
+      "sunrise": "06:14",
+      "dhuhr": "13:31",
+      "asr": "17:06",
+      "maghrib": "20:39",
+      "isha": "22:03"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-04",
+      "fajr": "04:37",
+      "sunrise": "06:14",
+      "dhuhr": "13:32",
+      "asr": "17:06",
+      "maghrib": "20:39",
+      "isha": "22:03"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-05",
+      "fajr": "04:37",
+      "sunrise": "06:15",
+      "dhuhr": "13:32",
+      "asr": "17:06",
+      "maghrib": "20:39",
+      "isha": "22:03"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-06",
+      "fajr": "04:38",
+      "sunrise": "06:15",
+      "dhuhr": "13:32",
+      "asr": "17:06",
+      "maghrib": "20:39",
+      "isha": "22:02"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-07",
+      "fajr": "04:39",
+      "sunrise": "06:16",
+      "dhuhr": "13:32",
+      "asr": "17:07",
+      "maghrib": "20:38",
+      "isha": "22:02"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-08",
+      "fajr": "04:39",
+      "sunrise": "06:16",
+      "dhuhr": "13:32",
+      "asr": "17:07",
+      "maghrib": "20:38",
+      "isha": "22:02"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-09",
+      "fajr": "04:40",
+      "sunrise": "06:17",
+      "dhuhr": "13:32",
+      "asr": "17:07",
+      "maghrib": "20:38",
+      "isha": "22:01"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-10",
+      "fajr": "04:41",
+      "sunrise": "06:17",
+      "dhuhr": "13:33",
+      "asr": "17:07",
+      "maghrib": "20:38",
+      "isha": "22:01"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-11",
+      "fajr": "04:42",
+      "sunrise": "06:18",
+      "dhuhr": "13:33",
+      "asr": "17:07",
+      "maghrib": "20:37",
+      "isha": "22:00"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-12",
+      "fajr": "04:42",
+      "sunrise": "06:18",
+      "dhuhr": "13:33",
+      "asr": "17:07",
+      "maghrib": "20:37",
+      "isha": "22:00"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-13",
+      "fajr": "04:43",
+      "sunrise": "06:19",
+      "dhuhr": "13:33",
+      "asr": "17:08",
+      "maghrib": "20:37",
+      "isha": "21:59"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-14",
+      "fajr": "04:44",
+      "sunrise": "06:20",
+      "dhuhr": "13:33",
+      "asr": "17:08",
+      "maghrib": "20:36",
+      "isha": "21:59"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-15",
+      "fajr": "04:45",
+      "sunrise": "06:20",
+      "dhuhr": "13:33",
+      "asr": "17:08",
+      "maghrib": "20:36",
+      "isha": "21:58"
+    },
+    {
+      "city": "tinghir",
+      "date": "2026-07-16",
+      "fajr": "04:46",
+      "sunrise": "06:21",
+      "dhuhr": "13:33",
+      "asr": "17:08",
+      "maghrib": "20:36",
+      "isha": "21:58"
+    }
+  ]
+}

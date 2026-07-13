@@ -1,0 +1,694 @@
+{
+  "note": "Authoritative 67-city Habous candidate inventory (research/audit source of truth). Records the canonical slug, original source spelling, Arabic name, original HTML state, and sec-approach state for every candidate. This drives onboarding: registry records (cities/morocco-cities.json), Habous research mappings (habous-city-mapping.json), and sec training. It does not itself change production prayer outputs.",
+  "assertions": {
+    "totalCandidates": 67,
+    "originallyActive": 48,
+    "originallyCommented": 19,
+    "existingSecCities": 14,
+    "citiesRequiringSecTraining": 53,
+    "existingRegistryCities": 15,
+    "newRegistryRecords": 52,
+    "mappedToHabousVille": 60,
+    "unmappedNoHabousPage": [
+      "bouskoura",
+      "kabila",
+      "sale",
+      "sidi-rahal",
+      "tamansourt",
+      "tamesna",
+      "temara"
+    ]
+  },
+  "cities": [
+    {
+      "canonicalSlug": "agadir",
+      "sourceValue": "Agadir",
+      "arabicName": "أكادير",
+      "originalHtmlState": "active",
+      "secState": "existing-sec",
+      "habousVilleId": "117",
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "al-hoceima",
+      "sourceValue": "al hoceima",
+      "arabicName": "الحسيمة",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "23",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "assilah",
+      "sourceValue": "assilah",
+      "arabicName": "أصيلة",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "17",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "azrou",
+      "sourceValue": "Azrou",
+      "arabicName": "أزرو",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "103",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "beni-mellal",
+      "sourceValue": "beni mellal",
+      "arabicName": "بني ملال",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "73",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "benslimane",
+      "sourceValue": "benslimane",
+      "arabicName": "بن سليمان",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "60",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "berkane",
+      "sourceValue": "Berkane",
+      "arabicName": "بركان",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "32",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "berrechid",
+      "sourceValue": "Berrechid",
+      "arabicName": "برشيد",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": "65",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "boujdour",
+      "sourceValue": "Boujdour",
+      "arabicName": "بوجدور",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "158",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "bouskoura",
+      "sourceValue": "Bouskoura",
+      "arabicName": "بوسكورة",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": null,
+      "registryRecord": "new",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "bouznika",
+      "sourceValue": "Bouznika",
+      "arabicName": "بوزنيقة",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "6",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "casablanca",
+      "sourceValue": "Casablanca",
+      "arabicName": "الدار البيضاء",
+      "originalHtmlState": "active",
+      "secState": "existing-sec",
+      "habousVilleId": "58",
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "chefchaouen",
+      "sourceValue": "Chefchaouan",
+      "arabicName": "شفشاون",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "18",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "dakhla",
+      "sourceValue": "Dakhla",
+      "arabicName": "الداخلة",
+      "originalHtmlState": "active",
+      "secState": "existing-sec",
+      "habousVilleId": "165",
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "el-hajeb",
+      "sourceValue": "El hajeb",
+      "arabicName": "الحاجب",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": "101",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "el-jadida",
+      "sourceValue": "el jadida",
+      "arabicName": "الجديدة",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "66",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "errachidia",
+      "sourceValue": "Errachidia",
+      "arabicName": "الرشيدية",
+      "originalHtmlState": "active",
+      "secState": "existing-sec",
+      "habousVilleId": "128",
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "essaouira",
+      "sourceValue": "Essaouira",
+      "arabicName": "الصويرة",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "106",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "smara",
+      "sourceValue": "smara",
+      "arabicName": "السمارة",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "157",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "fez",
+      "sourceValue": "Fes",
+      "arabicName": "فاس",
+      "originalHtmlState": "active",
+      "secState": "existing-sec",
+      "habousVilleId": "81",
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "fkih-ben-salah",
+      "sourceValue": "Fkih ben salah",
+      "arabicName": "الفقيه بن صالح",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": "75",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "guelmim",
+      "sourceValue": "Guelmim",
+      "arabicName": "كلميم",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "149",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "guercif",
+      "sourceValue": "guercif",
+      "arabicName": "جرسيف",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "35",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "ifrane",
+      "sourceValue": "Ifrane",
+      "arabicName": "إفران",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "100",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "kenitra",
+      "sourceValue": "Kenitra",
+      "arabicName": "القنيطرة",
+      "originalHtmlState": "active",
+      "secState": "existing-sec",
+      "habousVilleId": "7",
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "kabila",
+      "sourceValue": "Kabila",
+      "arabicName": "كابيلا",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": null,
+      "registryRecord": "new",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "khenifra",
+      "sourceValue": "Khenifra",
+      "arabicName": "خنيفرة",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": "70",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "khemisset",
+      "sourceValue": "Khemisset",
+      "arabicName": "الخميسات",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "2",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "khouribga",
+      "sourceValue": "Khouribga",
+      "arabicName": "خريبكة",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "79",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "ksar-el-kebir",
+      "sourceValue": "ksar el kebir",
+      "arabicName": "القصر الكبير",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "21",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "laayoune",
+      "sourceValue": "Laayoune",
+      "arabicName": "العيون",
+      "originalHtmlState": "active",
+      "secState": "existing-sec",
+      "habousVilleId": "156",
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "larache",
+      "sourceValue": "Larache",
+      "arabicName": "العرائش",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "16",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "marrakech",
+      "sourceValue": "Marrakech",
+      "arabicName": "مراكش",
+      "originalHtmlState": "active",
+      "secState": "existing-sec",
+      "habousVilleId": "104",
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "martil",
+      "sourceValue": "Martil",
+      "arabicName": "مرتيل",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": "19",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "meknes",
+      "sourceValue": "Meknes",
+      "arabicName": "مكناس",
+      "originalHtmlState": "active",
+      "secState": "existing-sec",
+      "habousVilleId": "99",
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "melilia",
+      "sourceValue": "Melilia",
+      "arabicName": "مليلية",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": "40",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "midelt",
+      "sourceValue": "midelt",
+      "arabicName": "ميدلت",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "136",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "mohammedia",
+      "sourceValue": "Mohammedia",
+      "arabicName": "المحمدية",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "59",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "nador",
+      "sourceValue": "Nador",
+      "arabicName": "الناظور",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "39",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "oualidia",
+      "sourceValue": "Oualidia",
+      "arabicName": "الوالدية",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": "112",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "ouarzazate",
+      "sourceValue": "Ouarzazate",
+      "arabicName": "ورزازات",
+      "originalHtmlState": "active",
+      "secState": "existing-sec",
+      "habousVilleId": "138",
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "ouazzane",
+      "sourceValue": "ouazzane",
+      "arabicName": "وزان",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "29",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "oujda",
+      "sourceValue": "Oujda",
+      "arabicName": "وجدة",
+      "originalHtmlState": "active",
+      "secState": "existing-sec",
+      "habousVilleId": "31",
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "rabat",
+      "sourceValue": "Rabat",
+      "arabicName": "الرباط",
+      "originalHtmlState": "active",
+      "secState": "existing-sec",
+      "habousVilleId": "1",
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "safi",
+      "sourceValue": "Safi",
+      "arabicName": "آسَفي",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "111",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "saidia",
+      "sourceValue": "Saidia",
+      "arabicName": "السعيدية",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": "49",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "sale",
+      "sourceValue": "Salé",
+      "arabicName": "سلا",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": null,
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "sebta",
+      "sourceValue": "Sebta",
+      "arabicName": "سبتة",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "24",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "sefrou",
+      "sourceValue": "Sefrou",
+      "arabicName": "صفرو",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "82",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "settat",
+      "sourceValue": "Settat",
+      "arabicName": "سطات",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "61",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "sidi-bennour",
+      "sourceValue": "Sidi bennour",
+      "arabicName": "سيدي بنور",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": "68",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "sidi-ifni",
+      "sourceValue": "Sidi ifni",
+      "arabicName": "سيدي إفني",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": "148",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "sidi-kacem",
+      "sourceValue": "sidi kacem",
+      "arabicName": "سيدي قاسم",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "8",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "sidi-rahal",
+      "sourceValue": "Sidi rahal",
+      "arabicName": "سيدي رحال",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": null,
+      "registryRecord": "new",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "sidi-slimane",
+      "sourceValue": "sidi slimane",
+      "arabicName": "سيدي سليمان",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "10",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "tamansourt",
+      "sourceValue": "Tamensourte",
+      "arabicName": "تامنصورت",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": null,
+      "registryRecord": "new",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "tamesna",
+      "sourceValue": "Tamesna",
+      "arabicName": "تامسنا",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": null,
+      "registryRecord": "new",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "tangier",
+      "sourceValue": "Tanger",
+      "arabicName": "طنجة",
+      "originalHtmlState": "active",
+      "secState": "existing-sec",
+      "habousVilleId": "14",
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "tan-tan",
+      "sourceValue": "Tantan",
+      "arabicName": "طانطان",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": "152",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "tarfaya",
+      "sourceValue": "Tarfaya",
+      "arabicName": "طرفاية",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": "159",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "taroudant",
+      "sourceValue": "taroudant",
+      "arabicName": "تارودانت",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "118",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "taza",
+      "sourceValue": "Taza",
+      "arabicName": "تازة",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "89",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "temara",
+      "sourceValue": "Temara",
+      "arabicName": "تمارة",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": null,
+      "registryRecord": "new",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "tetouan",
+      "sourceValue": "Tetouan",
+      "arabicName": "تطوان",
+      "originalHtmlState": "active",
+      "secState": "existing-sec",
+      "habousVilleId": "15",
+      "registryRecord": "existing",
+      "secTrainable": false
+    },
+    {
+      "canonicalSlug": "tiflet",
+      "sourceValue": "Tiflet",
+      "arabicName": "تيفلت",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "3",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "tinghir",
+      "sourceValue": "Tinghir",
+      "arabicName": "تنغير",
+      "originalHtmlState": "commented",
+      "secState": "new-training",
+      "habousVilleId": "139",
+      "registryRecord": "new",
+      "secTrainable": true
+    },
+    {
+      "canonicalSlug": "tiznit",
+      "sourceValue": "Tiznit",
+      "arabicName": "تزنيت",
+      "originalHtmlState": "active",
+      "secState": "new-training",
+      "habousVilleId": "119",
+      "registryRecord": "new",
+      "secTrainable": true
+    }
+  ]
+}
