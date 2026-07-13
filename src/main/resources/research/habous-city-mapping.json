@@ -1,69 +1,549 @@
 {
   "note": "External research mapping: application city slug -> Habous 'ville' external identifier and Arabic name. This file is research/audit input only; it does NOT modify the production city model (MoroccoCityRegistry / morocco-cities.json) and does not change production prayer outputs.",
-  "verificationNote": "habousCityId is the numeric Habous 'ville' identifier used by https://www.habous.gov.ma/prieres/index.php?ville=<id>. The 14 original ids (verified=true) were recovered from the official <select name=\"ville\"> dropdown embedded in the live Habous page on 2026-07-07 and cross-checked against four hand-verified ids (rabat=1, casablanca=58, fez=81, laayoune=156). The 46 additional ids (verified=false) were resolved by matching each candidate city's Arabic name against research/habous-ville-index.json (the captured dropdown) and are confirmed at fetch time: LiveHabousCollector requires the mapped Arabic name to appear on the fetched page before any data is accepted.",
-  "coverageNote": "60 of the 67 candidate cities are mapped. Seven have no dedicated Habous 'ville' page and are intentionally left unmapped (no nearest-city/province fallback is permitted): kabila, sale, sidi-rahal, tamansourt, tamesna, temara (grouped administratively with a parent city), and bouskoura (no unambiguous dropdown match). Unmapped cities exist in the registry but receive no sec-approach offsets and fail closed.",
-  "version": 3,
+  "verificationNote": "habousCityId is the numeric Habous 'ville' identifier used by https://www.habous.gov.ma/prieres/index.php?ville=<id>. Every entry here was independently re-verified against the LIVE Habous source by 'research verify-habous-cities' (verificationMethod=live-select-and-timetable): a unique dropdown option was matched by exact conservatively-normalized Arabic name or known alias (never fuzzy), its timetable was fetched and confirmed to contain the expected Arabic name, parse to a coherent contiguous six-column table, and a second independent fetch reproduced the same table. Provenance (verifiedAt, sourceChecksum) is recorded per entry; the full per-candidate status report is reports/secapproach-all-cities/habous-city-verification.json and the parsed dropdown is build/reports/secapproach-all-cities/habous-live-city-options.json.",
+  "coverageNote": "60 of the candidate cities are VERIFIED against the live Habous select+timetable (verified=true). Cities not listed here are NOT_LISTED_BY_HABOUS, AMBIGUOUS_NAME, TIMETABLE_UNAVAILABLE, INVALID_TIMETABLE, or MANUAL_REVIEW_REQUIRED — see reports/secapproach-all-cities/habous-city-verification.json. No fallback is used; unverified cities fail closed.",
+  "version": 4,
   "parserVersion": "habous-html-1",
   "mappings": [
-    { "applicationCityId": "casablanca",  "habousCityId": "58",  "habousArabicName": "الدار البيضاء", "verified": true },
-    { "applicationCityId": "rabat",       "habousCityId": "1",   "habousArabicName": "الرباط",        "verified": true },
-    { "applicationCityId": "tangier",     "habousCityId": "14",  "habousArabicName": "طنجة",          "verified": true },
-    { "applicationCityId": "oujda",       "habousCityId": "31",  "habousArabicName": "وجدة",          "verified": true },
-    { "applicationCityId": "marrakech",   "habousCityId": "104", "habousArabicName": "مراكش",         "verified": true },
-    { "applicationCityId": "agadir",      "habousCityId": "117", "habousArabicName": "أكادير",        "verified": true },
-    { "applicationCityId": "errachidia",  "habousCityId": "128", "habousArabicName": "الرشيدية",      "verified": true },
-    { "applicationCityId": "laayoune",    "habousCityId": "156", "habousArabicName": "العيون",        "verified": true },
-    { "applicationCityId": "dakhla",      "habousCityId": "165", "habousArabicName": "الداخلة",       "verified": true },
-    { "applicationCityId": "fez",         "habousCityId": "81",  "habousArabicName": "فاس",           "verified": true },
-    { "applicationCityId": "meknes",      "habousCityId": "99",  "habousArabicName": "مكناس",         "verified": true },
-    { "applicationCityId": "tetouan",     "habousCityId": "15",  "habousArabicName": "تطوان",         "verified": true },
-    { "applicationCityId": "kenitra",     "habousCityId": "7",   "habousArabicName": "القنيطرة",      "verified": true },
-    { "applicationCityId": "ouarzazate",  "habousCityId": "138", "habousArabicName": "ورزازات",       "verified": true },
-    { "applicationCityId": "al-hoceima", "habousCityId": "23", "habousArabicName": "الحسيمة", "verified": false },
-    { "applicationCityId": "assilah", "habousCityId": "17", "habousArabicName": "أصيلة", "verified": false },
-    { "applicationCityId": "azrou", "habousCityId": "103", "habousArabicName": "آزرو", "verified": false },
-    { "applicationCityId": "beni-mellal", "habousCityId": "73", "habousArabicName": "بني ملال", "verified": false },
-    { "applicationCityId": "benslimane", "habousCityId": "60", "habousArabicName": "بن سليمان", "verified": false },
-    { "applicationCityId": "berkane", "habousCityId": "32", "habousArabicName": "بركان", "verified": false },
-    { "applicationCityId": "berrechid", "habousCityId": "65", "habousArabicName": "برشيد", "verified": false },
-    { "applicationCityId": "boujdour", "habousCityId": "158", "habousArabicName": "بوجدور", "verified": false },
-    { "applicationCityId": "bouznika", "habousCityId": "6", "habousArabicName": "بوزنيقة", "verified": false },
-    { "applicationCityId": "chefchaouen", "habousCityId": "18", "habousArabicName": "شفشاون", "verified": false },
-    { "applicationCityId": "el-hajeb", "habousCityId": "101", "habousArabicName": "الحاجب", "verified": false },
-    { "applicationCityId": "el-jadida", "habousCityId": "66", "habousArabicName": "الجديدة", "verified": false },
-    { "applicationCityId": "essaouira", "habousCityId": "106", "habousArabicName": "الصويرة", "verified": false },
-    { "applicationCityId": "smara", "habousCityId": "157", "habousArabicName": "السمارة", "verified": false },
-    { "applicationCityId": "fkih-ben-salah", "habousCityId": "75", "habousArabicName": "الفقيه بنصالح", "verified": false },
-    { "applicationCityId": "guelmim", "habousCityId": "149", "habousArabicName": "كلميم", "verified": false },
-    { "applicationCityId": "guercif", "habousCityId": "35", "habousArabicName": "كرسيف", "verified": false },
-    { "applicationCityId": "ifrane", "habousCityId": "100", "habousArabicName": "يفرن", "verified": false },
-    { "applicationCityId": "khenifra", "habousCityId": "70", "habousArabicName": "خنيفرة", "verified": false },
-    { "applicationCityId": "khemisset", "habousCityId": "2", "habousArabicName": "الخميسات", "verified": false },
-    { "applicationCityId": "khouribga", "habousCityId": "79", "habousArabicName": "خريبكة", "verified": false },
-    { "applicationCityId": "ksar-el-kebir", "habousCityId": "21", "habousArabicName": "القصر الكبير", "verified": false },
-    { "applicationCityId": "larache", "habousCityId": "16", "habousArabicName": "العرائش", "verified": false },
-    { "applicationCityId": "martil", "habousCityId": "19", "habousArabicName": "مرتيل", "verified": false },
-    { "applicationCityId": "melilia", "habousCityId": "40", "habousArabicName": "مليلية", "verified": false },
-    { "applicationCityId": "midelt", "habousCityId": "136", "habousArabicName": "ميدلت", "verified": false },
-    { "applicationCityId": "mohammedia", "habousCityId": "59", "habousArabicName": "المحمدية", "verified": false },
-    { "applicationCityId": "nador", "habousCityId": "39", "habousArabicName": "الناظور", "verified": false },
-    { "applicationCityId": "oualidia", "habousCityId": "112", "habousArabicName": "الوليدية", "verified": false },
-    { "applicationCityId": "ouazzane", "habousCityId": "29", "habousArabicName": "وزان", "verified": false },
-    { "applicationCityId": "safi", "habousCityId": "111", "habousArabicName": "آسفي", "verified": false },
-    { "applicationCityId": "saidia", "habousCityId": "49", "habousArabicName": "السعيدية", "verified": false },
-    { "applicationCityId": "sebta", "habousCityId": "24", "habousArabicName": "سبتة", "verified": false },
-    { "applicationCityId": "sefrou", "habousCityId": "82", "habousArabicName": "صفرو", "verified": false },
-    { "applicationCityId": "settat", "habousCityId": "61", "habousArabicName": "سطات", "verified": false },
-    { "applicationCityId": "sidi-bennour", "habousCityId": "68", "habousArabicName": "سيدي بنور", "verified": false },
-    { "applicationCityId": "sidi-ifni", "habousCityId": "148", "habousArabicName": "سيدي إفني", "verified": false },
-    { "applicationCityId": "sidi-kacem", "habousCityId": "8", "habousArabicName": "سيدي قاسم", "verified": false },
-    { "applicationCityId": "sidi-slimane", "habousCityId": "10", "habousArabicName": "سيدي سليمان", "verified": false },
-    { "applicationCityId": "tan-tan", "habousCityId": "152", "habousArabicName": "طانطان", "verified": false },
-    { "applicationCityId": "tarfaya", "habousCityId": "159", "habousArabicName": "طرفاية", "verified": false },
-    { "applicationCityId": "taroudant", "habousCityId": "118", "habousArabicName": "تارودانت", "verified": false },
-    { "applicationCityId": "taza", "habousCityId": "89", "habousArabicName": "تازة", "verified": false },
-    { "applicationCityId": "tiflet", "habousCityId": "3", "habousArabicName": "تيفلت", "verified": false },
-    { "applicationCityId": "tinghir", "habousCityId": "139", "habousArabicName": "تنغير", "verified": false },
-    { "applicationCityId": "tiznit", "habousCityId": "119", "habousArabicName": "تزنيت", "verified": false }
+    {
+      "applicationCityId": "agadir",
+      "habousCityId": "117",
+      "habousArabicName": "أكادير",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "9588c7c41ff3d94235555d32e03ae761a14fbe71b13e9974341271ab0e2f9203"
+    },
+    {
+      "applicationCityId": "al-hoceima",
+      "habousCityId": "23",
+      "habousArabicName": "الحسيمة",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "8b0d610ef569a76c9f47052a605468a05de00a716466729c168f715d87789eaa"
+    },
+    {
+      "applicationCityId": "assilah",
+      "habousCityId": "17",
+      "habousArabicName": "أصيلة",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "1c4cf5710fa5d714c297b7f5ae32c57e605084406452c9c67a8020498e675998"
+    },
+    {
+      "applicationCityId": "azrou",
+      "habousCityId": "103",
+      "habousArabicName": "آزرو",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "d8ccac60f79b8dfd3a7f0dbb975547814fd8bdd2bd78f5aceaa5bdadaa05c0b5"
+    },
+    {
+      "applicationCityId": "beni-mellal",
+      "habousCityId": "73",
+      "habousArabicName": "بني ملال",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "18851687e9d6403feab1f5d15ed535f3728f6fba86823196279d2abce6e1a396"
+    },
+    {
+      "applicationCityId": "benslimane",
+      "habousCityId": "60",
+      "habousArabicName": "بن سليمان",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "0b2a2425319538cdc3582429a824d90b1f029999df2f3c9426e9d74616cabfc9"
+    },
+    {
+      "applicationCityId": "berkane",
+      "habousCityId": "32",
+      "habousArabicName": "بركان",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "9c27bd687f50e5643c172644005582e5a57b54eac8e2ac682f2deab6c6954d11"
+    },
+    {
+      "applicationCityId": "berrechid",
+      "habousCityId": "65",
+      "habousArabicName": "برشيد",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "a23f1ab13cb2b5978a08658db89f0e6d56e2e1dcda6b575454690c80ae5ee2ad"
+    },
+    {
+      "applicationCityId": "boujdour",
+      "habousCityId": "158",
+      "habousArabicName": "بوجدور",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "70795bba625d6044667d918698a1a951d33012f1523ac0eb53accc8d8f3916cd"
+    },
+    {
+      "applicationCityId": "bouznika",
+      "habousCityId": "6",
+      "habousArabicName": "بوزنيقة",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "ba2ae0886970625b994de82650ab89854785a3132f7f4fa14d905c653fe2432e"
+    },
+    {
+      "applicationCityId": "casablanca",
+      "habousCityId": "58",
+      "habousArabicName": "الدار البيضاء",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "7ab1d6598eebe65d555098bceeac94878d231b29e2750134ada961eb92324401"
+    },
+    {
+      "applicationCityId": "chefchaouen",
+      "habousCityId": "18",
+      "habousArabicName": "شفشاون",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "06fbf90089ee85f357e5fc1ddfe0c77d818a8f821b9cf728ac96e92cf34dceac"
+    },
+    {
+      "applicationCityId": "dakhla",
+      "habousCityId": "165",
+      "habousArabicName": "الداخلة",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "c1efca04c2d3c1dd5daa29d1c31c0e15186102eb909457d4c58e8c9ead393c9f"
+    },
+    {
+      "applicationCityId": "el-hajeb",
+      "habousCityId": "101",
+      "habousArabicName": "الحاجب",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "c7148d5d10abd36c83e3b9e90e8110609df487c8e0890ddcc55167274831552c"
+    },
+    {
+      "applicationCityId": "el-jadida",
+      "habousCityId": "66",
+      "habousArabicName": "الجديدة",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "fb56dfa8bc40b8041cb79eb6ac11878dabd36e7c7b34c601ec6a51b4d7a3af37"
+    },
+    {
+      "applicationCityId": "errachidia",
+      "habousCityId": "128",
+      "habousArabicName": "الرشيدية",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "6f767cdc5b6fd37c3e62ec968c3ffa278ca7707c4e2ed2613b0a6b9c99fdac34"
+    },
+    {
+      "applicationCityId": "essaouira",
+      "habousCityId": "106",
+      "habousArabicName": "الصويرة",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "08b82133c767243aacbf109e2315f312718305117fe13006a2b255dfb564fdc4"
+    },
+    {
+      "applicationCityId": "smara",
+      "habousCityId": "157",
+      "habousArabicName": "السمارة",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "f1afecdb0280589102a9c9ab68beb694d894520fe570fd59257695cbc59be3f8"
+    },
+    {
+      "applicationCityId": "fez",
+      "habousCityId": "81",
+      "habousArabicName": "فاس",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "d0a3905f08be5c2972b2401138d381a4181a9eefeebbd77935c38bb012e3faa5"
+    },
+    {
+      "applicationCityId": "fkih-ben-salah",
+      "habousCityId": "75",
+      "habousArabicName": "الفقيه بنصالح",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "e1b1b1c2ec0030e16c1340616c00e9d1695529ee5cc6111ef16142466d5e8eaa"
+    },
+    {
+      "applicationCityId": "guelmim",
+      "habousCityId": "149",
+      "habousArabicName": "كلميم",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "652badb894a63c1c0dacdc07af22f2b14a6d19bcf4041b1acf7ee7406039bf01"
+    },
+    {
+      "applicationCityId": "guercif",
+      "habousCityId": "35",
+      "habousArabicName": "كرسيف",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "71cee7fbdb3114fbbd5470637256653a4fab91ad8bb6c62b8c5ceff08482e276"
+    },
+    {
+      "applicationCityId": "ifrane",
+      "habousCityId": "100",
+      "habousArabicName": "يفرن",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "c1bcab890ccbcb8ccf75f30507936b90b1f67f9352a2623edc550b4a018971a3"
+    },
+    {
+      "applicationCityId": "kenitra",
+      "habousCityId": "7",
+      "habousArabicName": "القنيطرة",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "8674781f814a7682b36d7070797465bdff017e0799882398a318c14035958fe8"
+    },
+    {
+      "applicationCityId": "khenifra",
+      "habousCityId": "70",
+      "habousArabicName": "خنيفرة",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "c9702fafc6beb26c3142099f51bba8dbb7a9a74c4001da6a0354f499efd76e7a"
+    },
+    {
+      "applicationCityId": "khemisset",
+      "habousCityId": "2",
+      "habousArabicName": "الخميسات",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "d45bfbf2ed075d4f2e8a8a52c1bbd3059880e98661e5e59526cfa3411d98d9db"
+    },
+    {
+      "applicationCityId": "khouribga",
+      "habousCityId": "79",
+      "habousArabicName": "خريبكة",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "c1647de88c04d6f104d0881156345a1bcf210337a3085edef956007976d7c990"
+    },
+    {
+      "applicationCityId": "ksar-el-kebir",
+      "habousCityId": "21",
+      "habousArabicName": "القصر الكبير",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "64b5f944219f31d1736c6e32bf7f41b85239520f048f9caa5f584a21811dc2d9"
+    },
+    {
+      "applicationCityId": "laayoune",
+      "habousCityId": "156",
+      "habousArabicName": "العيون",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "2f91d79042bf032554e26d5d9d281432f83f35adf33267beff3d57e7bcb8dac6"
+    },
+    {
+      "applicationCityId": "larache",
+      "habousCityId": "16",
+      "habousArabicName": "العرائش",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "ba69b071270fe0688c7fa34217cec0aaba4460a51079c9eb0b83e2242b57794f"
+    },
+    {
+      "applicationCityId": "marrakech",
+      "habousCityId": "104",
+      "habousArabicName": "مراكش",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "a10591fb410e1e677a05504aa30663e34328c6830b89d380c25a7547ebb9ea2e"
+    },
+    {
+      "applicationCityId": "martil",
+      "habousCityId": "19",
+      "habousArabicName": "مرتيل",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "e005d5704aff22f61b61823289997ce5b4203b0a4507617af8a8213fa6265e35"
+    },
+    {
+      "applicationCityId": "meknes",
+      "habousCityId": "99",
+      "habousArabicName": "مكناس",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "376d78f2adf9a56cf5178f95ccf87d19b6c9a2a92e647b653e3c8706007d370a"
+    },
+    {
+      "applicationCityId": "melilia",
+      "habousCityId": "40",
+      "habousArabicName": "مليلية",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "998c179eb376272b650a34d1f635cc3ba9ceaf1fbb0ee5ef44552f27364d7055"
+    },
+    {
+      "applicationCityId": "midelt",
+      "habousCityId": "136",
+      "habousArabicName": "ميدلت",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "6ac9508b321e159c95c89a78c2e175c2d5fcebd53a10a2150a39041d67b0946c"
+    },
+    {
+      "applicationCityId": "mohammedia",
+      "habousCityId": "59",
+      "habousArabicName": "المحمدية",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "3f3ea30b148e499fbd502d72c78fdd0779c7ce6fade084220f08d0686e97d272"
+    },
+    {
+      "applicationCityId": "nador",
+      "habousCityId": "39",
+      "habousArabicName": "الناظور",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "0338bb3cd9951dff1d3aca36bf7f159fdb43009a462042c4379826f5d6838e85"
+    },
+    {
+      "applicationCityId": "oualidia",
+      "habousCityId": "112",
+      "habousArabicName": "الوليدية",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "6cff5552e5c7014d72f550e64054014b9d1d9ddfe2b49926036abf4e482f3be8"
+    },
+    {
+      "applicationCityId": "ouarzazate",
+      "habousCityId": "138",
+      "habousArabicName": "ورزازات",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "2b83deb48195385b2778329275d001115f99f7e1528a8b93c790078fe32e6952"
+    },
+    {
+      "applicationCityId": "ouazzane",
+      "habousCityId": "29",
+      "habousArabicName": "وزان",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "00064d2b084163933788858961fbe7d32453c7c53b934d3a00ff961b9d8dc681"
+    },
+    {
+      "applicationCityId": "oujda",
+      "habousCityId": "31",
+      "habousArabicName": "وجدة",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "e32f30a73d426fbd8b1aee0a3370c2d4a57626ca5c272acdf730de7c5edff8d7"
+    },
+    {
+      "applicationCityId": "rabat",
+      "habousCityId": "1",
+      "habousArabicName": "الرباط",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "1a98bfe79d2840d95916d61d2fce950811b434a347591ea9818bcc0c7a52f04b"
+    },
+    {
+      "applicationCityId": "safi",
+      "habousCityId": "111",
+      "habousArabicName": "آسفي",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "63a1a20be1f81d3704f2691f24a202c9180e7540da58fff4ec4fb1d02097d196"
+    },
+    {
+      "applicationCityId": "saidia",
+      "habousCityId": "49",
+      "habousArabicName": "السعيدية",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "bbab5bcf4f4935858d3c91f330b783c7a73e91a0722ae5c9949fe383cd70fcb1"
+    },
+    {
+      "applicationCityId": "sebta",
+      "habousCityId": "24",
+      "habousArabicName": "سبتة",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "8fd9b1430aebc3bfeeb787517dfebabed1b7c47cc09d26b0fce7158e35cca8c8"
+    },
+    {
+      "applicationCityId": "sefrou",
+      "habousCityId": "82",
+      "habousArabicName": "صفرو",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "cce041df3143f3a43a5565a0d67c10e41f704aecac72a198cd6af0d758263169"
+    },
+    {
+      "applicationCityId": "settat",
+      "habousCityId": "61",
+      "habousArabicName": "سطات",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "5e8c2b06fcf5960594ecb029e86559d30a64a81196b1fbdeddc2762e833e4b02"
+    },
+    {
+      "applicationCityId": "sidi-bennour",
+      "habousCityId": "68",
+      "habousArabicName": "سيدي بنور",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "dc47d037b9fb0840e74d7fec721de6c76962f8c83976c515175cf501097828e4"
+    },
+    {
+      "applicationCityId": "sidi-ifni",
+      "habousCityId": "148",
+      "habousArabicName": "سيدي إفني",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "ec488c75ff9e6265615e64bc1682bbc4c17d79ddd6d31c92d109235a529dcb48"
+    },
+    {
+      "applicationCityId": "sidi-kacem",
+      "habousCityId": "8",
+      "habousArabicName": "سيدي قاسم",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "4cd31da06c7af7c8756ac5c11f7aba3a360dd93c47caec7193a8f80b4a217074"
+    },
+    {
+      "applicationCityId": "sidi-slimane",
+      "habousCityId": "10",
+      "habousArabicName": "سيدي سليمان",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "694246386b4ffd6cf87e0d2977efe34089ba2dccf9a3f93fbda6b612140e9681"
+    },
+    {
+      "applicationCityId": "tangier",
+      "habousCityId": "14",
+      "habousArabicName": "طنجة",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "6ba0a53ca0bcc46a5a3b58ca98e147535c27ef66e159286fae93b0c926d96225"
+    },
+    {
+      "applicationCityId": "tan-tan",
+      "habousCityId": "152",
+      "habousArabicName": "طانطان",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "3fa866489ec9f17ba2c30e79f8f8d4d00958ed93c1b290d020e8fa4d8ca8042a"
+    },
+    {
+      "applicationCityId": "tarfaya",
+      "habousCityId": "159",
+      "habousArabicName": "طرفاية",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "ed9062984c985beb2a4e74dc68e14e76c33d719e154f1c0519058218a051d850"
+    },
+    {
+      "applicationCityId": "taroudant",
+      "habousCityId": "118",
+      "habousArabicName": "تارودانت",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "d1bbcca9057f107afaedabd75aad9e210c8bc32cd81a0087d75ee23d236dfa73"
+    },
+    {
+      "applicationCityId": "taza",
+      "habousCityId": "89",
+      "habousArabicName": "تازة",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "2b5016ccefe203233458232ae3ece8e3ab5d5e6a67d26aa9a370ba2e5a8e852c"
+    },
+    {
+      "applicationCityId": "tetouan",
+      "habousCityId": "15",
+      "habousArabicName": "تطوان",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "f08187ffd4881e1d89fea2c4225c557265f6e59e40bbb985f88ce64bc43cfb4c"
+    },
+    {
+      "applicationCityId": "tiflet",
+      "habousCityId": "3",
+      "habousArabicName": "تيفلت",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "67e74ed4945d0beb845b5ca6cb5b2c739bae93f8dcb65c7ea2148385ffdea23a"
+    },
+    {
+      "applicationCityId": "tinghir",
+      "habousCityId": "139",
+      "habousArabicName": "تنغير",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "8f53e684c04895add1ed2d870d9516fa27c65f6aa5daa7418c57d32814738307"
+    },
+    {
+      "applicationCityId": "tiznit",
+      "habousCityId": "119",
+      "habousArabicName": "تزنيت",
+      "verified": true,
+      "verificationMethod": "live-select-and-timetable",
+      "verifiedAt": "2026-07-13T14:20:18.652869Z",
+      "sourceChecksum": "178c52d45d32dfaf353fb5f9b2bc6135812670cb713380fa18dee69d8bedb74b"
+    }
   ]
 }

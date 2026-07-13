@@ -83,6 +83,9 @@ public final class SearchCommand {
                 case "rank-candidates" -> rankCandidates(flags, out);
                 case "fetch-habous" -> new HabousDatasetCommand().fetch(flags, out);
                 case "fetch-habous-live" -> new HabousDatasetCommand().fetchLive(flags, out);
+                case "verify-habous-cities" ->
+                        new io.github.cyonecoder.prayertime.audit.dataset
+                                .HabousCityVerificationCommand().run(flags, out);
                 case "fit-secaproach" -> new SecondsApproachFitCommand(
                         new MoroccoCityRegistry(), engine).run(flags, out);
                 case "dataset-coverage" -> new HabousDatasetCommand().coverage(flags, out);
@@ -399,5 +402,8 @@ public final class SearchCommand {
                 + "[--output dir] [--delay-seconds n]");
         out.println("  research fit-secaproach --dataset <dir> "
                 + "[--cities a,b] [--output file] [--min-exact 0.95]");
+        out.println("  research verify-habous-cities "
+                + "[--delay-seconds n] [--dropdown-ville id] [--mapping file] "
+                + "[--options-out file] [--report-out file]");
     }
 }

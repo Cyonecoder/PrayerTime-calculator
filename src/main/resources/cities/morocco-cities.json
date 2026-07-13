@@ -178,7 +178,7 @@
       "elevationMeters": 1250,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["azrou", "أزرو"]
+      "aliases": ["azrou", "أزرو", "آزرو"]
     },
     {
       "slug": "beni-mellal",
@@ -308,7 +308,7 @@
       "elevationMeters": 405,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["fkih-ben-salah", "fkih ben salah", "fquih ben salah", "الفقيه بن صالح"]
+      "aliases": ["fkih-ben-salah", "fkih ben salah", "fquih ben salah", "الفقيه بن صالح", "الفقيه بنصالح"]
     },
     {
       "slug": "guelmim",

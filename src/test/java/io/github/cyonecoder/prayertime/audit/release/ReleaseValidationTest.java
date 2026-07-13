@@ -147,8 +147,10 @@ class ReleaseValidationTest {
     @Test
     void allMappedCitiesAreIncluded() {
         ValidationResult result = validateReal(empty());
-        assertThat(result.includedCities())
-                .containsAll(HabousCityMapping.load().verifiedCityIds());
+        // Every city validated here is a verified Habous mapping (the mapping also
+        // carries research-verified cities beyond this 14-city release dataset).
+        assertThat(HabousCityMapping.load().verifiedCityIds())
+                .containsAll(result.includedCities());
         assertThat(result.missingMappedCities()).isEmpty();
         assertThat(result.includedCities()).hasSize(14);
     }

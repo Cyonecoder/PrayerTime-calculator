@@ -38,6 +38,30 @@ never guesses).
   `SecondsApproachCoverageTest`.
 - The frozen global reconstructed method is never changed per city.
 
+## Every city is independently verified against the live source
+
+Before a city may be trained, it is re-verified against the **live** Habous
+source by `research verify-habous-cities`
+(`HabousCityVerifier`, method `live-select-and-timetable`):
+
+1. the official `<select name="ville">` dropdown is fetched and every option
+   parsed with provenance (id, exact + normalized Arabic, checksum) into
+   `build/reports/secapproach-all-cities/habous-live-city-options.json`;
+2. the candidate is matched to a **unique** option by exact conservatively-
+   normalized Arabic name or a known official-spelling alias — never a fuzzy
+   match, never a copied or invented id;
+3. its timetable is fetched, must contain the expected Arabic name, parse to a
+   coherent contiguous six-column table, and be reproduced by a second
+   independent fetch.
+
+Each of the 67 candidates receives exactly one status (`VERIFIED`,
+`NOT_LISTED_BY_HABOUS`, `AMBIGUOUS_NAME`, `TIMETABLE_UNAVAILABLE`,
+`INVALID_TIMETABLE`, `MANUAL_REVIEW_REQUIRED`) in
+`reports/secapproach-all-cities/habous-city-verification.json`. Only `VERIFIED`
+cities are written to `habous-city-mapping.json` (with `verifiedAt` /
+`sourceChecksum` provenance) and only verified cities are ever trained. Seven
+candidates are `NOT_LISTED_BY_HABOUS` (no dedicated page) and fail closed.
+
 ## Habous is a research/testing oracle only
 
 Official Habous data is used solely to **train and verify** the constants

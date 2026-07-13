@@ -170,10 +170,12 @@ public final class HabousMethodValidator {
 
         List<String> included = dataset.cities();
         List<String> missingMapped = new ArrayList<>();
-        // Release validation covers the production-official (verified) cities; the
-        // research-only mappings are validated by the offline fetch/fit pipeline.
-        for (String city : mapping.verifiedCityIds()) {
-            if (!included.contains(city)) {
+        // Every city in the release validation dataset must be a verified Habous
+        // mapping. (The mapping also carries research-verified cities beyond this
+        // dataset; those are exercised by the offline fetch/fit pipeline, not here.)
+        List<String> verifiedMapped = mapping.verifiedCityIds();
+        for (String city : included) {
+            if (!verifiedMapped.contains(city)) {
                 missingMapped.add(city);
             }
         }

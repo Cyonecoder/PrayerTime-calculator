@@ -35,14 +35,14 @@ class HabousMappingAndSplitTest {
         assertThat(mapping.forCity("kenitra").orElseThrow().habousCityId()).isEqualTo("7");
         assertThat(mapping.forCity("ouarzazate").orElseThrow().habousCityId()).isEqualTo("138");
 
-        // Every mapped city carries a non-blank numeric ville id.
-        assertThat(mapping.mappedCityIds()).allSatisfy(city ->
-                assertThat(mapping.forCity(city).orElseThrow().habousCityId()).isNotBlank());
-        // The 14 original cities are hand-verified; the added candidate cities are
-        // index-matched (verified=false) and confirmed at fetch time instead.
+        // Every mapped city carries a non-blank numeric ville id and is verified
+        // against the live Habous select + timetable.
+        assertThat(mapping.mappedCityIds()).allSatisfy(city -> {
+            assertThat(mapping.forCity(city).orElseThrow().habousCityId()).isNotBlank();
+            assertThat(mapping.forCity(city).orElseThrow().verified()).isTrue();
+        });
         assertThat(mapping.forCity("casablanca").orElseThrow().verified()).isTrue();
-        assertThat(mapping.forCity("tangier").orElseThrow().verified()).isTrue();
-        assertThat(mapping.forCity("safi").orElseThrow().verified()).isFalse();
+        assertThat(mapping.forCity("safi").orElseThrow().verified()).isTrue();
         assertThat(mapping.forCity("safi").orElseThrow().habousCityId()).isEqualTo("111");
     }
 
