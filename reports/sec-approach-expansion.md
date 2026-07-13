@@ -94,9 +94,10 @@ receive no offsets: bouskoura, kabila, sale, sidi-rahal, tamansourt, tamesna, te
 ## Reproduce
 
 ```
-research fetch-habous-live --cities <candidates> --output research-data/habous-candidates
+research verify-habous-cities            # live re-verification -> verified mapping
+research fetch-habous-live --cities all-mapped --output research-data/habous
 research fit-secaproach \
-  --dataset research-data/habous-candidates \
+  --dataset research-data/habous \
   --base src/main/resources/research/morocco-habous-secaproach-base14.json \
   --output src/main/resources/research/morocco-habous-secaproach.json
 ```

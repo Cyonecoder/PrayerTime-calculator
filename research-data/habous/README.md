@@ -1,36 +1,51 @@
 # Habous research dataset
 
-This directory holds the **reference observations** consumed by the parameter-search
-engine (`io.github.cyonecoder.prayertime.audit.optimization`). It is *research/audit*
-input only — it is **not** a production resource and is **not** on the classpath.
+Official Habous timetables for **every verified candidate city** (see
+`reports/secapproach-all-cities/habous-city-verification.json`). This is
+*research/audit* input only — it is **not** a production resource and is **not**
+on the classpath.
+
+## Contents
+
+One `<slug>-live-<firstDate>.json` snapshot per verified city, each covering the
+validated 30-day window **2026-06-17 … 2026-07-16** (30 dates × 6 daily values =
+180 observations per city). This is the same window as the original sec-approach
+training data, for comparability.
 
 ## Provenance
 
-The values in `morocco-2026-07.json` are a verbatim copy of the genuine official
-Morocco (Habous) snapshot already committed to the repository as the regression
-fixture `src/test/resources/fixtures/reference/morocco-july-2026.json`. No values
-were invented or altered; this is the same trustworthy snapshot, re-exported into a
-dataset directory so the search engine can load it without depending on a test
-resource.
+Each snapshot was produced by `research fetch-habous-live`
+(`LiveHabousCollector`), which fetches the city's `ville` page, **requires the
+mapped Arabic name to appear on the page**, parses the nine-column Hijri table,
+and resolves each row to an absolute Gregorian date. No value is calculated,
+interpolated, or invented — a city that cannot be fetched, verified and parsed is
+reported, not filled in. Each file records:
 
-Only the days present in that snapshot are genuine. To search a fuller month, add
-more `*.json` files here in the same schema, each populated from a real Habous
-fetch — never from synthetic or back-computed values.
+`source`, `city` (registry slug), `habousVilleId`, `habousArabicName`,
+`sourceUrl`, `fetchedAt`, `sourceSha256`, `parserVersion`, and the complete
+`days` records (`date`, `fajr`, `sunrise`, `dhuhr`, `asr`, `maghrib`, `isha`).
+
+`HabousResearchDatasetTest` enforces the 30-day window, six-value completeness,
+contiguous dates, and provenance offline; only the explicitly tagged
+`research fetch-habous-live` / `research verify-habous-cities` commands contact
+Habous.
 
 ## Schema
 
-Each file is a JSON object:
-
 ```json
 {
-  "source": "habous",
+  "source": "habous-live",
+  "city": "casablanca",
+  "habousVilleId": "58",
+  "habousArabicName": "الدار البيضاء",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/index.php?ville=58",
+  "fetchedAt": "2026-…Z",
+  "sourceSha256": "…",
+  "parserVersion": "habous-live-1",
   "days": [
-    { "city": "casablanca", "date": "2026-07-03",
+    { "city": "casablanca", "date": "2026-06-17",
       "fajr": "04:35", "sunrise": "06:23", "dhuhr": "13:40",
       "asr": "17:19", "maghrib": "20:49", "isha": "22:20" }
   ]
 }
 ```
-
-`city` is a registry slug (see `MoroccoCityRegistry`); `date` is ISO-8601; the six
-prayer times are `HH:mm` in Morocco civil time.

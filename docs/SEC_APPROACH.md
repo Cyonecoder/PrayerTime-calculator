@@ -65,11 +65,11 @@ candidates are `NOT_LISTED_BY_HABOUS` (no dedicated page) and fail closed.
 ## Habous is a research/testing oracle only
 
 Official Habous data is used solely to **train and verify** the constants
-offline. It is never copied into production output. The reference timetables live
-off the classpath under `research-data/habous` (the 14 base cities) and
-`research-data/habous-candidates` (the candidate cities), each fetched with
-`research fetch-habous-live`, which requires the mapped Arabic name to appear on
-the fetched page before accepting any data.
+offline. It is never copied into production output. The reference timetables for
+every verified city live off the classpath under `research-data/habous` (one
+snapshot per city, the validated 30-day window 2026-06-17…2026-07-16 with full
+provenance), each fetched with `research fetch-habous-live`, which requires the
+mapped Arabic name to appear on the fetched page before accepting any data.
 
 ## Training and verification
 

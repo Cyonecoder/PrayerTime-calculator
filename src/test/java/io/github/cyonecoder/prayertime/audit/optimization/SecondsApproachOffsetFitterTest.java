@@ -35,7 +35,7 @@ class SecondsApproachOffsetFitterTest {
     void fitsEveryDatasetCityAndIsDeterministic() {
         Map<String, CityFit> first = fitter.fitAll(dataset);
         Map<String, CityFit> second = fitter.fitAll(dataset);
-        assertThat(first).hasSize(14);
+        assertThat(first).hasSize(60);
         // Identical offsets across two runs: the search is fully deterministic.
         first.forEach((city, fit) ->
                 assertThat(fit.offsets()).as(city).isEqualTo(second.get(city).offsets()));
@@ -48,7 +48,12 @@ class SecondsApproachOffsetFitterTest {
         int fittedExact = 0;
         int committedExact = 0;
         int total = 0;
+        // Compare only cities the committed sec-approach actually ships (the 4
+        // below-band candidates carry no offsets and are legitimately excluded).
         for (CityFit fit : fits.values()) {
+            if (!committed.supports(fit.cityId())) {
+                continue;
+            }
             fittedExact += fit.exactMatches();
             total += fit.total();
             committedExact += committedExactMatches(fit.cityId());

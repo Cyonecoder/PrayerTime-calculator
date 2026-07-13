@@ -22,22 +22,14 @@ import org.junit.jupiter.api.Test;
  */
 class SecondsApproachCoverageTest {
 
-    private static final Path BASE = Path.of("research-data/habous");
-    private static final Path CANDIDATES = Path.of("research-data/habous-candidates");
+    private static final Path DATASET = Path.of("research-data/habous");
     private static final double MIN_EXACT = 0.95;
 
     /** The 14 locked reference offset sets: {fajr, sunrise, dhuhr, asr, maghrib, isha}. */
     private static final Map<String, int[]> LOCKED = locked();
 
     private final SecondsApproachPrayerTimesProvider sec = new SecondsApproachPrayerTimesProvider();
-    private final ReferenceDataset dataset = mergedOracle();
-
-    /** The full official oracle: the 14-city base plus the 46 candidate cities. */
-    private static ReferenceDataset mergedOracle() {
-        List<Observation> all = new java.util.ArrayList<>(ReferenceDataset.load(BASE).observations());
-        all.addAll(ReferenceDataset.load(CANDIDATES).observations());
-        return ReferenceDataset.of(all);
-    }
+    private final ReferenceDataset dataset = ReferenceDataset.load(DATASET);
 
     @Test
     void everySecApproachCityMeetsTheBandAgainstTheOracle() {

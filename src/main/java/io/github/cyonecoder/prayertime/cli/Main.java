@@ -818,7 +818,7 @@ public final class Main {
     /**
      * Resolves official Habous times for the sec-approach diagnostic: the bundled
      * production snapshots first, then the off-classpath research oracle
-     * ({@code research-data/habous} and {@code research-data/habous-candidates}).
+     * ({@code research-data/habous}).
      *
      * <p>The research oracle is used <strong>only</strong> for this local
      * diagnostic comparison; it is never served as production output and is
@@ -853,7 +853,7 @@ public final class Main {
 
         private static Map<String, Map<LocalDate, PrayerTimes>> loadResearch() {
             Map<String, Map<LocalDate, PrayerTimes>> out = new java.util.HashMap<>();
-            for (String dir : new String[] {"research-data/habous", "research-data/habous-candidates"}) {
+            for (String dir : new String[] {"research-data/habous"}) {
                 java.nio.file.Path path = java.nio.file.Path.of(dir);
                 if (!java.nio.file.Files.isDirectory(path)) {
                     continue;

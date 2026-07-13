@@ -27,8 +27,10 @@ class SecondsApproachFitCommandTest {
         ReferenceDataset dataset = ReferenceDataset.load(DATASET);
         Outcome outcome = command.evaluate(dataset, SecondsApproachFitCommand.DEFAULT_MIN_EXACT);
 
-        assertThat(outcome.written()).hasSize(14);
-        assertThat(outcome.rejected()).isEmpty();
+        // 60 verified cities: 56 clear the band, 4 fall below (berrechid,
+        // fkih-ben-salah, larache, sidi-kacem) and are reported, not written.
+        assertThat(outcome.written()).hasSize(56);
+        assertThat(outcome.rejected()).hasSize(4);
         assertThat(outcome.unresolved()).isEmpty();
         assertThat(outcome.written()).allSatisfy(fit ->
                 assertThat(fit.exactRatio()).isGreaterThanOrEqualTo(0.95));
@@ -40,7 +42,7 @@ class SecondsApproachFitCommandTest {
         // An impossibly high bar rejects every city; none crash, all are reported.
         Outcome outcome = command.evaluate(dataset, 1.01 - 0.0);
         assertThat(outcome.written()).isEmpty();
-        assertThat(outcome.rejected()).hasSize(14);
+        assertThat(outcome.rejected()).hasSize(60);
     }
 
     @Test
