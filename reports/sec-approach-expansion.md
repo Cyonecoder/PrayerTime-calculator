@@ -22,8 +22,17 @@ scientifically-verified subset of the authoritative 67-city candidate inventory.
 | — no Habous page, unmapped (fail closed) | 7 |
 | **Total sec-approach cities committed** | **56** |
 
-New verified cities aggregate exact-minute agreement: **97.01%** (7560 observations).
-The 14 original cities are unchanged (locked reference, ~97.0% as previously reported).
+New verified cities aggregate exact-minute agreement: **97.01% in-sample** (7560
+observations). The 14 original cities are unchanged (locked reference, ~97.0%
+in-sample).
+
+> **Honest, out-of-sample estimate.** These are **in-sample** figures on a single
+> 30-day **summer** window — not an annual claim. Under a chronological
+> train(20d)/validation(5d)/holdout(5d) split (fit on training, ties broken on
+> validation, scored untouched on holdout), the 42 newly trained cities average
+> **≈88.97% exact on the holdout** vs ≈98.6% training / 97.0% in-sample. The
+> shipped offsets are refit on all dates (production unchanged); the pre-refit
+> holdout metrics are preserved in `reports/secapproach-all-cities/holdout-report.json`.
 
 ## Newly verified cities (42)
 
@@ -96,8 +105,9 @@ receive no offsets: bouskoura, kabila, sale, sidi-rahal, tamansourt, tamesna, te
 ```
 research verify-habous-cities            # live re-verification -> verified mapping
 research fetch-habous-live --cities all-mapped --output research-data/habous
-research fit-secaproach \
+research train-secaproach \
   --dataset research-data/habous \
   --base src/main/resources/research/morocco-habous-secaproach-base14.json \
-  --output src/main/resources/research/morocco-habous-secaproach.json
+  --offsets-out src/main/resources/research/morocco-habous-secaproach.json \
+  --report-out reports/secapproach-all-cities/training-report.json
 ```

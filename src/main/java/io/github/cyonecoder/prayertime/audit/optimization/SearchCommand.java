@@ -86,8 +86,10 @@ public final class SearchCommand {
                 case "verify-habous-cities" ->
                         new io.github.cyonecoder.prayertime.audit.dataset
                                 .HabousCityVerificationCommand().run(flags, out);
-                case "fit-secaproach" -> new SecondsApproachFitCommand(
-                        new MoroccoCityRegistry(), engine).run(flags, out);
+                case "train-secaproach" ->
+                        new io.github.cyonecoder.prayertime.audit.secapproach
+                                .SecApproachTrainingCommand(new MoroccoCityRegistry(), engine)
+                                .run(flags, out);
                 case "dataset-coverage" -> new HabousDatasetCommand().coverage(flags, out);
                 case "infer-global-model" ->
                         new io.github.cyonecoder.prayertime.audit.model.GlobalModelCommand(
@@ -400,8 +402,9 @@ public final class SearchCommand {
         out.println("  research infer-global-model --dataset <dir> [--output dir]");
         out.println("  research fetch-habous-live --cities <all-mapped|a,b> "
                 + "[--output dir] [--delay-seconds n]");
-        out.println("  research fit-secaproach --dataset <dir> "
-                + "[--cities a,b] [--output file] [--min-exact 0.95]");
+        out.println("  research train-secaproach --dataset <dir> "
+                + "[--base file] [--min-exact 0.95] [--low -900] [--high 900] "
+                + "[--offsets-out file] [--report-out file] [--holdout-out file]");
         out.println("  research verify-habous-cities "
                 + "[--delay-seconds n] [--dropdown-ville id] [--mapping file] "
                 + "[--options-out file] [--report-out file]");

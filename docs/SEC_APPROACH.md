@@ -73,20 +73,50 @@ mapped Arabic name to appear on the fetched page before accepting any data.
 
 ## Training and verification
 
-`SecondsApproachOffsetFitter` fits each city/prayer constant by maximising
-exact-minute agreement against the oracle, using the *identical* arithmetic as
-the production provider, and choosing deterministically (centre of the widest
-tie plateau — the offset furthest from a rounding boundary). A city is committed
-only if it reaches the **95% exact-minute** verification band; otherwise it is
-reported and excluded.
+The deterministic trainer lives in the `audit.secapproach` package
+(`SecApproachTrainer` and friends). For each (city, prayer) it pairs the raw
+reconstructed astronomical **seconds** (from `HabousRawEngine` over
+`ReconstructedMethod.frozen()`, not the already-rounded minute) with the official
+minute, then runs an exhaustive integer-second search over **[-900, +900]** and
+keeps the winner by a fixed lexicographic tie-break: highest exact-minute count,
+then within-±1 count, then lowest MAE, then lowest max error, then lowest
+absolute offset, then lowest signed offset. All ranking quantities are integers,
+so the same dataset reproduces the same offsets and report byte-for-byte — no
+randomness, floating-point tie-break, ML, or per-date fitting. A city is
+committed only if it reaches the **95% exact-minute** band; below-band cities are
+reported and excluded, and any offset landing on the ±900 boundary is flagged
+(coordinates/timezone/mapping are rechecked before the window is ever widened).
 
 ```
-research fit-secaproach --dataset <dir> [--cities a,b] [--min-exact 0.95] \
-  [--base <locked-file>] [--output <file>]
+research train-secaproach --dataset <dir> [--base <locked-file>] \
+  [--min-exact 0.95] [--low -900] [--high 900] \
+  [--offsets-out <file>] [--report-out <file>]
 ```
 
 `--base` preserves already-shipped cities verbatim so onboarding new cities never
 changes an existing city's output.
+
+## Honest accuracy — not an annual claim
+
+The reference data is a single **30-day summer window** (2026-06-17…2026-07-16),
+so a full-dataset percentage is **in-sample** and must not be read as year-round
+accuracy. For every newly trained city the trainer also reports an
+overfitting-aware, out-of-sample estimate (`holdout-report.json`), splitting each
+city's dates chronologically:
+
+- Training: 2026-06-17…2026-07-06 (20 days) — the offset is fit here only
+- Validation: 2026-07-07…2026-07-11 (5 days) — used only to break ties
+- Holdout: 2026-07-12…2026-07-16 (5 days) — the selected offset is scored here **untouched**
+
+(For any other window length the split is proportional: first two-thirds / next
+one-sixth / final one-sixth.)
+
+Across the 42 newly trained cities the **out-of-sample holdout mean is ≈89%
+exact**, versus ≈97% in-sample — the gap is the honest cost of a short summer
+window. The shipped offset is the "final release offset" refit on all validated
+dates (so production is unchanged); the pre-refit holdout metrics are preserved
+in the report and the full-dataset numbers are labelled in-sample. No
+annual/year-round accuracy is claimed from this dataset.
 
 ## Coverage
 
