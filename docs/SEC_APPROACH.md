@@ -1,9 +1,42 @@
 # Sec-approach calculation
 
 The **sec-approach** is a local, deterministic, offline, formula-based
-calculation that reproduces the official Moroccan Habous timetable to ~97%
-exact-minute agreement, without ever reading or memorising the timetable at
-runtime.
+calculation that reproduces the official Moroccan Habous timetable with **97.09%
+exact-minute agreement on the validated 2026-06-17 through 2026-07-16 reference
+window** (within ±1 minute for every observation on that window), without ever
+reading or memorising the timetable at runtime.
+
+> Those figures are measured on a single **30-day summer window** and are stated
+> as exact-minute agreement on that reference window only. This is **not** a
+> claim of annual or year-round accuracy, and nothing here is described as
+> "100% accurate" — see [Honest accuracy](#honest-accuracy--not-an-annual-claim).
+
+## The 67-city candidate inventory
+
+Coverage is driven by an authoritative **67-city candidate inventory**
+(`src/main/resources/research/habous-candidate-inventory.json`): each candidate
+records its canonical slug, original source spelling, Arabic name, original HTML
+state (48 active / 19 commented), and sec-approach state (14 already calibrated /
+53 requiring training). The inventory is the single source of truth for which
+cities are considered; a city being *in the inventory* means nothing about
+whether it is supported (see below).
+
+## Registry support vs sec-approach support
+
+These are two different, deliberately separate notions:
+
+- **Registry support** — the city exists in the production city model
+  (`cities/morocco-cities.json`) with coordinates, zone, and aliases. All 67
+  candidates are registry cities. Registry support only means the calculator can
+  *resolve the name and compute an astronomical schedule* for it.
+- **Sec-approach support** — the city is served by the city-corrected
+  sec-approach. A city is sec-supported **only** when it has all of: a verified
+  Habous mapping, a complete validated 180-observation dataset, accepted
+  six-prayer offsets, and passing tests. **48** of the 67 qualify.
+
+Having coordinates (registry support) is **never** sufficient for sec-approach
+support. A registry city without accepted offsets is not sec-supported and fails
+closed (see [Unsupported-city behavior](#unsupported-city-behavior)).
 
 ## Model
 
@@ -137,12 +170,16 @@ city's dates chronologically:
 (For any other window length the split is proportional: first two-thirds / next
 one-sixth / final one-sixth.)
 
-Across the 42 newly trained cities the **out-of-sample holdout mean is ≈89%
-exact**, versus ≈97% in-sample — the gap is the honest cost of a short summer
-window. The shipped offset is the "final release offset" refit on all validated
-dates (so production is unchanged); the pre-refit holdout metrics are preserved
-in the report and the full-dataset numbers are labelled in-sample. No
-annual/year-round accuracy is claimed from this dataset.
+Across the 34 accepted new cities the **out-of-sample holdout mean is ≈90.9%
+exact-minute agreement on the validated window**, versus ≈97% in-sample — the gap
+is the honest cost of a short summer window, and it is exactly why the per-city
+gate requires **holdout ≥ 85%** rather than trusting the in-sample number. The
+shipped offset is the "final release offset" refit on all validated dates (so
+production is unchanged); the pre-refit holdout metrics are preserved in the
+report and the full-dataset numbers are labelled in-sample. **No annual or
+year-round accuracy is claimed from this 30-day summer dataset**, and no result
+is described as "100% accurate" — every figure is exact-minute agreement on the
+2026-06-17 through 2026-07-16 reference window.
 
 ## Release accuracy gates
 
@@ -195,5 +232,42 @@ FAILED_ACCURACY_GATE** (all on the out-of-sample holdout < 85%: berkane,
 chefchaouen, el-jadida, fkih-ben-salah, khenifra, khouribga, ksar-el-kebir,
 larache, midelt, sidi-ifni, sidi-kacem, taroudant), **7 MAPPING_UNVERIFIED**
 (bouskoura, kabila, sale, sidi-rahal, tamansourt, tamesna, temara). All
-non-accepted cities fail closed. See `reports/sec-approach-expansion.md` for the
-per-city accuracy table.
+non-accepted cities fail closed.
+
+## Accuracy by city and prayer
+
+Aggregate exact-minute agreement on the validated 2026-06-17 through 2026-07-16
+reference window is **97.09%** across the 48 sec-supported cities (100% within
+±1 minute, max error 1 minute, +17.94 pp over the global reconstructed formula).
+Per-city and per-prayer figures are not summarised as a single number here —
+they are produced deterministically by `research reports` and live in
+`build/reports/secapproach-all-cities/`:
+
+- `training-metrics-by-city.csv` — exact / within-±1 / MAE / max, and out-of-sample
+  holdout, for every city;
+- `training-metrics-by-prayer.csv` — offset and metrics for every city × prayer;
+- `baseline-vs-secapproach.csv` — global vs sec-approach per city;
+- `holdout-metrics-by-city.csv` — training / validation / holdout / in-sample;
+- `summary.md` — the aggregate roll-up.
+
+Every figure is exact-minute agreement **on that validated reference window**;
+none is presented as year-round or "100% accurate".
+
+## Unsupported-city behavior
+
+A city that is not sec-supported (gate-failed, mapping-unverified, or simply not
+in the 48) receives **no offsets** and the provider **fails closed** — it never
+falls back to a nearby city, a province, Casablanca, or a silent zero offset:
+
+```
+$ ./gradlew -q run --args="secaproach --city larache --date 2026-07-07"
+Error: no sec-approach offsets for city 'larache'
+```
+
+The city can still be resolved by the registry and computed with the global
+`calculate` method (registry support); it is only the city-corrected sec-approach
+that fails closed. This is deliberate: a wrong-but-plausible answer is worse than
+an explicit "unsupported".
+
+See `reports/sec-approach-expansion.md` and the generated
+`rejected-cities.md` for the per-city status table.

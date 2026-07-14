@@ -93,13 +93,25 @@ Every command prints the city, date, timezone, UTC offset, clock mode,
 calculation method, source and the six times. Invalid cities or dates produce a
 clear one-line error and a non-zero exit code (no stack trace).
 
-## City support
+## City support — two distinct notions
 
-Fifteen major cities are bundled (Rabat, Salé, Casablanca, Fez, Marrakech,
-Tangier, Agadir, Oujda, Meknès, Kénitra, Tétouan, Laâyoune, Dakhla, Errachidia,
-Ouarzazate), each with a stable slug, coordinates, default elevation, the
-`Africa/Casablanca` zone, aliases (e.g. `fes`/`fez`, `tanger`/`tangier`), and an
-optional Habous city ID. Unknown cities are **never** defaulted to Casablanca.
+The registry bundles **67 cities** (the authoritative candidate inventory), each
+with a stable slug, coordinates, default elevation, the `Africa/Casablanca` zone,
+and aliases (Latin and Arabic, e.g. `fes`/`fez`, `طنجة`/`tanger`). Unknown cities
+are **never** defaulted to Casablanca.
+
+"Supported" means two different things — do not conflate them:
+
+- **Registry support** (all 67) — the city resolves and can be computed with the
+  global astronomical method. Having coordinates is *only* this.
+- **Sec-approach support** (**48**) — the city is served by the city-corrected
+  sec-approach. Granted **only** with a verified Habous mapping, a complete
+  validated 180-observation dataset, accepted six-prayer offsets, and passing
+  tests. A registry city without accepted offsets is **not** sec-supported and
+  the sec-approach fails closed for it (no nearest-city / province / Casablanca
+  fallback).
+
+See [`docs/SEC_APPROACH.md`](docs/SEC_APPROACH.md) for the full story.
 
 ## Calculation vs. Habous sources
 
@@ -151,8 +163,31 @@ PrayerTimes times = calculator.calculate(request);
 System.out.println(times.dhuhr());    // 13:37
 ```
 
+## Sec-approach (city-corrected) calculation
+
+For the most accurate **offline** result, the `secaproach` command applies a
+per-city, per-prayer constant-second offset to the reconstructed time
+(parameter version `morocco-habous-secaproach-v2`). It reproduces the official
+Habous timetable with **97.09% exact-minute agreement on the validated
+2026-06-17 through 2026-07-16 reference window** (within ±1 minute for every
+observation on that window), for the 48 sec-supported cities.
+
+Those figures are measured on a single **30-day summer window** and stated as
+exact-minute agreement on that window only — **not** a claim of annual or
+year-round accuracy, and nothing is described as "100% accurate". The offsets are
+*trained and verified* against Habous offline; the Habous timetable is a
+**research/testing oracle only** and its daily values are never emitted as
+production output. Full details, including how mappings were verified, how
+offsets are trained (deterministic integer search), the
+training/validation/holdout split, the accuracy gates, and per-city/per-prayer
+results, are in [`docs/SEC_APPROACH.md`](docs/SEC_APPROACH.md).
+
 ## Further documentation
 
+- [`docs/SEC_APPROACH.md`](docs/SEC_APPROACH.md) — the sec-approach: inventory,
+  registry vs sec support, mapping verification, deterministic training, gates,
+  honest accuracy, `v2` parameters.
+- [`salat_commands.md`](salat_commands.md) — every runnable command, by category.
 - `docs/architecture.md` — layers, dependency direction, provider design.
 - `docs/calculation-methods.md` — method parameters, rounding, timezone policy.
 - `docs/audit/` — the pre-refactor baseline and the legacy archive.
