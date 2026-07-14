@@ -83,6 +83,25 @@ tasks.register('habousCompatibilityTest', Test) {
     }
 }
 
+// Focused sec-approach training/verification suite: the deterministic trainer,
+// gates, split, catalog, reports, and the provider-level sec-approach guards.
+// Offline and deterministic.
+tasks.register('secApproachTrainingTest', Test) {
+    description = 'Runs the sec-approach training, gate, split and report tests.'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform {
+        excludeTags 'live'
+    }
+    filter {
+        includeTestsMatching 'io.github.cyonecoder.prayertime.audit.secapproach.*'
+        includeTestsMatching 'io.github.cyonecoder.prayertime.application.provider.SecApproachReleaseGateTest'
+        includeTestsMatching 'io.github.cyonecoder.prayertime.application.provider.SecApproachParameterResourceTest'
+        includeTestsMatching 'io.github.cyonecoder.prayertime.application.provider.SecondsApproach*'
+    }
+}
+
 // --- Code style (Spotless) --------------------------------------------------
 spotless {
     java {
