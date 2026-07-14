@@ -118,12 +118,33 @@ dates (so production is unchanged); the pre-refit holdout metrics are preserved
 in the report and the full-dataset numbers are labelled in-sample. No
 annual/year-round accuracy is claimed from this dataset.
 
+## Per-city training catalog
+
+`research train-new-cities` trains **every** candidate without current offsets
+(the 53 new cities), independently and per prayer, and writes a catalog
+(`reports/secapproach-all-cities/new-city-training.json`) giving each city exactly
+one status:
+
+| Status | Meaning | Offsets |
+|---|---|---|
+| `ACCEPTED` | verified, 180 obs, ≥95% in-sample, offsets sane | committed |
+| `FAILED_ACCURACY_GATE` | verified + data, but below the band | none |
+| `MAPPING_UNVERIFIED` | no verified Habous mapping / page | none |
+| `INSUFFICIENT_DATA` | verified but not a full 180-observation window | none |
+| `SUSPICIOUS_OFFSET` | offset hit the search boundary or exceeded a many-minute threshold (wrong-city/coordinate signature) | none |
+| `MANUAL_REVIEW_REQUIRED` | verification was ambiguous / needs a human | none |
+
+A non-`ACCEPTED` city **never** receives offsets, so the provider keeps failing
+closed for it. Each record carries the dataset provenance (window,
+`observationCount`, `sourceChecksums`) and the training/validation/holdout
+(out-of-sample) and full-dataset (in-sample) metrics.
+
 ## Coverage
 
 From the authoritative 67-city candidate inventory
-(`research/habous-candidate-inventory.json`): 14 locked + **42 newly verified** =
-**56 committed** cities. Four mapped cities fell below the band (berrechid,
-fkih-ben-salah, larache, sidi-kacem) and seven have no dedicated Habous page
-(bouskoura, kabila, sale, sidi-rahal, tamansourt, tamesna, temara); all eleven
-are excluded and fail closed. See `reports/sec-approach-expansion.md` for the
-per-city accuracy table.
+(`research/habous-candidate-inventory.json`): 14 locked + **42 ACCEPTED** =
+**56 committed** cities. Of the 53 new cities: **42 ACCEPTED**, **4
+FAILED_ACCURACY_GATE** (berrechid, fkih-ben-salah, larache, sidi-kacem), **7
+MAPPING_UNVERIFIED** (bouskoura, kabila, sale, sidi-rahal, tamansourt, tamesna,
+temara). All non-accepted cities fail closed. See
+`reports/sec-approach-expansion.md` for the per-city accuracy table.

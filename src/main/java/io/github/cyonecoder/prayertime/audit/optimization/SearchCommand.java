@@ -90,6 +90,10 @@ public final class SearchCommand {
                         new io.github.cyonecoder.prayertime.audit.secapproach
                                 .SecApproachTrainingCommand(new MoroccoCityRegistry(), engine)
                                 .run(flags, out);
+                case "train-new-cities" ->
+                        new io.github.cyonecoder.prayertime.audit.secapproach
+                                .SecApproachNewCityTrainingCommand(new MoroccoCityRegistry(), engine)
+                                .run(flags, out);
                 case "dataset-coverage" -> new HabousDatasetCommand().coverage(flags, out);
                 case "infer-global-model" ->
                         new io.github.cyonecoder.prayertime.audit.model.GlobalModelCommand(
@@ -405,6 +409,9 @@ public final class SearchCommand {
         out.println("  research train-secaproach --dataset <dir> "
                 + "[--base file] [--min-exact 0.95] [--low -900] [--high 900] "
                 + "[--offsets-out file] [--report-out file] [--holdout-out file]");
+        out.println("  research train-new-cities --dataset <dir> "
+                + "[--min-exact 0.95] [--low -900] [--high 900] "
+                + "[--suspicious-seconds 600] [--output file]");
         out.println("  research verify-habous-cities "
                 + "[--delay-seconds n] [--dropdown-ville id] [--mapping file] "
                 + "[--options-out file] [--report-out file]");
