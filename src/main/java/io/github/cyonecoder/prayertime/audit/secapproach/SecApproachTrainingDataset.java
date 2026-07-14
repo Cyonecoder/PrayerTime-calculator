@@ -145,6 +145,40 @@ public final class SecApproachTrainingDataset {
         return any.isEmpty() ? "" : any.get(0).snapshotChecksum();
     }
 
+    /** @return the earliest date across all cities, or empty if the dataset is empty. */
+    public java.util.Optional<LocalDate> firstDate() {
+        return allDates().stream().min(LocalDate::compareTo);
+    }
+
+    /** @return the latest date across all cities, or empty if the dataset is empty. */
+    public java.util.Optional<LocalDate> lastDate() {
+        return allDates().stream().max(LocalDate::compareTo);
+    }
+
+    /**
+     * A deterministic SHA-256 over the per-city source snapshot checksums, so the
+     * generated parameters can record exactly which reviewed data produced them.
+     *
+     * @return the aggregate dataset checksum (hex)
+     */
+    public String datasetChecksum() {
+        StringBuilder sb = new StringBuilder();
+        for (String city : cities()) {
+            sb.append(city).append('=').append(checksum(city)).append('\n');
+        }
+        return io.github.cyonecoder.prayertime.audit.dataset.HabousSnapshotStore.sha256Hex(sb.toString());
+    }
+
+    private List<LocalDate> allDates() {
+        List<LocalDate> dates = new ArrayList<>();
+        for (String city : cities()) {
+            for (TrainingObservation o : observations(city, Prayer.FAJR)) {
+                dates.add(o.date());
+            }
+        }
+        return dates;
+    }
+
     /** Loads the source SHA-256 per city from the snapshot files in {@code dir}. */
     private static Map<String, String> checksumsByCity(Path dir) {
         Map<String, String> out = new LinkedHashMap<>();

@@ -96,6 +96,32 @@ research train-secaproach --dataset <dir> [--base <locked-file>] \
 `--base` preserves already-shipped cities verbatim so onboarding new cities never
 changes an existing city's output.
 
+## Parameter resource & versioning
+
+The frozen, reviewed parameters live at
+`src/main/resources/research/morocco-habous-secaproach.json` (unchanged path).
+It is **`morocco-habous-secaproach-v2`** — the 14 original offset objects
+preserved exactly plus the accepted new-city objects, all sorted by canonical
+slug — and carries provenance:
+
+```json
+{
+  "parameterVersion": "morocco-habous-secaproach-v2",
+  "model": "publishedMinute = floor((rawSeconds + offsetSeconds[city][prayer]) / 60)",
+  "generatorVersion": "secapproach-trainer-v1",
+  "generatedFrom": { "firstDate": "2026-06-17", "lastDate": "2026-07-16",
+                     "datasetChecksum": "…", "verifiedCityCount": 60, "trainedCityCount": 56 }
+}
+```
+
+The production provider (`SecondsApproachPrayerTimesProvider`) loads **only** this
+frozen resource and **rejects any file whose `parameterVersion` differs from its
+own `PARAMETER_VERSION`** — so it can never serve unreviewed parameters. Review
+flow: `research train-secaproach` writes a candidate to
+`build/reports/secapproach-all-cities/generated-parameters.json` (never the
+resource); a human reviews it and commits the deterministic copy to the resource
+path. Tests read/compare the committed resource but **never rewrite it**.
+
 ## Honest accuracy — not an annual claim
 
 The reference data is a single **30-day summer window** (2026-06-17…2026-07-16),

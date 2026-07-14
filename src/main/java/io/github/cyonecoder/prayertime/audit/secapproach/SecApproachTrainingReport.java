@@ -25,28 +25,52 @@ import java.util.Map;
  */
 public final class SecApproachTrainingReport {
 
-    private static final String PARAMETER_VERSION = "morocco-habous-secaproach-v1";
+    /** The reviewed parameter-resource version these offsets belong to. */
+    public static final String PARAMETER_VERSION = "morocco-habous-secaproach-v2";
+    /** The trainer/generator version stamped into generated parameters. */
+    public static final String GENERATOR_VERSION = "secapproach-trainer-v1";
+
+    /** Provenance of the dataset a parameter file was generated from. */
+    public record GeneratedFrom(
+            String firstDate,
+            String lastDate,
+            String datasetChecksum,
+            int verifiedCityCount,
+            int trainedCityCount) {
+    }
+
     private static final Prayer[] ORDER = {
         Prayer.FAJR, Prayer.SUNRISE, Prayer.DHUHR, Prayer.ASR, Prayer.MAGHRIB, Prayer.ISHA
     };
     private static final String[] KEYS = {"fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha"};
 
-    /** Writes the offsets file in the committed sec-approach schema. */
-    public void writeOffsets(Path file, Outcome outcome) {
+    /**
+     * Writes the offsets file in the committed sec-approach schema (v2), with
+     * generator and dataset provenance. City entries are ordered by canonical slug.
+     */
+    public void writeOffsets(Path file, Outcome outcome, GeneratedFrom generatedFrom) {
         Map<String, Map<Prayer, Integer>> offsets = outcome.offsets();
         try {
             createParent(file);
             try (Writer w = Files.newBufferedWriter(file, StandardCharsets.UTF_8)) {
                 w.write("{\n");
                 w.write("  \"parameterVersion\": \"" + PARAMETER_VERSION + "\",\n");
+                w.write("  \"model\": \"publishedMinute = floor((rawSeconds + "
+                        + "offsetSeconds[city][prayer]) / 60)\",\n");
+                w.write("  \"generatorVersion\": \"" + GENERATOR_VERSION + "\",\n");
+                w.write("  \"generatedFrom\": {\n");
+                w.write("    \"firstDate\": \"" + generatedFrom.firstDate() + "\",\n");
+                w.write("    \"lastDate\": \"" + generatedFrom.lastDate() + "\",\n");
+                w.write("    \"datasetChecksum\": \"" + generatedFrom.datasetChecksum() + "\",\n");
+                w.write("    \"verifiedCityCount\": " + generatedFrom.verifiedCityCount() + ",\n");
+                w.write("    \"trainedCityCount\": " + generatedFrom.trainedCityCount() + "\n");
+                w.write("  },\n");
                 w.write("  \"note\": \"Sec-approach: per-city, per-prayer CONSTANT seconds offset "
                         + "added to the reconstructed raw astronomical time, then floored to the "
                         + "minute. Trained deterministically by SecApproachTrainer (exhaustive "
                         + "integer search in [" + outcome.low() + "," + outcome.high() + "]s, "
                         + "lexicographic tie-break, min-exact=" + pct(outcome.minExact())
                         + "). A city-level calculation parameter, NOT a per-date override.\",\n");
-                w.write("  \"model\": \"publishedMinute = floor((rawSeconds + "
-                        + "offsetSeconds[city][prayer]) / 60)\",\n");
                 w.write("  \"offsets\": {\n");
                 int i = 0;
                 for (Map.Entry<String, Map<Prayer, Integer>> e : offsets.entrySet()) {

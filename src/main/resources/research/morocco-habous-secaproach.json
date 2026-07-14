@@ -1,7 +1,15 @@
 {
-  "parameterVersion": "morocco-habous-secaproach-v1",
-  "note": "Sec-approach: per-city, per-prayer CONSTANT seconds offset added to the reconstructed raw astronomical time, then floored to the minute. Trained deterministically by SecApproachTrainer (exhaustive integer search in [-900,900]s, lexicographic tie-break, min-exact=95%). A city-level calculation parameter, NOT a per-date override.",
+  "parameterVersion": "morocco-habous-secaproach-v2",
   "model": "publishedMinute = floor((rawSeconds + offsetSeconds[city][prayer]) / 60)",
+  "generatorVersion": "secapproach-trainer-v1",
+  "generatedFrom": {
+    "firstDate": "2026-06-17",
+    "lastDate": "2026-07-16",
+    "datasetChecksum": "78a417aa01af75d31d3013ced940b7611fec5e28e8f6d082a27e53eba906f8c9",
+    "verifiedCityCount": 60,
+    "trainedCityCount": 56
+  },
+  "note": "Sec-approach: per-city, per-prayer CONSTANT seconds offset added to the reconstructed raw astronomical time, then floored to the minute. Trained deterministically by SecApproachTrainer (exhaustive integer search in [-900,900]s, lexicographic tie-break, min-exact=95%). A city-level calculation parameter, NOT a per-date override.",
   "offsets": {
     "agadir": {"fajr":1,"sunrise":8,"dhuhr":321,"asr":-44,"maghrib":-33,"isha":54},
     "al-hoceima": {"fajr":3,"sunrise":78,"dhuhr":327,"asr":-28,"maghrib":-82,"isha":77},

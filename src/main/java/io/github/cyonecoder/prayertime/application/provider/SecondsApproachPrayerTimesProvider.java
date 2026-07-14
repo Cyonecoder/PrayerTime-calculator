@@ -34,7 +34,7 @@ import java.util.Objects;
  */
 public final class SecondsApproachPrayerTimesProvider {
 
-    public static final String PARAMETER_VERSION = "morocco-habous-secaproach-v1";
+    public static final String PARAMETER_VERSION = "morocco-habous-secaproach-v2";
     private static final String RESOURCE = "/research/morocco-habous-secaproach.json";
     private static final Gson GSON = new Gson();
 
@@ -124,6 +124,11 @@ public final class SecondsApproachPrayerTimesProvider {
             }
             OffsetsFile file = GSON.fromJson(
                     new String(in.readAllBytes(), StandardCharsets.UTF_8), OffsetsFile.class);
+            // Production loads only the frozen, reviewed parameter version.
+            if (file.parameterVersion != null && !PARAMETER_VERSION.equals(file.parameterVersion)) {
+                throw new IllegalStateException("sec-approach parameter version mismatch: expected "
+                        + PARAMETER_VERSION + " but resource is " + file.parameterVersion);
+            }
             Map<String, Map<Prayer, Integer>> out = new LinkedHashMap<>();
             file.offsets.forEach((city, o) -> {
                 Map<Prayer, Integer> byPrayer = new EnumMap<>(Prayer.class);
@@ -142,6 +147,7 @@ public final class SecondsApproachPrayerTimesProvider {
     }
 
     private static final class OffsetsFile {
+        String parameterVersion;
         Map<String, CityOffsets> offsets;
     }
 

@@ -33,7 +33,7 @@ import java.util.TreeMap;
 public final class SecApproachTrainingCommand {
 
     private static final Path DEFAULT_OFFSETS =
-            Path.of("build/reports/secapproach-all-cities/morocco-habous-secaproach.json");
+            Path.of("build/reports/secapproach-all-cities/generated-parameters.json");
     private static final Path DEFAULT_REPORT =
             Path.of("build/reports/secapproach-all-cities/training-report.json");
     private static final Path DEFAULT_HOLDOUT =
@@ -75,8 +75,22 @@ public final class SecApproachTrainingCommand {
                         .map(c -> splitEvaluator.evaluate(dataset, c.city()))
                         .toList();
 
+        // Provenance of exactly which reviewed dataset produced these parameters.
+        int verifiedCityCount = (int) dataset.cities().stream()
+                .filter(new java.util.HashSet<>(
+                        io.github.cyonecoder.prayertime.audit.dataset.HabousCityMapping.load()
+                                .verifiedCityIds())::contains)
+                .count();
+        SecApproachTrainingReport.GeneratedFrom generatedFrom =
+                new SecApproachTrainingReport.GeneratedFrom(
+                        dataset.firstDate().map(Object::toString).orElse(""),
+                        dataset.lastDate().map(Object::toString).orElse(""),
+                        dataset.datasetChecksum(),
+                        verifiedCityCount,
+                        outcome.offsets().size());
+
         SecApproachTrainingReport report = new SecApproachTrainingReport();
-        report.writeOffsets(offsetsOut, outcome);
+        report.writeOffsets(offsetsOut, outcome, generatedFrom);
         report.writeReport(reportOut, outcome);
         report.writeHoldoutReport(holdoutOut, holdout, low, high);
 

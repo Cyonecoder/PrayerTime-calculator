@@ -157,7 +157,7 @@ class MainTest {
 
         assertThat(code).isZero();
         String o = out();
-        assertThat(o).contains("Sec-Approach", "morocco-habous-secaproach-v1", "SecApp", "Official");
+        assertThat(o).contains("Sec-Approach", "morocco-habous-secaproach-v2", "SecApp", "Official");
         // Every prayer difference against official is +0 on this date.
         assertThat(o).contains("fajr", "+0");
     }
