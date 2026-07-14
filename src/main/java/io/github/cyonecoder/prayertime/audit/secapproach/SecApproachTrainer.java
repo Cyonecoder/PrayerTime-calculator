@@ -1,5 +1,7 @@
 package io.github.cyonecoder.prayertime.audit.secapproach;
 
+import io.github.cyonecoder.prayertime.audit.secapproach.SecApproachSplitEvaluator.CitySplitEvaluation;
+import io.github.cyonecoder.prayertime.audit.secapproach.SecApproachSplitEvaluator.PrayerSplitEvaluation;
 import io.github.cyonecoder.prayertime.audit.secapproach.SecApproachTrainingDataset.TrainingObservation;
 import io.github.cyonecoder.prayertime.domain.model.Prayer;
 import java.util.ArrayList;
@@ -11,10 +13,11 @@ import java.util.TreeMap;
 
 /**
  * Trains the sec-approach per-city, per-prayer seconds offsets deterministically:
- * for each (city, prayer) it runs {@link SecApproachOffsetSearch} and keeps the
- * winning offset, then admits a city only if its in-sample exact-minute agreement
- * meets the band. Cities already present in the supplied base are preserved
- * verbatim (their shipped output never changes) and only re-scored for the report.
+ * for each (city, prayer) it takes the in-sample optimum (the release offset) and
+ * admits the city only if it passes every {@link SecApproachGates per-city
+ * accuracy gate} — including the out-of-sample holdout. Cities already present in
+ * the supplied base are preserved verbatim (their shipped output never changes)
+ * and only re-scored for the report; they are not re-gated.
  *
  * <p>The whole process is a discrete integer optimization: no randomness, no
  * floating-point tie-break, no per-date fitting. The same dataset yields the same
@@ -30,14 +33,24 @@ public final class SecApproachTrainer {
     /** One city's trained result. */
     public record CityResult(
             String city, String snapshotChecksum, int dayCount,
-            List<PrayerResult> prayers, boolean preserved) {
+            List<PrayerResult> prayers, boolean preserved,
+            CitySplitEvaluation splitEvaluation, List<String> gateFailures) {
 
         public CityResult {
             prayers = List.copyOf(prayers);
+            gateFailures = List.copyOf(gateFailures);
         }
 
         public int exactMatches() {
             return prayers.stream().mapToInt(p -> p.metrics().exactCount()).sum();
+        }
+
+        public int withinOneMatches() {
+            return prayers.stream().mapToInt(p -> p.metrics().withinOneCount()).sum();
+        }
+
+        public int maxAbsoluteError() {
+            return prayers.stream().mapToInt(p -> p.metrics().maxAbsoluteError()).max().orElse(0);
         }
 
         public int total() {
@@ -46,6 +59,15 @@ public final class SecApproachTrainer {
 
         public double exactRatio() {
             return total() == 0 ? 0.0 : (double) exactMatches() / total();
+        }
+
+        public double withinOnePercentage() {
+            return total() == 0 ? 0.0 : 100.0 * withinOneMatches() / total();
+        }
+
+        /** @return the out-of-sample holdout exact percentage, or NaN for preserved cities. */
+        public double holdoutExactPercentage() {
+            return splitEvaluation == null ? Double.NaN : splitEvaluation.holdoutExactPercentage();
         }
 
         /** @return true if any freshly-searched prayer's offset sits on the boundary. */
@@ -70,10 +92,9 @@ public final class SecApproachTrainer {
             List<CityResult> belowBand,
             List<String> unresolved,
             int low,
-            int high,
-            double minExact) {
+            int high) {
 
-        /** @return final offsets (preserved base + newly written), ordered by slug. */
+        /** @return final offsets (preserved base + newly accepted), ordered by slug. */
         public Map<String, Map<Prayer, Integer>> offsets() {
             Map<String, Map<Prayer, Integer>> out = new TreeMap<>();
             preserved.forEach(c -> out.put(c.city(), c.offsets()));
@@ -84,39 +105,28 @@ public final class SecApproachTrainer {
         /** @return cities whose winning offset touched a search boundary. */
         public List<CityResult> boundaryTouches() {
             List<CityResult> hits = new ArrayList<>();
-            preserved.forEach(c -> {
-                if (c.touchesBoundary(low, high)) {
-                    hits.add(c);
-                }
-            });
-            written.forEach(c -> {
-                if (c.touchesBoundary(low, high)) {
-                    hits.add(c);
-                }
-            });
-            belowBand.forEach(c -> {
-                if (c.touchesBoundary(low, high)) {
-                    hits.add(c);
-                }
-            });
+            for (List<CityResult> group : List.of(preserved, written, belowBand)) {
+                group.forEach(c -> {
+                    if (c.touchesBoundary(low, high)) {
+                        hits.add(c);
+                    }
+                });
+            }
             return hits;
         }
     }
 
     private final int low;
     private final int high;
-    private final double minExact;
+    private final SecApproachSplitEvaluator splitEvaluator;
 
-    public SecApproachTrainer(int low, int high, double minExact) {
+    public SecApproachTrainer(int low, int high) {
         if (low > high) {
             throw new IllegalArgumentException("low > high");
         }
-        if (minExact < 0.0 || minExact > 1.0) {
-            throw new IllegalArgumentException("minExact must be in [0,1]");
-        }
         this.low = low;
         this.high = high;
-        this.minExact = minExact;
+        this.splitEvaluator = new SecApproachSplitEvaluator(low, high);
     }
 
     /**
@@ -149,25 +159,31 @@ public final class SecApproachTrainer {
                 continue;
             }
             CityResult trained = trainCity(dataset, city, dayCount, checksum);
-            if (trained.exactRatio() >= minExact) {
+            if (trained.gateFailures().isEmpty()) {
                 written.add(trained);
             } else {
                 belowBand.add(trained);
             }
         }
         return new Outcome(List.copyOf(preserved), List.copyOf(written), List.copyOf(belowBand),
-                List.copyOf(unresolved), low, high, minExact);
+                List.copyOf(unresolved), low, high);
     }
 
     private CityResult trainCity(
             SecApproachTrainingDataset dataset, String city, int dayCount, String checksum) {
+        CitySplitEvaluation split = splitEvaluator.evaluate(dataset, city);
         List<PrayerResult> prayers = new ArrayList<>();
-        for (Prayer prayer : Prayer.values()) {
-            SecApproachOffsetSearch.Result r =
-                    SecApproachOffsetSearch.search(dataset.observations(city, prayer), low, high);
-            prayers.add(new PrayerResult(prayer, r.best().offset(), r.best(), false));
+        for (PrayerSplitEvaluation p : split.prayers()) {
+            prayers.add(new PrayerResult(p.prayer(), p.releaseOffset(), p.inSample(), false));
         }
-        return new CityResult(city, checksum, dayCount, prayers, false);
+        CityResult provisional =
+                new CityResult(city, checksum, dayCount, prayers, false, split, List.of());
+        SecApproachGates.Result gate = SecApproachGates.perCity(
+                100.0 * provisional.exactRatio(),
+                split.holdoutExactPercentage(),
+                provisional.withinOnePercentage(),
+                provisional.maxAbsoluteError());
+        return new CityResult(city, checksum, dayCount, prayers, false, split, gate.failures());
     }
 
     private CityResult scoreCity(
@@ -180,6 +196,6 @@ public final class SecApproachTrainer {
                     SecApproachEvaluator.evaluate(offset, dataset.observations(city, prayer));
             prayers.add(new PrayerResult(prayer, offset, metrics, true));
         }
-        return new CityResult(city, checksum, dayCount, prayers, true);
+        return new CityResult(city, checksum, dayCount, prayers, true, null, List.of());
     }
 }

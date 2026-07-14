@@ -407,11 +407,10 @@ public final class SearchCommand {
         out.println("  research fetch-habous-live --cities <all-mapped|a,b> "
                 + "[--output dir] [--delay-seconds n]");
         out.println("  research train-secaproach --dataset <dir> "
-                + "[--base file] [--min-exact 0.95] [--low -900] [--high 900] "
+                + "[--base file] [--low -900] [--high 900] "
                 + "[--offsets-out file] [--report-out file] [--holdout-out file]");
         out.println("  research train-new-cities --dataset <dir> "
-                + "[--min-exact 0.95] [--low -900] [--high 900] "
-                + "[--suspicious-seconds 600] [--output file]");
+                + "[--low -900] [--high 900] [--suspicious-seconds 600] [--output file]");
         out.println("  research verify-habous-cities "
                 + "[--delay-seconds n] [--dropdown-ville id] [--mapping file] "
                 + "[--options-out file] [--report-out file]");

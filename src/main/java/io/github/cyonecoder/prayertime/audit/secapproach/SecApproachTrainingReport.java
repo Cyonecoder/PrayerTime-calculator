@@ -69,8 +69,9 @@ public final class SecApproachTrainingReport {
                         + "added to the reconstructed raw astronomical time, then floored to the "
                         + "minute. Trained deterministically by SecApproachTrainer (exhaustive "
                         + "integer search in [" + outcome.low() + "," + outcome.high() + "]s, "
-                        + "lexicographic tie-break, min-exact=" + pct(outcome.minExact())
-                        + "). A city-level calculation parameter, NOT a per-date override.\",\n");
+                        + "lexicographic tie-break) and admitted only through the per-city accuracy "
+                        + "gates (SecApproachGates). A city-level calculation parameter, NOT a "
+                        + "per-date override.\",\n");
                 w.write("  \"offsets\": {\n");
                 int i = 0;
                 for (Map.Entry<String, Map<Prayer, Integer>> e : offsets.entrySet()) {
@@ -91,7 +92,6 @@ public final class SecApproachTrainingReport {
                 + "discrete integer-offset search; the same dataset reproduces this byte-for-byte.");
         root.put("searchLow", outcome.low());
         root.put("searchHigh", outcome.high());
-        root.put("minExact", outcome.minExact());
 
         Map<String, Object> summary = new LinkedHashMap<>();
         summary.put("preserved", outcome.preserved().size());
@@ -267,7 +267,4 @@ public final class SecApproachTrainingReport {
         return Math.round(v * 1000.0) / 1000.0;
     }
 
-    private static String pct(double ratio) {
-        return String.format(Locale.ROOT, "%.0f%%", 100 * ratio);
-    }
 }

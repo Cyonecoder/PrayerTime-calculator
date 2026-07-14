@@ -52,7 +52,7 @@ class SecApproachParameterResourceTest {
     void offsetsAreSortedBySlugAndPreserveTheFourteenLockedCities() {
         JsonObject offsets = resource().getAsJsonObject("offsets");
         List<String> cities = new ArrayList<>(offsets.keySet());
-        assertThat(cities).isSorted().hasSize(56);
+        assertThat(cities).isSorted().hasSize(48);
 
         // The 14 originals stay exactly as shipped.
         for (String base : List.of("agadir", "casablanca", "dakhla", "errachidia", "fez",

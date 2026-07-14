@@ -40,14 +40,16 @@ class SecApproachTrainerTest {
     @Test
     void preservesLockedCitiesGatesBelowBandAndAvoidsBoundaries() {
         Outcome outcome = new SecApproachTrainer(
-                SecApproachOffsetSearch.DEFAULT_LOW, SecApproachOffsetSearch.DEFAULT_HIGH, 0.95)
+                SecApproachOffsetSearch.DEFAULT_LOW, SecApproachOffsetSearch.DEFAULT_HIGH)
                 .train(dataset(), base14());
 
         assertThat(outcome.preserved()).hasSize(14);
-        assertThat(outcome.written()).hasSize(42);
-        assertThat(outcome.belowBand()).extracting(SecApproachTrainer.CityResult::city)
-                .containsExactlyInAnyOrder("berrechid", "fkih-ben-salah", "larache", "sidi-kacem");
-        assertThat(outcome.offsets()).hasSize(56);
+        // 34 new cities pass every per-city gate; 12 fail (all on the holdout gate).
+        assertThat(outcome.written()).hasSize(34);
+        assertThat(outcome.belowBand()).hasSize(12);
+        assertThat(outcome.belowBand()).allSatisfy(c ->
+                assertThat(c.gateFailures()).isNotEmpty());
+        assertThat(outcome.offsets()).hasSize(48);
         assertThat(outcome.boundaryTouches()).as("no offset should sit on +/-900s").isEmpty();
         // Preserved cities keep their base offsets exactly.
         base14().forEach((city, off) -> assertThat(outcome.offsets().get(city)).isEqualTo(off));
@@ -55,8 +57,8 @@ class SecApproachTrainerTest {
 
     @Test
     void isDeterministicAcrossRuns() {
-        Outcome a = new SecApproachTrainer(-900, 900, 0.95).train(dataset(), base14());
-        Outcome b = new SecApproachTrainer(-900, 900, 0.95).train(dataset(), base14());
+        Outcome a = new SecApproachTrainer(-900, 900).train(dataset(), base14());
+        Outcome b = new SecApproachTrainer(-900, 900).train(dataset(), base14());
         assertThat(a.offsets()).isEqualTo(b.offsets());
     }
 

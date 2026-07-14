@@ -10,11 +10,11 @@
   "searchLow": -900,
   "searchHigh": 900,
   "summary": {
-    "cities": 42,
-    "meanTrainingExactPercentage": 98.59,
-    "meanValidationExactPercentage": 94.13,
-    "meanHoldoutExactPercentageOutOfSample": 88.97,
-    "meanInSampleExactPercentage": 97.01
+    "cities": 34,
+    "meanTrainingExactPercentage": 98.43,
+    "meanValidationExactPercentage": 94.61,
+    "meanHoldoutExactPercentageOutOfSample": 90.88,
+    "meanInSampleExactPercentage": 97.12
   },
   "cities": [
     {
@@ -1173,23 +1173,60 @@
       ]
     },
     {
-      "city": "berkane",
-      "trainingExactPercentage": 98.33,
-      "validationExactPercentage": 86.67,
-      "holdoutExactPercentageOutOfSample": 83.33,
-      "inSampleExactPercentage": 96.11,
+      "city": "berrechid",
+      "trainingExactPercentage": 95.83,
+      "validationExactPercentage": 93.33,
+      "holdoutExactPercentageOutOfSample": 86.67,
+      "inSampleExactPercentage": 94.44,
       "prayers": [
         {
           "prayer": "fajr",
-          "splitOffset": 15,
-          "releaseOffset": 3,
+          "splitOffset": 5,
+          "releaseOffset": 5,
           "training": {
             "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
+            "exactCount": 18,
+            "exactPercentage": 90.0,
             "withinOneCount": 20,
+            "meanAbsoluteError": 0.1,
+            "maxAbsoluteError": 1
+          },
+          "validation": {
+            "observations": 5,
+            "exactCount": 5,
+            "exactPercentage": 100.0,
+            "withinOneCount": 5,
             "meanAbsoluteError": 0.0,
             "maxAbsoluteError": 0
+          },
+          "holdoutOutOfSample": {
+            "observations": 5,
+            "exactCount": 4,
+            "exactPercentage": 80.0,
+            "withinOneCount": 5,
+            "meanAbsoluteError": 0.2,
+            "maxAbsoluteError": 1
+          },
+          "inSample": {
+            "observations": 30,
+            "exactCount": 27,
+            "exactPercentage": 90.0,
+            "withinOneCount": 30,
+            "meanAbsoluteError": 0.1,
+            "maxAbsoluteError": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "splitOffset": 100,
+          "releaseOffset": 96,
+          "training": {
+            "observations": 20,
+            "exactCount": 19,
+            "exactPercentage": 95.0,
+            "withinOneCount": 20,
+            "meanAbsoluteError": 0.05,
+            "maxAbsoluteError": 1
           },
           "validation": {
             "observations": 5,
@@ -1201,11 +1238,11 @@
           },
           "holdoutOutOfSample": {
             "observations": 5,
-            "exactCount": 3,
-            "exactPercentage": 60.0,
+            "exactCount": 5,
+            "exactPercentage": 100.0,
             "withinOneCount": 5,
-            "meanAbsoluteError": 0.4,
-            "maxAbsoluteError": 1
+            "meanAbsoluteError": 0.0,
+            "maxAbsoluteError": 0
           },
           "inSample": {
             "observations": 30,
@@ -1217,46 +1254,9 @@
           }
         },
         {
-          "prayer": "sunrise",
-          "splitOffset": 121,
-          "releaseOffset": 121,
-          "training": {
-            "observations": 20,
-            "exactCount": 19,
-            "exactPercentage": 95.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.05,
-            "maxAbsoluteError": 1
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
           "prayer": "dhuhr",
-          "splitOffset": 338,
-          "releaseOffset": 338,
+          "splitOffset": 329,
+          "releaseOffset": 329,
           "training": {
             "observations": 20,
             "exactCount": 20,
@@ -1292,8 +1292,8 @@
         },
         {
           "prayer": "asr",
-          "splitOffset": -17,
-          "releaseOffset": -19,
+          "splitOffset": -25,
+          "releaseOffset": -25,
           "training": {
             "observations": 20,
             "exactCount": 20,
@@ -1312,11 +1312,11 @@
           },
           "holdoutOutOfSample": {
             "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
+            "exactCount": 5,
+            "exactPercentage": 100.0,
             "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
+            "meanAbsoluteError": 0.0,
+            "maxAbsoluteError": 0
           },
           "inSample": {
             "observations": 30,
@@ -1329,15 +1329,15 @@
         },
         {
           "prayer": "maghrib",
-          "splitOffset": -101,
-          "releaseOffset": -102,
+          "splitOffset": -88,
+          "releaseOffset": -91,
           "training": {
             "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
+            "exactCount": 18,
+            "exactPercentage": 90.0,
             "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
+            "meanAbsoluteError": 0.1,
+            "maxAbsoluteError": 1
           },
           "validation": {
             "observations": 5,
@@ -1357,34 +1357,26 @@
           },
           "inSample": {
             "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
+            "exactCount": 28,
+            "exactPercentage": 93.33,
             "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
+            "meanAbsoluteError": 0.067,
+            "maxAbsoluteError": 1
           }
         },
         {
           "prayer": "isha",
-          "splitOffset": 91,
-          "releaseOffset": 83,
+          "splitOffset": 79,
+          "releaseOffset": 74,
           "training": {
             "observations": 20,
-            "exactCount": 19,
-            "exactPercentage": 95.0,
+            "exactCount": 20,
+            "exactPercentage": 100.0,
             "withinOneCount": 20,
-            "meanAbsoluteError": 0.05,
-            "maxAbsoluteError": 1
+            "meanAbsoluteError": 0.0,
+            "maxAbsoluteError": 0
           },
           "validation": {
-            "observations": 5,
-            "exactCount": 2,
-            "exactPercentage": 40.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.6,
-            "maxAbsoluteError": 1
-          },
-          "holdoutOutOfSample": {
             "observations": 5,
             "exactCount": 4,
             "exactPercentage": 80.0,
@@ -1392,12 +1384,20 @@
             "meanAbsoluteError": 0.2,
             "maxAbsoluteError": 1
           },
+          "holdoutOutOfSample": {
+            "observations": 5,
+            "exactCount": 3,
+            "exactPercentage": 60.0,
+            "withinOneCount": 5,
+            "meanAbsoluteError": 0.4,
+            "maxAbsoluteError": 1
+          },
           "inSample": {
             "observations": 30,
-            "exactCount": 26,
-            "exactPercentage": 86.67,
+            "exactCount": 27,
+            "exactPercentage": 90.0,
             "withinOneCount": 30,
-            "meanAbsoluteError": 0.133,
+            "meanAbsoluteError": 0.1,
             "maxAbsoluteError": 1
           }
         }
@@ -1866,237 +1866,6 @@
       ]
     },
     {
-      "city": "chefchaouen",
-      "trainingExactPercentage": 100.0,
-      "validationExactPercentage": 93.33,
-      "holdoutExactPercentageOutOfSample": 83.33,
-      "inSampleExactPercentage": 96.11,
-      "prayers": [
-        {
-          "prayer": "fajr",
-          "splitOffset": 8,
-          "releaseOffset": 8,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "sunrise",
-          "splitOffset": -9,
-          "releaseOffset": -9,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "dhuhr",
-          "splitOffset": 329,
-          "releaseOffset": 329,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "asr",
-          "splitOffset": -22,
-          "releaseOffset": -22,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "maghrib",
-          "splitOffset": 16,
-          "releaseOffset": 6,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 28,
-            "exactPercentage": 93.33,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.067,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "isha",
-          "splitOffset": 82,
-          "releaseOffset": 82,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 3,
-            "exactPercentage": 60.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.4,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 28,
-            "exactPercentage": 93.33,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.067,
-            "maxAbsoluteError": 1
-          }
-        }
-      ]
-    },
-    {
       "city": "el-hajeb",
       "trainingExactPercentage": 97.5,
       "validationExactPercentage": 93.33,
@@ -2322,237 +2091,6 @@
             "exactPercentage": 90.0,
             "withinOneCount": 30,
             "meanAbsoluteError": 0.1,
-            "maxAbsoluteError": 1
-          }
-        }
-      ]
-    },
-    {
-      "city": "el-jadida",
-      "trainingExactPercentage": 100.0,
-      "validationExactPercentage": 90.0,
-      "holdoutExactPercentageOutOfSample": 80.0,
-      "inSampleExactPercentage": 96.11,
-      "prayers": [
-        {
-          "prayer": "fajr",
-          "splitOffset": 8,
-          "releaseOffset": 0,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 3,
-            "exactPercentage": 60.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.4,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 28,
-            "exactPercentage": 93.33,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.067,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "sunrise",
-          "splitOffset": 80,
-          "releaseOffset": 80,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "dhuhr",
-          "splitOffset": 332,
-          "releaseOffset": 332,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "asr",
-          "splitOffset": -15,
-          "releaseOffset": -15,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "maghrib",
-          "splitOffset": -76,
-          "releaseOffset": -83,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "isha",
-          "splitOffset": 92,
-          "releaseOffset": 70,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 2,
-            "exactPercentage": 40.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.6,
-            "maxAbsoluteError": 1
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 3,
-            "exactPercentage": 60.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.4,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 26,
-            "exactPercentage": 86.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.133,
             "maxAbsoluteError": 1
           }
         }
@@ -3714,699 +3252,6 @@
       ]
     },
     {
-      "city": "khenifra",
-      "trainingExactPercentage": 98.33,
-      "validationExactPercentage": 93.33,
-      "holdoutExactPercentageOutOfSample": 83.33,
-      "inSampleExactPercentage": 96.11,
-      "prayers": [
-        {
-          "prayer": "fajr",
-          "splitOffset": 12,
-          "releaseOffset": 12,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 28,
-            "exactPercentage": 93.33,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.067,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "sunrise",
-          "splitOffset": 57,
-          "releaseOffset": 57,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "dhuhr",
-          "splitOffset": 331,
-          "releaseOffset": 332,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "asr",
-          "splitOffset": -21,
-          "releaseOffset": -22,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "maghrib",
-          "splitOffset": -31,
-          "releaseOffset": -31,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "isha",
-          "splitOffset": 80,
-          "releaseOffset": 80,
-          "training": {
-            "observations": 20,
-            "exactCount": 18,
-            "exactPercentage": 90.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.1,
-            "maxAbsoluteError": 1
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 27,
-            "exactPercentage": 90.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.1,
-            "maxAbsoluteError": 1
-          }
-        }
-      ]
-    },
-    {
-      "city": "khouribga",
-      "trainingExactPercentage": 98.33,
-      "validationExactPercentage": 83.33,
-      "holdoutExactPercentageOutOfSample": 76.67,
-      "inSampleExactPercentage": 96.11,
-      "prayers": [
-        {
-          "prayer": "fajr",
-          "splitOffset": 8,
-          "releaseOffset": 0,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 3,
-            "exactPercentage": 60.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.4,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "sunrise",
-          "splitOffset": 81,
-          "releaseOffset": 78,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "dhuhr",
-          "splitOffset": 329,
-          "releaseOffset": 329,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "asr",
-          "splitOffset": -20,
-          "releaseOffset": -22,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "maghrib",
-          "splitOffset": -50,
-          "releaseOffset": -50,
-          "training": {
-            "observations": 20,
-            "exactCount": 19,
-            "exactPercentage": 95.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.05,
-            "maxAbsoluteError": 1
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 28,
-            "exactPercentage": 93.33,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.067,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "isha",
-          "splitOffset": 86,
-          "releaseOffset": 66,
-          "training": {
-            "observations": 20,
-            "exactCount": 19,
-            "exactPercentage": 95.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.05,
-            "maxAbsoluteError": 1
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 2,
-            "exactPercentage": 40.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.6,
-            "maxAbsoluteError": 1
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 3,
-            "exactPercentage": 60.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.4,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 28,
-            "exactPercentage": 93.33,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.067,
-            "maxAbsoluteError": 1
-          }
-        }
-      ]
-    },
-    {
-      "city": "ksar-el-kebir",
-      "trainingExactPercentage": 100.0,
-      "validationExactPercentage": 93.33,
-      "holdoutExactPercentageOutOfSample": 76.67,
-      "inSampleExactPercentage": 96.67,
-      "prayers": [
-        {
-          "prayer": "fajr",
-          "splitOffset": 11,
-          "releaseOffset": 7,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 1,
-            "exactPercentage": 20.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.8,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 28,
-            "exactPercentage": 93.33,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.067,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "sunrise",
-          "splitOffset": 64,
-          "releaseOffset": 64,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "dhuhr",
-          "splitOffset": 330,
-          "releaseOffset": 330,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "asr",
-          "splitOffset": -16,
-          "releaseOffset": -16,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "maghrib",
-          "splitOffset": -63,
-          "releaseOffset": -63,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "isha",
-          "splitOffset": 82,
-          "releaseOffset": 78,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 3,
-            "exactPercentage": 60.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.4,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 28,
-            "exactPercentage": 93.33,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.067,
-            "maxAbsoluteError": 1
-          }
-        }
-      ]
-    },
-    {
       "city": "martil",
       "trainingExactPercentage": 97.5,
       "validationExactPercentage": 90.0,
@@ -4863,237 +3708,6 @@
             "exactPercentage": 93.33,
             "withinOneCount": 30,
             "meanAbsoluteError": 0.067,
-            "maxAbsoluteError": 1
-          }
-        }
-      ]
-    },
-    {
-      "city": "midelt",
-      "trainingExactPercentage": 98.33,
-      "validationExactPercentage": 90.0,
-      "holdoutExactPercentageOutOfSample": 83.33,
-      "inSampleExactPercentage": 95.56,
-      "prayers": [
-        {
-          "prayer": "fajr",
-          "splitOffset": 6,
-          "releaseOffset": 2,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 28,
-            "exactPercentage": 93.33,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.067,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "sunrise",
-          "splitOffset": 41,
-          "releaseOffset": 42,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "dhuhr",
-          "splitOffset": 333,
-          "releaseOffset": 333,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "asr",
-          "splitOffset": -22,
-          "releaseOffset": -22,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "maghrib",
-          "splitOffset": -10,
-          "releaseOffset": -20,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "isha",
-          "splitOffset": 78,
-          "releaseOffset": 78,
-          "training": {
-            "observations": 20,
-            "exactCount": 18,
-            "exactPercentage": 90.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.1,
-            "maxAbsoluteError": 1
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 3,
-            "exactPercentage": 60.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.4,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 25,
-            "exactPercentage": 83.33,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.167,
             "maxAbsoluteError": 1
           }
         }
@@ -7410,237 +6024,6 @@
       ]
     },
     {
-      "city": "sidi-ifni",
-      "trainingExactPercentage": 97.5,
-      "validationExactPercentage": 100.0,
-      "holdoutExactPercentageOutOfSample": 83.33,
-      "inSampleExactPercentage": 96.11,
-      "prayers": [
-        {
-          "prayer": "fajr",
-          "splitOffset": 7,
-          "releaseOffset": 7,
-          "training": {
-            "observations": 20,
-            "exactCount": 19,
-            "exactPercentage": 95.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.05,
-            "maxAbsoluteError": 1
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "sunrise",
-          "splitOffset": 17,
-          "releaseOffset": 17,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "dhuhr",
-          "splitOffset": 330,
-          "releaseOffset": 331,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "asr",
-          "splitOffset": -24,
-          "releaseOffset": -24,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "maghrib",
-          "splitOffset": -12,
-          "releaseOffset": -12,
-          "training": {
-            "observations": 20,
-            "exactCount": 19,
-            "exactPercentage": 95.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.05,
-            "maxAbsoluteError": 1
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 28,
-            "exactPercentage": 93.33,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.067,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "isha",
-          "splitOffset": 76,
-          "releaseOffset": 76,
-          "training": {
-            "observations": 20,
-            "exactCount": 19,
-            "exactPercentage": 95.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.05,
-            "maxAbsoluteError": 1
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 2,
-            "exactPercentage": 40.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.6,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 26,
-            "exactPercentage": 86.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.133,
-            "maxAbsoluteError": 1
-          }
-        }
-      ]
-    },
-    {
       "city": "sidi-slimane",
       "trainingExactPercentage": 96.67,
       "validationExactPercentage": 96.67,
@@ -8529,237 +6912,6 @@
           "prayer": "isha",
           "splitOffset": 72,
           "releaseOffset": 63,
-          "training": {
-            "observations": 20,
-            "exactCount": 19,
-            "exactPercentage": 95.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.05,
-            "maxAbsoluteError": 1
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 3,
-            "exactPercentage": 60.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.4,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 28,
-            "exactPercentage": 93.33,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.067,
-            "maxAbsoluteError": 1
-          }
-        }
-      ]
-    },
-    {
-      "city": "taroudant",
-      "trainingExactPercentage": 99.17,
-      "validationExactPercentage": 100.0,
-      "holdoutExactPercentageOutOfSample": 83.33,
-      "inSampleExactPercentage": 97.78,
-      "prayers": [
-        {
-          "prayer": "fajr",
-          "splitOffset": -14,
-          "releaseOffset": -14,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "sunrise",
-          "splitOffset": 74,
-          "releaseOffset": 74,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "dhuhr",
-          "splitOffset": 311,
-          "releaseOffset": 311,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "asr",
-          "splitOffset": -39,
-          "releaseOffset": -41,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 30,
-            "exactPercentage": 100.0,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          }
-        },
-        {
-          "prayer": "maghrib",
-          "splitOffset": -94,
-          "releaseOffset": -94,
-          "training": {
-            "observations": 20,
-            "exactCount": 20,
-            "exactPercentage": 100.0,
-            "withinOneCount": 20,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "validation": {
-            "observations": 5,
-            "exactCount": 5,
-            "exactPercentage": 100.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.0,
-            "maxAbsoluteError": 0
-          },
-          "holdoutOutOfSample": {
-            "observations": 5,
-            "exactCount": 4,
-            "exactPercentage": 80.0,
-            "withinOneCount": 5,
-            "meanAbsoluteError": 0.2,
-            "maxAbsoluteError": 1
-          },
-          "inSample": {
-            "observations": 30,
-            "exactCount": 29,
-            "exactPercentage": 96.67,
-            "withinOneCount": 30,
-            "meanAbsoluteError": 0.033,
-            "maxAbsoluteError": 1
-          }
-        },
-        {
-          "prayer": "isha",
-          "splitOffset": 55,
-          "releaseOffset": 48,
           "training": {
             "observations": 20,
             "exactCount": 19,

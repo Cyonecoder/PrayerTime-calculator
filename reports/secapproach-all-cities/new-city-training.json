@@ -1,13 +1,13 @@
 {
   "note": "Independent per-city, per-prayer sec-approach training catalog for every candidate without current offsets. Only ACCEPTED cities carry offsets; all other statuses carry none (no fabricated parameters) and the provider fails closed.",
   "caveat": "Holdout metrics are out-of-sample on a 30-day SUMMER window; fullDatasetMetrics are IN-SAMPLE. Not an annual accuracy claim.",
+  "gates": "per-city: full-exact>=90.0%, holdout-exact>=85.0%, within-1min>=98.0%, max-abs<=2min",
   "searchLow": -900,
   "searchHigh": 900,
-  "minExact": 0.95,
   "suspiciousOffsetSeconds": 600,
   "summary": {
-    "ACCEPTED": 42,
-    "FAILED_ACCURACY_GATE": 4,
+    "ACCEPTED": 34,
+    "FAILED_ACCURACY_GATE": 12,
     "MAPPING_UNVERIFIED": 7
   },
   "cities": [
@@ -281,14 +281,6 @@
           "9c27bd687f50e5643c172644005582e5a57b54eac8e2ac682f2deab6c6954d11"
         ]
       },
-      "offsetsSeconds": {
-        "fajr": 3,
-        "sunrise": 121,
-        "dhuhr": 338,
-        "asr": -19,
-        "maghrib": -102,
-        "isha": 83
-      },
       "trainingMetrics": {
         "observations": 120,
         "exactCount": 118,
@@ -321,7 +313,7 @@
         "meanAbsoluteError": 0.039,
         "maxAbsoluteError": 1
       },
-      "status": "ACCEPTED"
+      "status": "FAILED_ACCURACY_GATE"
     },
     {
       "cityId": "berrechid",
@@ -332,6 +324,14 @@
         "sourceChecksums": [
           "a23f1ab13cb2b5978a08658db89f0e6d56e2e1dcda6b575454690c80ae5ee2ad"
         ]
+      },
+      "offsetsSeconds": {
+        "fajr": 5,
+        "sunrise": 96,
+        "dhuhr": 329,
+        "asr": -25,
+        "maghrib": -91,
+        "isha": 74
       },
       "trainingMetrics": {
         "observations": 120,
@@ -365,7 +365,7 @@
         "meanAbsoluteError": 0.056,
         "maxAbsoluteError": 1
       },
-      "status": "FAILED_ACCURACY_GATE"
+      "status": "ACCEPTED"
     },
     {
       "cityId": "boujdour",
@@ -489,14 +489,6 @@
           "06fbf90089ee85f357e5fc1ddfe0c77d818a8f821b9cf728ac96e92cf34dceac"
         ]
       },
-      "offsetsSeconds": {
-        "fajr": 8,
-        "sunrise": -9,
-        "dhuhr": 329,
-        "asr": -22,
-        "maghrib": 6,
-        "isha": 82
-      },
       "trainingMetrics": {
         "observations": 120,
         "exactCount": 120,
@@ -529,7 +521,7 @@
         "meanAbsoluteError": 0.039,
         "maxAbsoluteError": 1
       },
-      "status": "ACCEPTED"
+      "status": "FAILED_ACCURACY_GATE"
     },
     {
       "cityId": "el-hajeb",
@@ -593,14 +585,6 @@
           "fb56dfa8bc40b8041cb79eb6ac11878dabd36e7c7b34c601ec6a51b4d7a3af37"
         ]
       },
-      "offsetsSeconds": {
-        "fajr": 0,
-        "sunrise": 80,
-        "dhuhr": 332,
-        "asr": -15,
-        "maghrib": -83,
-        "isha": 70
-      },
       "trainingMetrics": {
         "observations": 120,
         "exactCount": 120,
@@ -633,7 +617,7 @@
         "meanAbsoluteError": 0.039,
         "maxAbsoluteError": 1
       },
-      "status": "ACCEPTED"
+      "status": "FAILED_ACCURACY_GATE"
     },
     {
       "cityId": "essaouira",
@@ -957,14 +941,6 @@
           "c9702fafc6beb26c3142099f51bba8dbb7a9a74c4001da6a0354f499efd76e7a"
         ]
       },
-      "offsetsSeconds": {
-        "fajr": 12,
-        "sunrise": 57,
-        "dhuhr": 332,
-        "asr": -22,
-        "maghrib": -31,
-        "isha": 80
-      },
       "trainingMetrics": {
         "observations": 120,
         "exactCount": 118,
@@ -997,7 +973,7 @@
         "meanAbsoluteError": 0.039,
         "maxAbsoluteError": 1
       },
-      "status": "ACCEPTED"
+      "status": "FAILED_ACCURACY_GATE"
     },
     {
       "cityId": "khouribga",
@@ -1008,14 +984,6 @@
         "sourceChecksums": [
           "c1647de88c04d6f104d0881156345a1bcf210337a3085edef956007976d7c990"
         ]
-      },
-      "offsetsSeconds": {
-        "fajr": 0,
-        "sunrise": 78,
-        "dhuhr": 329,
-        "asr": -22,
-        "maghrib": -50,
-        "isha": 66
       },
       "trainingMetrics": {
         "observations": 120,
@@ -1049,7 +1017,7 @@
         "meanAbsoluteError": 0.039,
         "maxAbsoluteError": 1
       },
-      "status": "ACCEPTED"
+      "status": "FAILED_ACCURACY_GATE"
     },
     {
       "cityId": "ksar-el-kebir",
@@ -1060,14 +1028,6 @@
         "sourceChecksums": [
           "64b5f944219f31d1736c6e32bf7f41b85239520f048f9caa5f584a21811dc2d9"
         ]
-      },
-      "offsetsSeconds": {
-        "fajr": 7,
-        "sunrise": 64,
-        "dhuhr": 330,
-        "asr": -16,
-        "maghrib": -63,
-        "isha": 78
       },
       "trainingMetrics": {
         "observations": 120,
@@ -1101,7 +1061,7 @@
         "meanAbsoluteError": 0.033,
         "maxAbsoluteError": 1
       },
-      "status": "ACCEPTED"
+      "status": "FAILED_ACCURACY_GATE"
     },
     {
       "cityId": "larache",
@@ -1261,14 +1221,6 @@
           "6ac9508b321e159c95c89a78c2e175c2d5fcebd53a10a2150a39041d67b0946c"
         ]
       },
-      "offsetsSeconds": {
-        "fajr": 2,
-        "sunrise": 42,
-        "dhuhr": 333,
-        "asr": -22,
-        "maghrib": -20,
-        "isha": 78
-      },
       "trainingMetrics": {
         "observations": 120,
         "exactCount": 118,
@@ -1301,7 +1253,7 @@
         "meanAbsoluteError": 0.044,
         "maxAbsoluteError": 1
       },
-      "status": "ACCEPTED"
+      "status": "FAILED_ACCURACY_GATE"
     },
     {
       "cityId": "mohammedia",
@@ -1841,14 +1793,6 @@
           "ec488c75ff9e6265615e64bc1682bbc4c17d79ddd6d31c92d109235a529dcb48"
         ]
       },
-      "offsetsSeconds": {
-        "fajr": 7,
-        "sunrise": 17,
-        "dhuhr": 331,
-        "asr": -24,
-        "maghrib": -12,
-        "isha": 76
-      },
       "trainingMetrics": {
         "observations": 120,
         "exactCount": 117,
@@ -1881,7 +1825,7 @@
         "meanAbsoluteError": 0.039,
         "maxAbsoluteError": 1
       },
-      "status": "ACCEPTED"
+      "status": "FAILED_ACCURACY_GATE"
     },
     {
       "cityId": "sidi-kacem",
@@ -2169,14 +2113,6 @@
           "d1bbcca9057f107afaedabd75aad9e210c8bc32cd81a0087d75ee23d236dfa73"
         ]
       },
-      "offsetsSeconds": {
-        "fajr": -14,
-        "sunrise": 74,
-        "dhuhr": 311,
-        "asr": -41,
-        "maghrib": -94,
-        "isha": 48
-      },
       "trainingMetrics": {
         "observations": 120,
         "exactCount": 119,
@@ -2209,7 +2145,7 @@
         "meanAbsoluteError": 0.022,
         "maxAbsoluteError": 1
       },
-      "status": "ACCEPTED"
+      "status": "FAILED_ACCURACY_GATE"
     },
     {
       "cityId": "taza",

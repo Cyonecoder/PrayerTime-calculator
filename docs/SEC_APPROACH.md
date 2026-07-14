@@ -144,6 +144,27 @@ dates (so production is unchanged); the pre-refit holdout metrics are preserved
 in the report and the full-dataset numbers are labelled in-sample. No
 annual/year-round accuracy is claimed from this dataset.
 
+## Release accuracy gates
+
+`SecApproachGates` defines the release thresholds, enforced by
+`SecApproachReleaseGateTest`:
+
+**Aggregate** (all supported cities) — actual on the committed set in parentheses:
+exact ≥ 95% (**97.1%**), improvement over the global formula ≥ 10 pp
+(**+17.9 pp**), within ±1 min ≥ 99.5% (**100%**), max abs error ≤ 2 min
+(**1 min**).
+
+**Per newly trained city** — full-dataset exact ≥ 90%, out-of-sample **holdout
+exact ≥ 85%**, within ±1 min ≥ 98%, max abs error ≤ 2 min. A city below any
+threshold is investigated (coordinates, mapping, source data, prayer by prayer)
+and, if unresolved, marked `FAILED_ACCURACY_GATE` — never silently shipped. The
+trainer admits a new city only if it passes every per-city gate, so the committed
+offsets are exactly the gated set.
+
+**Existing 14 cities (regression)** — offsets and predictions unchanged (locked,
+byte-identical to `…-base14.json`), aggregate accuracy not decreased, no city
+becomes unsupported, aliases keep resolving, global calculation unchanged.
+
 ## Per-city training catalog
 
 `research train-new-cities` trains **every** candidate without current offsets
@@ -153,8 +174,8 @@ one status:
 
 | Status | Meaning | Offsets |
 |---|---|---|
-| `ACCEPTED` | verified, 180 obs, ≥95% in-sample, offsets sane | committed |
-| `FAILED_ACCURACY_GATE` | verified + data, but below the band | none |
+| `ACCEPTED` | verified, 180 obs, passes all per-city gates | committed |
+| `FAILED_ACCURACY_GATE` | verified + data, but fails a per-city gate | none |
 | `MAPPING_UNVERIFIED` | no verified Habous mapping / page | none |
 | `INSUFFICIENT_DATA` | verified but not a full 180-observation window | none |
 | `SUSPICIOUS_OFFSET` | offset hit the search boundary or exceeded a many-minute threshold (wrong-city/coordinate signature) | none |
@@ -168,9 +189,11 @@ closed for it. Each record carries the dataset provenance (window,
 ## Coverage
 
 From the authoritative 67-city candidate inventory
-(`research/habous-candidate-inventory.json`): 14 locked + **42 ACCEPTED** =
-**56 committed** cities. Of the 53 new cities: **42 ACCEPTED**, **4
-FAILED_ACCURACY_GATE** (berrechid, fkih-ben-salah, larache, sidi-kacem), **7
-MAPPING_UNVERIFIED** (bouskoura, kabila, sale, sidi-rahal, tamansourt, tamesna,
-temara). All non-accepted cities fail closed. See
-`reports/sec-approach-expansion.md` for the per-city accuracy table.
+(`research/habous-candidate-inventory.json`): 14 locked + **34 ACCEPTED** =
+**48 committed** cities. Of the 53 new cities: **34 ACCEPTED**, **12
+FAILED_ACCURACY_GATE** (all on the out-of-sample holdout < 85%: berkane,
+chefchaouen, el-jadida, fkih-ben-salah, khenifra, khouribga, ksar-el-kebir,
+larache, midelt, sidi-ifni, sidi-kacem, taroudant), **7 MAPPING_UNVERIFIED**
+(bouskoura, kabila, sale, sidi-rahal, tamansourt, tamesna, temara). All
+non-accepted cities fail closed. See `reports/sec-approach-expansion.md` for the
+per-city accuracy table.

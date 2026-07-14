@@ -6,8 +6,11 @@ scientifically-verified subset of the authoritative 67-city candidate inventory.
 - **Model (unchanged):** `publishedMinute = floor((rawSeconds + offsetSeconds[city][prayer]) / 60)`
 - **Parameters per city:** six constants (fajr, sunrise, dhuhr, asr, maghrib, isha) — no per-date/-month/-season terms.
 - **Oracle:** official Habous timetables, 30 days (2026-06-17..2026-07-16) per city, fetched + Arabic-name-verified via `research fetch-habous-live`. Research/testing only; never emitted as production output.
-- **Verification gate:** a city is committed only if its fitted constants reproduce the official timetable to **≥95%** exact-minute agreement in-sample.
-- Generated: 2026-07-13
+- **Release gates:** a new city is committed only if it passes every per-city accuracy gate — full-dataset exact ≥90%, **out-of-sample holdout exact ≥85%**, within ±1 min ≥98%, max abs error ≤2 min (see `SecApproachGates`).
+
+> **Authoritative per-city status** is `reports/secapproach-all-cities/new-city-training.json`
+> (gate-enforced). The per-city tables further down predate the accuracy gates and
+> are kept only for the raw in-sample percentages.
 
 ## Coverage summary
 
@@ -17,24 +20,25 @@ scientifically-verified subset of the authoritative 67-city candidate inventory.
 | Existing sec cities (locked, unchanged) | 14 |
 | New cities requiring training | 53 |
 | — mapped to a Habous ville page | 46 |
-| — verified ≥95% and committed | 42 |
-| — below band, excluded (fail closed) | 4 |
+| — **ACCEPTED** (pass all per-city gates) | 34 |
+| — FAILED_ACCURACY_GATE (holdout < 85%) | 12 |
 | — no Habous page, unmapped (fail closed) | 7 |
-| **Total sec-approach cities committed** | **56** |
+| **Total sec-approach cities committed** | **48** |
 
-New verified cities aggregate exact-minute agreement: **97.01% in-sample** (7560
-observations). The 14 original cities are unchanged (locked reference, ~97.0%
-in-sample).
+Aggregate over all 48 committed cities (enforced by `SecApproachReleaseGateTest`):
+exact **97.09%**, within ±1 min **100%**, max abs error **1 min**, improvement
+over the global reconstructed formula **+17.94 pp**.
 
 > **Honest, out-of-sample estimate.** These are **in-sample** figures on a single
 > 30-day **summer** window — not an annual claim. Under a chronological
 > train(20d)/validation(5d)/holdout(5d) split (fit on training, ties broken on
-> validation, scored untouched on holdout), the 42 newly trained cities average
-> **≈88.97% exact on the holdout** vs ≈98.6% training / 97.0% in-sample. The
-> shipped offsets are refit on all dates (production unchanged); the pre-refit
-> holdout metrics are preserved in `reports/secapproach-all-cities/holdout-report.json`.
+> validation, scored untouched on holdout), the 34 accepted cities average
+> **≈90.88% exact on the holdout** vs ≈97% in-sample; the 12 cities whose holdout
+> fell below 85% are excluded (`FAILED_ACCURACY_GATE`). The shipped offsets are
+> refit on all dates (production unchanged); pre-refit holdout metrics are
+> preserved in `reports/secapproach-all-cities/holdout-report.json`.
 
-## Newly verified cities (42)
+## Newly trained cities — raw in-sample (pre-gate)
 
 | City | Exact-minute | Days |
 |------|-------------:|-----:|

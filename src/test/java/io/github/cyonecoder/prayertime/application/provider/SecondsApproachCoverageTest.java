@@ -23,7 +23,8 @@ import org.junit.jupiter.api.Test;
 class SecondsApproachCoverageTest {
 
     private static final Path DATASET = Path.of("research-data/habous");
-    private static final double MIN_EXACT = 0.95;
+    // Per-city full-dataset exact gate (SecApproachGates.MIN_FULL_EXACT_PCT).
+    private static final double MIN_EXACT = 0.90;
 
     /** The 14 locked reference offset sets: {fajr, sunrise, dhuhr, asr, maghrib, isha}. */
     private static final Map<String, int[]> LOCKED = locked();
@@ -58,8 +59,8 @@ class SecondsApproachCoverageTest {
             double ratio = (double) exact / n;
             assertThat(ratio).as("%s exact ratio", city).isGreaterThanOrEqualTo(MIN_EXACT);
         }
-        // 14 locked + 42 newly-verified candidate cities.
-        assertThat(cities).isEqualTo(56);
+        // 14 locked + 34 gate-passing candidate cities.
+        assertThat(cities).isEqualTo(48);
     }
 
     @Test
@@ -73,11 +74,16 @@ class SecondsApproachCoverageTest {
     }
 
     @Test
-    void belowBandCandidatesAreExcludedAndFailClosed() {
-        // Fetched and evaluated, but under the 95% band, so intentionally uncommitted.
-        for (String city : List.of("berrechid", "fkih-ben-salah", "larache", "sidi-kacem")) {
+    void gateFailingCandidatesAreExcludedAndFailClosed() {
+        // The 12 cities that fail a per-city accuracy gate (all on holdout < 85%) are
+        // intentionally uncommitted and fail closed.
+        for (String city : List.of("berkane", "chefchaouen", "el-jadida", "fkih-ben-salah",
+                "khenifra", "khouribga", "ksar-el-kebir", "larache", "midelt", "sidi-ifni",
+                "sidi-kacem", "taroudant")) {
             assertThat(sec.supports(city)).as(city).isFalse();
         }
+        // berrechid passes the new gates (full >= 90, holdout >= 85) and is supported.
+        assertThat(sec.supports("berrechid")).isTrue();
     }
 
     /** The committed per-prayer offsets for a city, in JSON order, read from the resource. */

@@ -38,7 +38,7 @@ import java.util.TreeMap;
  * receive offsets; every other status carries none, so the provider keeps failing
  * closed and no city is ever given fabricated parameters.
  *
- * <pre>research train-new-cities --dataset &lt;dir&gt; [--min-exact 0.95]
+ * <pre>research train-new-cities --dataset &lt;dir&gt;
  *   [--low -900] [--high 900] [--suspicious-seconds 600] [--output file]</pre>
  */
 public final class SecApproachNewCityTrainingCommand {
@@ -70,7 +70,6 @@ public final class SecApproachNewCityTrainingCommand {
         Path datasetDir = Path.of(require(flags, "dataset"));
         int low = intFlag(flags, "low", SecApproachOffsetSearch.DEFAULT_LOW);
         int high = intFlag(flags, "high", SecApproachOffsetSearch.DEFAULT_HIGH);
-        double minExact = doubleFlag(flags, "min-exact", 0.95);
         int suspicious = intFlag(flags, "suspicious-seconds", 600);
         Path output = flags.containsKey("output") ? Path.of(flags.get("output")) : DEFAULT_OUTPUT;
         Path verificationFile = flags.containsKey("verification")
@@ -86,9 +85,9 @@ public final class SecApproachNewCityTrainingCommand {
         List<CityTrainingRecord> records = new ArrayList<>();
         for (String city : newCities) {
             records.add(train(city, verified, verification, dataset, splitEvaluator,
-                    low, high, minExact, suspicious));
+                    low, high, suspicious));
         }
-        write(output, records, low, high, minExact, suspicious);
+        write(output, records, low, high, suspicious);
 
         Map<String, Integer> counts = new TreeMap<>();
         for (CityTrainingRecord r : records) {
@@ -103,7 +102,7 @@ public final class SecApproachNewCityTrainingCommand {
     private CityTrainingRecord train(
             String city, java.util.Set<String> verified, Map<String, String> verification,
             SecApproachTrainingDataset dataset, SecApproachSplitEvaluator splitEvaluator,
-            int low, int high, double minExact, int suspicious) {
+            int low, int high, int suspicious) {
 
         // Not a verified Habous mapping: never trained. Distinguish "no page at all"
         // (mapping unverified) from "needs a human" per the live verification status.
@@ -143,7 +142,12 @@ public final class SecApproachNewCityTrainingCommand {
             return new CityTrainingRecord(city, ds, null, training, validation, holdout, full,
                     Status.SUSPICIOUS_OFFSET.name());
         }
-        if (full.exactPercentage() / 100.0 >= minExact) {
+        // The per-city accuracy gates decide acceptance (same gates as the trainer),
+        // including the out-of-sample holdout.
+        SecApproachGates.Result gate = SecApproachGates.perCity(
+                full.exactPercentage(), holdout.exactPercentage(),
+                100.0 * full.withinOneCount() / full.observations(), full.maxAbsoluteError());
+        if (gate.passed()) {
             return new CityTrainingRecord(city, ds, offsetsJson(releaseOffsets),
                     training, validation, holdout, full, Status.ACCEPTED.name());
         }
@@ -218,17 +222,19 @@ public final class SecApproachNewCityTrainingCommand {
     }
 
     private void write(
-            Path file, List<CityTrainingRecord> records, int low, int high,
-            double minExact, int suspicious) {
+            Path file, List<CityTrainingRecord> records, int low, int high, int suspicious) {
         Map<String, Object> root = new LinkedHashMap<>();
         root.put("note", "Independent per-city, per-prayer sec-approach training catalog for every "
                 + "candidate without current offsets. Only ACCEPTED cities carry offsets; all other "
                 + "statuses carry none (no fabricated parameters) and the provider fails closed.");
         root.put("caveat", "Holdout metrics are out-of-sample on a 30-day SUMMER window; "
                 + "fullDatasetMetrics are IN-SAMPLE. Not an annual accuracy claim.");
+        root.put("gates", "per-city: full-exact>=" + SecApproachGates.MIN_FULL_EXACT_PCT
+                + "%, holdout-exact>=" + SecApproachGates.MIN_HOLDOUT_EXACT_PCT
+                + "%, within-1min>=" + SecApproachGates.MIN_WITHIN_ONE_PCT
+                + "%, max-abs<=" + SecApproachGates.MAX_ABS_ERROR_MIN + "min");
         root.put("searchLow", low);
         root.put("searchHigh", high);
-        root.put("minExact", minExact);
         root.put("suspiciousOffsetSeconds", suspicious);
         Map<String, Integer> summary = new TreeMap<>();
         for (CityTrainingRecord r : records) {
@@ -268,22 +274,6 @@ public final class SecApproachNewCityTrainingCommand {
         }
         try {
             return Integer.parseInt(v);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("invalid --" + key + ": " + v);
-        }
-    }
-
-    private static double doubleFlag(Map<String, String> flags, String key, double fallback) {
-        String v = flags.get(key);
-        if (v == null) {
-            return fallback;
-        }
-        try {
-            double parsed = Double.parseDouble(v);
-            if (parsed < 0.0 || parsed > 1.0) {
-                throw new IllegalArgumentException("--" + key + " must be in [0,1]: " + v);
-            }
-            return parsed;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("invalid --" + key + ": " + v);
         }

@@ -23,11 +23,13 @@ import java.util.TreeMap;
  * deterministically from a research dataset and writes the offsets file plus a
  * metrics report.
  *
- * <pre>research train-secaproach --dataset &lt;dir&gt; [--base file] [--min-exact 0.95]
- *   [--low -900] [--high 900] [--offsets-out file] [--report-out file]</pre>
+ * <pre>research train-secaproach --dataset &lt;dir&gt; [--base file]
+ *   [--low -900] [--high 900] [--offsets-out file] [--report-out file]
+ *   [--holdout-out file]</pre>
  *
- * <p>{@code --base} preserves already-shipped cities verbatim; only cities meeting
- * the exact-minute band are written. Boundary touches are reported so the search
+ * <p>{@code --base} preserves already-shipped cities verbatim; only cities passing
+ * every {@link SecApproachGates per-city accuracy gate} (including the
+ * out-of-sample holdout) are written. Boundary touches are reported so the search
  * window is only ever widened deliberately, never automatically.
  */
 public final class SecApproachTrainingCommand {
@@ -56,7 +58,6 @@ public final class SecApproachTrainingCommand {
         Path datasetDir = Path.of(require(flags, "dataset"));
         int low = intFlag(flags, "low", SecApproachOffsetSearch.DEFAULT_LOW);
         int high = intFlag(flags, "high", SecApproachOffsetSearch.DEFAULT_HIGH);
-        double minExact = minExact(flags.get("min-exact"));
         Path offsetsOut = path(flags, "offsets-out", DEFAULT_OFFSETS);
         Path reportOut = path(flags, "report-out", DEFAULT_REPORT);
         Path holdoutOut = path(flags, "holdout-out", DEFAULT_HOLDOUT);
@@ -65,15 +66,13 @@ public final class SecApproachTrainingCommand {
 
         SecApproachTrainingDataset dataset =
                 SecApproachTrainingDataset.fromDirectory(datasetDir, registry, engine);
-        Outcome outcome = new SecApproachTrainer(low, high, minExact).train(dataset, base);
+        Outcome outcome = new SecApproachTrainer(low, high).train(dataset, base);
 
-        // Honest, overfitting-aware evaluation of the newly trained cities: fit on
-        // training, break ties on validation, evaluate untouched on holdout.
-        SecApproachSplitEvaluator splitEvaluator = new SecApproachSplitEvaluator(low, high);
+        // The trainer already computed each accepted city's chronological split
+        // (it gates on the out-of-sample holdout), so reuse it for the report.
         java.util.List<SecApproachSplitEvaluator.CitySplitEvaluation> holdout =
                 outcome.written().stream()
-                        .map(c -> splitEvaluator.evaluate(dataset, c.city()))
-                        .toList();
+                        .map(SecApproachTrainer.CityResult::splitEvaluation).toList();
 
         // Provenance of exactly which reviewed dataset produced these parameters.
         int verifiedCityCount = (int) dataset.cities().stream()
@@ -94,18 +93,18 @@ public final class SecApproachTrainingCommand {
         report.writeReport(reportOut, outcome);
         report.writeHoldoutReport(holdoutOut, holdout, low, high);
 
-        out.printf(Locale.ROOT, "Trained sec-approach from %s (search [%d,%d]s, min-exact=%.0f%%)%n",
-                datasetDir, low, high, 100 * minExact);
+        out.printf(Locale.ROOT, "Trained sec-approach from %s (search [%d,%d]s, per-city gates)%n",
+                datasetDir, low, high);
         outcome.preserved().forEach(c ->
                 out.printf(Locale.ROOT, "  %-14s PRESERVED (exact=%.2f%%)%n",
                         c.city(), 100 * c.exactRatio()));
         outcome.written().forEach(c ->
-                out.printf(Locale.ROOT, "  %-14s WRITTEN   exact=%.2f%%%s%n",
-                        c.city(), 100 * c.exactRatio(),
+                out.printf(Locale.ROOT, "  %-14s WRITTEN   exact=%.2f%% holdout=%.2f%%%s%n",
+                        c.city(), 100 * c.exactRatio(), c.holdoutExactPercentage(),
                         c.touchesBoundary(low, high) ? "  [BOUNDARY]" : ""));
         outcome.belowBand().forEach(c ->
-                out.printf(Locale.ROOT, "  %-14s SKIPPED below band (exact=%.2f%%)%n",
-                        c.city(), 100 * c.exactRatio()));
+                out.printf(Locale.ROOT, "  %-14s FAILED_ACCURACY_GATE (%s)%n",
+                        c.city(), String.join(", ", c.gateFailures())));
         outcome.unresolved().forEach(c ->
                 out.printf(Locale.ROOT, "  %-14s SKIPPED not in city registry%n", c));
         if (!outcome.boundaryTouches().isEmpty()) {
@@ -171,21 +170,6 @@ public final class SecApproachTrainingCommand {
             return Integer.parseInt(v);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("invalid --" + key + ": " + v);
-        }
-    }
-
-    private static double minExact(String value) {
-        if (value == null) {
-            return 0.95;
-        }
-        try {
-            double v = Double.parseDouble(value);
-            if (v < 0.0 || v > 1.0) {
-                throw new IllegalArgumentException("--min-exact must be in [0,1]: " + value);
-            }
-            return v;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("invalid --min-exact: " + value);
         }
     }
 

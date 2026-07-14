@@ -42,8 +42,8 @@ class SecApproachNewCityTrainingCommandTest {
 
         var cities = root.getAsJsonArray("cities");
         assertThat(cities).hasSize(53);
-        assertThat(root.getAsJsonObject("summary").get("ACCEPTED").getAsInt()).isEqualTo(42);
-        assertThat(root.getAsJsonObject("summary").get("FAILED_ACCURACY_GATE").getAsInt()).isEqualTo(4);
+        assertThat(root.getAsJsonObject("summary").get("ACCEPTED").getAsInt()).isEqualTo(34);
+        assertThat(root.getAsJsonObject("summary").get("FAILED_ACCURACY_GATE").getAsInt()).isEqualTo(12);
         assertThat(root.getAsJsonObject("summary").get("MAPPING_UNVERIFIED").getAsInt()).isEqualTo(7);
 
         List<String> accepted = new ArrayList<>();
@@ -59,7 +59,7 @@ class SecApproachNewCityTrainingCommandTest {
                 assertThat(hasOffsets).as("%s must have no offsets", c.get("cityId")).isFalse();
             }
         }
-        assertThat(accepted).hasSize(42);
+        assertThat(accepted).hasSize(34);
     }
 
     @Test
