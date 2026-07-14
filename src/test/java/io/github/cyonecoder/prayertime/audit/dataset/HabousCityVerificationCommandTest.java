@@ -72,4 +72,35 @@ class HabousCityVerificationCommandTest {
         String stdout = baos.toString(StandardCharsets.UTF_8);
         assertThat(stdout).contains("VERIFIED", "Status summary:");
     }
+
+    @Test
+    void inventorySubsetOutputDirAndNonDestructiveMappingMerge(@TempDir Path tmp) throws IOException {
+        Fetcher fixtureFetcher = (id, date) -> {
+            try {
+                return fixture();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        };
+        Clock clock = Clock.fixed(Instant.parse("2026-07-13T00:00:00Z"), ZoneOffset.UTC);
+        Path mapping = tmp.resolve("mapping.json");
+        Files.copy(Path.of("src/main/resources/research/habous-city-mapping.json"), mapping);
+        Path outDir = tmp.resolve("out");
+
+        // Verify only a two-city subset; --output places both audit files in the dir.
+        new HabousCityVerificationCommand(fixtureFetcher, clock).run(
+                Map.of("delay-seconds", "0", "inventory", "casablanca,rabat",
+                        "mapping", mapping.toString(), "output", outDir.toString()),
+                new PrintStream(new ByteArrayOutputStream(), true, StandardCharsets.UTF_8));
+
+        assertThat(Files.exists(outDir.resolve("habous-live-city-options.json"))).isTrue();
+        String report = Files.readString(
+                outDir.resolve("habous-city-verification.json"), StandardCharsets.UTF_8);
+        // Only the two requested candidates were verified.
+        assertThat(report).contains("\"total\": 2", "casablanca", "rabat");
+
+        // Merge is non-destructive: cities outside the subset (e.g. safi) survive.
+        String mappingJson = Files.readString(mapping, StandardCharsets.UTF_8);
+        assertThat(mappingJson).contains("\"safi\"", "\"casablanca\"", "\"rabat\"");
+    }
 }

@@ -71,8 +71,18 @@ public final class HabousCityVerificationCommand {
         long delay = parseLong(flags.get("delay-seconds"), 1);
         String dropdownVille = flags.getOrDefault("dropdown-ville", "1");
         Path mappingFile = path(flags, "mapping", DEFAULT_MAPPING);
-        Path optionsOut = path(flags, "options-out", DEFAULT_OPTIONS_OUT);
-        Path reportOut = path(flags, "report-out", DEFAULT_REPORT_OUT);
+        // --output <dir> places both audit files under the directory; the granular
+        // --options-out / --report-out still override individually.
+        Path outputDir = flags.containsKey("output") ? Path.of(flags.get("output")) : null;
+        Path optionsOut = flags.containsKey("options-out") ? Path.of(flags.get("options-out"))
+                : outputDir != null ? outputDir.resolve("habous-live-city-options.json")
+                : DEFAULT_OPTIONS_OUT;
+        Path reportOut = flags.containsKey("report-out") ? Path.of(flags.get("report-out"))
+                : outputDir != null ? outputDir.resolve("habous-city-verification.json")
+                : DEFAULT_REPORT_OUT;
+        // --inventory selects which candidates to verify (default: all 67).
+        java.util.Set<String> wanted = new java.util.LinkedHashSet<>(
+                ResearchCitySelector.resolve(flags.getOrDefault("inventory", "all-candidates")));
 
         // 1. Fetch + parse the live ville dropdown.
         String dropdownHtml = fetcher.fetchMonthlyHtml(dropdownVille, java.time.LocalDate.now(clock));
@@ -83,7 +93,8 @@ public final class HabousCityVerificationCommand {
                 + directory.sourceChecksum().substring(0, 12) + "…) → " + optionsOut);
 
         // 2. Load candidates (inventory) with registry aliases, and prior ids.
-        List<Candidate> candidates = loadCandidates();
+        List<Candidate> candidates = loadCandidates().stream()
+                .filter(c -> wanted.contains(c.canonicalSlug())).toList();
         Map<String, String> verifiedIds = loadMappingIds(mappingFile, true);
         Map<String, String> proposedIds = loadMappingIds(mappingFile, false);
 
@@ -232,7 +243,23 @@ public final class HabousCityVerificationCommand {
     private int rewriteMapping(
             Path mappingFile, List<Result> results, String dropdownChecksum, String verifiedAt) {
         JsonObject root = readFile(mappingFile);
-        JsonArray mappings = new JsonArray();
+        // Non-destructive merge: keep existing entries for cities that were NOT part of
+        // this verification run, then add the VERIFIED results from this run. A full
+        // (all-67) run replaces everything; a subset run only updates its own cities.
+        java.util.Set<String> processed = new java.util.LinkedHashSet<>();
+        for (Result r : results) {
+            processed.add(r.candidate().canonicalSlug());
+        }
+        java.util.Map<String, JsonObject> merged = new java.util.TreeMap<>();
+        if (root.has("mappings")) {
+            for (JsonElement e : root.getAsJsonArray("mappings")) {
+                JsonObject m = e.getAsJsonObject();
+                String city = m.get("applicationCityId").getAsString();
+                if (!processed.contains(city)) {
+                    merged.put(city, m);
+                }
+            }
+        }
         int written = 0;
         for (Result r : results) {
             if (!r.isVerified()) {
@@ -246,9 +273,11 @@ public final class HabousCityVerificationCommand {
             m.addProperty("verificationMethod", HabousCityVerifier.METHOD);
             m.addProperty("verifiedAt", verifiedAt);
             m.addProperty("sourceChecksum", r.sourceChecksum());
-            mappings.add(m);
+            merged.put(r.candidate().canonicalSlug(), m);
             written++;
         }
+        JsonArray mappings = new JsonArray();
+        merged.values().forEach(mappings::add);
         root.add("mappings", mappings);
         root.addProperty("version", 4);
         root.addProperty("coverageNote", written + " of the candidate cities are VERIFIED against "

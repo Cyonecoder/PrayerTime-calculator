@@ -13,6 +13,7 @@ import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
 import java.util.EnumMap;
 import java.util.Locale;
 import java.util.Map;
@@ -58,14 +59,21 @@ public final class SecApproachTrainingCommand {
         Path datasetDir = Path.of(require(flags, "dataset"));
         int low = intFlag(flags, "low", SecApproachOffsetSearch.DEFAULT_LOW);
         int high = intFlag(flags, "high", SecApproachOffsetSearch.DEFAULT_HIGH);
-        Path offsetsOut = path(flags, "offsets-out", DEFAULT_OFFSETS);
-        Path reportOut = path(flags, "report-out", DEFAULT_REPORT);
-        Path holdoutOut = path(flags, "holdout-out", DEFAULT_HOLDOUT);
+        Path outputDir = flags.containsKey("output") ? Path.of(flags.get("output")) : null;
+        Path offsetsOut = outFile(flags, "offsets-out", outputDir, "generated-parameters.json", DEFAULT_OFFSETS);
+        Path reportOut = outFile(flags, "report-out", outputDir, "training-report.json", DEFAULT_REPORT);
+        Path holdoutOut = outFile(flags, "holdout-out", outputDir, "holdout-report.json", DEFAULT_HOLDOUT);
         Map<String, Map<Prayer, Integer>> base = flags.containsKey("base")
                 ? loadOffsets(Path.of(flags.get("base"))) : Map.of();
 
-        SecApproachTrainingDataset dataset =
-                SecApproachTrainingDataset.fromDirectory(datasetDir, registry, engine);
+        java.util.Set<String> cities = flags.containsKey("cities")
+                ? new java.util.LinkedHashSet<>(io.github.cyonecoder.prayertime.audit.dataset
+                        .ResearchCitySelector.resolve(flags.get("cities")))
+                : java.util.Set.of();
+        LocalDate from = parseDate(flags.get("from"), "from");
+        LocalDate to = parseDate(flags.get("to"), "to");
+        SecApproachTrainingDataset dataset = SecApproachTrainingDataset.fromDirectory(
+                datasetDir, registry, engine, cities, from, to);
         Outcome outcome = new SecApproachTrainer(low, high).train(dataset, base);
 
         // The trainer already computed each accepted city's chronological split
@@ -159,6 +167,26 @@ public final class SecApproachTrainingCommand {
 
     private static Path path(Map<String, String> flags, String key, Path fallback) {
         return flags.containsKey(key) ? Path.of(flags.get(key)) : fallback;
+    }
+
+    /** Resolves an output file: explicit flag, else {@code --output} dir + name, else default. */
+    private static Path outFile(
+            Map<String, String> flags, String key, Path outputDir, String name, Path fallback) {
+        if (flags.containsKey(key)) {
+            return Path.of(flags.get(key));
+        }
+        return outputDir != null ? outputDir.resolve(name) : fallback;
+    }
+
+    private static LocalDate parseDate(String value, String flag) {
+        if (value == null) {
+            return null;
+        }
+        try {
+            return LocalDate.parse(value);
+        } catch (java.time.format.DateTimeParseException e) {
+            throw new IllegalArgumentException("invalid --" + flag + " date: " + value);
+        }
     }
 
     private static int intFlag(Map<String, String> flags, String key, int fallback) {

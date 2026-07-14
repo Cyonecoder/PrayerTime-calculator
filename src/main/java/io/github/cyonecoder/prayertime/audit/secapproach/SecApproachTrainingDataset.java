@@ -78,7 +78,29 @@ public final class SecApproachTrainingDataset {
      */
     public static SecApproachTrainingDataset fromDirectory(
             Path datasetDir, MoroccoCityRegistry registry, HabousRawEngine engine) {
-        return from(ReferenceDataset.load(datasetDir), checksumsByCity(datasetDir),
+        return fromDirectory(datasetDir, registry, engine, java.util.Set.of(), null, null);
+    }
+
+    /**
+     * Builds the training dataset from a directory, restricted to the given cities
+     * and/or date range.
+     *
+     * @param datasetDir the {@code research-data/habous} directory
+     * @param registry   the city model
+     * @param engine     the raw astronomical engine
+     * @param cities     city slugs to keep (empty keeps all)
+     * @param from       inclusive lower date bound (nullable)
+     * @param to         inclusive upper date bound (nullable)
+     * @return the filtered training dataset
+     */
+    public static SecApproachTrainingDataset fromDirectory(
+            Path datasetDir, MoroccoCityRegistry registry, HabousRawEngine engine,
+            java.util.Set<String> cities, LocalDate from, LocalDate to) {
+        ReferenceDataset dataset = ReferenceDataset.load(datasetDir);
+        if (!cities.isEmpty() || from != null || to != null) {
+            dataset = dataset.filter(cities, from, to);
+        }
+        return from(dataset, checksumsByCity(datasetDir),
                 HabousDatasetSplit.load(), registry, engine, ReconstructedMethod.frozen());
     }
 

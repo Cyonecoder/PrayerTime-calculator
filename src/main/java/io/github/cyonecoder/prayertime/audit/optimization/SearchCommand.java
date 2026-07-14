@@ -86,13 +86,21 @@ public final class SearchCommand {
                 case "verify-habous-cities" ->
                         new io.github.cyonecoder.prayertime.audit.dataset
                                 .HabousCityVerificationCommand().run(flags, out);
-                case "train-secaproach" ->
+                case "train-secaproach", "train-secapproach" ->
                         new io.github.cyonecoder.prayertime.audit.secapproach
                                 .SecApproachTrainingCommand(new MoroccoCityRegistry(), engine)
                                 .run(flags, out);
                 case "train-new-cities" ->
                         new io.github.cyonecoder.prayertime.audit.secapproach
                                 .SecApproachNewCityTrainingCommand(new MoroccoCityRegistry(), engine)
+                                .run(flags, out);
+                case "evaluate-secapproach", "evaluate-secaproach" ->
+                        new io.github.cyonecoder.prayertime.audit.secapproach
+                                .SecApproachEvaluationCommand(new MoroccoCityRegistry(), engine)
+                                .run(flags, out);
+                case "reports", "secapproach-reports" ->
+                        new io.github.cyonecoder.prayertime.audit.secapproach
+                                .SecApproachReportsCommand(new MoroccoCityRegistry(), engine)
                                 .run(flags, out);
                 case "dataset-coverage" -> new HabousDatasetCommand().coverage(flags, out);
                 case "infer-global-model" ->
@@ -404,15 +412,19 @@ public final class SearchCommand {
         out.println("  research dataset-coverage --dataset <dir> --year <y> --months <1-12|1,2> "
                 + "[--output dir]");
         out.println("  research infer-global-model --dataset <dir> [--output dir]");
-        out.println("  research fetch-habous-live --cities <all-mapped|a,b> "
+        out.println("  research fetch-habous-live --cities <selector|a,b> "
                 + "[--output dir] [--delay-seconds n]");
-        out.println("  research train-secaproach --dataset <dir> "
-                + "[--base file] [--low -900] [--high 900] "
-                + "[--offsets-out file] [--report-out file] [--holdout-out file]");
+        out.println("  research train-secapproach --dataset <dir> "
+                + "[--cities <selector|a,b>] [--from d] [--to d] [--base file] "
+                + "[--low -900] [--high 900] [--output dir]");
         out.println("  research train-new-cities --dataset <dir> "
                 + "[--low -900] [--high 900] [--suspicious-seconds 600] [--output file]");
-        out.println("  research verify-habous-cities "
-                + "[--delay-seconds n] [--dropdown-ville id] [--mapping file] "
-                + "[--options-out file] [--report-out file]");
+        out.println("  research evaluate-secapproach --dataset <dir> --parameters <file> "
+                + "[--baseline global] [--cities <selector|a,b>] [--from d] [--to d] [--output dir]");
+        out.println("  research reports [--dataset <dir>] [--base file] [--output dir]");
+        out.println("  research verify-habous-cities [--inventory all-67] [--output dir] "
+                + "[--delay-seconds n] [--dropdown-ville id] [--mapping file]");
+        out.println("  selectors: all-candidates/all-67, all-mapped, all-new-verified, "
+                + "all-sec-supported, existing-sec");
     }
 }
