@@ -68,4 +68,97 @@ class SecApproachParameterResourceTest {
         assertThat(provider.supports("casablanca")).isTrue();
         assertThat(provider.supports("safi")).isTrue();
     }
+
+    @Test
+    void exactlySixIntegerOffsetsPerCityInsideApprovedLimits() {
+        JsonObject offsets = resource().getAsJsonObject("offsets");
+        for (String city : offsets.keySet()) {
+            JsonObject o = offsets.getAsJsonObject(city);
+            assertThat(o.keySet()).as("%s prayers", city)
+                    .containsExactlyInAnyOrder("fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha");
+            for (String prayer : o.keySet()) {
+                var el = o.get(prayer);
+                assertThat(el.getAsJsonPrimitive().isNumber()).as("%s.%s numeric", city, prayer).isTrue();
+                int v = el.getAsInt();
+                assertThat((double) v).as("%s.%s integer", city, prayer).isEqualTo(el.getAsDouble());
+                // Approved limits = the search window [-900, +900].
+                assertThat(Math.abs(v)).as("%s.%s within limit", city, prayer).isLessThanOrEqualTo(900);
+            }
+        }
+    }
+
+    @Test
+    void noDuplicateCityEntriesInTheRawResource() throws Exception {
+        String raw = java.nio.file.Files.readString(
+                java.nio.file.Path.of("src/main/resources/research/morocco-habous-secaproach.json"),
+                StandardCharsets.UTF_8);
+        JsonObject offsets = resource().getAsJsonObject("offsets");
+        for (String city : offsets.keySet()) {
+            int count = raw.split("\"" + city + "\"\\s*:", -1).length - 1;
+            assertThat(count).as("%s appears once", city).isEqualTo(1);
+        }
+    }
+
+    @Test
+    void acceptedCitiesHaveParametersAndNonAcceptedHaveNone() {
+        JsonObject catalog = readReport("reports/secapproach-all-cities/new-city-training.json");
+        java.util.Set<String> committed = resource().getAsJsonObject("offsets").keySet();
+        for (var e : catalog.getAsJsonArray("cities")) {
+            JsonObject c = e.getAsJsonObject();
+            String city = c.get("cityId").getAsString();
+            if ("ACCEPTED".equals(c.get("status").getAsString())) {
+                assertThat(committed).as("%s ACCEPTED has params", city).contains(city);
+            } else {
+                assertThat(committed).as("%s non-ACCEPTED has no params", city).doesNotContain(city);
+            }
+        }
+    }
+
+    @Test
+    void existingFourteenV1OffsetsAreUnchangedInV2() {
+        JsonObject v2 = resource().getAsJsonObject("offsets");
+        JsonObject base14 = readOffsetsFile(
+                "src/main/resources/research/morocco-habous-secaproach-base14.json");
+        for (String city : base14.keySet()) {
+            assertThat(v2.getAsJsonObject(city)).as("%s unchanged", city)
+                    .isEqualTo(base14.getAsJsonObject(city));
+        }
+    }
+
+    @Test
+    void generatedParametersMatchCommittedAfterCanonicalNormalization(
+            @org.junit.jupiter.api.io.TempDir java.nio.file.Path tmp) throws Exception {
+        // Regenerate the candidate parameters and confirm they equal the committed
+        // resource once both are parsed into their canonical offset maps.
+        java.nio.file.Path generated = tmp.resolve("generated-parameters.json");
+        new io.github.cyonecoder.prayertime.audit.secapproach.SecApproachTrainingCommand(
+                new io.github.cyonecoder.prayertime.infrastructure.city.MoroccoCityRegistry(),
+                new io.github.cyonecoder.prayertime.audit.optimization.HabousRawEngine()).run(
+                java.util.Map.of(
+                        "dataset", "research-data/habous",
+                        "base", "src/main/resources/research/morocco-habous-secaproach-base14.json",
+                        "offsets-out", generated.toString(),
+                        "report-out", tmp.resolve("r.json").toString(),
+                        "holdout-out", tmp.resolve("h.json").toString()),
+                new java.io.PrintStream(new java.io.ByteArrayOutputStream(), true, StandardCharsets.UTF_8));
+        assertThat(readOffsetsFile(generated.toString()))
+                .isEqualTo(resource().getAsJsonObject("offsets"));
+    }
+
+    private static JsonObject readOffsetsFile(String path) {
+        return readFile(path).getAsJsonObject("offsets");
+    }
+
+    private static JsonObject readReport(String path) {
+        return readFile(path);
+    }
+
+    private static JsonObject readFile(String path) {
+        try {
+            return new Gson().fromJson(java.nio.file.Files.readString(
+                    java.nio.file.Path.of(path), StandardCharsets.UTF_8), JsonObject.class);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

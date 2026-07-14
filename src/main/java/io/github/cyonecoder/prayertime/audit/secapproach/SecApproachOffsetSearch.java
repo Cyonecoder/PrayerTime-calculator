@@ -60,9 +60,7 @@ public final class SecApproachOffsetSearch {
      * @return the winning offset's metrics and the window used
      */
     public static Result search(List<TrainingObservation> observations, int low, int high) {
-        if (observations.isEmpty()) {
-            throw new IllegalArgumentException("no observations to search");
-        }
+        validate(observations);
         if (low > high) {
             throw new IllegalArgumentException("low (" + low + ") > high (" + high + ")");
         }
@@ -74,5 +72,34 @@ public final class SecApproachOffsetSearch {
             }
         }
         return new Result(best, low, high);
+    }
+
+    /**
+     * Rejects incoherent input: one (city, prayer)'s observations must be non-empty,
+     * all the same city and prayer, and have distinct dates. This guards against
+     * mixed-city, wrong-prayer, incomplete, or duplicated data being fitted.
+     *
+     * @param observations the observations to validate
+     * @throws IllegalArgumentException if the observations are incoherent
+     */
+    public static void validate(List<TrainingObservation> observations) {
+        if (observations == null || observations.isEmpty()) {
+            throw new IllegalArgumentException("no observations to search (incomplete data)");
+        }
+        TrainingObservation first = observations.get(0);
+        java.util.Set<java.time.LocalDate> dates = new java.util.HashSet<>();
+        for (TrainingObservation o : observations) {
+            if (!o.city().equals(first.city())) {
+                throw new IllegalArgumentException("mixed-city observations: "
+                        + first.city() + " and " + o.city());
+            }
+            if (o.prayer() != first.prayer()) {
+                throw new IllegalArgumentException("mixed-prayer observations: "
+                        + first.prayer() + " and " + o.prayer());
+            }
+            if (!dates.add(o.date())) {
+                throw new IllegalArgumentException("duplicate observation for date " + o.date());
+            }
+        }
     }
 }

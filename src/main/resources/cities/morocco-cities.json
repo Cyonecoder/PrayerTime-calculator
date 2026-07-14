@@ -8,7 +8,7 @@
       "elevationMeters": 75,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["rabat"]
+      "aliases": ["rabat", "الرباط"]
     },
     {
       "slug": "sale",
@@ -18,7 +18,7 @@
       "elevationMeters": 20,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["sale", "salé"]
+      "aliases": ["sale", "salé", "سلا"]
     },
     {
       "slug": "casablanca",
@@ -28,7 +28,7 @@
       "elevationMeters": 50,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["casablanca", "casa"]
+      "aliases": ["casablanca", "casa", "الدار البيضاء"]
     },
     {
       "slug": "fez",
@@ -38,7 +38,7 @@
       "elevationMeters": 400,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["fez", "fes", "fès"]
+      "aliases": ["fez", "fes", "fès", "فاس"]
     },
     {
       "slug": "marrakech",
@@ -48,7 +48,7 @@
       "elevationMeters": 466,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["marrakech", "marrakesh"]
+      "aliases": ["marrakech", "marrakesh", "مراكش"]
     },
     {
       "slug": "tangier",
@@ -58,7 +58,7 @@
       "elevationMeters": 20,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["tangier", "tanger"]
+      "aliases": ["tangier", "tanger", "طنجة"]
     },
     {
       "slug": "agadir",
@@ -68,7 +68,7 @@
       "elevationMeters": 25,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["agadir"]
+      "aliases": ["agadir", "أكادير"]
     },
     {
       "slug": "oujda",
@@ -78,7 +78,7 @@
       "elevationMeters": 470,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["oujda"]
+      "aliases": ["oujda", "وجدة"]
     },
     {
       "slug": "meknes",
@@ -88,7 +88,7 @@
       "elevationMeters": 546,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["meknes", "meknès"]
+      "aliases": ["meknes", "meknès", "مكناس"]
     },
     {
       "slug": "kenitra",
@@ -98,7 +98,7 @@
       "elevationMeters": 15,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["kenitra", "kénitra"]
+      "aliases": ["kenitra", "kénitra", "القنيطرة"]
     },
     {
       "slug": "tetouan",
@@ -108,7 +108,7 @@
       "elevationMeters": 85,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["tetouan", "tétouan", "tetuan"]
+      "aliases": ["tetouan", "tétouan", "tetuan", "تطوان"]
     },
     {
       "slug": "laayoune",
@@ -118,7 +118,7 @@
       "elevationMeters": 60,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["laayoune", "laâyoune", "el aaiun"]
+      "aliases": ["laayoune", "laâyoune", "el aaiun", "العيون"]
     },
     {
       "slug": "dakhla",
@@ -128,7 +128,7 @@
       "elevationMeters": 11,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["dakhla"]
+      "aliases": ["dakhla", "الداخلة"]
     },
     {
       "slug": "errachidia",
@@ -138,7 +138,7 @@
       "elevationMeters": 1060,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["errachidia", "er-rachidia"]
+      "aliases": ["errachidia", "er-rachidia", "الرشيدية"]
     },
     {
       "slug": "ouarzazate",
@@ -148,7 +148,7 @@
       "elevationMeters": 1160,
       "zoneId": "Africa/Casablanca",
       "habousCityId": null,
-      "aliases": ["ouarzazate"]
+      "aliases": ["ouarzazate", "ورزازات"]
     },
     {
       "slug": "al-hoceima",

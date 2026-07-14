@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import io.github.cyonecoder.prayertime.domain.model.City;
 import java.time.ZoneId;
 import java.util.List;
@@ -50,6 +52,41 @@ class MoroccoCityRegistryTest {
         assertThat(registry.findByNameOrAlias("casa")).map(City::id).contains("casablanca");
         // Official display name also resolves.
         assertThat(registry.findByNameOrAlias("Salé")).map(City::id).contains("sale");
+    }
+
+    @Test
+    void accentAndCaseVariantsResolve() {
+        // Case-insensitive, accent-preserving lookups.
+        assertThat(registry.findByNameOrAlias("KÉNITRA")).map(City::id).contains("kenitra");
+        assertThat(registry.findByNameOrAlias("kénitra")).map(City::id).contains("kenitra");
+        assertThat(registry.findByNameOrAlias("Tétouan")).map(City::id).contains("tetouan");
+        assertThat(registry.findByNameOrAlias("Laâyoune")).map(City::id).contains("laayoune");
+    }
+
+    @Test
+    void everyInventorySourceValueAndArabicNameResolvesToItsCanonicalSlug() {
+        JsonObject inventory = readInventory();
+        for (JsonElement e : inventory.getAsJsonArray("cities")) {
+            JsonObject c = e.getAsJsonObject();
+            String slug = c.get("canonicalSlug").getAsString();
+            String source = c.get("sourceValue").getAsString();
+            String arabic = c.get("arabicName").getAsString();
+            assertThat(registry.findById(slug)).as("%s slug", slug).isPresent();
+            assertThat(registry.findByNameOrAlias(source)).map(City::id)
+                    .as("%s source '%s'", slug, source).contains(slug);
+            assertThat(registry.findByNameOrAlias(arabic)).map(City::id)
+                    .as("%s arabic '%s'", slug, arabic).contains(slug);
+        }
+    }
+
+    private JsonObject readInventory() {
+        try (java.io.InputStream in = getClass().getResourceAsStream(
+                "/research/habous-candidate-inventory.json")) {
+            return new com.google.gson.Gson().fromJson(new String(
+                    in.readAllBytes(), java.nio.charset.StandardCharsets.UTF_8), JsonObject.class);
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Test
