@@ -21,15 +21,22 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @Conditional(SchedulerActivation.SchedulerEnabled.class)
 public class SchedulerActivation {
 
-    /** True unless scheduling is disabled or a manual job is being run. */
+    /**
+     * True unless scheduling is disabled or a manual job is being run.
+     *
+     * <p>The canonical flag is {@code salat.habous.enabled} (env
+     * {@code HABOUS_SYNC_ENABLED}); {@code salat.scheduling.enabled} is honoured as a
+     * backward-compatible alias, so either being {@code false} disables the scheduler.
+     */
     static class SchedulerEnabled implements Condition {
         @Override
         public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
             var env = context.getEnvironment();
-            boolean enabled = env.getProperty("salat.scheduling.enabled", Boolean.class, true);
+            boolean habousEnabled = env.getProperty("salat.habous.enabled", Boolean.class, true);
+            boolean schedulingEnabled = env.getProperty("salat.scheduling.enabled", Boolean.class, true);
             String job = env.getProperty("salat.job");
             boolean jobMode = job != null && !job.isBlank();
-            return enabled && !jobMode;
+            return habousEnabled && schedulingEnabled && !jobMode;
         }
     }
 }

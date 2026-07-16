@@ -9,6 +9,7 @@ import java.util.Map;
 /**
  * The operational status of the service and its data (spec 23.15).
  *
+ * @param dataDirectory           the absolute local directory data is read from and written to
  * @param schedulerEnabled        whether the daily scheduler is active
  * @param syncInProgress          whether a run is happening right now
  * @param officialCatalogueCount  observed official city count
@@ -23,6 +24,7 @@ import java.util.Map;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public record DataStatusResponse(
+        String dataDirectory,
         boolean schedulerEnabled,
         boolean syncInProgress,
         int officialCatalogueCount,

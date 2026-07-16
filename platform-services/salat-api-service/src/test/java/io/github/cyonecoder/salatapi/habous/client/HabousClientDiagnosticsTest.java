@@ -21,10 +21,9 @@ import org.junit.jupiter.api.Test;
  */
 class HabousClientDiagnosticsTest {
 
-    private static final HabousProperties PROPS = new HabousProperties(
-            "https://habous.test/horaire", "https://habous.test/index", "agent",
-            1, Duration.ZERO, Duration.ofSeconds(5), Duration.ofSeconds(5),
-            1, Duration.ofSeconds(1), Duration.ofSeconds(30));
+    private static final HabousProperties PROPS = HabousProperties.forTests(
+            "https://habous.test/horaire", Duration.ZERO,
+            Duration.ofSeconds(5), Duration.ofSeconds(5), 1, "agent");
 
     /** An HttpClient stub that fails every send with the supplied cause. */
     private static HabousClient clientThatFailsWith(IOException cause) {

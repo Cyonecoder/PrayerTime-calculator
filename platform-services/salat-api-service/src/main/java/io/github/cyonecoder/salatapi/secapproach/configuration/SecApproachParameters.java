@@ -53,6 +53,29 @@ public class SecApproachParameters {
     }
 
     /**
+     * The Spring-wired constructor: loads the configured resource, then cross-checks
+     * the loaded parameters against the <em>configured</em> expectations too — so a
+     * misconfigured {@code salat.sec-approach.expected-*} fails startup rather than
+     * quietly accepting an unexpected resource (spec 7 and 26).
+     *
+     * @param properties the sec-approach configuration
+     */
+    @org.springframework.beans.factory.annotation.Autowired
+    public SecApproachParameters(io.github.cyonecoder.salatapi.config.SecApproachProperties properties) {
+        this(properties.parameterClasspath());
+        if (!parameterVersion.equals(properties.expectedParameterVersion())) {
+            throw new IllegalStateException("Refusing to start: configured expected version '"
+                    + properties.expectedParameterVersion() + "' does not match the loaded '"
+                    + parameterVersion + "'");
+        }
+        if (offsets.size() != properties.expectedSupportedCityCount()) {
+            throw new IllegalStateException("Refusing to start: configured expected city count "
+                    + properties.expectedSupportedCityCount() + " does not match the loaded "
+                    + offsets.size());
+        }
+    }
+
+    /**
      * @param resourcePath absolute classpath resource path
      * @throws IllegalStateException if the resource is missing, is not the released
      *                               v2 parameter set, or has unexpected counts

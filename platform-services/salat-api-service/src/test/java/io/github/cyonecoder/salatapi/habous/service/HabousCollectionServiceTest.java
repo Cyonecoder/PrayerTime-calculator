@@ -75,11 +75,10 @@ class HabousCollectionServiceTest {
     void setUp() throws IOException {
         server = new MockWebServer();
         server.start();
-        HabousProperties properties = new HabousProperties(
-                server.url("/horaire").toString(), server.url("/index").toString(), "agent",
-                1, Duration.ZERO, Duration.ofSeconds(5), Duration.ofSeconds(5),
-                1, Duration.ofSeconds(1), Duration.ofSeconds(30));
-        SalatApiProperties salatProps = new SalatApiProperties(dataDir);
+        HabousProperties properties = HabousProperties.forTests(
+                server.url("/horaire").toString(), Duration.ZERO,
+                Duration.ofSeconds(5), Duration.ofSeconds(5), 1, "agent");
+        SalatApiProperties salatProps = new SalatApiProperties("Africa/Casablanca", dataDir);
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
         AtomicJsonFileWriter jsonFiles = new AtomicJsonFileWriter(mapper);
         Sha256Service sha = new Sha256Service();

@@ -92,11 +92,10 @@ class HabousDailySyncJobTest {
         });
         server.start();
 
-        HabousProperties habousProps = new HabousProperties(
-                server.url("/horaire").toString(), server.url("/index").toString(), "agent",
-                1, Duration.ZERO, Duration.ofSeconds(5), Duration.ofSeconds(5),
-                1, Duration.ofSeconds(1), Duration.ofSeconds(30));
-        salatProps = new SalatApiProperties(dataDir);
+        HabousProperties habousProps = HabousProperties.forTests(
+                server.url("/horaire").toString(), Duration.ZERO,
+                Duration.ofSeconds(5), Duration.ofSeconds(5), 1, "agent");
+        salatProps = new SalatApiProperties("Africa/Casablanca", dataDir);
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
         AtomicJsonFileWriter jsonFiles = new AtomicJsonFileWriter(mapper);
         Sha256Service sha = new Sha256Service();
@@ -129,8 +128,8 @@ class HabousDailySyncJobTest {
         syncReports = new SyncReportRepository(salatProps, jsonFiles);
 
         job = new HabousDailySyncJob(
-                new SyncExecutionLock(salatProps), catalog, collection, archives, verification,
-                syncReports, client, clock);
+                new SyncExecutionLock(salatProps), catalog, collection, archives, rawSnapshots,
+                verification, syncReports, client, clock);
     }
 
     @AfterEach

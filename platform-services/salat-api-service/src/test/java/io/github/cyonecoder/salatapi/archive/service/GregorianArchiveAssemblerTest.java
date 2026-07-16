@@ -98,6 +98,39 @@ class GregorianArchiveAssemblerTest {
         return assembler.assemble(month, pages, List.of(rabatEntry()), Map.of(), null);
     }
 
+    // --- spec 28: leap February -----------------------------------------------
+
+    @Test
+    void aLeapFebruaryIsCompleteAtTwentyNineDays() {
+        // 2028 is a leap year: a complete February must require day 29.
+        List<HabousPublishedDay> allFeb = new java.util.ArrayList<>();
+        for (int d = 1; d <= 29; d++) {
+            allFeb.add(day(LocalDate.of(2028, 2, d), 6, 0));
+        }
+        ObservedPage page = new ObservedPage(metadata("1", Instant.parse("2028-02-29T03:00:00Z")), allFeb);
+
+        var february = assembler.assemble(YearMonth.of(2028, 2), List.of(page), List.of(rabatEntry()), Map.of(), null);
+
+        assertThat(february.city("1").orElseThrow().daysAvailable()).isEqualTo(29);
+        assertThat(february.city("1").orElseThrow().daysExpected()).isEqualTo(29);
+        assertThat(february.city("1").orElseThrow().status()).isEqualTo(CityArchiveStatus.COMPLETE);
+    }
+
+    @Test
+    void aLeapFebruaryMissingTheTwentyNinthIsPartial() {
+        List<HabousPublishedDay> feb1to28 = new java.util.ArrayList<>();
+        for (int d = 1; d <= 28; d++) {
+            feb1to28.add(day(LocalDate.of(2028, 2, d), 6, 0));
+        }
+        ObservedPage page = new ObservedPage(metadata("1", Instant.parse("2028-02-28T03:00:00Z")), feb1to28);
+
+        var february = assembler.assemble(YearMonth.of(2028, 2), List.of(page), List.of(rabatEntry()), Map.of(), null);
+
+        assertThat(february.city("1").orElseThrow().status()).isEqualTo(CityArchiveStatus.PARTIAL);
+        assertThat(february.city("1").orElseThrow().missingDays(YearMonth.of(2028, 2)))
+                .containsExactly(LocalDate.of(2028, 2, 29));
+    }
+
     // --- spec 16: the split ---------------------------------------------------
 
     @Test

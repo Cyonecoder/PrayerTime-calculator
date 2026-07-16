@@ -88,8 +88,8 @@ public class HabousRetryPolicy {
     }
 
     /** @return the total attempts allowed per city, including the first */
-    public int maxAttempts() {
-        return properties.maxAttempts();
+    public int maximumAttempts() {
+        return properties.maximumAttempts();
     }
 
     private static boolean isRetryableTransport(Throwable cause) {

@@ -41,7 +41,7 @@ class JsonMonthlyArchiveRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        properties = new SalatApiProperties(dataDir);
+        properties = new SalatApiProperties("Africa/Casablanca", dataDir);
         mapper = new ObjectMapper()
                 .registerModule(new JavaTimeModule())
                 .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);

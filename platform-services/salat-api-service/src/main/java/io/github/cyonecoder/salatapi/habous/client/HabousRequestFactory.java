@@ -46,7 +46,7 @@ public class HabousRequestFactory {
             throw new IllegalArgumentException("habousCityId must not be blank");
         }
         String query = "ville=" + URLEncoder.encode(habousCityId, StandardCharsets.UTF_8);
-        return URI.create(properties.baseUrl() + "?" + query);
+        return URI.create(properties.baseUri() + "?" + query);
     }
 
     /** @return the URL of the page listing every official ville */

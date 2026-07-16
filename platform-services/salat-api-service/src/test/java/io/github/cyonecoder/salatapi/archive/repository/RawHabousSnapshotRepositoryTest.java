@@ -42,7 +42,7 @@ class RawHabousSnapshotRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        properties = new SalatApiProperties(dataDir);
+        properties = new SalatApiProperties("Africa/Casablanca", dataDir);
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
         repository = new RawHabousSnapshotRepository(
                 properties, new Sha256Service(), new AtomicJsonFileWriter(mapper));

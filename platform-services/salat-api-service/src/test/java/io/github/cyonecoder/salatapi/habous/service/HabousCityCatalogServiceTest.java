@@ -57,7 +57,7 @@ class HabousCityCatalogServiceTest {
     @BeforeEach
     void setUp() {
         clock = Clock.fixed(Instant.parse("2026-07-15T03:00:00Z"), ZoneOffset.UTC);
-        properties = new SalatApiProperties(dataDir);
+        properties = new SalatApiProperties("Africa/Casablanca", dataDir);
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
         service = new HabousCityCatalogService(
                 new OfficialHabousCityDirectory(),

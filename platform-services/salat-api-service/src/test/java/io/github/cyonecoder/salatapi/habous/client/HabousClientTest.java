@@ -31,17 +31,10 @@ class HabousClientTest {
     void startServer() throws IOException {
         server = new MockWebServer();
         server.start();
-        properties = new HabousProperties(
+        properties = HabousProperties.forTests(
                 server.url("/prieres/horaire_hijri_2.php").toString(),
-                server.url("/prieres/index.php").toString(),
-                "PrayerTime-Calculator/0.1 (+test)",
-                1,
-                Duration.ofMillis(500),
-                Duration.ofSeconds(5),
-                Duration.ofSeconds(5),
-                3,
-                Duration.ofSeconds(1),
-                Duration.ofSeconds(30));
+                Duration.ofMillis(500), Duration.ofSeconds(5), Duration.ofSeconds(5),
+                3, "PrayerTime-Calculator/0.1 (+test)");
         slept = new ArrayList<>();
         // Record backoffs instead of waiting: the retry policy's timing is tested
         // separately, and a real sleep would make this suite take ~7s for nothing.

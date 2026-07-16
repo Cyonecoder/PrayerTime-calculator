@@ -54,7 +54,7 @@ class RebuildJobTest {
 
     @BeforeEach
     void setUp() {
-        props = new SalatApiProperties(dataDir);
+        props = new SalatApiProperties("Africa/Casablanca", dataDir);
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
         AtomicJsonFileWriter jsonFiles = new AtomicJsonFileWriter(mapper);
         Sha256Service sha = new Sha256Service();

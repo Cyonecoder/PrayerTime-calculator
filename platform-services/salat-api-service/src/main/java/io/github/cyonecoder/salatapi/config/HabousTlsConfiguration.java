@@ -37,7 +37,7 @@ public class HabousTlsConfiguration {
         log.info("Habous HTTP client trust augmented with intermediate '{}' (expires {})",
                 intermediate.getSubjectX500Principal().getName(), intermediate.getNotAfter());
         return HttpClient.newBuilder()
-                .connectTimeout(properties.connectTimeout())
+                .connectTimeout(properties.connectionTimeout())
                 .followRedirects(HttpClient.Redirect.NORMAL)
                 .sslContext(sslContext)
                 .build();

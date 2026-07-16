@@ -17,10 +17,9 @@ import org.junit.jupiter.params.provider.ValueSource;
  */
 class HabousRetryPolicyTest {
 
-    private final HabousProperties properties = new HabousProperties(
-            "https://example.test/horaire", "https://example.test/index", "agent",
-            1, Duration.ofMillis(500), Duration.ofSeconds(10), Duration.ofSeconds(15),
-            3, Duration.ofSeconds(1), Duration.ofSeconds(30));
+    private final HabousProperties properties = HabousProperties.forTests(
+            "https://example.test/horaire", Duration.ofMillis(500),
+            Duration.ofSeconds(10), Duration.ofSeconds(15), 3, "agent");
     private final HabousRetryPolicy policy = new HabousRetryPolicy(properties);
 
     @ParameterizedTest
@@ -118,16 +117,14 @@ class HabousRetryPolicyTest {
 
     @Test
     void defaultsMatchTheSpecifiedRespectfulLimits() {
-        HabousProperties defaults = new HabousProperties(
+        HabousProperties defaults = HabousProperties.forTests(
                 "https://www.habous.gov.ma/prieres/horaire_hijri_2.php",
-                "https://www.habous.gov.ma/prieres/index.php",
-                "agent", 1, Duration.ofMillis(500), Duration.ofSeconds(10),
-                Duration.ofSeconds(15), 3, Duration.ofSeconds(1), Duration.ofSeconds(30));
+                Duration.ofMillis(500), Duration.ofSeconds(10), Duration.ofSeconds(15), 3, "agent");
 
-        assertThat(defaults.maxConcurrency()).isEqualTo(1);
+        assertThat(defaults.maximumConcurrency()).isEqualTo(1);
         assertThat(defaults.requestDelay()).isEqualTo(Duration.ofMillis(500));
-        assertThat(defaults.connectTimeout()).isEqualTo(Duration.ofSeconds(10));
+        assertThat(defaults.connectionTimeout()).isEqualTo(Duration.ofSeconds(10));
         assertThat(defaults.requestTimeout()).isEqualTo(Duration.ofSeconds(15));
-        assertThat(defaults.maxAttempts()).isEqualTo(3);
+        assertThat(defaults.maximumAttempts()).isEqualTo(3);
     }
 }

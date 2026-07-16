@@ -70,6 +70,38 @@ public class MonthlyArchiveService {
     }
 
     /**
+     * Publishes the Gregorian months the <em>fresh</em> pages touch, but assembles
+     * each from <em>all</em> stored pages so the archive <strong>accumulates</strong>
+     * rather than being rebuilt from one run.
+     *
+     * <p>This is the safe form for the daily sync and for reseeding: a Gregorian
+     * month is completed by two Hijri pages collected weeks apart, so assembling
+     * only from the current run's pages would drop the days the other Hijri page
+     * contributed. Because every collected page is also saved as an immutable raw
+     * snapshot before assembly, {@code allStoredPages} already includes this run's
+     * fresh data.
+     *
+     * @param freshPages     the pages collected this run — only the months these
+     *                       touch are republished
+     * @param allStoredPages every stored raw snapshot as a page (the accumulation source)
+     */
+    public List<MonthlyArchiveManifest> publishAccumulated(
+            List<ObservedPage> freshPages,
+            List<ObservedPage> allStoredPages,
+            List<CityCatalogueEntry> officialCities,
+            Map<String, ArchiveFailureCode> failures,
+            Instant lastSuccessfulSyncAt,
+            boolean catalogueChanged,
+            List<String> warnings) {
+        List<MonthlyArchiveManifest> manifests = new ArrayList<>();
+        for (YearMonth month : assembler.monthsCovered(freshPages)) {
+            manifests.add(publishMonth(month, allStoredPages, officialCities, failures,
+                    lastSuccessfulSyncAt, catalogueChanged, warnings));
+        }
+        return manifests;
+    }
+
+    /**
      * Assembles and publishes exactly one Gregorian month (spec 25, rebuild-month).
      *
      * <p>Unlike {@link #publish}, this touches only {@code month} even though the

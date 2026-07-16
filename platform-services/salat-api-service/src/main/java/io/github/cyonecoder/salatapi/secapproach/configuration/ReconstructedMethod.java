@@ -31,22 +31,30 @@ public class ReconstructedMethod {
 
     private static final String RESOURCE = "/secapproach/morocco-habous-reconstructed.json";
 
-    /** @return the frozen reconstructed global formula */
+    /**
+     * @param properties the sec-approach configuration (for the resource location)
+     * @return the frozen reconstructed global formula, loaded from the configured resource
+     */
     @Bean
-    public CalculationCandidate reconstructedCandidate() {
-        return frozen();
+    public CalculationCandidate reconstructedCandidate(
+            io.github.cyonecoder.salatapi.config.SecApproachProperties properties) {
+        return load(properties.reconstructedClasspath());
     }
 
-    /** @return the frozen reconstructed global formula, loaded from the bundled resource */
+    /** @return the frozen reconstructed global formula, from the bundled default resource (tests) */
     public static CalculationCandidate frozen() {
-        try (InputStream in = ReconstructedMethod.class.getResourceAsStream(RESOURCE)) {
+        return load(RESOURCE);
+    }
+
+    private static CalculationCandidate load(String resource) {
+        try (InputStream in = ReconstructedMethod.class.getResourceAsStream(resource)) {
             if (in == null) {
-                throw new IllegalStateException("Reconstructed method resource not found: " + RESOURCE);
+                throw new IllegalStateException("Reconstructed method resource not found: " + resource);
             }
             CandidateDto dto = new ObjectMapper().readValue(in, CandidateDto.class);
             return dto.toCandidate();
         } catch (IOException e) {
-            throw new IllegalStateException("Failed to read reconstructed method: " + RESOURCE, e);
+            throw new IllegalStateException("Failed to read reconstructed method: " + resource, e);
         }
     }
 

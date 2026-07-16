@@ -24,10 +24,16 @@ import org.springframework.boot.context.properties.bind.DefaultValue;
  * └── rejected/      pages that arrived but could not be trusted
  * </pre>
  *
+ * @param timezone      the civil zone every Moroccan prayer time is expressed in
  * @param dataDirectory the single local JSON data directory
  */
 @ConfigurationProperties(prefix = "salat")
-public record SalatApiProperties(@DefaultValue("./data") Path dataDirectory) {
+public record SalatApiProperties(
+        @DefaultValue("Africa/Casablanca") String timezone,
+        @DefaultValue("./data") Path dataDirectory) {
+
+    /** The default civil zone, reused by tests constructing this directly. */
+    public static final String DEFAULT_TIMEZONE = "Africa/Casablanca";
 
     // --- catalog -------------------------------------------------------------
 

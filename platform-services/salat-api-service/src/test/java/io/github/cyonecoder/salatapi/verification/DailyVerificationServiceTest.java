@@ -56,7 +56,7 @@ class DailyVerificationServiceTest {
 
     @BeforeEach
     void setUp() {
-        SalatApiProperties props = new SalatApiProperties(dataDir);
+        SalatApiProperties props = new SalatApiProperties("Africa/Casablanca", dataDir);
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
         AtomicJsonFileWriter jsonFiles = new AtomicJsonFileWriter(mapper);
         Sha256Service sha = new Sha256Service();

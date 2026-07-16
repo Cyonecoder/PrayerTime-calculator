@@ -11,14 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * A single-city live check against the real Habous endpoint (TLS fix).
+ * A lightweight live check against the real Habous endpoint (spec 29).
  *
- * <p><strong>Opt-in only.</strong> Tagged {@code live}, so the normal
- * {@code test} task excludes it; run it explicitly with {@code ./gradlew liveTest}
- * or {@code ./gradlew test --tests "*HabousClientLiveTest"}. It fetches only Rabat
- * (ville 1) and asserts a structurally valid timetable came back over a validated
- * TLS connection — proving the trust augmentation works without a full 191-city
- * sync. It deliberately does not assert exact times or a specific Hijri month.
+ * <p><strong>Opt-in only.</strong> Tagged {@code live}, so the normal {@code test}
+ * task excludes it; run it explicitly with {@code ./gradlew liveTest}. It makes
+ * exactly <strong>one</strong> request (Rabat, ville 1) and, from that single
+ * page, validates both the official catalogue (the {@code <select name="ville">})
+ * and one city's timetable. It never crawls all 191 cities, and it does not assert
+ * exact times or a specific Hijri month.
  */
 @Tag("live")
 @SpringBootTest(properties = "salat.scheduling.enabled=false")
@@ -32,29 +32,35 @@ class HabousClientLiveTest {
     private HabousVilleDirectoryParser villeParser;
 
     @Test
-    void fetchesRabatOverAValidatedTlsConnection() {
+    void oneFetchValidatesTheCatalogueAndOneCityOverValidatedTls() {
+        // Exactly one request — the ville=1 page carries both the ville dropdown
+        // (the catalogue) and Rabat's timetable.
         String html = client.fetchCurrentPublishedTimetable("1");
+        assertThat(html).as("TLS succeeded and content returned").isNotBlank();
 
-        // The request succeeded (no SSLHandshakeException) and returned content.
-        assertThat(html).isNotBlank();
+        // (a) The official catalogue: the <select name="ville"> lists many cities.
+        HabousVilleDirectoryParser.Directory catalogue = villeParser.parse(html);
+        assertThat(catalogue.count())
+                .as("official ville catalogue is substantial (not crawled per-city)")
+                .isGreaterThan(150);
+        assertThat(catalogue.sourceChecksum()).hasSize(64);
 
-        // It is structurally a Habous timetable: the parser produces contiguous days.
+        // (b) One city's timetable is structurally a valid, contiguous month.
         var days = timetableParser.parse(html);
         assertThat(days).isNotEmpty();
         for (int i = 1; i < days.size(); i++) {
             assertThat(days.get(i).date()).isEqualTo(days.get(i - 1).date().plusDays(1));
         }
 
-        // When the selected-city marker is present, it must be Rabat (ville 1).
+        // (c) When the selected-city marker is present, it is Rabat (ville 1).
         villeParser.selectedVille(html).ifPresent(selected ->
                 assertThat(selected.habousCityId()).isEqualTo("1"));
     }
 
     @Test
     void trustIsAugmentedNotDisabled() {
-        // The injected client is the trust-augmented bean; its SSL context is the
-        // composite one, not a trust-all context. (A null/absent context would mean
-        // the default was used, which cannot reach Habous at all.)
+        // The composite trust manager advertises the platform CAs plus the one
+        // bundled intermediate — additive, never a trust-all context.
         List<?> issuers = List.of(HabousTrustStore.compositeTrustManager().getAcceptedIssuers());
         assertThat(issuers).isNotEmpty();
     }

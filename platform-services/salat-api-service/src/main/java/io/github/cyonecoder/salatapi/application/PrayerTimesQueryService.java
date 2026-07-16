@@ -26,7 +26,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PrayerTimesQueryService {
 
-    /** The range endpoint's hard cap (spec 23.11). */
+    /** The range endpoint's default hard cap (spec 23.11); overridable via salat.api.maximum-range-days. */
     public static final int MAX_RANGE_DAYS = 366;
 
     private static final DateTimeFormatter HH_MM = DateTimeFormatter.ofPattern("HH:mm");
@@ -37,11 +37,14 @@ public class PrayerTimesQueryService {
 
     private final SecApproachCalculator secApproach;
     private final MonthlyArchiveQueryService archives;
+    private final int maximumRangeDays;
 
     public PrayerTimesQueryService(
-            SecApproachCalculator secApproach, MonthlyArchiveQueryService archives) {
+            SecApproachCalculator secApproach, MonthlyArchiveQueryService archives,
+            io.github.cyonecoder.salatapi.config.ApiProperties apiProperties) {
         this.secApproach = secApproach;
         this.archives = archives;
+        this.maximumRangeDays = apiProperties.maximumRangeDays();
     }
 
     // --- sec-approach --------------------------------------------------------
@@ -58,9 +61,9 @@ public class PrayerTimesQueryService {
             throw new ApiException(ApiErrorCode.INVALID_DATE, "'to' must not be before 'from'.");
         }
         long days = java.time.temporal.ChronoUnit.DAYS.between(from, to) + 1;
-        if (days > MAX_RANGE_DAYS) {
+        if (days > maximumRangeDays) {
             throw new ApiException(ApiErrorCode.DATE_RANGE_TOO_LARGE,
-                    "The requested range is " + days + " days; the maximum is " + MAX_RANGE_DAYS + ".");
+                    "The requested range is " + days + " days; the maximum is " + maximumRangeDays + ".");
         }
         List<PrayerScheduleResponse> schedule = new ArrayList<>();
         for (LocalDate date = from; !date.isAfter(to); date = date.plusDays(1)) {

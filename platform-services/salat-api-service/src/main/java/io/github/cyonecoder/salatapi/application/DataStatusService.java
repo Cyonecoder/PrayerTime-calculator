@@ -7,6 +7,7 @@ import io.github.cyonecoder.salatapi.archive.repository.MonthlyArchiveRepository
 import io.github.cyonecoder.salatapi.archive.repository.SyncReportRepository;
 import io.github.cyonecoder.salatapi.city.ApplicationHabousMapping;
 import io.github.cyonecoder.salatapi.city.MoroccoCityRegistry;
+import io.github.cyonecoder.salatapi.config.SalatApiProperties;
 import io.github.cyonecoder.salatapi.habous.service.HabousCityCatalogService;
 import io.github.cyonecoder.salatapi.scheduling.SyncExecutionLock;
 import io.github.cyonecoder.salatapi.scheduling.SyncJobReport;
@@ -37,6 +38,7 @@ public class DataStatusService {
     private final SyncReportRepository syncReports;
     private final VerificationReportRepository verificationReports;
     private final SyncExecutionLock lock;
+    private final SalatApiProperties properties;
     private final Clock clock;
     private final boolean schedulingEnabled;
 
@@ -49,7 +51,9 @@ public class DataStatusService {
             SyncReportRepository syncReports,
             VerificationReportRepository verificationReports,
             SyncExecutionLock lock,
+            SalatApiProperties properties,
             Clock clock,
+            @Value("${salat.habous.enabled:true}") boolean habousEnabled,
             @Value("${salat.scheduling.enabled:true}") boolean schedulingEnabled) {
         this.catalog = catalog;
         this.registry = registry;
@@ -59,8 +63,10 @@ public class DataStatusService {
         this.syncReports = syncReports;
         this.verificationReports = verificationReports;
         this.lock = lock;
+        this.properties = properties;
         this.clock = clock;
-        this.schedulingEnabled = schedulingEnabled;
+        // The scheduler runs only if both the canonical Habous flag and the alias are on.
+        this.schedulingEnabled = habousEnabled && schedulingEnabled;
     }
 
     /** @return service information (spec 23.1) */
@@ -98,6 +104,7 @@ public class DataStatusService {
                 .orElse(null);
 
         return new DataStatusResponse(
+                properties.dataDirectory().toAbsolutePath().normalize().toString(),
                 schedulingEnabled,
                 lock.isRunning(),
                 catalog.observedCount(),

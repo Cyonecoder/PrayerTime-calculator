@@ -44,6 +44,7 @@ public class HabousDailySyncJob {
     private final HabousCityCatalogService catalog;
     private final HabousCollectionService collection;
     private final MonthlyArchiveService archives;
+    private final io.github.cyonecoder.salatapi.archive.repository.RawHabousSnapshotRepository rawSnapshots;
     private final DailyVerificationService verification;
     private final SyncReportRepository syncReports;
     private final HabousClient client;
@@ -54,6 +55,7 @@ public class HabousDailySyncJob {
             HabousCityCatalogService catalog,
             HabousCollectionService collection,
             MonthlyArchiveService archives,
+            io.github.cyonecoder.salatapi.archive.repository.RawHabousSnapshotRepository rawSnapshots,
             DailyVerificationService verification,
             SyncReportRepository syncReports,
             HabousClient client,
@@ -62,6 +64,7 @@ public class HabousDailySyncJob {
         this.catalog = catalog;
         this.collection = collection;
         this.archives = archives;
+        this.rawSnapshots = rawSnapshots;
         this.verification = verification;
         this.syncReports = syncReports;
         this.client = client;
@@ -129,8 +132,16 @@ public class HabousDailySyncJob {
         Map<String, ArchiveFailureCode> failures = failureCodes(outcome.results());
 
         // 4. Assemble and publish the Gregorian monthly archives atomically.
+        //    Assemble the months this run touched from ALL stored snapshots, not just
+        //    this run's pages, so a Gregorian month completed by two Hijri pages
+        //    (collected weeks apart) accumulates instead of being rebuilt and losing
+        //    the other page's days. Fresh pages are already saved as snapshots above.
         Instant syncedAt = clock.instant();
-        archives.publish(outcome.pages(), enabled, failures, syncedAt, catalogueChanged, warnings);
+        List<ObservedPage> allStored = rawSnapshots.listAllPrimary().stream()
+                .map(s -> new ObservedPage(s.metadata(), s.days()))
+                .toList();
+        archives.publishAccumulated(
+                outcome.pages(), allStored, enabled, failures, syncedAt, catalogueChanged, warnings);
 
         // 5-6. Verify sec-approach against official data for the covered months.
         boolean verificationRan = runVerification(outcome.pages());

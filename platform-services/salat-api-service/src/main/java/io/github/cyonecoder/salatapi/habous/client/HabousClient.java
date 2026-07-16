@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
  * bypassed — a 403 is accepted as the site's answer, not worked around.
  *
  * <p>Temporary failures are retried with exponential backoff and jitter, bounded
- * by {@link HabousProperties#maxAttempts()} (spec 14). Permanent failures fail
+ * by {@link HabousProperties#maximumAttempts()} (spec 14). Permanent failures fail
  * immediately.
  *
  * <p><strong>Naming, deliberately.</strong> The original
@@ -99,18 +99,18 @@ public class HabousClient {
         URI uri = requestFactory.currentPublishedTimetableUri(habousCityId);
 
         HabousUnavailableException lastFailure = null;
-        for (int attempt = 1; attempt <= retryPolicy.maxAttempts(); attempt++) {
+        for (int attempt = 1; attempt <= retryPolicy.maximumAttempts(); attempt++) {
             try {
                 return send(uri, habousCityId);
             } catch (HabousUnavailableException e) {
                 lastFailure = e;
-                boolean lastAttempt = attempt == retryPolicy.maxAttempts();
+                boolean lastAttempt = attempt == retryPolicy.maximumAttempts();
                 if (lastAttempt || !retryPolicy.isRetryable(e)) {
                     throw e;
                 }
                 Duration backoff = retryPolicy.backoffFor(attempt);
                 log.warn("Habous attempt {}/{} failed for city {} ({}); retrying in {}ms",
-                        attempt, retryPolicy.maxAttempts(), habousCityId, e.getMessage(),
+                        attempt, retryPolicy.maximumAttempts(), habousCityId, e.getMessage(),
                         backoff.toMillis());
                 pause(backoff);
             }

@@ -1,6 +1,12 @@
 spring:
   application:
     name: salat-api-service
+
+  task:
+    scheduling:
+      pool:
+        size: 1
+
   jackson:
     default-property-inclusion: non_null
     serialization:
@@ -8,45 +14,34 @@ spring:
       indent-output: true
 
 server:
-  port: 8080
+  port: ${SERVER_PORT:8081}
+
+salat:
+  timezone: Africa/Casablanca
+  data-directory: ${SALAT_DATA_DIRECTORY:./data}
+
+  sec-approach:
+    parameter-resource: classpath:secapproach/morocco-habous-secaproach.json
+    reconstructed-resource: classpath:secapproach/morocco-habous-reconstructed.json
+    expected-parameter-version: morocco-habous-secaproach-v2
+    expected-supported-city-count: 48
+
+  habous:
+    enabled: ${HABOUS_SYNC_ENABLED:true}
+    base-uri: ${HABOUS_BASE_URI:https://www.habous.gov.ma/prieres/horaire_hijri_2.php}
+    sync-cron: ${HABOUS_SYNC_CRON:0 15 3 * * *}
+    connection-timeout: ${HABOUS_CONNECTION_TIMEOUT:10s}
+    request-timeout: ${HABOUS_REQUEST_TIMEOUT:15s}
+    maximum-attempts: ${HABOUS_MAXIMUM_ATTEMPTS:3}
+    maximum-concurrency: ${HABOUS_MAXIMUM_CONCURRENCY:1}
+    request-delay: ${HABOUS_REQUEST_DELAY:500ms}
+    user-agent: ${HABOUS_USER_AGENT:SalatApiService/1.0}
+
+  api:
+    maximum-range-days: ${SALAT_MAXIMUM_RANGE_DAYS:366}
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics
-  endpoint:
-    health:
-      show-details: always
-
-salat:
-  # The single local JSON data directory. Raw sources, the city catalogue,
-  # monthly archives, verification reports and job reports all live under here.
-  # No database.
-  data-directory: ${SALAT_DATA_DIRECTORY:./data}
-  # NOTE: the expected sec-approach version and the 191/67/60/48 city counts are
-  # deliberately NOT configurable. They are compile-time constants on
-  # SecApproachParameters, MoroccoCityRegistry, OfficialHabousCityDirectory and
-  # ApplicationHabousMapping, so a wrong parameter set fails startup and cannot
-  # be waved through with a config override.
-
-habous:
-  # The verified official source. It accepts ONLY a `ville` parameter — there is
-  # no month/year selector, so historical months cannot be requested.
-  base-url: https://www.habous.gov.ma/prieres/horaire_hijri_2.php
-  ville-directory-url: https://www.habous.gov.ma/prieres/index.php
-  user-agent: "PrayerTime-Calculator/0.1 (+https://github.com/Cyonecoder/PrayerTime-calculator)"
-
-  # Respectful access to a government site. One request at a time, spaced apart,
-  # bounded attempts. A full ~191-ville pass therefore takes ~95s of delay.
-  # TLS verification is never disabled and access controls are never bypassed.
-  max-concurrency: 1
-  request-delay: 500ms
-  connect-timeout: 10s
-  request-timeout: 15s
-  # Total attempts per city, including the first.
-  max-attempts: 3
-  # Exponential backoff with full jitter, applied only to temporary failures
-  # (timeout, connection reset, 429, 502, 503, 504).
-  retry-initial-backoff: 1s
-  retry-max-backoff: 30s
+        include: health,info

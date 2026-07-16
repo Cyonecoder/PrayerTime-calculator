@@ -46,9 +46,9 @@ class PrayerTimesApiTest {
             }
         });
         HABOUS.start();
-        registry.add("habous.base-url", () -> HABOUS.url("/horaire").toString());
-        registry.add("habous.ville-directory-url", () -> HABOUS.url("/index").toString());
-        registry.add("habous.request-delay", () -> "0s");
+        registry.add("salat.habous.base-uri", () -> HABOUS.url("/horaire").toString());
+        registry.add("salat.habous.ville-directory-url", () -> HABOUS.url("/index").toString());
+        registry.add("salat.habous.request-delay", () -> "0s");
         registry.add("salat.data-directory", () -> {
             try {
                 return java.nio.file.Files.createTempDirectory("salat-api-test").toString();

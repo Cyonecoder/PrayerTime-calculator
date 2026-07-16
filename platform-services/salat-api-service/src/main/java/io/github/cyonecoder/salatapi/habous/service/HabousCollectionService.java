@@ -216,7 +216,7 @@ public class HabousCollectionService {
                 support.secApproachSupported(),
                 today,
                 now,
-                properties.baseUrl() + "?ville=" + villeId,
+                properties.baseUri() + "?ville=" + villeId,
                 "recomputed-on-save",
                 HabousLiveHtmlParser.PARSER_VERSION,
                 days.size(),
