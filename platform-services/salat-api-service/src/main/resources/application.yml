@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: salat-api-service
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+      indent-output: true
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+salat:
+  # The single local JSON data directory. Raw sources, the city catalogue,
+  # monthly archives, verification reports and job reports all live under here.
+  # No database.
+  data-directory: ${SALAT_DATA_DIRECTORY:./data}
+  # NOTE: the expected sec-approach version and the 191/67/60/48 city counts are
+  # deliberately NOT configurable. They are compile-time constants on
+  # SecApproachParameters, MoroccoCityRegistry, OfficialHabousCityDirectory and
+  # ApplicationHabousMapping, so a wrong parameter set fails startup and cannot
+  # be waved through with a config override.
+
+habous:
+  # The verified official source. It accepts ONLY a `ville` parameter — there is
+  # no month/year selector, so historical months cannot be requested.
+  base-url: https://www.habous.gov.ma/prieres/horaire_hijri_2.php
+  ville-directory-url: https://www.habous.gov.ma/prieres/index.php
+  user-agent: "PrayerTime-Calculator/0.1 (+https://github.com/Cyonecoder/PrayerTime-calculator)"
+
+  # Respectful access to a government site. One request at a time, spaced apart,
+  # bounded attempts. A full ~191-ville pass therefore takes ~95s of delay.
+  # TLS verification is never disabled and access controls are never bypassed.
+  max-concurrency: 1
+  request-delay: 500ms
+  connect-timeout: 10s
+  request-timeout: 15s
+  # Total attempts per city, including the first.
+  max-attempts: 3
+  # Exponential backoff with full jitter, applied only to temporary failures
+  # (timeout, connection reset, 429, 502, 503, 504).
+  retry-initial-backoff: 1s
+  retry-max-backoff: 30s

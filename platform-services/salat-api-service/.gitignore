@@ -1,0 +1,17 @@
+### Gradle ###
+.gradle/
+build/
+
+### Compiled Java class files ###
+*.class
+
+### Runtime data directory (JSON archives are generated, never source) ###
+data/
+
+### IDE ###
+.idea/
+*.iml
+.vscode/
+
+### Mac OS ###
+.DS_Store
