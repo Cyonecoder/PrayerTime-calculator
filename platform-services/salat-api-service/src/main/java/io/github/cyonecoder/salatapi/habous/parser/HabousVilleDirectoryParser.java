@@ -124,4 +124,36 @@ public class HabousVilleDirectoryParser {
         }
         return new Directory(parsed, sha256.hex(html));
     }
+
+    /**
+     * The ville the page was served for, read from the {@code selected} option of
+     * its {@code <select name="ville">}.
+     *
+     * <p>Used to confirm a fetched timetable is actually for the city that was
+     * requested (spec 20, "validate the city name"): the official page marks the
+     * chosen city with {@code selected=selected}, so a mismatch means the site
+     * returned the wrong city and the page must not be stored under the requested
+     * id.
+     *
+     * @param html the fetched page HTML
+     * @return the selected option, or empty if none is marked
+     */
+    public Optional<Option> selectedVille(String html) {
+        if (html == null || html.isBlank()) {
+            return Optional.empty();
+        }
+        Document doc = Jsoup.parse(html);
+        Element option = doc.selectFirst("select[name=ville] option[selected]");
+        if (option == null) {
+            return Optional.empty();
+        }
+        Matcher m = VILLE_ID.matcher(option.attr("value"));
+        if (!m.find()) {
+            return Optional.empty();
+        }
+        String text = option.text();
+        return Optional.of(new Option(
+                m.group(1), text.trim(),
+                ArabicTextNormalizer.normalize(text), ArabicTextNormalizer.fold(text)));
+    }
 }

@@ -59,6 +59,7 @@ public class HabousClient {
     private final Sleeper sleeper;
     private final HabousProperties properties;
 
+    @org.springframework.beans.factory.annotation.Autowired
     public HabousClient(
             HabousRequestFactory requestFactory,
             HabousRetryPolicy retryPolicy,
