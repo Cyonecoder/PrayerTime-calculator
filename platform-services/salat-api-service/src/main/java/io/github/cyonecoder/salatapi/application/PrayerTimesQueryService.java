@@ -3,7 +3,8 @@ package io.github.cyonecoder.salatapi.application;
 import io.github.cyonecoder.salatapi.api.dto.request.Precision;
 import io.github.cyonecoder.salatapi.api.dto.response.PrayerScheduleResponse;
 import io.github.cyonecoder.salatapi.api.dto.response.UnifiedPrayerTimesResponse;
-import io.github.cyonecoder.salatapi.api.exception.ResourceNotFoundException;
+import io.github.cyonecoder.salatapi.api.exception.ApiErrorCode;
+import io.github.cyonecoder.salatapi.api.exception.ApiException;
 import io.github.cyonecoder.salatapi.archive.model.ArchivedDay;
 import io.github.cyonecoder.salatapi.common.model.Prayer;
 import io.github.cyonecoder.salatapi.common.model.PrayerTimes;
@@ -54,12 +55,12 @@ public class PrayerTimesQueryService {
     public List<PrayerScheduleResponse> secApproachRange(
             String applicationCityId, LocalDate from, LocalDate to, Precision precision) {
         if (to.isBefore(from)) {
-            throw new IllegalArgumentException("'to' (" + to + ") must not be before 'from' (" + from + ")");
+            throw new ApiException(ApiErrorCode.INVALID_DATE, "'to' must not be before 'from'.");
         }
         long days = java.time.temporal.ChronoUnit.DAYS.between(from, to) + 1;
         if (days > MAX_RANGE_DAYS) {
-            throw new IllegalArgumentException(
-                    "range is " + days + " days but the maximum is " + MAX_RANGE_DAYS);
+            throw new ApiException(ApiErrorCode.DATE_RANGE_TOO_LARGE,
+                    "The requested range is " + days + " days; the maximum is " + MAX_RANGE_DAYS + ".");
         }
         List<PrayerScheduleResponse> schedule = new ArrayList<>();
         for (LocalDate date = from; !date.isAfter(to); date = date.plusDays(1)) {
@@ -71,7 +72,12 @@ public class PrayerTimesQueryService {
     /** @return the sec-approach schedules for a whole month (spec 23.12) */
     public List<PrayerScheduleResponse> secApproachMonth(
             String applicationCityId, int year, int month, Precision precision) {
-        YearMonth ym = YearMonth.of(year, month);
+        YearMonth ym;
+        try {
+            ym = YearMonth.of(year, month);
+        } catch (java.time.DateTimeException e) {
+            throw new ApiException(ApiErrorCode.INVALID_MONTH, ApiErrorCode.INVALID_MONTH.defaultDetail());
+        }
         return secApproachRange(applicationCityId, ym.atDay(1), ym.atEndOfMonth(), precision);
     }
 
@@ -93,8 +99,8 @@ public class PrayerTimesQueryService {
             case "OFFICIAL" -> official(applicationCityId, date, precision, "OFFICIAL");
             case "SEC_APPROACH" -> secApproachUnified(applicationCityId, date, precision, "SEC_APPROACH", false, null);
             case "BEST" -> best(applicationCityId, date, precision);
-            default -> throw new IllegalArgumentException(
-                    "source must be 'official', 'sec-approach' or 'best' but was '" + source + "'");
+            default -> throw new ApiException(
+                    ApiErrorCode.INVALID_SOURCE, ApiErrorCode.INVALID_SOURCE.defaultDetail());
         };
     }
 
@@ -113,8 +119,8 @@ public class PrayerTimesQueryService {
     private UnifiedPrayerTimesResponse official(
             String applicationCityId, LocalDate date, Precision precision, String requested) {
         ArchivedDay day = officialDay(applicationCityId, date).orElseThrow(() ->
-                new ResourceNotFoundException(
-                        "No official data for application city '" + applicationCityId + "' on " + date));
+                new ApiException(ApiErrorCode.OFFICIAL_DATA_NOT_AVAILABLE,
+                        "No official data for application city '" + applicationCityId + "' on " + date + "."));
         return unifiedResponse(applicationCityId, date, precision, requested,
                 ResolvedSource.HABOUS_OFFICIAL.name(), false, null,
                 officialTimes(day, date), false);

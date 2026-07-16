@@ -189,9 +189,60 @@ class PrayerTimesApiTest {
     void aNonOffsetCityIs422NotAGuess() throws Exception {
         // berkane is mapped but untrained; sale is unmapped. Neither is guessed.
         mvc.perform(get("/api/v1/sec-approach/cities/berkane/prayer-times?date=2026-07-01"))
-                .andExpect(status().isUnprocessableEntity());
+                .andExpect(status().isUnprocessableEntity())
+                .andExpect(jsonPath("$.code", is("SEC_APPROACH_CITY_UNSUPPORTED")));
         mvc.perform(get("/api/v1/sec-approach/cities/sale/prayer-times?date=2026-07-01"))
                 .andExpect(status().isUnprocessableEntity());
+    }
+
+    @Test
+    void errorsAreProblemDetailsWithStableCodes() throws Exception {
+        mvc.perform(get("/api/v1/sec-approach/cities/casablanca/prayer-times?date=2026-07-01&precision=nano"))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentTypeCompatibleWith("application/problem+json"))
+                .andExpect(jsonPath("$.code", is("INVALID_PRECISION")))
+                .andExpect(jsonPath("$.status", is(400)))
+                .andExpect(jsonPath("$.correlationId").exists());
+
+        mvc.perform(get("/api/v1/sec-approach/cities/casablanca/prayer-times?date=not-a-date"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code", is("INVALID_DATE")));
+
+        mvc.perform(get("/api/v1/prayer-times/cities/rabat?date=2026-07-01&source=frobnicate"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code", is("INVALID_SOURCE")));
+
+        mvc.perform(get("/api/v1/sec-approach/cities/casablanca/prayer-times/range"
+                        + "?from=2026-01-01&to=2027-12-31"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code", is("DATE_RANGE_TOO_LARGE")));
+
+        mvc.perform(get("/api/v1/habous/months/2026/13"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code", is("INVALID_MONTH")));
+
+        mvc.perform(get("/api/v1/habous/months/2026/9"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.code", is("OFFICIAL_MONTH_NOT_AVAILABLE")));
+
+        mvc.perform(get("/api/v1/habous/cities/by-application-id/nowhere"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.code", is("APPLICATION_CITY_NOT_MAPPED")));
+    }
+
+    @Test
+    void errorBodiesNeverLeakInternals() throws Exception {
+        String body = mvc.perform(get("/api/v1/habous/months/2026/9"))
+                .andReturn().getResponse().getContentAsString();
+
+        // No stack traces, filesystem paths, package names, or env values.
+        org.assertj.core.api.Assertions.assertThat(body)
+                .doesNotContain("io.github.cyonecoder")
+                .doesNotContain("Exception")
+                .doesNotContain(".java")
+                .doesNotContain(System.getProperty("user.dir"))
+                .doesNotContain("/Users/")
+                .doesNotContain("at org.springframework");
     }
 
     @Test

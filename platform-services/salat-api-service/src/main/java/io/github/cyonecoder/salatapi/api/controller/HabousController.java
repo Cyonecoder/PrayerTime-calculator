@@ -3,7 +3,8 @@ package io.github.cyonecoder.salatapi.api.controller;
 import io.github.cyonecoder.salatapi.api.dto.response.HabousCitySummaryResponse;
 import io.github.cyonecoder.salatapi.api.dto.response.MonthSummaryResponse;
 import io.github.cyonecoder.salatapi.api.dto.response.OfficialDayResponse;
-import io.github.cyonecoder.salatapi.api.exception.ResourceNotFoundException;
+import io.github.cyonecoder.salatapi.api.exception.ApiErrorCode;
+import io.github.cyonecoder.salatapi.api.exception.ApiException;
 import io.github.cyonecoder.salatapi.application.MonthlyArchiveQueryService;
 import io.github.cyonecoder.salatapi.archive.model.ArchivedDay;
 import io.github.cyonecoder.salatapi.archive.model.GregorianMonthlyArchive;
@@ -76,15 +77,16 @@ public class HabousController {
     @GetMapping("/cities/{habousCityId}")
     public HabousCitySummaryResponse city(@PathVariable String habousCityId) {
         CityCatalogueEntry entry = catalog.findById(habousCityId).orElseThrow(() ->
-                new ResourceNotFoundException("No official Habous city with id " + habousCityId));
+                new ApiException(ApiErrorCode.HABOUS_CITY_NOT_FOUND,
+                        "No official Habous city with id " + habousCityId + "."));
         return toSummary(entry, availableVilleIds());
     }
 
     @GetMapping("/cities/by-application-id/{applicationCityId}")
     public HabousCitySummaryResponse cityByApplicationId(@PathVariable String applicationCityId) {
         String villeId = mapping.findByApplicationCityId(applicationCityId).orElseThrow(() ->
-                new ResourceNotFoundException(
-                        "No verified Habous mapping for application city '" + applicationCityId + "'"))
+                new ApiException(ApiErrorCode.APPLICATION_CITY_NOT_MAPPED,
+                        "No verified Habous mapping for application city '" + applicationCityId + "'."))
                 .habousCityId();
         return city(villeId);
     }
@@ -135,8 +137,8 @@ public class HabousController {
             @PathVariable String habousCityId,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         ArchivedDay day = archives.officialDay(habousCityId, date).orElseThrow(() ->
-                new ResourceNotFoundException(
-                        "No official data for Habous city " + habousCityId + " on " + date));
+                new ApiException(ApiErrorCode.OFFICIAL_DATA_NOT_AVAILABLE,
+                        "No official data for Habous city " + habousCityId + " on " + date + "."));
         CityCatalogueEntry entry = catalog.findById(habousCityId).orElse(null);
         var support = citySupport.supportFor(habousCityId);
         return new OfficialDayResponse(

@@ -1,7 +1,8 @@
 package io.github.cyonecoder.salatapi.application;
 
 import io.github.cyonecoder.salatapi.api.dto.response.MonthSummaryResponse;
-import io.github.cyonecoder.salatapi.api.exception.ResourceNotFoundException;
+import io.github.cyonecoder.salatapi.api.exception.ApiErrorCode;
+import io.github.cyonecoder.salatapi.api.exception.ApiException;
 import io.github.cyonecoder.salatapi.archive.model.ArchivedDay;
 import io.github.cyonecoder.salatapi.archive.model.CityArchiveStatus;
 import io.github.cyonecoder.salatapi.archive.model.GregorianMonthlyArchive;
@@ -64,25 +65,21 @@ public class MonthlyArchiveQueryService {
 
     /** @return the archive file as raw JSON text for download (spec 23.5) */
     public String monthFileJson(int year, int month) {
-        return archives.findArchiveJson(YearMonth.of(year, month))
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        "No archive for " + period(year, month)));
+        return archives.findArchiveJson(requireYearMonth(year, month))
+                .orElseThrow(() -> new ApiException(ApiErrorCode.OFFICIAL_MONTH_NOT_AVAILABLE,
+                        "No official archive exists for " + period(year, month) + "."));
     }
 
     /** @return one official city's month by ville id (spec 23.6) */
     public MonthlyCitySchedule cityMonth(int year, int month, String habousCityId) {
         return requireArchive(year, month).city(habousCityId)
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        "No city " + habousCityId + " in the " + period(year, month) + " archive"));
+                .orElseThrow(() -> new ApiException(ApiErrorCode.HABOUS_CITY_NOT_FOUND,
+                        "No city " + habousCityId + " in the " + period(year, month) + " archive."));
     }
 
     /** @return one official city's month by application slug (spec 23.6) */
     public MonthlyCitySchedule cityMonthByApplicationId(int year, int month, String applicationCityId) {
-        String villeId = mapping.findByApplicationCityId(applicationCityId)
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        "No verified Habous mapping for application city '" + applicationCityId + "'"))
-                .habousCityId();
-        return cityMonth(year, month, villeId);
+        return cityMonth(year, month, requireVilleId(applicationCityId));
     }
 
     /** @return one official day for a city by ville id, or empty if not collected (spec 23.7) */
@@ -95,15 +92,24 @@ public class MonthlyArchiveQueryService {
     /** @return the ville id mapped to an application slug, for the official-day lookup */
     public String requireVilleId(String applicationCityId) {
         return mapping.findByApplicationCityId(applicationCityId)
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        "No verified Habous mapping for application city '" + applicationCityId + "'"))
+                .orElseThrow(() -> new ApiException(ApiErrorCode.APPLICATION_CITY_NOT_MAPPED,
+                        "No verified Habous mapping for application city '" + applicationCityId + "'."))
                 .habousCityId();
     }
 
     private GregorianMonthlyArchive requireArchive(int year, int month) {
-        return archives.findArchive(YearMonth.of(year, month))
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        "No archive for " + period(year, month)));
+        return archives.findArchive(requireYearMonth(year, month))
+                .orElseThrow(() -> new ApiException(ApiErrorCode.OFFICIAL_MONTH_NOT_AVAILABLE,
+                        "No official archive exists for " + period(year, month) + "."));
+    }
+
+    /** Validates the year/month before use, so an out-of-range month is a clean 400. */
+    private YearMonth requireYearMonth(int year, int month) {
+        try {
+            return YearMonth.of(year, month);
+        } catch (java.time.DateTimeException e) {
+            throw new ApiException(ApiErrorCode.INVALID_MONTH, ApiErrorCode.INVALID_MONTH.defaultDetail());
+        }
     }
 
     private MonthSummaryResponse toSummary(MonthlyArchiveManifest m) {

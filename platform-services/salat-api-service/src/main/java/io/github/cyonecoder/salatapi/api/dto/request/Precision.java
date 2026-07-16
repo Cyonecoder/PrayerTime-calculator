@@ -1,5 +1,7 @@
 package io.github.cyonecoder.salatapi.api.dto.request;
 
+import io.github.cyonecoder.salatapi.api.exception.ApiErrorCode;
+import io.github.cyonecoder.salatapi.api.exception.ApiException;
 import java.util.Locale;
 
 /** The precision of a returned sec-approach time (spec 23.10). */
@@ -20,8 +22,8 @@ public enum Precision {
         return switch (value.trim().toLowerCase(Locale.ROOT)) {
             case "minute" -> MINUTE;
             case "second" -> SECOND;
-            default -> throw new IllegalArgumentException(
-                    "precision must be 'minute' or 'second' but was '" + value + "'");
+            default -> throw new ApiException(
+                    ApiErrorCode.INVALID_PRECISION, ApiErrorCode.INVALID_PRECISION.defaultDetail());
         };
     }
 
