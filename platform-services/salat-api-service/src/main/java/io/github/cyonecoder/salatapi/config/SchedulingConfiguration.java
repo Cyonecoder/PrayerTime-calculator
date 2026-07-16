@@ -6,11 +6,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Time and scheduling wiring.
+ * Time wiring.
  *
  * <p>The clock is a bean so nothing reaches for {@code Instant.now()} directly:
  * discovery timestamps, snapshot provenance and verification report dates are all
- * observable facts that tests must be able to fix.
+ * observable facts that tests must be able to fix. This config is always active;
+ * activation of the scheduler itself lives in {@code SchedulerActivation}.
  */
 @Configuration
 public class SchedulingConfiguration {

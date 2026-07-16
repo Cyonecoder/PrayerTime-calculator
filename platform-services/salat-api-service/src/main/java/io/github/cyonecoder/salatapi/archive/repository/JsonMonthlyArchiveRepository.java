@@ -105,6 +105,51 @@ public class JsonMonthlyArchiveRepository implements MonthlyArchiveRepository {
         }
     }
 
+    @Override
+    public Optional<String> findArchiveJson(java.time.YearMonth month) {
+        Path file = properties.archiveFile(month);
+        if (!Files.isRegularFile(file)) {
+            return Optional.empty();
+        }
+        try {
+            return Optional.of(Files.readString(file, StandardCharsets.UTF_8));
+        } catch (IOException e) {
+            throw new UncheckedIOException("Failed to read archive " + file, e);
+        }
+    }
+
+    @Override
+    public List<java.time.YearMonth> listMonths() {
+        Path root = properties.archivesDirectory();
+        if (!Files.isDirectory(root)) {
+            return List.of();
+        }
+        List<java.time.YearMonth> months = new java.util.ArrayList<>();
+        try (var years = Files.list(root)) {
+            for (Path yearDir : years.filter(Files::isDirectory).toList()) {
+                try (var monthDirs = Files.list(yearDir)) {
+                    for (Path monthDir : monthDirs.filter(Files::isDirectory).toList()) {
+                        parseMonth(yearDir.getFileName().toString(), monthDir.getFileName().toString())
+                                .filter(m -> Files.isRegularFile(properties.archiveFile(m)))
+                                .ifPresent(months::add);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new UncheckedIOException("Failed to list archive months under " + root, e);
+        }
+        months.sort(java.util.Comparator.naturalOrder());
+        return List.copyOf(months);
+    }
+
+    private Optional<java.time.YearMonth> parseMonth(String year, String month) {
+        try {
+            return Optional.of(java.time.YearMonth.of(Integer.parseInt(year), Integer.parseInt(month)));
+        } catch (NumberFormatException | java.time.DateTimeException e) {
+            return Optional.empty();
+        }
+    }
+
     private MonthlyArchiveManifest manifestFor(
             GregorianMonthlyArchive archive, String archiveFileName, String archiveSha,
             Instant lastSuccessfulSyncAt, List<String> warnings) {

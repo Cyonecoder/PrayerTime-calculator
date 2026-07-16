@@ -105,6 +105,28 @@ public class SecApproachCalculator {
         return LocalTime.ofSecondOfDay(secondOfDay);
     }
 
+    /**
+     * The full second-precise schedule for a city/date: every prayer at
+     * {@code rawSeconds + offset}, to the second (not floored to the minute).
+     *
+     * @param cityIdentifier an application city slug, name or alias
+     * @param date           the date
+     * @return the six times, to the second
+     * @throws CityNotSupportedException if the city is unknown or has no offsets
+     */
+    public PrayerTimes computeSecondPreciseTimes(String cityIdentifier, LocalDate date) {
+        City city = resolve(cityIdentifier);
+        Map<Prayer, Integer> offsets = requireOffsets(city.slug());
+        Objects.requireNonNull(date, "date");
+
+        Map<Prayer, LocalTime> times = new EnumMap<>(Prayer.class);
+        for (Prayer prayer : Prayer.values()) {
+            long adjustedSeconds = adjustedSeconds(prayer, city, date, offsets.get(prayer));
+            times.put(prayer, LocalTime.ofSecondOfDay(Math.floorMod(adjustedSeconds, SECONDS_PER_DAY)));
+        }
+        return PrayerTimes.of(date, times);
+    }
+
     private LocalTime minute(Prayer prayer, City city, LocalDate date, Map<Prayer, Integer> offsets) {
         long adjustedSeconds = adjustedSeconds(prayer, city, date, offsets.get(prayer));
         long minuteOfDay = Math.floorMod(

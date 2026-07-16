@@ -43,6 +43,9 @@ public class SecApproachParameters {
 
     private final String parameterVersion;
     private final String datasetChecksum;
+    private final String model;
+    private final String validatedWindowStart;
+    private final String validatedWindowEnd;
     private final Map<String, Map<Prayer, Integer>> offsets;
 
     public SecApproachParameters() {
@@ -93,12 +96,30 @@ public class SecApproachParameters {
 
         this.parameterVersion = file.parameterVersion();
         this.datasetChecksum = generatedFrom.datasetChecksum();
+        this.model = file.model();
+        this.validatedWindowStart = generatedFrom.firstDate();
+        this.validatedWindowEnd = generatedFrom.lastDate();
         this.offsets = Map.copyOf(parsed);
     }
 
     /** @return the validated parameter version ({@code morocco-habous-secaproach-v2}) */
     public String parameterVersion() {
         return parameterVersion;
+    }
+
+    /** @return the published formula, e.g. {@code publishedMinute = floor((rawSeconds + offset)/60)} */
+    public String model() {
+        return model;
+    }
+
+    /** @return the first date of the validation window ({@code 2026-06-17}) */
+    public String validatedWindowStart() {
+        return validatedWindowStart;
+    }
+
+    /** @return the last date of the validation window ({@code 2026-07-16}) */
+    public String validatedWindowEnd() {
+        return validatedWindowEnd;
     }
 
     /** @return the SHA-256 of the training dataset the offsets were derived from */

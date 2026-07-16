@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
@@ -44,6 +45,42 @@ public class SyncReportRepository {
             return Optional.empty();
         }
         return Optional.of(jsonFiles.read(file, SyncJobReport.class));
+    }
+
+    /** @return the most recent run report of any outcome, if any */
+    public Optional<SyncJobReport> findLatest() {
+        return all().stream().max(java.util.Comparator.comparing(SyncJobReport::runDate));
+    }
+
+    /** @return the most recent run that stored at least one city */
+    public Optional<SyncJobReport> findLatestSuccessful() {
+        return all().stream()
+                .filter(r -> r.outcome() == SyncJobReport.Outcome.SUCCESS
+                        || r.outcome() == SyncJobReport.Outcome.PARTIAL_SUCCESS)
+                .max(java.util.Comparator.comparing(SyncJobReport::runDate));
+    }
+
+    /** @return the most recent run that failed outright or had failed cities */
+    public Optional<SyncJobReport> findLatestFailed() {
+        return all().stream()
+                .filter(r -> r.outcome() == SyncJobReport.Outcome.FAILED || r.failedCityCount() > 0)
+                .max(java.util.Comparator.comparing(SyncJobReport::runDate));
+    }
+
+    private List<SyncJobReport> all() {
+        Path dir = properties.jobsDirectory();
+        if (!Files.isDirectory(dir)) {
+            return List.of();
+        }
+        try (var files = Files.list(dir)) {
+            return files
+                    .filter(p -> p.getFileName().toString().startsWith("sync-")
+                            && p.getFileName().toString().endsWith(".json"))
+                    .map(p -> jsonFiles.read(p, SyncJobReport.class))
+                    .toList();
+        } catch (java.io.IOException e) {
+            throw new java.io.UncheckedIOException("Failed to list sync reports in " + dir, e);
+        }
     }
 
     private Path reportFile(LocalDate runDate) {

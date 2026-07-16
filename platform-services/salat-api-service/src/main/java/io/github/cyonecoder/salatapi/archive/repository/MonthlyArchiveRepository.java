@@ -35,4 +35,10 @@ public interface MonthlyArchiveRepository {
 
     /** @param month the Gregorian month */
     List<String> revisionChecksums(YearMonth month);
+
+    /** @return every Gregorian month that has a stored archive, ascending */
+    List<YearMonth> listMonths();
+
+    /** @return the archive file's raw JSON text, for byte-faithful download */
+    Optional<String> findArchiveJson(YearMonth month);
 }
