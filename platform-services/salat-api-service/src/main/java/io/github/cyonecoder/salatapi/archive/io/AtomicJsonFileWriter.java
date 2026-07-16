@@ -1,8 +1,10 @@
 package io.github.cyonecoder.salatapi.archive.io;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.UncheckedIOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.AtomicMoveNotSupportedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -42,6 +44,47 @@ public class AtomicJsonFileWriter {
             Path temp = Files.createTempFile(parent, ".tmp-", ".json");
             try {
                 mapper.writerWithDefaultPrettyPrinter().writeValue(temp.toFile(), value);
+                move(temp, target);
+            } finally {
+                Files.deleteIfExists(temp);
+            }
+        } catch (IOException e) {
+            throw new UncheckedIOException("Failed to write " + target, e);
+        }
+    }
+
+    /**
+     * Serializes {@code value} to a pretty JSON string without writing anything.
+     *
+     * <p>Exposed so a checksum can be taken over exactly the bytes that will be
+     * written: the manifest's {@code archiveSha256} must match the archive file
+     * byte-for-byte, which is only guaranteed if the same string is hashed and
+     * written via {@link #writeString(Path, String)}.
+     *
+     * @param value the value to serialize
+     * @return the pretty JSON
+     */
+    public String toJson(Object value) {
+        try {
+            return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(value);
+        } catch (JsonProcessingException e) {
+            throw new UncheckedIOException("Failed to serialize value", e);
+        }
+    }
+
+    /**
+     * Writes {@code content} to {@code target} atomically (temp file, then move).
+     *
+     * @param target  the destination file; parent directories are created
+     * @param content the exact text to write, UTF-8
+     */
+    public void writeString(Path target, String content) {
+        try {
+            Path parent = target.toAbsolutePath().getParent();
+            Files.createDirectories(parent);
+            Path temp = Files.createTempFile(parent, ".tmp-", ".json");
+            try {
+                Files.writeString(temp, content, StandardCharsets.UTF_8);
                 move(temp, target);
             } finally {
                 Files.deleteIfExists(temp);

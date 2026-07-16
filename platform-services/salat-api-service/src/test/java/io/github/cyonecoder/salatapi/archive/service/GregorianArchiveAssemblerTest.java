@@ -297,14 +297,88 @@ class GregorianArchiveAssemblerTest {
     }
 
     @Test
-    void aMonthWithNoContributingRowsListsEveryCityAsUnavailable() {
+    void aMonthWithNoValidatedRowsIsEmptyEvenThoughEveryCityIsListed() {
         var december = assembler.assemble(
                 YearMonth.of(2026, 12), List.of(realObservedPage(FETCH)),
                 List.of(rabatEntry()), Map.of(), null);
 
-        assertThat(december.status()).isEqualTo(MonthlyArchiveStatus.PARTIAL);
+        // No row falls in December, so there are no validated rows: EMPTY, not
+        // PARTIAL — yet the city is still listed as unavailable, never omitted.
+        assertThat(december.status()).isEqualTo(MonthlyArchiveStatus.EMPTY);
         assertThat(december.failedCityCount()).isEqualTo(1);
         assertThat(december.city("1").orElseThrow().status()).isEqualTo(CityArchiveStatus.UNAVAILABLE);
+    }
+
+    // --- spec 18: archive status ---------------------------------------------
+
+    @Test
+    void aMonthStillAccruingWithNoPermanentFailureIsPartial() {
+        // Rabat has July days; Rommani has not been collected yet (transient).
+        var july = assembler.assemble(
+                YearMonth.of(2026, 7), List.of(realObservedPage(FETCH)),
+                List.of(rabatEntry(), rommaniEntry()), Map.of(), null);
+
+        assertThat(july.status()).isEqualTo(MonthlyArchiveStatus.PARTIAL);
+    }
+
+    @Test
+    void aTransientlyUnavailableCityKeepsTheMonthPartialNotDegraded() {
+        var july = assembler.assemble(
+                YearMonth.of(2026, 7), List.of(realObservedPage(FETCH)),
+                List.of(rabatEntry(), rommaniEntry()),
+                Map.of("4", ArchiveFailureCode.TIMETABLE_UNAVAILABLE), null);
+
+        // An outage may clear on a later sync, so the month can still complete.
+        assertThat(july.status()).isEqualTo(MonthlyArchiveStatus.PARTIAL);
+    }
+
+    @Test
+    void aPermanentlyFailedCityDegradesTheMonth() {
+        var july = assembler.assemble(
+                YearMonth.of(2026, 7), List.of(realObservedPage(FETCH)),
+                List.of(rabatEntry(), rommaniEntry()),
+                Map.of("4", ArchiveFailureCode.PAGE_UNPARSEABLE), null);
+
+        // An unparseable page will not fix itself, so the gap will not close.
+        assertThat(july.status()).isEqualTo(MonthlyArchiveStatus.DEGRADED);
+    }
+
+    @Test
+    void aCatalogueChangeDuringCollectionDegradesTheMonth() {
+        var july = assembler.assemble(
+                YearMonth.of(2026, 7), List.of(realObservedPage(FETCH)),
+                List.of(rabatEntry()), Map.of(), null, true);
+
+        assertThat(july.status()).isEqualTo(MonthlyArchiveStatus.DEGRADED);
+    }
+
+    @Test
+    void aFullyCollectedMonthIsCompleteOnlyWhenNothingDegradedIt() {
+        List<HabousPublishedDay> allJuly = new java.util.ArrayList<>();
+        for (int d = 1; d <= 31; d++) {
+            allJuly.add(day(LocalDate.of(2026, 7, d), 4, 30));
+        }
+        List<ObservedPage> pages = List.of(new ObservedPage(metadata("1", FETCH), allJuly));
+
+        assertThat(assembler.assemble(YearMonth.of(2026, 7), pages, List.of(rabatEntry()), Map.of(), null)
+                .status()).isEqualTo(MonthlyArchiveStatus.COMPLETE);
+
+        // Even complete data is DEGRADED, never COMPLETE, if the catalogue moved.
+        assertThat(assembler.assemble(YearMonth.of(2026, 7), pages, List.of(rabatEntry()), Map.of(), null, true)
+                .status()).isEqualTo(MonthlyArchiveStatus.DEGRADED);
+    }
+
+    @Test
+    void anIncompleteMonthIsNeverLabelledComplete() {
+        // Rabat has only 16 of 31 July days across every scenario below.
+        var partial = assembler.assemble(YearMonth.of(2026, 7), List.of(realObservedPage(FETCH)),
+                List.of(rabatEntry()), Map.of(), null);
+        assertThat(partial.status()).isNotEqualTo(MonthlyArchiveStatus.COMPLETE);
+
+        var degraded = assembler.assemble(YearMonth.of(2026, 7), List.of(realObservedPage(FETCH)),
+                List.of(rabatEntry(), rommaniEntry()),
+                Map.of("4", ArchiveFailureCode.PAGE_UNPARSEABLE), null);
+        assertThat(degraded.status()).isNotEqualTo(MonthlyArchiveStatus.COMPLETE);
     }
 
     @Test

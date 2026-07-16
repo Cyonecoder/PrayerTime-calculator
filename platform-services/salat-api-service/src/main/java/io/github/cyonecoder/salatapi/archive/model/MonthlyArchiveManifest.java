@@ -6,41 +6,68 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The {@code manifest.json} beside a monthly archive: what it contains, how
- * complete it is, and which official sources it was assembled from.
+ * The {@code manifest.json} beside a monthly archive (spec 19): a compact summary
+ * of what the archive contains and how trustworthy it is, so completeness and
+ * integrity are answerable without parsing the whole archive file.
  *
- * <p>The manifest exists so completeness is answerable without parsing the whole
- * archive, and so an archive's provenance is auditable — every contributing source
- * checksum is listed, and those checksums resolve to immutable raw snapshots.
+ * <p>{@code archiveSha256} pins the exact archive file the manifest describes, so
+ * a tampered or truncated archive is detectable. Record component order is the
+ * serialized field order, matching the documented schema.
  *
- * @param year                the Gregorian year
- * @param month               the Gregorian month, 1..12
- * @param generatedAt         when the archive was last assembled
- * @param status              overall completeness
- * @param cityCount           how many cities have at least one day
- * @param completeCityCount   how many cities have every day of the month
- * @param expectedDayCount    the number of calendar days in the month
- * @param archiveChecksum     SHA-256 of the serialized archive file
- * @param sourceChecksums     every raw source page that contributed, sorted
- * @param incompleteCities    ville ids still missing at least one day
+ * @param schemaVersion             the manifest schema version
+ * @param period                    the Gregorian month, {@code YYYY-MM}
+ * @param status                    overall archive completeness
+ * @param archiveFile               the archive file this manifest sits beside
+ * @param archiveSha256             SHA-256 of that archive file, byte-for-byte
+ * @param officialCatalogCityCount  how many cities the official catalogue currently lists
+ * @param archiveCityCount          how many cities the archive lists (failures included)
+ * @param completeCityCount         cities with every day of the month
+ * @param partialCityCount          cities with some but not all days
+ * @param unavailableCityCount      cities with no usable days (a failure code)
+ * @param expectedDaysPerCompleteCity calendar days in the month
+ * @param lastSuccessfulSyncAt      when a sync last stored data for this month
+ * @param parserVersion             the timetable parser version
+ * @param villeParserVersion        the ville-directory parser version
+ * @param warnings                  human-readable notices (catalogue change, anomalies)
+ * @param failedCities              the cities with no usable days, with their failure codes
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record MonthlyArchiveManifest(
-        int year,
-        int month,
-        Instant generatedAt,
+        String schemaVersion,
+        String period,
         MonthlyArchiveStatus status,
-        int cityCount,
+        String archiveFile,
+        String archiveSha256,
+        int officialCatalogCityCount,
+        int archiveCityCount,
         long completeCityCount,
-        int expectedDayCount,
-        String archiveChecksum,
-        List<String> sourceChecksums,
-        List<String> incompleteCities) {
+        long partialCityCount,
+        long unavailableCityCount,
+        int expectedDaysPerCompleteCity,
+        Instant lastSuccessfulSyncAt,
+        String parserVersion,
+        String villeParserVersion,
+        List<String> warnings,
+        List<FailedCity> failedCities) {
+
+    /** The current manifest schema version. */
+    public static final String SCHEMA_VERSION = "1.0";
+
+    /**
+     * One city that produced no usable schedule this month.
+     *
+     * @param habousCityId   the official ville id
+     * @param officialNameAr the exact Arabic name
+     * @param failureCode    why it has no days
+     */
+    public record FailedCity(String habousCityId, String officialNameAr, ArchiveFailureCode failureCode) {}
 
     public MonthlyArchiveManifest {
-        Objects.requireNonNull(generatedAt, "generatedAt");
+        Objects.requireNonNull(period, "period");
         Objects.requireNonNull(status, "status");
-        sourceChecksums = sourceChecksums == null ? List.of() : List.copyOf(sourceChecksums);
-        incompleteCities = incompleteCities == null ? List.of() : List.copyOf(incompleteCities);
+        Objects.requireNonNull(archiveFile, "archiveFile");
+        Objects.requireNonNull(archiveSha256, "archiveSha256");
+        warnings = warnings == null ? List.of() : List.copyOf(warnings);
+        failedCities = failedCities == null ? List.of() : List.copyOf(failedCities);
     }
 }

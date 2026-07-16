@@ -89,14 +89,8 @@ public class GregorianArchiveAssembler {
     }
 
     /**
-     * Assembles one Gregorian month.
-     *
-     * @param month              the Gregorian month to assemble
-     * @param pages              every observed page; only rows falling inside {@code month} are taken
-     * @param officialCities     the current official catalogue — every one of these appears in the result
-     * @param failures           why particular cities have no data, keyed by ville id
-     * @param originalGeneratedAt when the archive was first assembled, if it already exists
-     * @return the assembled archive, typically partial
+     * Assembles one Gregorian month, treating the catalogue as unchanged during
+     * collection.
      */
     public GregorianMonthlyArchive assemble(
             YearMonth month,
@@ -104,6 +98,29 @@ public class GregorianArchiveAssembler {
             List<CityCatalogueEntry> officialCities,
             Map<String, ArchiveFailureCode> failures,
             Instant originalGeneratedAt) {
+        return assemble(month, pages, officialCities, failures, originalGeneratedAt, false);
+    }
+
+    /**
+     * Assembles one Gregorian month.
+     *
+     * @param month              the Gregorian month to assemble
+     * @param pages              every observed page; only rows falling inside {@code month} are taken
+     * @param officialCities     the current official catalogue — every one of these appears in the result
+     * @param failures           why particular cities have no data, keyed by ville id
+     * @param originalGeneratedAt when the archive was first assembled, if it already exists
+     * @param catalogueChangedDuringCollection whether the official catalogue changed while this
+     *                           month was being collected; degrades the month even if its data
+     *                           looks complete, because the city set it was measured against moved
+     * @return the assembled archive, typically partial
+     */
+    public GregorianMonthlyArchive assemble(
+            YearMonth month,
+            List<ObservedPage> pages,
+            List<CityCatalogueEntry> officialCities,
+            Map<String, ArchiveFailureCode> failures,
+            Instant originalGeneratedAt,
+            boolean catalogueChangedDuringCollection) {
         Objects.requireNonNull(month, "month");
         Objects.requireNonNull(officialCities, "officialCities");
 
@@ -151,9 +168,18 @@ public class GregorianArchiveAssembler {
         long failed = cities.stream().filter(MonthlyCitySchedule::isFailed).count();
         long partial = cities.size() - complete - failed;
 
+        // A permanently-failed city has no days, so a month with one can never be
+        // COMPLETE; naming DEGRADED explicitly is what tells a persistent problem
+        // apart from a month that is merely still accruing.
+        boolean hasData = cities.stream().anyMatch(c -> c.daysAvailable() > 0);
+        boolean permanentFailure = cities.stream().anyMatch(c ->
+                c.failureCode() != null && c.failureCode().permanent());
+
         MonthlyArchiveStatus status;
-        if (cities.isEmpty()) {
+        if (!hasData) {
             status = MonthlyArchiveStatus.EMPTY;
+        } else if (catalogueChangedDuringCollection || permanentFailure) {
+            status = MonthlyArchiveStatus.DEGRADED;
         } else if (complete == cities.size()) {
             status = MonthlyArchiveStatus.COMPLETE;
         } else {
