@@ -62,20 +62,27 @@ public class DailyVerificationService {
     public DailyVerificationReport verify(LocalDate date) {
         Optional<GregorianMonthlyArchive> archive = archives.find(YearMonth.from(date));
         List<CityDailyVerification> comparisons = new ArrayList<>();
+        java.util.Set<String> officialChecksums = new java.util.TreeSet<>();
 
         if (archive.isPresent()) {
             for (MonthlyCitySchedule city : archive.get().secApproachCities()) {
                 officialDay(city, date).ifPresent(official ->
-                        compareCity(city, date, official).ifPresent(comparisons::add));
+                        compareCity(city, date, official).ifPresent(comparison -> {
+                            comparisons.add(comparison);
+                            officialChecksums.add(official.sourceChecksum());
+                        }));
             }
         }
 
         DailyVerificationReport report = DailyVerificationReport.of(
-                date, secApproach.parameterVersion(), clock.instant(), comparisons);
+                date, secApproach.parameterVersion(), clock.instant(),
+                comparisons, List.copyOf(officialChecksums));
         reports.save(report);
-        log.info("Verified {}: {}/{} sec-approach cities agreed exactly ({}%)",
-                date, report.exactMatchCityCount(), report.comparedCityCount(),
-                Math.round(report.exactMatchRate() * 100));
+        log.info("Verified {}: {}/{} sec-approach cities agreed exactly to the minute; "
+                        + "overall exact ratio {} (window: {})",
+                date, report.exactCityCount(), report.comparedCityCount(),
+                String.format(java.util.Locale.ROOT, "%.3f", report.overall().exactRatio()),
+                DailyVerificationReport.ACCURACY_DISCLAIMER);
         return report;
     }
 
