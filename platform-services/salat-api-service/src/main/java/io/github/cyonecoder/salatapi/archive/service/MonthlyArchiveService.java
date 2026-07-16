@@ -61,24 +61,53 @@ public class MonthlyArchiveService {
             boolean catalogueChanged,
             List<String> warnings) {
 
-        List<YearMonth> months = assembler.monthsCovered(pages);
         List<MonthlyArchiveManifest> manifests = new ArrayList<>();
-
-        for (YearMonth month : months) {
-            Instant originalGeneratedAt = archives.findArchive(month)
-                    .map(GregorianMonthlyArchive::generatedAt)
-                    .orElse(null);
-
-            GregorianMonthlyArchive archive = assembler.assemble(
-                    month, pages, officialCities, failures, originalGeneratedAt, catalogueChanged);
-            MonthlyArchiveManifest manifest =
-                    archives.save(archive, lastSuccessfulSyncAt, warnings);
-            manifests.add(manifest);
-            log.info("Published archive {} — status {}, {} cities ({} complete, {} partial, {} unavailable)",
-                    month, manifest.status(), manifest.archiveCityCount(), manifest.completeCityCount(),
-                    manifest.partialCityCount(), manifest.unavailableCityCount());
+        for (YearMonth month : assembler.monthsCovered(pages)) {
+            manifests.add(publishMonth(month, pages, officialCities, failures,
+                    lastSuccessfulSyncAt, catalogueChanged, warnings));
         }
         return manifests;
+    }
+
+    /**
+     * Assembles and publishes exactly one Gregorian month (spec 25, rebuild-month).
+     *
+     * <p>Unlike {@link #publish}, this touches only {@code month} even though the
+     * pages span two — so rebuilding July does not silently rewrite June.
+     */
+    public MonthlyArchiveManifest publishMonth(
+            YearMonth month,
+            List<ObservedPage> pages,
+            List<CityCatalogueEntry> officialCities,
+            Map<String, ArchiveFailureCode> failures,
+            Instant lastSuccessfulSyncAt,
+            boolean catalogueChanged,
+            List<String> warnings) {
+        Instant originalGeneratedAt = originalGeneratedAt(month);
+
+        GregorianMonthlyArchive archive = assembler.assemble(
+                month, pages, officialCities, failures, originalGeneratedAt, catalogueChanged);
+        MonthlyArchiveManifest manifest = archives.save(archive, lastSuccessfulSyncAt, warnings);
+        log.info("Published archive {} — status {}, {} cities ({} complete, {} partial, {} unavailable)",
+                month, manifest.status(), manifest.archiveCityCount(), manifest.completeCityCount(),
+                manifest.partialCityCount(), manifest.unavailableCityCount());
+        return manifest;
+    }
+
+    /**
+     * The prior archive's {@code generatedAt}, or null if none exists <em>or the
+     * existing archive is unreadable</em>. Rebuilds are exactly when a corrupt
+     * archive gets overwritten, so a parse failure here must not abort the rebuild —
+     * it just means the month is regenerated with a fresh {@code generatedAt}.
+     */
+    private Instant originalGeneratedAt(YearMonth month) {
+        try {
+            return archives.findArchive(month).map(GregorianMonthlyArchive::generatedAt).orElse(null);
+        } catch (RuntimeException e) {
+            log.warn("Existing {} archive is unreadable; regenerating it from scratch: {}",
+                    month, e.getMessage());
+            return null;
+        }
     }
 
     /** @param month the Gregorian month */

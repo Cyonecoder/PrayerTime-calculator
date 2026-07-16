@@ -6,6 +6,7 @@ import io.github.cyonecoder.salatapi.archive.service.GregorianArchiveAssembler.O
 import io.github.cyonecoder.salatapi.city.CitySupportService;
 import io.github.cyonecoder.salatapi.habous.client.HabousClient;
 import io.github.cyonecoder.salatapi.habous.client.HabousUnavailableException;
+import io.github.cyonecoder.salatapi.habous.client.NetworkFailureCategory;
 import io.github.cyonecoder.salatapi.habous.model.CityCatalogueEntry;
 import io.github.cyonecoder.salatapi.habous.model.HabousCitySyncResult;
 import io.github.cyonecoder.salatapi.habous.model.HabousCitySyncResult.Status;
@@ -103,19 +104,39 @@ public class HabousCollectionService {
         List<ObservedPage> pages = new ArrayList<>();
         List<HabousCitySyncResult> results = new ArrayList<>();
 
+        java.util.Map<NetworkFailureCategory, Integer> failureCounts =
+                new java.util.EnumMap<>(NetworkFailureCategory.class);
+
         for (int i = 0; i < enabledCities.size(); i++) {
             CityCatalogueEntry city = enabledCities.get(i);
             CityCollection collection = collectOne(city);
             results.add(collection.result());
             collection.page().ifPresent(pages::add);
+            collection.networkCategory().ifPresent(
+                    category -> failureCounts.merge(category, 1, Integer::sum));
 
             if (i < enabledCities.size() - 1) {
                 pause(properties.requestDelay());
             }
         }
+
         log.info("Collection complete: {} cities attempted, {} pages stored",
                 results.size(), pages.size());
+        logFailureSummary(failureCounts);
         return new CollectionOutcome(pages, results);
+    }
+
+    /** One grouped line per failure category, so a shared cause is obvious at a glance. */
+    private void logFailureSummary(java.util.Map<NetworkFailureCategory, Integer> failureCounts) {
+        int total = failureCounts.values().stream().mapToInt(Integer::intValue).sum();
+        if (total == 0) {
+            return;
+        }
+        StringBuilder summary = new StringBuilder(total + " cities failed");
+        failureCounts.entrySet().stream()
+                .sorted(java.util.Map.Entry.<NetworkFailureCategory, Integer>comparingByValue().reversed())
+                .forEach(e -> summary.append("\n - ").append(e.getKey()).append(": ").append(e.getValue()));
+        log.warn("{}", summary);
     }
 
     /** Collects one city, never throwing: any failure becomes a failed result. */
@@ -125,9 +146,15 @@ public class HabousCollectionService {
         try {
             html = client.fetchCurrentPublishedTimetable(villeId);
         } catch (HabousUnavailableException e) {
-            log.warn("Fetch failed for ville {} ({}): {}", villeId, city.exactArabicName(), e.getMessage());
-            return CityCollection.failed(HabousCitySyncResult.failed(
-                    villeId, Status.FETCH_FAILED, ArchiveFailureCode.TIMETABLE_UNAVAILABLE, e.getMessage()));
+            // Concise warning per city; the full stack goes to debug so one shared
+            // cause across 191 cities does not print 191 stack traces.
+            log.warn("Fetch failed for ville {} ({}) [{}]: {}",
+                    villeId, city.exactArabicName(), e.category(), e.getMessage());
+            log.debug("Fetch failure detail for ville {}", villeId, e);
+            return CityCollection.failed(
+                    HabousCitySyncResult.failed(villeId, Status.FETCH_FAILED,
+                            ArchiveFailureCode.TIMETABLE_UNAVAILABLE, e.getMessage()),
+                    e.category());
         }
 
         // Validate the city name: the official page marks the served city as the
@@ -168,7 +195,8 @@ public class HabousCollectionService {
         };
         return new CityCollection(
                 HabousCitySyncResult.collected(villeId, status),
-                Optional.of(new ObservedPage(metadata, days)));
+                Optional.of(new ObservedPage(metadata, days)),
+                Optional.empty());
     }
 
     private HabousPageSnapshot metadataFor(
@@ -218,9 +246,16 @@ public class HabousCollectionService {
     }
 
     /** One city's collection: its result, and the page to assemble if it succeeded. */
-    record CityCollection(HabousCitySyncResult result, Optional<ObservedPage> page) {
+    record CityCollection(
+            HabousCitySyncResult result,
+            Optional<ObservedPage> page,
+            Optional<NetworkFailureCategory> networkCategory) {
         static CityCollection failed(HabousCitySyncResult result) {
-            return new CityCollection(result, Optional.empty());
+            return new CityCollection(result, Optional.empty(), Optional.empty());
+        }
+
+        static CityCollection failed(HabousCitySyncResult result, NetworkFailureCategory category) {
+            return new CityCollection(result, Optional.empty(), Optional.of(category));
         }
     }
 }

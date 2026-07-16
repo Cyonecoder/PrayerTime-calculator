@@ -37,4 +37,22 @@ public class HabousUnavailableException extends RuntimeException {
     public Optional<Integer> statusCode() {
         return Optional.ofNullable(statusCode);
     }
+
+    /** @return the coarse failure category, for diagnostics and grouped summaries */
+    public NetworkFailureCategory category() {
+        return NetworkFailureCategory.classify(statusCode, getCause());
+    }
+
+    /**
+     * @return the deepest cause, or this exception if it has none — used to build a
+     *         diagnostic message that names the real class and reason (e.g.
+     *         {@code SSLHandshakeException: PKIX path building failed}).
+     */
+    public Throwable rootCause() {
+        Throwable root = this;
+        while (root.getCause() != null && root.getCause() != root) {
+            root = root.getCause();
+        }
+        return root;
+    }
 }

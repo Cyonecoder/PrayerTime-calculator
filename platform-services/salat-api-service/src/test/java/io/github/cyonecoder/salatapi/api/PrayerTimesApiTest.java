@@ -280,4 +280,12 @@ class PrayerTimesApiTest {
         mvc.perform(get("/api/v1/info"))
                 .andExpect(header().exists("X-Correlation-Id"));
     }
+
+    @Test
+    void faviconIsAPlain404NotACalculationError() throws Exception {
+        // A browser hitting /favicon.ico must not be mislabelled CALCULATION_FAILED.
+        mvc.perform(get("/favicon.ico"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.code", org.hamcrest.Matchers.not(is("CALCULATION_FAILED"))));
+    }
 }

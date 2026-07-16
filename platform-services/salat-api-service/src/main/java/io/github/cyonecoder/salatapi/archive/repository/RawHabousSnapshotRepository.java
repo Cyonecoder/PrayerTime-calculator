@@ -164,6 +164,45 @@ public class RawHabousSnapshotRepository {
         return storedChecksum(properties.rawSnapshotDirectory(fetchedOn, habousCityId)).isPresent();
     }
 
+    /** One stored primary snapshot: its provenance and parsed days. */
+    public record StoredSnapshot(HabousPageSnapshot metadata, List<HabousPublishedDay> days) {}
+
+    /**
+     * Enumerates every stored <strong>primary</strong> snapshot (revisions
+     * excluded), for rebuilding archives without re-fetching (spec 25).
+     *
+     * @return all primary snapshots on disk, in filesystem order
+     */
+    public List<StoredSnapshot> listAllPrimary() {
+        Path root = properties.rawDirectory();
+        if (!Files.isDirectory(root)) {
+            return List.of();
+        }
+        try (var paths = Files.walk(root)) {
+            return paths
+                    .filter(p -> p.getFileName().toString().equals(METADATA_JSON))
+                    // A revision's metadata lives under .../{ville}/revisions/{sha}/; skip those.
+                    .filter(p -> !p.toString().contains(java.io.File.separator + REVISIONS_DIR
+                            + java.io.File.separator))
+                    .map(this::readSnapshot)
+                    .filter(Objects::nonNull)
+                    .toList();
+        } catch (IOException e) {
+            throw new UncheckedIOException("Failed to walk raw snapshots under " + root, e);
+        }
+    }
+
+    private StoredSnapshot readSnapshot(Path metadataFile) {
+        Path dir = metadataFile.getParent();
+        Path daysFile = dir.resolve(PARSED_DAYS);
+        if (!Files.isRegularFile(daysFile)) {
+            return null;
+        }
+        HabousPageSnapshot metadata = jsonFiles.read(metadataFile, HabousPageSnapshot.class);
+        List<HabousPublishedDay> days = List.of(jsonFiles.read(daysFile, HabousPublishedDay[].class));
+        return new StoredSnapshot(metadata, days);
+    }
+
     /** @return the checksums of every revision stored for this city/day */
     public List<String> revisionChecksums(LocalDate fetchedOn, String habousCityId) {
         Path revisions = properties.rawSnapshotDirectory(fetchedOn, habousCityId).resolve(REVISIONS_DIR);

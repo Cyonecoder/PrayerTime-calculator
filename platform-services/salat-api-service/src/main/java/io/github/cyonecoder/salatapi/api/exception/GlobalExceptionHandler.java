@@ -73,6 +73,19 @@ public class GlobalExceptionHandler {
                 request, e);
     }
 
+    /**
+     * A request for a static resource that does not exist (e.g. {@code /favicon.ico})
+     * is a plain 404 — not a calculation error. Without this it falls through to the
+     * generic handler and is mislabelled {@code CALCULATION_FAILED}.
+     */
+    @ExceptionHandler(org.springframework.web.servlet.resource.NoResourceFoundException.class)
+    public ProblemDetail handleNoStaticResource(
+            org.springframework.web.servlet.resource.NoResourceFoundException e,
+            HttpServletRequest request) {
+        return problem(ApiErrorCode.RESOURCE_NOT_FOUND,
+                ApiErrorCode.RESOURCE_NOT_FOUND.defaultDetail(), request, null);
+    }
+
     @ExceptionHandler(Exception.class)
     public ProblemDetail handleUnexpected(Exception e, HttpServletRequest request) {
         return problem(ApiErrorCode.CALCULATION_FAILED, ApiErrorCode.CALCULATION_FAILED.defaultDetail(),

@@ -40,9 +40,28 @@ tasks.named('bootJar') {
 }
 
 tasks.named('test') {
-    useJUnitPlatform()
+    useJUnitPlatform {
+        // The normal suite never touches the network; live tests are opt-in only.
+        excludeTags 'live'
+    }
     testLogging {
         events 'failed'
+        exceptionFormat 'full'
+    }
+}
+
+// Opt-in task that runs ONLY the live/network tests (requires internet and a
+// reachable Habous endpoint). Run with: ./gradlew liveTest
+tasks.register('liveTest', Test) {
+    description = 'Runs live network tests tagged "live" (requires internet).'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform {
+        includeTags 'live'
+    }
+    testLogging {
+        events 'passed', 'failed', 'skipped'
         exceptionFormat 'full'
     }
 }

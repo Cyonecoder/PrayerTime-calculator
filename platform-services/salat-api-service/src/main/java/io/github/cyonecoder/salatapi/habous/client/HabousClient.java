@@ -59,27 +59,18 @@ public class HabousClient {
     private final Sleeper sleeper;
     private final HabousProperties properties;
 
+    /**
+     * @param httpClient the HTTP client to use. In production Spring injects the
+     *                   trust-augmented {@code habousHttpClient} bean (see
+     *                   {@code HabousTlsConfiguration}); tests pass a caller-supplied
+     *                   client directly. Either way trust is augmented, never
+     *                   disabled — the {@code @Qualifier} disambiguates which bean
+     *                   Spring wires and is simply ignored on a direct call.
+     */
     @org.springframework.beans.factory.annotation.Autowired
     public HabousClient(
-            HabousRequestFactory requestFactory,
-            HabousRetryPolicy retryPolicy,
-            Sleeper sleeper,
-            HabousProperties properties) {
-        this(HttpClient.newBuilder()
-                        .connectTimeout(properties.connectTimeout())
-                        .followRedirects(HttpClient.Redirect.NORMAL)
-                        .build(),
-                requestFactory, retryPolicy, sleeper, properties);
-    }
-
-    /**
-     * Creates a client backed by a caller-supplied {@link HttpClient} — used by
-     * tests, and by any deployment that must augment the trust store to reach the
-     * live endpoint (which serves an incomplete certificate chain). Augmenting
-     * trust is not the same as disabling it.
-     */
-    public HabousClient(
-            HttpClient httpClient,
+            @org.springframework.beans.factory.annotation.Qualifier("habousHttpClient")
+                    HttpClient httpClient,
             HabousRequestFactory requestFactory,
             HabousRetryPolicy retryPolicy,
             Sleeper sleeper,
@@ -144,12 +135,28 @@ public class HabousClient {
             }
             return response.body();
         } catch (IOException e) {
+            // Name the real cause (class + root message) so a TLS/DNS/timeout
+            // failure is diagnosable, not hidden behind a generic "failed to reach".
+            Throwable root = rootCause(e);
+            String rootDetail = root.getClass().getSimpleName()
+                    + (root.getMessage() == null ? "" : ": " + root.getMessage());
             throw new HabousUnavailableException(
-                    "Failed to reach Habous for city " + habousCityId, null, e);
+                    "Failed to reach Habous for city " + habousCityId
+                            + " via " + uri.getHost() + uri.getPath() + ": " + rootDetail,
+                    null, e);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            throw new HabousUnavailableException("Interrupted contacting Habous", null, e);
+            throw new HabousUnavailableException(
+                    "Interrupted contacting Habous for city " + habousCityId, null, e);
         }
+    }
+
+    private static Throwable rootCause(Throwable t) {
+        Throwable root = t;
+        while (root.getCause() != null && root.getCause() != root) {
+            root = root.getCause();
+        }
+        return root;
     }
 
     private void pause(Duration duration) {
