@@ -282,6 +282,26 @@ class PrayerTimesApiTest {
     }
 
     @Test
+    void theApiReferenceDocIsServedAtDocs() throws Exception {
+        // The static reference page ships in the jar and is served by the app itself
+        // (no external hosting) — reachable at http://localhost:8081/docs when running.
+        mvc.perform(get("/docs"))
+                .andExpect(status().isOk())
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers
+                        .forwardedUrl("/docs/index.html"));
+        // The root redirects to /docs so the base URL leads there.
+        mvc.perform(get("/"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers
+                        .redirectedUrl("/docs"));
+        // The document itself is the reference.
+        mvc.perform(get("/docs/index.html"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(org.hamcrest.Matchers.containsString("Salat API Service")))
+                .andExpect(content().string(org.hamcrest.Matchers.containsString("/api/v1/sec-approach")));
+    }
+
+    @Test
     void faviconIsAPlain404NotACalculationError() throws Exception {
         // A browser hitting /favicon.ico must not be mislabelled CALCULATION_FAILED.
         mvc.perform(get("/favicon.ico"))
