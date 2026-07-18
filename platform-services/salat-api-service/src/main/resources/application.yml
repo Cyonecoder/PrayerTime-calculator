@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: salat-api-service
+
+  task:
+    scheduling:
+      pool:
+        size: 1
+
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+      indent-output: true
+
+server:
+  port: ${SERVER_PORT:8081}
+
+salat:
+  timezone: Africa/Casablanca
+  data-directory: ${SALAT_DATA_DIRECTORY:./data}
+
+  sec-approach:
+    parameter-resource: classpath:secapproach/morocco-habous-secaproach.json
+    reconstructed-resource: classpath:secapproach/morocco-habous-reconstructed.json
+    expected-parameter-version: morocco-habous-secaproach-v2
+    expected-supported-city-count: 48
+
+  habous:
+    enabled: ${HABOUS_SYNC_ENABLED:true}
+    base-uri: ${HABOUS_BASE_URI:https://www.habous.gov.ma/prieres/horaire_hijri_2.php}
+    sync-cron: ${HABOUS_SYNC_CRON:0 15 3 * * *}
+    connection-timeout: ${HABOUS_CONNECTION_TIMEOUT:10s}
+    request-timeout: ${HABOUS_REQUEST_TIMEOUT:15s}
+    maximum-attempts: ${HABOUS_MAXIMUM_ATTEMPTS:3}
+    maximum-concurrency: ${HABOUS_MAXIMUM_CONCURRENCY:1}
+    request-delay: ${HABOUS_REQUEST_DELAY:500ms}
+    user-agent: ${HABOUS_USER_AGENT:SalatApiService/1.0}
+
+  api:
+    maximum-range-days: ${SALAT_MAXIMUM_RANGE_DAYS:366}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

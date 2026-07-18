@@ -1,0 +1,154 @@
+package io.github.cyonecoder.salatapi.archive.service;
+
+import io.github.cyonecoder.salatapi.archive.model.ArchiveFailureCode;
+import io.github.cyonecoder.salatapi.archive.model.GregorianMonthlyArchive;
+import io.github.cyonecoder.salatapi.archive.model.MonthlyArchiveManifest;
+import io.github.cyonecoder.salatapi.archive.repository.MonthlyArchiveRepository;
+import io.github.cyonecoder.salatapi.archive.service.GregorianArchiveAssembler.ObservedPage;
+import io.github.cyonecoder.salatapi.habous.model.CityCatalogueEntry;
+import java.time.Instant;
+import java.time.YearMonth;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+/**
+ * Assembles the Gregorian months a collection touched and publishes them
+ * atomically (spec 20).
+ *
+ * <p>Because one Hijri page spans two Gregorian months, a single collection run
+ * typically republishes two archives. Each is assembled against the full official
+ * catalogue (so every city appears) and written through the repository, which
+ * revisions any prior state and writes the archive and manifest atomically.
+ *
+ * <p>Merging into an existing archive preserves its original {@code generatedAt}:
+ * publishing is idempotent in identity, only {@code lastUpdatedAt} advances.
+ */
+@Service
+public class MonthlyArchiveService {
+
+    private static final Logger log = LoggerFactory.getLogger(MonthlyArchiveService.class);
+
+    private final GregorianArchiveAssembler assembler;
+    private final MonthlyArchiveRepository archives;
+
+    public MonthlyArchiveService(
+            GregorianArchiveAssembler assembler, MonthlyArchiveRepository archives) {
+        this.assembler = assembler;
+        this.archives = archives;
+    }
+
+    /**
+     * Publishes every Gregorian month the given pages contribute to.
+     *
+     * @param pages                the pages collected this run
+     * @param officialCities       the full official catalogue — every one appears in each archive
+     * @param failures             per-city archive failure codes, keyed by ville id
+     * @param lastSuccessfulSyncAt when this run stored data
+     * @param catalogueChanged     whether the catalogue changed during collection (degrades months)
+     * @param warnings             notices to record on each manifest
+     * @return the manifests that were written, one per month
+     */
+    public List<MonthlyArchiveManifest> publish(
+            List<ObservedPage> pages,
+            List<CityCatalogueEntry> officialCities,
+            Map<String, ArchiveFailureCode> failures,
+            Instant lastSuccessfulSyncAt,
+            boolean catalogueChanged,
+            List<String> warnings) {
+
+        List<MonthlyArchiveManifest> manifests = new ArrayList<>();
+        for (YearMonth month : assembler.monthsCovered(pages)) {
+            manifests.add(publishMonth(month, pages, officialCities, failures,
+                    lastSuccessfulSyncAt, catalogueChanged, warnings));
+        }
+        return manifests;
+    }
+
+    /**
+     * Publishes the Gregorian months the <em>fresh</em> pages touch, but assembles
+     * each from <em>all</em> stored pages so the archive <strong>accumulates</strong>
+     * rather than being rebuilt from one run.
+     *
+     * <p>This is the safe form for the daily sync and for reseeding: a Gregorian
+     * month is completed by two Hijri pages collected weeks apart, so assembling
+     * only from the current run's pages would drop the days the other Hijri page
+     * contributed. Because every collected page is also saved as an immutable raw
+     * snapshot before assembly, {@code allStoredPages} already includes this run's
+     * fresh data.
+     *
+     * @param freshPages     the pages collected this run — only the months these
+     *                       touch are republished
+     * @param allStoredPages every stored raw snapshot as a page (the accumulation source)
+     */
+    public List<MonthlyArchiveManifest> publishAccumulated(
+            List<ObservedPage> freshPages,
+            List<ObservedPage> allStoredPages,
+            List<CityCatalogueEntry> officialCities,
+            Map<String, ArchiveFailureCode> failures,
+            Instant lastSuccessfulSyncAt,
+            boolean catalogueChanged,
+            List<String> warnings) {
+        List<MonthlyArchiveManifest> manifests = new ArrayList<>();
+        for (YearMonth month : assembler.monthsCovered(freshPages)) {
+            manifests.add(publishMonth(month, allStoredPages, officialCities, failures,
+                    lastSuccessfulSyncAt, catalogueChanged, warnings));
+        }
+        return manifests;
+    }
+
+    /**
+     * Assembles and publishes exactly one Gregorian month (spec 25, rebuild-month).
+     *
+     * <p>Unlike {@link #publish}, this touches only {@code month} even though the
+     * pages span two — so rebuilding July does not silently rewrite June.
+     */
+    public MonthlyArchiveManifest publishMonth(
+            YearMonth month,
+            List<ObservedPage> pages,
+            List<CityCatalogueEntry> officialCities,
+            Map<String, ArchiveFailureCode> failures,
+            Instant lastSuccessfulSyncAt,
+            boolean catalogueChanged,
+            List<String> warnings) {
+        Instant originalGeneratedAt = originalGeneratedAt(month);
+
+        GregorianMonthlyArchive archive = assembler.assemble(
+                month, pages, officialCities, failures, originalGeneratedAt, catalogueChanged);
+        MonthlyArchiveManifest manifest = archives.save(archive, lastSuccessfulSyncAt, warnings);
+        log.info("Published archive {} — status {}, {} cities ({} complete, {} partial, {} unavailable)",
+                month, manifest.status(), manifest.archiveCityCount(), manifest.completeCityCount(),
+                manifest.partialCityCount(), manifest.unavailableCityCount());
+        return manifest;
+    }
+
+    /**
+     * The prior archive's {@code generatedAt}, or null if none exists <em>or the
+     * existing archive is unreadable</em>. Rebuilds are exactly when a corrupt
+     * archive gets overwritten, so a parse failure here must not abort the rebuild —
+     * it just means the month is regenerated with a fresh {@code generatedAt}.
+     */
+    private Instant originalGeneratedAt(YearMonth month) {
+        try {
+            return archives.findArchive(month).map(GregorianMonthlyArchive::generatedAt).orElse(null);
+        } catch (RuntimeException e) {
+            log.warn("Existing {} archive is unreadable; regenerating it from scratch: {}",
+                    month, e.getMessage());
+            return null;
+        }
+    }
+
+    /** @param month the Gregorian month */
+    public Optional<GregorianMonthlyArchive> find(YearMonth month) {
+        return archives.findArchive(month);
+    }
+
+    /** @param month the Gregorian month */
+    public Optional<MonthlyArchiveManifest> findManifest(YearMonth month) {
+        return archives.findManifest(month);
+    }
+}

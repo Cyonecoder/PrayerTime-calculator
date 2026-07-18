@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Salat API Service REST v1 reference. Read-only Moroccan prayer-times API (official Habous + sec-approach v2).">
+<title>Salat API Service API Reference</title>
+<style>
+  :root {
+    --paper: #ffffff;
+    --panel: #fafafb;
+    --code-bg: #f4f5f7;
+    --ink: #0c0d10;
+    --ink-soft: #4d5058;
+    --ink-faint: #82868f;
+    --line: #d6d8dd;
+    --line-soft: #e6e7eb;
+    --line-bold: #0c0d10;
+    --accent: #2233dd;
+    --accent-ink: #1a29b3;
+    --accent-soft: #e7e9fb;
+    --ok: #12793f;
+    --ok-soft: #e0f0e6;
+    --warn: #9a6410;
+    --warn-soft: #f6ecd6;
+    --err: #c22525;
+    --err-soft: #f7e0e0;
+    --mono: ui-monospace, "SF Mono", "SFMono-Regular", "JetBrains Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0b0c0f;
+      --panel: #101216;
+      --code-bg: #0f1115;
+      --ink: #e9eaee;
+      --ink-soft: #a3a7b0;
+      --ink-faint: #6a6e78;
+      --line: #23262d;
+      --line-soft: #191c22;
+      --line-bold: #e9eaee;
+      --accent: #6f83ff;
+      --accent-ink: #a9b5ff;
+      --accent-soft: #161d3d;
+      --ok: #4fbc7c; --ok-soft: #10241a;
+      --warn: #d3a24f; --warn-soft: #2b2210;
+      --err: #e46a6a; --err-soft: #2c1616;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper:#ffffff; --panel:#fafafb; --code-bg:#f4f5f7; --ink:#0c0d10; --ink-soft:#4d5058; --ink-faint:#82868f;
+    --line:#d6d8dd; --line-soft:#e6e7eb; --line-bold:#0c0d10; --accent:#2233dd; --accent-ink:#1a29b3; --accent-soft:#e7e9fb;
+    --ok:#12793f; --ok-soft:#e0f0e6; --warn:#9a6410; --warn-soft:#f6ecd6; --err:#c22525; --err-soft:#f7e0e0;
+  }
+  :root[data-theme="dark"] {
+    --paper:#0b0c0f; --panel:#101216; --code-bg:#0f1115; --ink:#e9eaee; --ink-soft:#a3a7b0; --ink-faint:#6a6e78;
+    --line:#23262d; --line-soft:#191c22; --line-bold:#e9eaee; --accent:#6f83ff; --accent-ink:#a9b5ff; --accent-soft:#161d3d;
+    --ok:#4fbc7c; --ok-soft:#10241a; --warn:#d3a24f; --warn-soft:#2b2210; --err:#e46a6a; --err-soft:#2c1616;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 15px; line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  code { font-family: var(--mono); font-size: .86em; }
+
+  /* mono display type carries the whole personality */
+  .mono, .method, .path, .param, .brand-name, .brand-sub, .nav-label, .nav-group a,
+  .eyebrow, .section-kicker, h2.section-title, .subhead, th, .status-pill, .pill,
+  .callout .k, .callout .v { font-family: var(--mono); }
+
+  .layout { display: grid; grid-template-columns: 264px minmax(0,1fr); max-width: 1200px; margin: 0 auto; }
+
+  /* SIDEBAR flat, hard right rule */
+  .sidebar {
+    position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto;
+    padding: 26px 22px 48px; border-right: 1px solid var(--line);
+  }
+  .brand { display: flex; align-items: center; gap: 11px; }
+  .brand-mark {
+    height: 34px; padding: 0 11px; flex: none; border: 1.5px solid var(--line-bold);
+    display: grid; place-items: center; color: var(--ink); font-size: 20px; font-weight: 600;
+    line-height: 1; font-family: "Geeza Pro", "Al Bayan", "Segoe UI", "Noto Naskh Arabic", serif;
+  }
+  .brand-name { font-size: 14px; font-weight: 700; letter-spacing: .02em; }
+  .brand-sub { color: var(--ink-faint); font-size: 10.5px; letter-spacing: .18em; margin: 14px 0 24px; text-transform: uppercase; }
+
+  .nav-group { margin-bottom: 20px; }
+  .nav-group > .nav-label {
+    font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint);
+    font-weight: 700; margin: 0 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--line-soft);
+  }
+  .nav-group a {
+    display: block; padding: 4px 0 4px 12px; color: var(--ink-soft); font-size: 12.5px;
+    border-left: 2px solid transparent; letter-spacing: .01em;
+  }
+  .nav-group a:hover { color: var(--ink); text-decoration: none; border-left-color: var(--line); }
+  .nav-group a.active { color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
+
+  /* MAIN */
+  .main { padding: 38px 46px 130px; min-width: 0; }
+  .eyebrow { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .page-title { font-family: var(--mono); font-size: 34px; line-height: 1.08; margin: 14px 0 12px; letter-spacing: -.01em; font-weight: 700; }
+  .lede { font-size: 16.5px; color: var(--ink-soft); max-width: 64ch; }
+
+  section { scroll-margin-top: 16px; padding-top: 40px; }
+  .section-head { margin-bottom: 20px; }
+  .section-kicker { font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; }
+  h2.section-title {
+    font-size: 21px; margin: 6px 0 0; letter-spacing: .01em; font-weight: 700; text-transform: uppercase;
+    padding-bottom: 12px; border-bottom: 2px solid var(--line-bold);
+  }
+  .section-note { color: var(--ink-soft); margin: 12px 0 0; max-width: 66ch; }
+
+  /* CALLOUT flat key/value grid */
+  .callout {
+    display: grid; grid-template-columns: max-content 1fr; gap: 0; margin: 18px 0;
+    border: 1px solid var(--line); background: var(--panel);
+  }
+  .callout .k, .callout .v { padding: 10px 14px; border-bottom: 1px solid var(--line-soft); font-size: 12.5px; }
+  .callout .k { color: var(--ink-faint); text-transform: uppercase; letter-spacing: .08em; border-right: 1px solid var(--line-soft); white-space: nowrap; }
+  .callout .v { color: var(--ink); }
+  .callout > :nth-last-child(1), .callout > :nth-last-child(2) { border-bottom: none; }
+  .tag { display:inline-block; border:1px solid var(--line); color: var(--ink-soft); padding: 0 7px; font-family: var(--mono); font-size: 11.5px; }
+
+  /* ENDPOINT flat block, cobalt left edge */
+  .endpoint { border: 1px solid var(--line); border-left: 3px solid var(--accent); background: var(--paper); margin: 16px 0; }
+  .endpoint-head { display: flex; align-items: center; gap: 12px; padding: 13px 16px; flex-wrap: wrap; border-bottom: 1px solid var(--line-soft); background: var(--panel); }
+  .method { font-weight: 700; font-size: 11.5px; letter-spacing: .1em; padding: 3px 8px; background: var(--ink); color: var(--paper); }
+  .path { font-size: 13.5px; color: var(--ink); word-break: break-all; }
+  .path .var { color: var(--accent); }
+  .endpoint-body { padding: 16px; }
+  .endpoint-desc { color: var(--ink-soft); margin: 0 0 8px; max-width: 68ch; }
+
+  .subhead { font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; margin: 20px 0 9px; }
+
+  /* TABLES full grid */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line-soft); border-right: 1px solid var(--line-soft); vertical-align: top; }
+  th:last-child, td:last-child { border-right: none; }
+  tr:last-child td { border-bottom: none; }
+  th { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; background: var(--panel); }
+  td.param { color: var(--accent-ink); white-space: nowrap; }
+  td .type { font-family: var(--mono); font-size: 11.5px; color: var(--ink-faint); }
+  .req { color: var(--err); font-size: 10.5px; font-weight: 700; letter-spacing: .04em; }
+  .opt { color: var(--ink-faint); font-size: 10.5px; letter-spacing: .04em; }
+  .tnum { font-variant-numeric: tabular-nums; }
+
+  /* CODE */
+  pre { margin: 0; }
+  .code { background: var(--code-bg); border: 1px solid var(--line); padding: 13px 15px; overflow-x: auto; font-family: var(--mono); font-size: 12.5px; line-height: 1.6; color: var(--ink); }
+  .code .cm { color: var(--ink-faint); }
+  .code .str { color: var(--accent); }
+  .code .num { color: var(--warn); }
+  .code .kw { color: var(--err); font-weight: 600; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 720px) { .grid2 { grid-template-columns: 1fr; } }
+
+  .status-pill { font-size: 11px; font-weight: 700; padding: 1px 7px; border: 1px solid currentColor; white-space: nowrap; }
+  .s-2 { color: var(--ok); } .s-4 { color: var(--warn); } .s-5 { color: var(--err); }
+
+  .pill { display:inline-block; font-size: 11px; font-weight: 700; padding: 1px 8px; border: 1px solid var(--line); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .pill-accent { border-color: var(--accent); color: var(--accent); }
+  .pill-warn { border-color: var(--warn); color: var(--warn); }
+
+  .footer { margin-top: 64px; padding-top: 20px; border-top: 2px solid var(--line-bold); color: var(--ink-faint); font-size: 12px; font-family: var(--mono); }
+
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--line); }
+    .main { padding: 26px 18px 90px; }
+    .page-title { font-size: 27px; }
+    .callout { grid-template-columns: 1fr; }
+    .callout .k { border-right: none; }
+  }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark" lang="ar" dir="rtl">صلاة</div>
+      <div class="brand-name">SALAT&nbsp;API</div>
+    </div>
+    <div class="brand-sub">REST v1 · reference</div>
+
+    <nav>
+      <div class="nav-group">
+        <p class="nav-label">Start here</p>
+        <a href="#overview">Overview</a>
+        <a href="#base">Base URL and access</a>
+        <a href="#cities-model">City coverage model</a>
+      </div>
+      <div class="nav-group">
+        <p class="nav-label">Service</p>
+        <a href="#info">Service information</a>
+        <a href="#data-status">Data status</a>
+      </div>
+      <div class="nav-group">
+        <p class="nav-label">Official (Habous)</p>
+        <a href="#habous-cities">List cities</a>
+        <a href="#habous-city">Get a city</a>
+        <a href="#habous-months">List months</a>
+        <a href="#habous-month">Get a month</a>
+        <a href="#habous-file">Download month</a>
+        <a href="#habous-citymonth">City in a month</a>
+        <a href="#habous-day">Official day</a>
+      </div>
+      <div class="nav-group">
+        <p class="nav-label">Sec approach</p>
+        <a href="#sa-info">Method information</a>
+        <a href="#sa-cities">Supported cities</a>
+        <a href="#sa-day">Day</a>
+        <a href="#sa-range">Range</a>
+        <a href="#sa-month">Month</a>
+      </div>
+      <div class="nav-group">
+        <p class="nav-label">Unified and checks</p>
+        <a href="#unified">Best source</a>
+        <a href="#verification">Verification</a>
+      </div>
+      <div class="nav-group">
+        <p class="nav-label">Reference</p>
+        <a href="#errors">Errors</a>
+        <a href="#concepts">Concepts</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header>
+      <p class="eyebrow">Platform Services</p>
+      <h1 class="page-title">Salat API Service</h1>
+      <p class="lede">A read only REST API for Moroccan prayer times. It serves two independent sources the
+        <strong>official Habous</strong> timetable, collected and archived daily, and the
+        <strong>sec approach v2</strong> astronomical calculation plus a unified endpoint that prefers official data
+        and transparently falls back to calculation.</p>
+    </header>
+
+    <section id="overview">
+      <div class="section-head"><p class="section-kicker">Reference</p><h2 class="section-title">Overview</h2></div>
+      <p class="section-note">Every endpoint is a <code>GET</code>. Responses are JSON. There are no write, sync, or
+        delete endpoints collection runs on a schedule or from the command line, never over HTTP. All times are in
+        <span class="tag">Africa/Casablanca</span> and formatted <code>HH:mm</code> (or <code>HH:mm:ss</code> at second
+        precision).</p>
+      <div class="grid2">
+        <div class="callout" style="grid-template-columns:1fr">
+          <div class="v" style="border-bottom:none">
+            <div class="subhead" style="margin-top:0">Two sources, never merged</div>
+            <div style="font-family:var(--sans);color:var(--ink-soft)">Official endpoints return published Habous times
+            exactly. Sec approach endpoints return the released calculation. The unified endpoint labels which one
+            answered fallback is always visible.</div>
+          </div>
+        </div>
+        <div class="callout" style="grid-template-columns:1fr">
+          <div class="v" style="border-bottom:none">
+            <div class="subhead" style="margin-top:0">Forward only archive</div>
+            <div style="font-family:var(--sans);color:var(--ink-soft)">The official source publishes only the current
+            Hijri month, which spans two Gregorian months. History accrues going forward and is never back filled.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="base">
+      <div class="section-head"><p class="section-kicker">Reference</p><h2 class="section-title">Base URL and access</h2></div>
+      <div class="callout">
+        <div class="k">Base URL</div><div class="v">http://localhost:8081/api/v1</div>
+        <div class="k">Auth</div><div class="v">None no <span class="tag">Authorization</span> header required</div>
+        <div class="k">Health</div><div class="v">GET /actuator/health &nbsp;→&nbsp; {"status":"UP"}</div>
+        <div class="k">Tracing</div><div class="v">Every response returns an <span class="tag">X-Correlation-Id</span> header</div>
+      </div>
+      <p class="section-note">The port is set by <code>SERVER_PORT</code> (default <code>8081</code>). The API is
+      deliberately unauthenticated: it exposes public prayer time data and holds no user state.</p>
+    </section>
+
+    <section id="cities-model">
+      <div class="section-head"><p class="section-kicker">Data model</p><h2 class="section-title">City coverage model</h2>
+        <p class="section-note">Four nested groups. Confusing them is the most common integration mistake, so the API
+        keeps them distinct collecting official data for a city never makes it calculable.</p>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Group</th><th>Count</th><th>What it means</th><th>Identifier</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Official villes</strong></td><td><span class="pill tnum">191</span></td><td>Cities in the official Habous directory eligible for collection.</td><td class="param">habousCityId</td></tr>
+          <tr><td><strong>Registry cities</strong></td><td><span class="pill tnum">67</span></td><td>Application cities with a slug, coordinates and aliases.</td><td class="param">applicationCityId</td></tr>
+          <tr><td><strong>Verified mappings</strong></td><td><span class="pill tnum">60</span></td><td>Registry cities linked to a confirmed official ville.</td><td class="param">both</td></tr>
+          <tr><td><strong>Sec approach</strong></td><td><span class="pill pill-accent tnum">48</span></td><td>Cities with released offsets the only ones the calculation serves.</td><td class="param">applicationCityId</td></tr>
+        </tbody>
+      </table></div>
+      <p class="section-note" style="margin-top:14px"><code>48 ⊆ 60 ⊆ 67</code>, and the 60 ville targets ⊆ the 191.
+      Asking sec approach for one of the other 19 registry cities returns
+      <span class="status-pill s-4">422</span> <code>SEC_APPROACH_CITY_UNSUPPORTED</code> never a guess.</p>
+    </section>
+
+    <section id="info">
+      <div class="section-head"><p class="section-kicker">Endpoints</p><h2 class="section-title">Service information</h2></div>
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/info</span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">Snapshot of coverage counts, the active parameter version, and the freshness of
+          collected data.</p>
+          <div class="subhead">Response <span class="status-pill s-2">200</span></div>
+          <div class="code"><pre>{
+  <span class="str">"applicationVersion"</span>: <span class="str">"0.1.0"</span>,
+  <span class="str">"officialCatalogueCount"</span>: <span class="num">191</span>,
+  <span class="str">"registryCityCount"</span>: <span class="num">67</span>,
+  <span class="str">"verifiedMappingCount"</span>: <span class="num">60</span>,
+  <span class="str">"secApproachSupportCount"</span>: <span class="num">48</span>,
+  <span class="str">"parameterVersion"</span>: <span class="str">"morocco-habous-secaproach-v2"</span>,
+  <span class="str">"latestSuccessfulSync"</span>: <span class="str">"2026-07-16"</span>,
+  <span class="str">"latestOfficialDate"</span>: <span class="str">"2026-08-14"</span>,
+  <span class="str">"latestArchiveStatus"</span>: <span class="str">"DEGRADED"</span>
+}</pre></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="data-status">
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/data-status</span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">Operational status: where data lives, whether the scheduler is on, per month archive
+          state, and the latest verification metrics. Check <code>dataDirectory</code> and
+          <code>monthlyArchiveStatuses</code> first when an official request unexpectedly returns 404.</p>
+          <div class="subhead">Response <span class="status-pill s-2">200</span></div>
+          <div class="code"><pre>{
+  <span class="str">"dataDirectory"</span>: <span class="str">"/srv/salat/data"</span>,
+  <span class="str">"schedulerEnabled"</span>: <span class="kw">true</span>,
+  <span class="str">"syncInProgress"</span>: <span class="kw">false</span>,
+  <span class="str">"officialCatalogueCount"</span>: <span class="num">191</span>,
+  <span class="str">"latestCatalogueRefresh"</span>: <span class="str">"2026-07-16T03:15:04Z"</span>,
+  <span class="str">"latestSuccessfulSync"</span>: <span class="str">"2026-07-16"</span>,
+  <span class="str">"latestFailedSync"</span>: <span class="kw">null</span>,
+  <span class="str">"monthlyArchiveStatuses"</span>: { <span class="str">"2026-07"</span>: <span class="str">"DEGRADED"</span>, <span class="str">"2026-08"</span>: <span class="str">"DEGRADED"</span> },
+  <span class="str">"officialDataFreshnessDays"</span>: <span class="num">0</span>,
+  <span class="str">"secApproachAvailable"</span>: <span class="kw">true</span>,
+  <span class="str">"secApproachCityCount"</span>: <span class="num">48</span>,
+  <span class="str">"latestVerification"</span>: {
+    <span class="str">"date"</span>: <span class="str">"2026-08-14"</span>, <span class="str">"comparedCityCount"</span>: <span class="num">48</span>,
+    <span class="str">"exactCityCount"</span>: <span class="num">46</span>, <span class="str">"exactRatio"</span>: <span class="num">0.958</span>, <span class="str">"withinOneRatio"</span>: <span class="num">1.0</span>
+  }
+}</pre></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="habous-cities">
+      <div class="section-head"><p class="section-kicker">Endpoints</p><h2 class="section-title">Official Habous data</h2>
+        <p class="section-note">Published times exactly as the Ministry of Habous releases them. These endpoints never
+        calculate a fallback a missing day is a 404, not a guess.</p>
+      </div>
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/habous/cities</span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">List the official city catalogue with support flags. Filters combine with AND.</p>
+          <div class="subhead">Query parameters</div>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="param">mapped</td><td><span class="type">boolean</span> <span class="opt">optional</span></td><td>Only cities that have (or lack) a verified application mapping.</td></tr>
+              <tr><td class="param">secApproachSupported</td><td><span class="type">boolean</span> <span class="opt">optional</span></td><td>Only the 48 calculable cities when <code>true</code>.</td></tr>
+              <tr><td class="param">available</td><td><span class="type">boolean</span> <span class="opt">optional</span></td><td>Only cities with collected data in the latest archive.</td></tr>
+            </tbody>
+          </table></div>
+          <div class="subhead">Response <span class="status-pill s-2">200</span> array</div>
+          <div class="code"><pre>[
+  {
+    <span class="str">"habousCityId"</span>: <span class="str">"1"</span>,
+    <span class="str">"officialNameAr"</span>: <span class="str">"الرباط"</span>,
+    <span class="str">"applicationCityId"</span>: <span class="str">"rabat"</span>,
+    <span class="str">"mapped"</span>: <span class="kw">true</span>,
+    <span class="str">"secApproachSupported"</span>: <span class="kw">true</span>,
+    <span class="str">"available"</span>: <span class="kw">true</span>
+  }
+]</pre></div>
+          <p class="section-note" style="margin-top:12px"><code>?secApproachSupported=true</code> → 48 ·
+          <code>?mapped=true</code> → 60 · no filter → 191.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="habous-city">
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/habous/cities/<span class="var">{habousCityId}</span></span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">One official city by its ville id. <span class="status-pill s-4">404</span>
+          <code>HABOUS_CITY_NOT_FOUND</code> if the id is not in the catalogue.</p>
+          <div class="subhead">Also by application slug</div>
+          <div class="code"><pre>GET /api/v1/habous/cities/by-application-id/<span class="var">{applicationCityId}</span></pre></div>
+          <p class="section-note" style="margin-top:10px">Resolves the slug to its ville via the verified mapping:
+          <span class="status-pill s-4">404</span> <code>APPLICATION_CITY_NOT_MAPPED</code> if it has none.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="habous-months">
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/habous/months</span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">Summaries of every stored Gregorian monthly archive.</p>
+          <div class="subhead">Response <span class="status-pill s-2">200</span> array</div>
+          <div class="code"><pre>[
+  {
+    <span class="str">"period"</span>: <span class="str">"2026-07"</span>,
+    <span class="str">"status"</span>: <span class="str">"DEGRADED"</span>,
+    <span class="str">"officialCatalogCityCount"</span>: <span class="num">191</span>,
+    <span class="str">"archiveCityCount"</span>: <span class="num">191</span>,
+    <span class="str">"completeCityCount"</span>: <span class="num">0</span>,
+    <span class="str">"partialCityCount"</span>: <span class="num">191</span>,
+    <span class="str">"unavailableCityCount"</span>: <span class="num">0</span>,
+    <span class="str">"expectedDaysPerCompleteCity"</span>: <span class="num">31</span>,
+    <span class="str">"lastSuccessfulSyncAt"</span>: <span class="str">"2026-07-16T03:15:20Z"</span>
+  }
+]</pre></div>
+          <div class="subhead">Archive status values</div>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Status</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td><span class="pill">EMPTY</span></td><td>No validated rows yet.</td></tr>
+              <tr><td><span class="pill">PARTIAL</span></td><td>Rows exist: the month is still accruing (normal).</td></tr>
+              <tr><td><span class="pill pill-accent">COMPLETE</span></td><td>Every enabled city has every day of the month.</td></tr>
+              <tr><td><span class="pill pill-warn">DEGRADED</span></td><td>Has data, but a city failed permanently or the catalogue changed mid collection.</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="habous-month">
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/habous/months/<span class="var">{year}</span>/<span class="var">{month}</span></span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">The full monthly archive: every official city and its collected days.
+          <span class="status-pill s-4">404</span> <code>OFFICIAL_MONTH_NOT_AVAILABLE</code> if the month was never
+          assembled.</p>
+          <div class="subhead">Query parameters</div>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody><tr><td class="param">includeUnavailable</td><td><span class="type">boolean</span> <span class="opt">default true</span></td><td>Include cities with no collected days (status <code>UNAVAILABLE</code>).</td></tr></tbody>
+          </table></div>
+          <div class="subhead">Response <span class="status-pill s-2">200</span> envelope (cities truncated)</div>
+          <div class="code"><pre>{
+  <span class="str">"schemaVersion"</span>: <span class="str">"1.0"</span>,
+  <span class="str">"source"</span>: <span class="str">"HABOUS_OFFICIAL"</span>,
+  <span class="str">"period"</span>: <span class="str">"2026-07"</span>,
+  <span class="str">"periodType"</span>: <span class="str">"GREGORIAN_MONTH"</span>,
+  <span class="str">"timezone"</span>: <span class="str">"Africa/Casablanca"</span>,
+  <span class="str">"status"</span>: <span class="str">"DEGRADED"</span>,
+  <span class="str">"officialCatalogCityCount"</span>: <span class="num">191</span>,
+  <span class="str">"cityCount"</span>: <span class="num">191</span>,
+  <span class="str">"completeCityCount"</span>: <span class="num">0</span>, <span class="str">"partialCityCount"</span>: <span class="num">191</span>, <span class="str">"failedCityCount"</span>: <span class="num">0</span>,
+  <span class="str">"cities"</span>: [
+    {
+      <span class="str">"habousCityId"</span>: <span class="str">"1"</span>, <span class="str">"officialNameAr"</span>: <span class="str">"الرباط"</span>,
+      <span class="str">"applicationCityId"</span>: <span class="str">"rabat"</span>, <span class="str">"secApproachSupported"</span>: <span class="kw">true</span>,
+      <span class="str">"status"</span>: <span class="str">"PARTIAL"</span>, <span class="str">"daysExpected"</span>: <span class="num">31</span>, <span class="str">"daysAvailable"</span>: <span class="num">16</span>,
+      <span class="str">"days"</span>: [
+        { <span class="str">"date"</span>: <span class="str">"2026-07-16"</span>, <span class="str">"fajr"</span>: <span class="str">"04:40"</span>, <span class="str">"sunrise"</span>: <span class="str">"06:25"</span>,
+          <span class="str">"dhuhr"</span>: <span class="str">"13:39"</span>, <span class="str">"asr"</span>: <span class="str">"17:19"</span>, <span class="str">"maghrib"</span>: <span class="str">"20:43"</span>, <span class="str">"isha"</span>: <span class="str">"22:13"</span> }
+      ]
+    }
+  ]
+}</pre></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="habous-file">
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/habous/months/<span class="var">{year}</span>/<span class="var">{month}</span>/file</span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">The same archive as a downloadable file.</p>
+          <div class="callout">
+            <div class="k">Content-Type</div><div class="v">application/json</div>
+            <div class="k">Content-Disposition</div><div class="v">attachment; filename="habous-prayer-times-2026-07.json"</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="habous-citymonth">
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/habous/months/<span class="var">{year}</span>/<span class="var">{month}</span>/cities/<span class="var">{habousCityId}</span></span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">One city's schedule within one month, by ville id.</p>
+          <div class="subhead">Also by application slug</div>
+          <div class="code"><pre>GET /api/v1/habous/months/<span class="var">{year}</span>/<span class="var">{month}</span>/application-cities/<span class="var">{applicationCityId}</span></pre></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="habous-day">
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/habous/cities/<span class="var">{habousCityId}</span>/prayer-times</span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">One official day. <span class="status-pill s-4">404</span>
+          <code>OFFICIAL_DATA_NOT_AVAILABLE</code> if that date was not collected.</p>
+          <div class="subhead">Query parameters</div>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody><tr><td class="param">date</td><td><span class="type">date</span> <span class="req">required</span></td><td>ISO <code>YYYY-MM-DD</code>.</td></tr></tbody>
+          </table></div>
+          <div class="subhead">Also by application slug</div>
+          <div class="code"><pre>GET /api/v1/habous/application-cities/<span class="var">{applicationCityId}</span>/prayer-times?date=YYYY-MM-DD</pre></div>
+          <div class="subhead">Response <span class="status-pill s-2">200</span></div>
+          <div class="code"><pre>{
+  <span class="str">"habousCityId"</span>: <span class="str">"1"</span>,
+  <span class="str">"officialNameAr"</span>: <span class="str">"الرباط"</span>,
+  <span class="str">"applicationCityId"</span>: <span class="str">"rabat"</span>,
+  <span class="str">"source"</span>: <span class="str">"HABOUS_OFFICIAL"</span>,
+  <span class="str">"day"</span>: {
+    <span class="str">"date"</span>: <span class="str">"2026-07-16"</span>, <span class="str">"fajr"</span>: <span class="str">"04:40"</span>, <span class="str">"sunrise"</span>: <span class="str">"06:25"</span>,
+    <span class="str">"dhuhr"</span>: <span class="str">"13:39"</span>, <span class="str">"asr"</span>: <span class="str">"17:19"</span>, <span class="str">"maghrib"</span>: <span class="str">"20:43"</span>, <span class="str">"isha"</span>: <span class="str">"22:13"</span>,
+    <span class="str">"sourceChecksum"</span>: <span class="str">"…"</span>, <span class="str">"firstObservedAt"</span>: <span class="str">"…"</span>, <span class="str">"lastObservedAt"</span>: <span class="str">"…"</span>
+  }
+}</pre></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sa-info">
+      <div class="section-head"><p class="section-kicker">Endpoints</p><h2 class="section-title">Sec approach calculation</h2>
+        <p class="section-note">The released v2 astronomical method: a reconstructed raw time plus a per city, per
+        prayer constant second offset, floored to the minute. Available for any date, for the 48 supported cities.</p>
+      </div>
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/sec-approach/info</span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">Method metadata, including the honest validation window and accuracy disclaimer.</p>
+          <div class="subhead">Response <span class="status-pill s-2">200</span></div>
+          <div class="code"><pre>{
+  <span class="str">"parameterVersion"</span>: <span class="str">"morocco-habous-secaproach-v2"</span>,
+  <span class="str">"supportedCityCount"</span>: <span class="num">48</span>,
+  <span class="str">"formula"</span>: <span class="str">"publishedMinute = floor((rawSeconds + offsetSeconds[city][prayer]) / 60)"</span>,
+  <span class="str">"timezone"</span>: <span class="str">"Africa/Casablanca"</span>,
+  <span class="str">"precisionModes"</span>: [<span class="str">"minute"</span>, <span class="str">"second"</span>],
+  <span class="str">"validatedWindow"</span>: <span class="str">"2026-06-17 through 2026-07-16"</span>,
+  <span class="str">"accuracyDisclaimer"</span>: <span class="str">"Validated on the 2026-06-17 through 2026-07-16 summer window. Not an annual accuracy claim."</span>
+}</pre></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sa-cities">
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/sec-approach/cities</span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">Exactly the 48 cities with released offsets the complete set the calculation serves.</p>
+          <div class="subhead">Response <span class="status-pill s-2">200</span> array</div>
+          <div class="code"><pre>[
+  { <span class="str">"applicationCityId"</span>: <span class="str">"agadir"</span>, <span class="str">"displayName"</span>: <span class="str">"Agadir"</span>, <span class="str">"habousCityId"</span>: <span class="str">"117"</span> },
+  { <span class="str">"applicationCityId"</span>: <span class="str">"casablanca"</span>, <span class="str">"displayName"</span>: <span class="str">"Casablanca"</span>, <span class="str">"habousCityId"</span>: <span class="str">"58"</span> }
+]</pre></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sa-day">
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/sec-approach/cities/<span class="var">{applicationCityId}</span>/prayer-times</span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">Calculated times for one date. <span class="status-pill s-4">422</span>
+          <code>SEC_APPROACH_CITY_UNSUPPORTED</code> for any city outside the 48.</p>
+          <div class="subhead">Query parameters</div>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="param">date</td><td><span class="type">date</span> <span class="req">required</span></td><td>ISO <code>YYYY-MM-DD</code>.</td></tr>
+              <tr><td class="param">precision</td><td><span class="type">minute · second</span> <span class="opt">default minute</span></td><td><code>minute</code> → <code>HH:mm</code>: <code>second</code> → <code>HH:mm:ss</code>.</td></tr>
+            </tbody>
+          </table></div>
+          <div class="subhead">Example</div>
+          <div class="code"><pre><span class="cm"># curl no auth header</span>
+curl <span class="str">"http://localhost:8081/api/v1/sec-approach/cities/rabat/prayer-times?date=2026-07-15"</span></pre></div>
+          <div class="subhead">Response <span class="status-pill s-2">200</span></div>
+          <div class="code"><pre>{
+  <span class="str">"date"</span>: <span class="str">"2026-07-15"</span>,
+  <span class="str">"precision"</span>: <span class="str">"minute"</span>,
+  <span class="str">"times"</span>: {
+    <span class="str">"fajr"</span>: <span class="str">"04:39"</span>, <span class="str">"sunrise"</span>: <span class="str">"06:24"</span>, <span class="str">"dhuhr"</span>: <span class="str">"13:38"</span>,
+    <span class="str">"asr"</span>: <span class="str">"17:19"</span>, <span class="str">"maghrib"</span>: <span class="str">"20:43"</span>, <span class="str">"isha"</span>: <span class="str">"22:14"</span>
+  }
+}</pre></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sa-range">
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/sec-approach/cities/<span class="var">{applicationCityId}</span>/prayer-times/range</span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">An inclusive date range. Capped at <strong>366 days</strong>
+          (<code>SALAT_MAXIMUM_RANGE_DAYS</code>): a larger span returns
+          <span class="status-pill s-4">400</span> <code>DATE_RANGE_TOO_LARGE</code>.</p>
+          <div class="subhead">Query parameters</div>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="param">from</td><td><span class="type">date</span> <span class="req">required</span></td><td>Range start, inclusive.</td></tr>
+              <tr><td class="param">to</td><td><span class="type">date</span> <span class="req">required</span></td><td>Range end, inclusive.</td></tr>
+              <tr><td class="param">precision</td><td><span class="type">minute · second</span> <span class="opt">default minute</span></td><td>As above.</td></tr>
+            </tbody>
+          </table></div>
+          <div class="subhead">Response <span class="status-pill s-2">200</span></div>
+          <div class="code"><pre>[ { <span class="str">"date"</span>: <span class="str">"2026-07-01"</span>, <span class="str">"precision"</span>: <span class="str">"minute"</span>, <span class="str">"times"</span>: { <span class="cm">/* … */</span> } }, <span class="cm">/* one per day */</span> ]</pre></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sa-month">
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/sec-approach/cities/<span class="var">{applicationCityId}</span>/prayer-times/month</span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">A whole calendar month of calculated times.</p>
+          <div class="subhead">Query parameters</div>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="param">year</td><td><span class="type">integer</span> <span class="req">required</span></td><td>e.g. <code>2026</code>.</td></tr>
+              <tr><td class="param">month</td><td><span class="type">integer</span> <span class="req">required</span></td><td><code>1</code>–<code>12</code>: otherwise <span class="status-pill s-4">400</span> <code>INVALID_MONTH</code>.</td></tr>
+              <tr><td class="param">precision</td><td><span class="type">minute · second</span> <span class="opt">default minute</span></td><td>As above.</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="unified">
+      <div class="section-head"><p class="section-kicker">Endpoints</p><h2 class="section-title">Unified best source</h2>
+        <p class="section-note">One endpoint that resolves official versus calculated and always tells you which
+        answered. Fallback is never hidden.</p>
+      </div>
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/prayer-times/cities/<span class="var">{applicationCityId}</span></span></div>
+        <div class="endpoint-body">
+          <div class="subhead">Query parameters</div>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="param">date</td><td><span class="type">date</span> <span class="req">required</span></td><td>ISO <code>YYYY-MM-DD</code>.</td></tr>
+              <tr><td class="param">source</td><td><span class="type">best · official · sec-approach</span> <span class="opt">default best</span></td><td><code>best</code> = validated official, else released sec approach.</td></tr>
+              <tr><td class="param">precision</td><td><span class="type">minute · second</span> <span class="opt">default minute</span></td><td>As above.</td></tr>
+            </tbody>
+          </table></div>
+          <div class="grid2" style="margin-top:16px">
+            <div>
+              <div class="subhead" style="margin-top:0">Resolved to official</div>
+              <div class="code"><pre>{
+  <span class="str">"requestedSource"</span>: <span class="str">"BEST"</span>,
+  <span class="str">"resolvedSource"</span>: <span class="str">"HABOUS_OFFICIAL"</span>,
+  <span class="str">"fallbackUsed"</span>: <span class="kw">false</span>,
+  <span class="str">"times"</span>: { <span class="cm">/* … */</span> }
+}</pre></div>
+            </div>
+            <div>
+              <div class="subhead" style="margin-top:0">Fell back to calculation</div>
+              <div class="code"><pre>{
+  <span class="str">"requestedSource"</span>: <span class="str">"BEST"</span>,
+  <span class="str">"resolvedSource"</span>: <span class="str">"SEC_APPROACH"</span>,
+  <span class="str">"fallbackUsed"</span>: <span class="kw">true</span>,
+  <span class="str">"fallbackReason"</span>: <span class="str">"Official data is unavailable for the requested date"</span>,
+  <span class="str">"times"</span>: { <span class="cm">/* … */</span> }
+}</pre></div>
+            </div>
+          </div>
+          <p class="section-note" style="margin-top:14px"><code>source=official</code> returns
+          <span class="status-pill s-4">404</span> when no official data exists (no silent fallback):
+          <code>source=sec-approach</code> forces the calculation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="verification">
+      <div class="section-head"><p class="section-kicker">Endpoints</p><h2 class="section-title">Verification</h2>
+        <p class="section-note">Daily comparison of sec approach against official data, over the intersection of cities
+        that have both. Metrics use <code>secApproachMinute − officialMinute</code>.</p>
+      </div>
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/verification/latest</span></div>
+        <div class="endpoint-body">
+          <p class="endpoint-desc">The most recent daily report. <span class="status-pill s-4">404</span> if none exists yet.</p>
+          <div class="subhead">Response <span class="status-pill s-2">200</span> (abridged)</div>
+          <div class="code"><pre>{
+  <span class="str">"date"</span>: <span class="str">"2026-08-14"</span>,
+  <span class="str">"parameterVersion"</span>: <span class="str">"morocco-habous-secaproach-v2"</span>,
+  <span class="str">"accuracyDisclaimer"</span>: <span class="str">"Validated on the 2026-06-17 … Not an annual accuracy claim."</span>,
+  <span class="str">"comparedCityCount"</span>: <span class="num">48</span>, <span class="str">"exactCityCount"</span>: <span class="num">46</span>,
+  <span class="str">"overall"</span>: { <span class="str">"exactCount"</span>: <span class="num">280</span>, <span class="str">"exactRatio"</span>: <span class="num">0.972</span>,
+                <span class="str">"withinOneCount"</span>: <span class="num">288</span>, <span class="str">"withinOneRatio"</span>: <span class="num">1.0</span>,
+                <span class="str">"meanAbsoluteDifference"</span>: <span class="num">0.03</span>, <span class="str">"maxAbsoluteDifference"</span>: <span class="num">1</span> },
+  <span class="str">"metricsByCity"</span>: { <span class="cm">/* per applicationCityId */</span> },
+  <span class="str">"metricsByPrayer"</span>: { <span class="cm">/* per prayer */</span> },
+  <span class="str">"officialChecksums"</span>: [ <span class="str">"…"</span> ],
+  <span class="str">"cities"</span>: [ <span class="cm">/* per city, per prayer diffs */</span> ]
+}</pre></div>
+        </div>
+      </div>
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/verification/dates/<span class="var">{date}</span></span></div>
+        <div class="endpoint-body"><p class="endpoint-desc">The report for a specific date.</p></div>
+      </div>
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/verification/dates/<span class="var">{date}</span>/cities/<span class="var">{applicationCityId}</span></span></div>
+        <div class="endpoint-body"><p class="endpoint-desc">One city's per prayer comparison for a date.</p></div>
+      </div>
+      <div class="endpoint">
+        <div class="endpoint-head"><span class="method">GET</span><span class="path">/api/v1/verification/months/<span class="var">{year}</span>/<span class="var">{month}</span></span></div>
+        <div class="endpoint-body"><p class="endpoint-desc">Every daily report whose date falls in the month.</p></div>
+      </div>
+    </section>
+
+    <section id="errors">
+      <div class="section-head"><p class="section-kicker">Reference</p><h2 class="section-title">Errors</h2>
+        <p class="section-note">Errors use RFC 7807 <code>application/problem+json</code> with a stable
+        <code>code</code>. Server side causes are logged, never returned no stack traces, paths, or internals.</p>
+      </div>
+      <div class="code" style="margin-bottom:18px"><pre>{
+  <span class="str">"type"</span>: <span class="str">"about:blank"</span>,
+  <span class="str">"title"</span>: <span class="str">"Unprocessable Entity"</span>,
+  <span class="str">"status"</span>: <span class="num">422</span>,
+  <span class="str">"detail"</span>: <span class="str">"No sec-approach offsets for city 'berkane'. Only the 48 trained cities are supported…"</span>,
+  <span class="str">"instance"</span>: <span class="str">"/api/v1/sec-approach/cities/berkane/prayer-times"</span>,
+  <span class="str">"code"</span>: <span class="str">"SEC_APPROACH_CITY_UNSUPPORTED"</span>,
+  <span class="str">"correlationId"</span>: <span class="str">"f42ab51a-…"</span>,
+  <span class="str">"timestamp"</span>: <span class="str">"2026-07-16T10:47:51Z"</span>
+}</pre></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Status</th><th>Code</th><th>When</th></tr></thead>
+        <tbody>
+          <tr><td><span class="status-pill s-4">400</span></td><td class="param">INVALID_DATE</td><td>Malformed date, or <code>to</code> before <code>from</code>.</td></tr>
+          <tr><td><span class="status-pill s-4">400</span></td><td class="param">INVALID_MONTH</td><td>Month outside 1–12, or bad year.</td></tr>
+          <tr><td><span class="status-pill s-4">400</span></td><td class="param">INVALID_PRECISION</td><td><code>precision</code> not <code>minute</code>/<code>second</code>.</td></tr>
+          <tr><td><span class="status-pill s-4">400</span></td><td class="param">INVALID_SOURCE</td><td><code>source</code> not <code>best</code>/<code>official</code>/<code>sec-approach</code>.</td></tr>
+          <tr><td><span class="status-pill s-4">400</span></td><td class="param">DATE_RANGE_TOO_LARGE</td><td>Range exceeds 366 days.</td></tr>
+          <tr><td><span class="status-pill s-4">404</span></td><td class="param">HABOUS_CITY_NOT_FOUND</td><td>Unknown official ville id.</td></tr>
+          <tr><td><span class="status-pill s-4">404</span></td><td class="param">APPLICATION_CITY_NOT_MAPPED</td><td>Slug has no verified mapping.</td></tr>
+          <tr><td><span class="status-pill s-4">404</span></td><td class="param">OFFICIAL_DATA_NOT_AVAILABLE</td><td>No official row for that city/date.</td></tr>
+          <tr><td><span class="status-pill s-4">404</span></td><td class="param">OFFICIAL_MONTH_NOT_AVAILABLE</td><td>No archive for that month.</td></tr>
+          <tr><td><span class="status-pill s-4">422</span></td><td class="param">SEC_APPROACH_CITY_UNSUPPORTED</td><td>City exists but has no offsets (one of the 19).</td></tr>
+          <tr><td><span class="status-pill s-5">500</span></td><td class="param">ARCHIVE_CORRUPTED</td><td>A stored archive could not be read.</td></tr>
+          <tr><td><span class="status-pill s-5">500</span></td><td class="param">CALCULATION_FAILED</td><td>An unexpected error.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="concepts">
+      <div class="section-head"><p class="section-kicker">Reference</p><h2 class="section-title">Concepts and operations</h2></div>
+
+      <div class="subhead">The Hijri to Gregorian split</div>
+      <p class="section-note">The official source publishes one <em>Hijri</em> month at a time, which straddles two
+      Gregorian months (e.g. 17 Jun – 16 Jul). Each day is filed by its own Gregorian date, so one source page feeds
+      two monthly archives. A Gregorian month only becomes <code>COMPLETE</code> once <em>both</em> overlapping Hijri
+      pages have been collected expect <code>PARTIAL</code> in between.</p>
+
+      <div class="subhead">Populating data (no HTTP write path)</div>
+      <p class="section-note">Collection runs on a schedule (default 03:15 Africa/Casablanca) or from the command line.
+      There is no endpoint to trigger it.</p>
+      <div class="code"><pre><span class="cm"># collect now (all official cities), into an explicit data directory</span>
+java -jar salat-api-service.jar --salat.job=sync-now \
+  --spring.main.web-application-type=none --salat.data-directory=./data
+
+<span class="cm"># reassemble one month from stored snapshots no network</span>
+java -jar salat-api-service.jar --salat.job=rebuild-month \
+  --salat.job.period=2026-07 --spring.main.web-application-type=none
+
+<span class="cm"># disable the scheduler during development</span>
+HABOUS_SYNC_ENABLED=false java -jar salat-api-service.jar</pre></div>
+
+      <div class="subhead">Key configuration</div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Environment variable</th><th>Default</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td class="param">SERVER_PORT</td><td class="tnum">8081</td><td>HTTP port.</td></tr>
+          <tr><td class="param">SALAT_DATA_DIRECTORY</td><td>./data</td><td>Where archives and reports are read/written.</td></tr>
+          <tr><td class="param">HABOUS_SYNC_ENABLED</td><td>true</td><td>Enable the daily collection scheduler.</td></tr>
+          <tr><td class="param">HABOUS_SYNC_CRON</td><td>0 15 3 * * *</td><td>Collection schedule (Africa/Casablanca).</td></tr>
+          <tr><td class="param">SALAT_MAXIMUM_RANGE_DAYS</td><td class="tnum">366</td><td>Cap on the sec approach range endpoint.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <div class="footer">
+      SALAT API SERVICE · REST v1 · read only, unauthenticated · times in Africa/Casablanca ·
+      sec approach accuracy validated on 2026-06-17 → 2026-07-16, not an annual claim.
+    </div>
+  </main>
+</div>
+
+<script>
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-group a'));
+    var byId = {};
+    links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && byId[e.target.id]) {
+          links.forEach(function (l) { l.classList.remove('active'); });
+          byId[e.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-8% 0px -82% 0px', threshold: 0 });
+    document.querySelectorAll('section[id]').forEach(function (s) { obs.observe(s); });
+  })();
+</script>
+
+</body>
+</html>
