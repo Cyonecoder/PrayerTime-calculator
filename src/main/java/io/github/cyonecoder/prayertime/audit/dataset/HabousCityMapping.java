@@ -108,6 +108,18 @@ public final class HabousCityMapping {
         return entries.stream().map(Entry::applicationCityId).toList();
     }
 
+    /**
+     * The hand-verified mappings — the cities whose official data is bundled for
+     * production {@code OFFICIAL}/{@code AUTO} mode. Research-only mappings
+     * ({@code verified=false}), used solely by the offline fetch/fit pipeline,
+     * are excluded.
+     *
+     * @return the verified application city slugs, in file order
+     */
+    public List<String> verifiedCityIds() {
+        return entries.stream().filter(Entry::verified).map(Entry::applicationCityId).toList();
+    }
+
     /** @return the parser version recorded in the mapping file. */
     public String parserVersion() {
         return parserVersion;

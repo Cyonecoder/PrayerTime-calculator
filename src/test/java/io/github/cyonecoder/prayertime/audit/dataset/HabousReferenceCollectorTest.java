@@ -179,7 +179,7 @@ class HabousReferenceCollectorTest {
     void unmappedCityIsReported(@TempDir Path root) {
         Fetcher fetcher = (id, d) -> HabousTestFixtures.monthHtml(CASA, 2026, 7);
         Record record = only(collector(fetcher, new HabousSnapshotStore(root), settings(3, false),
-                new RecordingSleeper()).collect(List.of("ifrane"), 2026, List.of(7)));
+                new RecordingSleeper()).collect(List.of("temara"), 2026, List.of(7)));
         assertThat(record.status()).isEqualTo(Status.UNMAPPED);
     }
 }

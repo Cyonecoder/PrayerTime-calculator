@@ -1,0 +1,2367 @@
+{
+  "note": "Independent per-city, per-prayer sec-approach training catalog for every candidate without current offsets. Only ACCEPTED cities carry offsets; all other statuses carry none (no fabricated parameters) and the provider fails closed.",
+  "caveat": "Holdout metrics are out-of-sample on a 30-day SUMMER window; fullDatasetMetrics are IN-SAMPLE. Not an annual accuracy claim.",
+  "gates": "per-city: full-exact>=90.0%, holdout-exact>=85.0%, within-1min>=98.0%, max-abs<=2min",
+  "searchLow": -900,
+  "searchHigh": 900,
+  "suspiciousOffsetSeconds": 600,
+  "summary": {
+    "ACCEPTED": 34,
+    "FAILED_ACCURACY_GATE": 12,
+    "MAPPING_UNVERIFIED": 7
+  },
+  "cities": [
+    {
+      "cityId": "al-hoceima",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "8b0d610ef569a76c9f47052a605468a05de00a716466729c168f715d87789eaa"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 3,
+        "sunrise": 78,
+        "dhuhr": 327,
+        "asr": -28,
+        "maghrib": -82,
+        "isha": 77
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 30,
+        "exactPercentage": 100.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.0,
+        "maxAbsoluteError": 0
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 177,
+        "exactPercentage": 98.33,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "assilah",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "1c4cf5710fa5d714c297b7f5ae32c57e605084406452c9c67a8020498e675998"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 7,
+        "sunrise": 79,
+        "dhuhr": 333,
+        "asr": -17,
+        "maghrib": -81,
+        "isha": 74
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 119,
+        "exactPercentage": 99.17,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.008,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 26,
+        "exactPercentage": 86.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.133,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 174,
+        "exactPercentage": 96.67,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "azrou",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "d8ccac60f79b8dfd3a7f0dbb975547814fd8bdd2bd78f5aceaa5bdadaa05c0b5"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 0,
+        "sunrise": 47,
+        "dhuhr": 330,
+        "asr": -19,
+        "maghrib": -20,
+        "isha": 77
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 30,
+        "exactPercentage": 100.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.0,
+        "maxAbsoluteError": 0
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 176,
+        "exactPercentage": 97.78,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.022,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "beni-mellal",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "18851687e9d6403feab1f5d15ed535f3728f6fba86823196279d2abce6e1a396"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 7,
+        "sunrise": -3,
+        "dhuhr": 334,
+        "asr": -23,
+        "maghrib": 19,
+        "isha": 79
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 29,
+        "exactPercentage": 96.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 26,
+        "exactPercentage": 86.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.133,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 173,
+        "exactPercentage": 96.11,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.039,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "benslimane",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "0b2a2425319538cdc3582429a824d90b1f029999df2f3c9426e9d74616cabfc9"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 4,
+        "sunrise": 86,
+        "dhuhr": 333,
+        "asr": -20,
+        "maghrib": -73,
+        "isha": 70
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 119,
+        "exactPercentage": 99.17,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.008,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 30,
+        "exactPercentage": 100.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.0,
+        "maxAbsoluteError": 0
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 176,
+        "exactPercentage": 97.78,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.022,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "berkane",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "9c27bd687f50e5643c172644005582e5a57b54eac8e2ac682f2deab6c6954d11"
+        ]
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 26,
+        "exactPercentage": 86.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.133,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 25,
+        "exactPercentage": 83.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.167,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 173,
+        "exactPercentage": 96.11,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.039,
+        "maxAbsoluteError": 1
+      },
+      "status": "FAILED_ACCURACY_GATE"
+    },
+    {
+      "cityId": "berrechid",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "a23f1ab13cb2b5978a08658db89f0e6d56e2e1dcda6b575454690c80ae5ee2ad"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 5,
+        "sunrise": 96,
+        "dhuhr": 329,
+        "asr": -25,
+        "maghrib": -91,
+        "isha": 74
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 115,
+        "exactPercentage": 95.83,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.042,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 26,
+        "exactPercentage": 86.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.133,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 170,
+        "exactPercentage": 94.44,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.056,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "boujdour",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "70795bba625d6044667d918698a1a951d33012f1523ac0eb53accc8d8f3916cd"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 12,
+        "sunrise": 85,
+        "dhuhr": 340,
+        "asr": -16,
+        "maghrib": -52,
+        "isha": 76
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 119,
+        "exactPercentage": 99.17,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.008,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 177,
+        "exactPercentage": 98.33,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "bouskoura",
+      "dataset": {
+        "observationCount": 0,
+        "sourceChecksums": []
+      },
+      "status": "MAPPING_UNVERIFIED"
+    },
+    {
+      "cityId": "bouznika",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "ba2ae0886970625b994de82650ab89854785a3132f7f4fa14d905c653fe2432e"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 1,
+        "sunrise": 88,
+        "dhuhr": 328,
+        "asr": -20,
+        "maghrib": -88,
+        "isha": 72
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 26,
+        "exactPercentage": 86.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.133,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 173,
+        "exactPercentage": 96.11,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.039,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "chefchaouen",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "06fbf90089ee85f357e5fc1ddfe0c77d818a8f821b9cf728ac96e92cf34dceac"
+        ]
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 120,
+        "exactPercentage": 100.0,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.0,
+        "maxAbsoluteError": 0
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 25,
+        "exactPercentage": 83.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.167,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 173,
+        "exactPercentage": 96.11,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.039,
+        "maxAbsoluteError": 1
+      },
+      "status": "FAILED_ACCURACY_GATE"
+    },
+    {
+      "cityId": "el-hajeb",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "c7148d5d10abd36c83e3b9e90e8110609df487c8e0890ddcc55167274831552c"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 9,
+        "sunrise": 62,
+        "dhuhr": 333,
+        "asr": -22,
+        "maghrib": -37,
+        "isha": 74
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 117,
+        "exactPercentage": 97.5,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.025,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 173,
+        "exactPercentage": 96.11,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.039,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "el-jadida",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "fb56dfa8bc40b8041cb79eb6ac11878dabd36e7c7b34c601ec6a51b4d7a3af37"
+        ]
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 120,
+        "exactPercentage": 100.0,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.0,
+        "maxAbsoluteError": 0
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 24,
+        "exactPercentage": 80.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.2,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 173,
+        "exactPercentage": 96.11,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.039,
+        "maxAbsoluteError": 1
+      },
+      "status": "FAILED_ACCURACY_GATE"
+    },
+    {
+      "cityId": "essaouira",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "08b82133c767243aacbf109e2315f312718305117fe13006a2b255dfb564fdc4"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 6,
+        "sunrise": 69,
+        "dhuhr": 334,
+        "asr": -19,
+        "maghrib": -52,
+        "isha": 86
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 120,
+        "exactPercentage": 100.0,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.0,
+        "maxAbsoluteError": 0
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 29,
+        "exactPercentage": 96.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 177,
+        "exactPercentage": 98.33,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "fkih-ben-salah",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "e1b1b1c2ec0030e16c1340616c00e9d1695529ee5cc6111ef16142466d5e8eaa"
+        ]
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 116,
+        "exactPercentage": 96.67,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 24,
+        "exactPercentage": 80.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.2,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 170,
+        "exactPercentage": 94.44,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.056,
+        "maxAbsoluteError": 1
+      },
+      "status": "FAILED_ACCURACY_GATE"
+    },
+    {
+      "cityId": "guelmim",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "652badb894a63c1c0dacdc07af22f2b14a6d19bcf4041b1acf7ee7406039bf01"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 3,
+        "sunrise": 26,
+        "dhuhr": 331,
+        "asr": -25,
+        "maghrib": -7,
+        "isha": 75
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 120,
+        "exactPercentage": 100.0,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.0,
+        "maxAbsoluteError": 0
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 30,
+        "exactPercentage": 100.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.0,
+        "maxAbsoluteError": 0
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 178,
+        "exactPercentage": 98.89,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.011,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "guercif",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "71cee7fbdb3114fbbd5470637256653a4fab91ad8bb6c62b8c5ceff08482e276"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 7,
+        "sunrise": 97,
+        "dhuhr": 333,
+        "asr": -21,
+        "maghrib": -82,
+        "isha": 71
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 117,
+        "exactPercentage": 97.5,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.025,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 29,
+        "exactPercentage": 96.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 175,
+        "exactPercentage": 97.22,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.028,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "ifrane",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "c1bcab890ccbcb8ccf75f30507936b90b1f67f9352a2623edc550b4a018971a3"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 0,
+        "sunrise": 75,
+        "dhuhr": 331,
+        "asr": -22,
+        "maghrib": -41,
+        "isha": 79
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 30,
+        "exactPercentage": 100.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.0,
+        "maxAbsoluteError": 0
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 26,
+        "exactPercentage": 86.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.133,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 174,
+        "exactPercentage": 96.67,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "kabila",
+      "dataset": {
+        "observationCount": 0,
+        "sourceChecksums": []
+      },
+      "status": "MAPPING_UNVERIFIED"
+    },
+    {
+      "cityId": "khemisset",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "d45bfbf2ed075d4f2e8a8a52c1bbd3059880e98661e5e59526cfa3411d98d9db"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 3,
+        "sunrise": 111,
+        "dhuhr": 334,
+        "asr": -18,
+        "maghrib": -79,
+        "isha": 76
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 117,
+        "exactPercentage": 97.5,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.025,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 175,
+        "exactPercentage": 97.22,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.028,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "khenifra",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "c9702fafc6beb26c3142099f51bba8dbb7a9a74c4001da6a0354f499efd76e7a"
+        ]
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 25,
+        "exactPercentage": 83.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.167,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 173,
+        "exactPercentage": 96.11,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.039,
+        "maxAbsoluteError": 1
+      },
+      "status": "FAILED_ACCURACY_GATE"
+    },
+    {
+      "cityId": "khouribga",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "c1647de88c04d6f104d0881156345a1bcf210337a3085edef956007976d7c990"
+        ]
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 25,
+        "exactPercentage": 83.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.167,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 23,
+        "exactPercentage": 76.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.233,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 173,
+        "exactPercentage": 96.11,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.039,
+        "maxAbsoluteError": 1
+      },
+      "status": "FAILED_ACCURACY_GATE"
+    },
+    {
+      "cityId": "ksar-el-kebir",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "64b5f944219f31d1736c6e32bf7f41b85239520f048f9caa5f584a21811dc2d9"
+        ]
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 120,
+        "exactPercentage": 100.0,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.0,
+        "maxAbsoluteError": 0
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 23,
+        "exactPercentage": 76.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.233,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 174,
+        "exactPercentage": 96.67,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "status": "FAILED_ACCURACY_GATE"
+    },
+    {
+      "cityId": "larache",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "ba69b071270fe0688c7fa34217cec0aaba4460a51079c9eb0b83e2242b57794f"
+        ]
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 117,
+        "exactPercentage": 97.5,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.025,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 22,
+        "exactPercentage": 73.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.267,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 169,
+        "exactPercentage": 93.89,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.061,
+        "maxAbsoluteError": 1
+      },
+      "status": "FAILED_ACCURACY_GATE"
+    },
+    {
+      "cityId": "martil",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "e005d5704aff22f61b61823289997ce5b4203b0a4507617af8a8213fa6265e35"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 12,
+        "sunrise": 73,
+        "dhuhr": 331,
+        "asr": -22,
+        "maghrib": -86,
+        "isha": 72
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 117,
+        "exactPercentage": 97.5,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.025,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 173,
+        "exactPercentage": 96.11,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.039,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "melilia",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "998c179eb376272b650a34d1f635cc3ba9ceaf1fbb0ee5ef44552f27364d7055"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 8,
+        "sunrise": 99,
+        "dhuhr": 337,
+        "asr": -19,
+        "maghrib": -101,
+        "isha": 82
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 29,
+        "exactPercentage": 96.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 177,
+        "exactPercentage": 98.33,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "midelt",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "6ac9508b321e159c95c89a78c2e175c2d5fcebd53a10a2150a39041d67b0946c"
+        ]
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 25,
+        "exactPercentage": 83.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.167,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 172,
+        "exactPercentage": 95.56,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.044,
+        "maxAbsoluteError": 1
+      },
+      "status": "FAILED_ACCURACY_GATE"
+    },
+    {
+      "cityId": "mohammedia",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "3f3ea30b148e499fbd502d72c78fdd0779c7ce6fade084220f08d0686e97d272"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 1,
+        "sunrise": 86,
+        "dhuhr": 334,
+        "asr": -18,
+        "maghrib": -90,
+        "isha": 87
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 26,
+        "exactPercentage": 86.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.133,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 172,
+        "exactPercentage": 95.56,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.044,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "nador",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "0338bb3cd9951dff1d3aca36bf7f159fdb43009a462042c4379826f5d6838e85"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 0,
+        "sunrise": 41,
+        "dhuhr": 329,
+        "asr": -21,
+        "maghrib": -56,
+        "isha": 74
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 119,
+        "exactPercentage": 99.17,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.008,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 26,
+        "exactPercentage": 86.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.133,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 173,
+        "exactPercentage": 96.11,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.039,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "oualidia",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "6cff5552e5c7014d72f550e64054014b9d1d9ddfe2b49926036abf4e482f3be8"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 13,
+        "sunrise": 81,
+        "dhuhr": 329,
+        "asr": -28,
+        "maghrib": -84,
+        "isha": 65
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 29,
+        "exactPercentage": 96.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 176,
+        "exactPercentage": 97.78,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.022,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "ouazzane",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "00064d2b084163933788858961fbe7d32453c7c53b934d3a00ff961b9d8dc681"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 0,
+        "sunrise": 13,
+        "dhuhr": 329,
+        "asr": -24,
+        "maghrib": -14,
+        "isha": 76
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 174,
+        "exactPercentage": 96.67,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "safi",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "63a1a20be1f81d3704f2691f24a202c9180e7540da58fff4ec4fb1d02097d196"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 2,
+        "sunrise": 78,
+        "dhuhr": 332,
+        "asr": -21,
+        "maghrib": -76,
+        "isha": 73
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 117,
+        "exactPercentage": 97.5,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.025,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 174,
+        "exactPercentage": 96.67,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "saidia",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "bbab5bcf4f4935858d3c91f330b783c7a73e91a0722ae5c9949fe383cd70fcb1"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": -26,
+        "sunrise": 55,
+        "dhuhr": 333,
+        "asr": -8,
+        "maghrib": -60,
+        "isha": 115
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 119,
+        "exactPercentage": 99.17,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.008,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 29,
+        "exactPercentage": 96.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 26,
+        "exactPercentage": 86.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.133,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 175,
+        "exactPercentage": 97.22,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.028,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "sale",
+      "dataset": {
+        "observationCount": 0,
+        "sourceChecksums": []
+      },
+      "status": "MAPPING_UNVERIFIED"
+    },
+    {
+      "cityId": "sebta",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "8fd9b1430aebc3bfeeb787517dfebabed1b7c47cc09d26b0fce7158e35cca8c8"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 14,
+        "sunrise": -30,
+        "dhuhr": 337,
+        "asr": -18,
+        "maghrib": 12,
+        "isha": 83
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 117,
+        "exactPercentage": 97.5,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.025,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 29,
+        "exactPercentage": 96.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 173,
+        "exactPercentage": 96.11,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.039,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "sefrou",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "cce041df3143f3a43a5565a0d67c10e41f704aecac72a198cd6af0d758263169"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 7,
+        "sunrise": 66,
+        "dhuhr": 335,
+        "asr": -16,
+        "maghrib": -30,
+        "isha": 79
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 119,
+        "exactPercentage": 99.17,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.008,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 30,
+        "exactPercentage": 100.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.0,
+        "maxAbsoluteError": 0
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 177,
+        "exactPercentage": 98.33,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "settat",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "5e8c2b06fcf5960594ecb029e86559d30a64a81196b1fbdeddc2762e833e4b02"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 10,
+        "sunrise": 94,
+        "dhuhr": 334,
+        "asr": -21,
+        "maghrib": -70,
+        "isha": 84
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 29,
+        "exactPercentage": 96.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 174,
+        "exactPercentage": 96.67,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "sidi-bennour",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "dc47d037b9fb0840e74d7fec721de6c76962f8c83976c515175cf501097828e4"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 0,
+        "sunrise": 114,
+        "dhuhr": 330,
+        "asr": -21,
+        "maghrib": -96,
+        "isha": 73
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 119,
+        "exactPercentage": 99.17,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.008,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 26,
+        "exactPercentage": 86.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.133,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 174,
+        "exactPercentage": 96.67,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "sidi-ifni",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "ec488c75ff9e6265615e64bc1682bbc4c17d79ddd6d31c92d109235a529dcb48"
+        ]
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 117,
+        "exactPercentage": 97.5,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.025,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 30,
+        "exactPercentage": 100.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.0,
+        "maxAbsoluteError": 0
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 25,
+        "exactPercentage": 83.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.167,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 173,
+        "exactPercentage": 96.11,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.039,
+        "maxAbsoluteError": 1
+      },
+      "status": "FAILED_ACCURACY_GATE"
+    },
+    {
+      "cityId": "sidi-kacem",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "4cd31da06c7af7c8756ac5c11f7aba3a360dd93c47caec7193a8f80b4a217074"
+        ]
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 23,
+        "exactPercentage": 76.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.233,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 170,
+        "exactPercentage": 94.44,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.056,
+        "maxAbsoluteError": 1
+      },
+      "status": "FAILED_ACCURACY_GATE"
+    },
+    {
+      "cityId": "sidi-rahal",
+      "dataset": {
+        "observationCount": 0,
+        "sourceChecksums": []
+      },
+      "status": "MAPPING_UNVERIFIED"
+    },
+    {
+      "cityId": "sidi-slimane",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "694246386b4ffd6cf87e0d2977efe34089ba2dccf9a3f93fbda6b612140e9681"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 2,
+        "sunrise": 111,
+        "dhuhr": 335,
+        "asr": -19,
+        "maghrib": -106,
+        "isha": 80
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 116,
+        "exactPercentage": 96.67,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 29,
+        "exactPercentage": 96.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 26,
+        "exactPercentage": 86.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.133,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 173,
+        "exactPercentage": 96.11,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.039,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "smara",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "f1afecdb0280589102a9c9ab68beb694d894520fe570fd59257695cbc59be3f8"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 0,
+        "sunrise": 100,
+        "dhuhr": 331,
+        "asr": -21,
+        "maghrib": -63,
+        "isha": 76
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 120,
+        "exactPercentage": 100.0,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.0,
+        "maxAbsoluteError": 0
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 29,
+        "exactPercentage": 96.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 179,
+        "exactPercentage": 99.44,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.006,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "tamansourt",
+      "dataset": {
+        "observationCount": 0,
+        "sourceChecksums": []
+      },
+      "status": "MAPPING_UNVERIFIED"
+    },
+    {
+      "cityId": "tamesna",
+      "dataset": {
+        "observationCount": 0,
+        "sourceChecksums": []
+      },
+      "status": "MAPPING_UNVERIFIED"
+    },
+    {
+      "cityId": "tan-tan",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "3fa866489ec9f17ba2c30e79f8f8d4d00958ed93c1b290d020e8fa4d8ca8042a"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 8,
+        "sunrise": 33,
+        "dhuhr": 333,
+        "asr": -26,
+        "maghrib": -25,
+        "isha": 69
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 118,
+        "exactPercentage": 98.33,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 26,
+        "exactPercentage": 86.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.133,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 174,
+        "exactPercentage": 96.67,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "tarfaya",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "ed9062984c985beb2a4e74dc68e14e76c33d719e154f1c0519058218a051d850"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 7,
+        "sunrise": 65,
+        "dhuhr": 330,
+        "asr": -26,
+        "maghrib": -58,
+        "isha": 63
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 119,
+        "exactPercentage": 99.17,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.008,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 29,
+        "exactPercentage": 96.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 177,
+        "exactPercentage": 98.33,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "taroudant",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "d1bbcca9057f107afaedabd75aad9e210c8bc32cd81a0087d75ee23d236dfa73"
+        ]
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 119,
+        "exactPercentage": 99.17,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.008,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 30,
+        "exactPercentage": 100.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.0,
+        "maxAbsoluteError": 0
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 25,
+        "exactPercentage": 83.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.167,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 176,
+        "exactPercentage": 97.78,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.022,
+        "maxAbsoluteError": 1
+      },
+      "status": "FAILED_ACCURACY_GATE"
+    },
+    {
+      "cityId": "taza",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "2b5016ccefe203233458232ae3ece8e3ab5d5e6a67d26aa9a370ba2e5a8e852c"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 3,
+        "sunrise": 29,
+        "dhuhr": 330,
+        "asr": -21,
+        "maghrib": -21,
+        "isha": 76
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 116,
+        "exactPercentage": 96.67,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 29,
+        "exactPercentage": 96.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 173,
+        "exactPercentage": 96.11,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.039,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "temara",
+      "dataset": {
+        "observationCount": 0,
+        "sourceChecksums": []
+      },
+      "status": "MAPPING_UNVERIFIED"
+    },
+    {
+      "cityId": "tiflet",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "67e74ed4945d0beb845b5ca6cb5b2c739bae93f8dcb65c7ea2148385ffdea23a"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": -1,
+        "sunrise": 52,
+        "dhuhr": 336,
+        "asr": -11,
+        "maghrib": -32,
+        "isha": 89
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 119,
+        "exactPercentage": 99.17,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.008,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 29,
+        "exactPercentage": 96.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 27,
+        "exactPercentage": 90.0,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.1,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 175,
+        "exactPercentage": 97.22,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.028,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "tinghir",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "8f53e684c04895add1ed2d870d9516fa27c65f6aa5daa7418c57d32814738307"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 2,
+        "sunrise": 41,
+        "dhuhr": 329,
+        "asr": -25,
+        "maghrib": -26,
+        "isha": 69
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 119,
+        "exactPercentage": 99.17,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.008,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 28,
+        "exactPercentage": 93.33,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.067,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 176,
+        "exactPercentage": 97.78,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.022,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    },
+    {
+      "cityId": "tiznit",
+      "dataset": {
+        "firstDate": "2026-06-17",
+        "lastDate": "2026-07-16",
+        "observationCount": 180,
+        "sourceChecksums": [
+          "178c52d45d32dfaf353fb5f9b2bc6135812670cb713380fa18dee69d8bedb74b"
+        ]
+      },
+      "offsetsSeconds": {
+        "fajr": 0,
+        "sunrise": 82,
+        "dhuhr": 328,
+        "asr": -26,
+        "maghrib": -73,
+        "isha": 76
+      },
+      "trainingMetrics": {
+        "observations": 120,
+        "exactCount": 119,
+        "exactPercentage": 99.17,
+        "withinOneCount": 120,
+        "meanAbsoluteError": 0.008,
+        "maxAbsoluteError": 1
+      },
+      "validationMetrics": {
+        "observations": 30,
+        "exactCount": 29,
+        "exactPercentage": 96.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.033,
+        "maxAbsoluteError": 1
+      },
+      "holdoutMetrics": {
+        "observations": 30,
+        "exactCount": 26,
+        "exactPercentage": 86.67,
+        "withinOneCount": 30,
+        "meanAbsoluteError": 0.133,
+        "maxAbsoluteError": 1
+      },
+      "fullDatasetMetrics": {
+        "observations": 180,
+        "exactCount": 177,
+        "exactPercentage": 98.33,
+        "withinOneCount": 180,
+        "meanAbsoluteError": 0.017,
+        "maxAbsoluteError": 1
+      },
+      "status": "ACCEPTED"
+    }
+  ]
+}

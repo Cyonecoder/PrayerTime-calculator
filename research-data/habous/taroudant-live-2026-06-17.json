@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "taroudant",
+  "habousVilleId": "118",
+  "habousArabicName": "تارودانت",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=118",
+  "fetchedAt": "2026-07-13T12:56:02.235095Z",
+  "sourceSha256": "d1bbcca9057f107afaedabd75aad9e210c8bc32cd81a0087d75ee23d236dfa73",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "taroudant",
+      "date": "2026-06-17",
+      "fajr": "04:49",
+      "sunrise": "06:29",
+      "dhuhr": "13:41",
+      "asr": "17:13",
+      "maghrib": "20:45",
+      "isha": "22:11"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-06-18",
+      "fajr": "04:49",
+      "sunrise": "06:29",
+      "dhuhr": "13:41",
+      "asr": "17:13",
+      "maghrib": "20:45",
+      "isha": "22:11"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-06-19",
+      "fajr": "04:49",
+      "sunrise": "06:29",
+      "dhuhr": "13:42",
+      "asr": "17:13",
+      "maghrib": "20:45",
+      "isha": "22:11"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-06-20",
+      "fajr": "04:49",
+      "sunrise": "06:29",
+      "dhuhr": "13:42",
+      "asr": "17:14",
+      "maghrib": "20:45",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-06-21",
+      "fajr": "04:49",
+      "sunrise": "06:29",
+      "dhuhr": "13:42",
+      "asr": "17:14",
+      "maghrib": "20:46",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-06-22",
+      "fajr": "04:49",
+      "sunrise": "06:30",
+      "dhuhr": "13:42",
+      "asr": "17:14",
+      "maghrib": "20:46",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-06-23",
+      "fajr": "04:50",
+      "sunrise": "06:30",
+      "dhuhr": "13:42",
+      "asr": "17:14",
+      "maghrib": "20:46",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-06-24",
+      "fajr": "04:50",
+      "sunrise": "06:30",
+      "dhuhr": "13:43",
+      "asr": "17:14",
+      "maghrib": "20:46",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-06-25",
+      "fajr": "04:50",
+      "sunrise": "06:30",
+      "dhuhr": "13:43",
+      "asr": "17:15",
+      "maghrib": "20:46",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-06-26",
+      "fajr": "04:51",
+      "sunrise": "06:31",
+      "dhuhr": "13:43",
+      "asr": "17:15",
+      "maghrib": "20:46",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-06-27",
+      "fajr": "04:51",
+      "sunrise": "06:31",
+      "dhuhr": "13:43",
+      "asr": "17:15",
+      "maghrib": "20:46",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-06-28",
+      "fajr": "04:51",
+      "sunrise": "06:31",
+      "dhuhr": "13:44",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-06-29",
+      "fajr": "04:52",
+      "sunrise": "06:32",
+      "dhuhr": "13:44",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-06-30",
+      "fajr": "04:52",
+      "sunrise": "06:32",
+      "dhuhr": "13:44",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-01",
+      "fajr": "04:53",
+      "sunrise": "06:32",
+      "dhuhr": "13:44",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-02",
+      "fajr": "04:53",
+      "sunrise": "06:33",
+      "dhuhr": "13:44",
+      "asr": "17:16",
+      "maghrib": "20:47",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-03",
+      "fajr": "04:54",
+      "sunrise": "06:33",
+      "dhuhr": "13:44",
+      "asr": "17:16",
+      "maghrib": "20:46",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-04",
+      "fajr": "04:54",
+      "sunrise": "06:34",
+      "dhuhr": "13:45",
+      "asr": "17:17",
+      "maghrib": "20:46",
+      "isha": "22:12"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-05",
+      "fajr": "04:55",
+      "sunrise": "06:34",
+      "dhuhr": "13:45",
+      "asr": "17:17",
+      "maghrib": "20:46",
+      "isha": "22:11"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-06",
+      "fajr": "04:56",
+      "sunrise": "06:35",
+      "dhuhr": "13:45",
+      "asr": "17:17",
+      "maghrib": "20:46",
+      "isha": "22:11"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-07",
+      "fajr": "04:56",
+      "sunrise": "06:35",
+      "dhuhr": "13:45",
+      "asr": "17:17",
+      "maghrib": "20:46",
+      "isha": "22:11"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-08",
+      "fajr": "04:57",
+      "sunrise": "06:36",
+      "dhuhr": "13:45",
+      "asr": "17:17",
+      "maghrib": "20:46",
+      "isha": "22:11"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-09",
+      "fajr": "04:58",
+      "sunrise": "06:36",
+      "dhuhr": "13:45",
+      "asr": "17:18",
+      "maghrib": "20:46",
+      "isha": "22:10"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-10",
+      "fajr": "04:58",
+      "sunrise": "06:37",
+      "dhuhr": "13:46",
+      "asr": "17:18",
+      "maghrib": "20:45",
+      "isha": "22:10"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-11",
+      "fajr": "04:59",
+      "sunrise": "06:37",
+      "dhuhr": "13:46",
+      "asr": "17:18",
+      "maghrib": "20:45",
+      "isha": "22:09"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-12",
+      "fajr": "05:00",
+      "sunrise": "06:38",
+      "dhuhr": "13:46",
+      "asr": "17:18",
+      "maghrib": "20:45",
+      "isha": "22:09"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-13",
+      "fajr": "05:00",
+      "sunrise": "06:38",
+      "dhuhr": "13:46",
+      "asr": "17:18",
+      "maghrib": "20:45",
+      "isha": "22:08"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-14",
+      "fajr": "05:01",
+      "sunrise": "06:39",
+      "dhuhr": "13:46",
+      "asr": "17:18",
+      "maghrib": "20:44",
+      "isha": "22:08"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-15",
+      "fajr": "05:02",
+      "sunrise": "06:39",
+      "dhuhr": "13:46",
+      "asr": "17:19",
+      "maghrib": "20:44",
+      "isha": "22:07"
+    },
+    {
+      "city": "taroudant",
+      "date": "2026-07-16",
+      "fajr": "05:03",
+      "sunrise": "06:40",
+      "dhuhr": "13:46",
+      "asr": "17:19",
+      "maghrib": "20:43",
+      "isha": "22:07"
+    }
+  ]
+}

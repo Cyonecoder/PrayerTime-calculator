@@ -1,0 +1,6600 @@
+{
+  "note": "Deterministic sec-approach training report. Per-city, per-prayer discrete integer-offset search; the same dataset reproduces this byte-for-byte.",
+  "searchLow": -900,
+  "searchHigh": 900,
+  "summary": {
+    "preserved": 14,
+    "written": 34,
+    "belowBand": 12,
+    "unresolved": 0,
+    "boundaryTouches": []
+  },
+  "cities": [
+    {
+      "city": "agadir",
+      "status": "PRESERVED",
+      "snapshotChecksum": "9588c7c41ff3d94235555d32e03ae761a14fbe71b13e9974341271ab0e2f9203",
+      "dayCount": 30,
+      "exactPercentage": 98.33,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 1,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 8,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 321,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -44,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -33,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 54,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "0": 28,
+            "1": 2
+          }
+        }
+      ]
+    },
+    {
+      "city": "casablanca",
+      "status": "PRESERVED",
+      "snapshotChecksum": "7ab1d6598eebe65d555098bceeac94878d231b29e2750134ada961eb92324401",
+      "dayCount": 30,
+      "exactPercentage": 97.78,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 22,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 85,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 349,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -11,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -49,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 86,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        }
+      ]
+    },
+    {
+      "city": "dakhla",
+      "status": "PRESERVED",
+      "snapshotChecksum": "c1efca04c2d3c1dd5daa29d1c31c0e15186102eb909457d4c58e8c9ead393c9f",
+      "dayCount": 30,
+      "exactPercentage": 98.33,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 5,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 48,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 334,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -21,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -29,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 69,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        }
+      ]
+    },
+    {
+      "city": "errachidia",
+      "status": "PRESERVED",
+      "snapshotChecksum": "6f767cdc5b6fd37c3e62ec968c3ffa278ca7707c4e2ed2613b0a6b9c99fdac34",
+      "dayCount": 30,
+      "exactPercentage": 95.0,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 9,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 26,
+          "exactPercentage": 86.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.133,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 26,
+            "1": 2
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 79,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 336,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -21,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -46,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 75,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 27,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "fez",
+      "status": "PRESERVED",
+      "snapshotChecksum": "d0a3905f08be5c2972b2401138d381a4181a9eefeebbd77935c38bb012e3faa5",
+      "dayCount": 30,
+      "exactPercentage": 96.67,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": -4,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 86,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 332,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -16,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -78,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 91,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 28,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "kenitra",
+      "status": "PRESERVED",
+      "snapshotChecksum": "8674781f814a7682b36d7070797465bdff017e0799882398a318c14035958fe8",
+      "dayCount": 30,
+      "exactPercentage": 96.67,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 9,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 42,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 335,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -24,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -49,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 70,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        }
+      ]
+    },
+    {
+      "city": "laayoune",
+      "status": "PRESERVED",
+      "snapshotChecksum": "2f91d79042bf032554e26d5d9d281432f83f35adf33267beff3d57e7bcb8dac6",
+      "dayCount": 30,
+      "exactPercentage": 96.67,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 9,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 107,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 335,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -22,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -88,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 70,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 26,
+          "exactPercentage": 86.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.133,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.133,
+          "errorHistogram": {
+            "-1": 4,
+            "0": 26
+          }
+        }
+      ]
+    },
+    {
+      "city": "marrakech",
+      "status": "PRESERVED",
+      "snapshotChecksum": "a10591fb410e1e677a05504aa30663e34328c6830b89d380c25a7547ebb9ea2e",
+      "dayCount": 30,
+      "exactPercentage": 97.22,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 13,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 80,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 341,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -14,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -44,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 82,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        }
+      ]
+    },
+    {
+      "city": "meknes",
+      "status": "PRESERVED",
+      "snapshotChecksum": "376d78f2adf9a56cf5178f95ccf87d19b6c9a2a92e647b653e3c8706007d370a",
+      "dayCount": 30,
+      "exactPercentage": 97.22,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 6,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 97,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 338,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -16,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -59,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 92,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.1,
+          "errorHistogram": {
+            "0": 27,
+            "1": 3
+          }
+        }
+      ]
+    },
+    {
+      "city": "ouarzazate",
+      "status": "PRESERVED",
+      "snapshotChecksum": "2b83deb48195385b2778329275d001115f99f7e1528a8b93c790078fe32e6952",
+      "dayCount": 30,
+      "exactPercentage": 97.22,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 14,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "0": 28,
+            "1": 2
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 67,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 334,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -22,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -32,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 79,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "0": 28,
+            "1": 2
+          }
+        }
+      ]
+    },
+    {
+      "city": "oujda",
+      "status": "PRESERVED",
+      "snapshotChecksum": "e32f30a73d426fbd8b1aee0a3370c2d4a57626ca5c272acdf730de7c5edff8d7",
+      "dayCount": 30,
+      "exactPercentage": 97.22,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 6,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 53,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 333,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -20,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -36,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 79,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        }
+      ]
+    },
+    {
+      "city": "rabat",
+      "status": "PRESERVED",
+      "snapshotChecksum": "1a98bfe79d2840d95916d61d2fce950811b434a347591ea9818bcc0c7a52f04b",
+      "dayCount": 30,
+      "exactPercentage": 97.78,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 4,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 112,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 332,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -27,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -108,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 68,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.1,
+          "errorHistogram": {
+            "-1": 3,
+            "0": 27
+          }
+        }
+      ]
+    },
+    {
+      "city": "tangier",
+      "status": "PRESERVED",
+      "snapshotChecksum": "6ba0a53ca0bcc46a5a3b58ca98e147535c27ef66e159286fae93b0c926d96225",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": -10,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 3,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 324,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -29,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -33,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 73,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 27,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "tetouan",
+      "status": "PRESERVED",
+      "snapshotChecksum": "f08187ffd4881e1d89fea2c4225c557265f6e59e40bbb985f88ce64bc43cfb4c",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 0,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": -13,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 329,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -32,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -8,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 67,
+          "fromBase": true,
+          "observations": 30,
+          "exactCount": 26,
+          "exactPercentage": 86.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.133,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 3,
+            "0": 26,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "al-hoceima",
+      "status": "WRITTEN",
+      "snapshotChecksum": "8b0d610ef569a76c9f47052a605468a05de00a716466729c168f715d87789eaa",
+      "dayCount": 30,
+      "exactPercentage": 98.33,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 3,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 78,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 327,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -28,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -82,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 77,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 28,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "assilah",
+      "status": "WRITTEN",
+      "snapshotChecksum": "1c4cf5710fa5d714c297b7f5ae32c57e605084406452c9c67a8020498e675998",
+      "dayCount": 30,
+      "exactPercentage": 96.67,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 7,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 79,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 333,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -17,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -81,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 74,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.1,
+          "errorHistogram": {
+            "-1": 3,
+            "0": 27
+          }
+        }
+      ]
+    },
+    {
+      "city": "azrou",
+      "status": "WRITTEN",
+      "snapshotChecksum": "d8ccac60f79b8dfd3a7f0dbb975547814fd8bdd2bd78f5aceaa5bdadaa05c0b5",
+      "dayCount": 30,
+      "exactPercentage": 97.78,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 0,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 47,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 330,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -19,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -20,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 77,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 28,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "beni-mellal",
+      "status": "WRITTEN",
+      "snapshotChecksum": "18851687e9d6403feab1f5d15ed535f3728f6fba86823196279d2abce6e1a396",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 7,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": -3,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 334,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -23,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": 19,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 79,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 25,
+          "exactPercentage": 83.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.167,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 25,
+            "1": 3
+          }
+        }
+      ]
+    },
+    {
+      "city": "benslimane",
+      "status": "WRITTEN",
+      "snapshotChecksum": "0b2a2425319538cdc3582429a824d90b1f029999df2f3c9426e9d74616cabfc9",
+      "dayCount": 30,
+      "exactPercentage": 97.78,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 4,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 86,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 333,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -20,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -73,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 70,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.1,
+          "errorHistogram": {
+            "-1": 3,
+            "0": 27
+          }
+        }
+      ]
+    },
+    {
+      "city": "berrechid",
+      "status": "WRITTEN",
+      "snapshotChecksum": "a23f1ab13cb2b5978a08658db89f0e6d56e2e1dcda6b575454690c80ae5ee2ad",
+      "dayCount": 30,
+      "exactPercentage": 94.44,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 5,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 27,
+            "1": 2
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 96,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 329,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -25,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -91,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 28,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 74,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 27,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "boujdour",
+      "status": "WRITTEN",
+      "snapshotChecksum": "70795bba625d6044667d918698a1a951d33012f1523ac0eb53accc8d8f3916cd",
+      "dayCount": 30,
+      "exactPercentage": 98.33,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 12,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 85,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 340,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -16,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -52,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 76,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        }
+      ]
+    },
+    {
+      "city": "bouznika",
+      "status": "WRITTEN",
+      "snapshotChecksum": "ba2ae0886970625b994de82650ab89854785a3132f7f4fa14d905c653fe2432e",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 1,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "0": 28,
+            "1": 2
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 88,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 328,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -20,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -88,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "0": 28,
+            "1": 2
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 72,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.1,
+          "errorHistogram": {
+            "-1": 3,
+            "0": 27
+          }
+        }
+      ]
+    },
+    {
+      "city": "el-hajeb",
+      "status": "WRITTEN",
+      "snapshotChecksum": "c7148d5d10abd36c83e3b9e90e8110609df487c8e0890ddcc55167274831552c",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 9,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 27,
+            "1": 2
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 62,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 333,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -22,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -37,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 74,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 27,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "essaouira",
+      "status": "WRITTEN",
+      "snapshotChecksum": "08b82133c767243aacbf109e2315f312718305117fe13006a2b255dfb564fdc4",
+      "dayCount": 30,
+      "exactPercentage": 98.33,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 6,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 69,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 334,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -19,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -52,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 86,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "0": 28,
+            "1": 2
+          }
+        }
+      ]
+    },
+    {
+      "city": "guelmim",
+      "status": "WRITTEN",
+      "snapshotChecksum": "652badb894a63c1c0dacdc07af22f2b14a6d19bcf4041b1acf7ee7406039bf01",
+      "dayCount": 30,
+      "exactPercentage": 98.89,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 3,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 26,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 331,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -25,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -7,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 75,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "guercif",
+      "status": "WRITTEN",
+      "snapshotChecksum": "71cee7fbdb3114fbbd5470637256653a4fab91ad8bb6c62b8c5ceff08482e276",
+      "dayCount": 30,
+      "exactPercentage": 97.22,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 7,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 97,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 333,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -21,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -82,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 71,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        }
+      ]
+    },
+    {
+      "city": "ifrane",
+      "status": "WRITTEN",
+      "snapshotChecksum": "c1bcab890ccbcb8ccf75f30507936b90b1f67f9352a2623edc550b4a018971a3",
+      "dayCount": 30,
+      "exactPercentage": 96.67,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 0,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 75,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 331,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -22,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -41,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 79,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 28,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "khemisset",
+      "status": "WRITTEN",
+      "snapshotChecksum": "d45bfbf2ed075d4f2e8a8a52c1bbd3059880e98661e5e59526cfa3411d98d9db",
+      "dayCount": 30,
+      "exactPercentage": 97.22,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 3,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 111,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 334,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -18,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -79,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 76,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 27,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "martil",
+      "status": "WRITTEN",
+      "snapshotChecksum": "e005d5704aff22f61b61823289997ce5b4203b0a4507617af8a8213fa6265e35",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 12,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "0": 28,
+            "1": 2
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 73,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 331,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -22,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -86,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 72,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.1,
+          "errorHistogram": {
+            "-1": 3,
+            "0": 27
+          }
+        }
+      ]
+    },
+    {
+      "city": "melilia",
+      "status": "WRITTEN",
+      "snapshotChecksum": "998c179eb376272b650a34d1f635cc3ba9ceaf1fbb0ee5ef44552f27364d7055",
+      "dayCount": 30,
+      "exactPercentage": 98.33,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 8,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 99,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 337,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -19,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -101,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 82,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        }
+      ]
+    },
+    {
+      "city": "mohammedia",
+      "status": "WRITTEN",
+      "snapshotChecksum": "3f3ea30b148e499fbd502d72c78fdd0779c7ce6fade084220f08d0686e97d272",
+      "dayCount": 30,
+      "exactPercentage": 95.56,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 1,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 26,
+          "exactPercentage": 86.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.133,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 3,
+            "0": 26,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 86,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 334,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -18,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -90,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 87,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.1,
+          "errorHistogram": {
+            "0": 27,
+            "1": 3
+          }
+        }
+      ]
+    },
+    {
+      "city": "nador",
+      "status": "WRITTEN",
+      "snapshotChecksum": "0338bb3cd9951dff1d3aca36bf7f159fdb43009a462042c4379826f5d6838e85",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 0,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.1,
+          "errorHistogram": {
+            "0": 27,
+            "1": 3
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 41,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 329,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -21,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -56,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 74,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 27,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "oualidia",
+      "status": "WRITTEN",
+      "snapshotChecksum": "6cff5552e5c7014d72f550e64054014b9d1d9ddfe2b49926036abf4e482f3be8",
+      "dayCount": 30,
+      "exactPercentage": 97.78,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 13,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "0": 28,
+            "1": 2
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 81,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 329,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -28,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -84,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 65,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        }
+      ]
+    },
+    {
+      "city": "ouazzane",
+      "status": "WRITTEN",
+      "snapshotChecksum": "00064d2b084163933788858961fbe7d32453c7c53b934d3a00ff961b9d8dc681",
+      "dayCount": 30,
+      "exactPercentage": 96.67,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 0,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 28,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 13,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 329,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -24,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -14,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 76,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 27,
+            "1": 2
+          }
+        }
+      ]
+    },
+    {
+      "city": "safi",
+      "status": "WRITTEN",
+      "snapshotChecksum": "63a1a20be1f81d3704f2691f24a202c9180e7540da58fff4ec4fb1d02097d196",
+      "dayCount": 30,
+      "exactPercentage": 96.67,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 2,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 78,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 332,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -21,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -76,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 73,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 27,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "saidia",
+      "status": "WRITTEN",
+      "snapshotChecksum": "bbab5bcf4f4935858d3c91f330b783c7a73e91a0722ae5c9949fe383cd70fcb1",
+      "dayCount": 30,
+      "exactPercentage": 97.22,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": -26,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 55,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 333,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -8,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -60,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "0": 28,
+            "1": 2
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 115,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.1,
+          "errorHistogram": {
+            "0": 27,
+            "1": 3
+          }
+        }
+      ]
+    },
+    {
+      "city": "sebta",
+      "status": "WRITTEN",
+      "snapshotChecksum": "8fd9b1430aebc3bfeeb787517dfebabed1b7c47cc09d26b0fce7158e35cca8c8",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 14,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": -30,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 337,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -18,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": 12,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 83,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 26,
+          "exactPercentage": 86.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.133,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 26,
+            "1": 3
+          }
+        }
+      ]
+    },
+    {
+      "city": "sefrou",
+      "status": "WRITTEN",
+      "snapshotChecksum": "cce041df3143f3a43a5565a0d67c10e41f704aecac72a198cd6af0d758263169",
+      "dayCount": 30,
+      "exactPercentage": 98.33,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 7,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 66,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 335,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -16,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -30,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 79,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        }
+      ]
+    },
+    {
+      "city": "settat",
+      "status": "WRITTEN",
+      "snapshotChecksum": "5e8c2b06fcf5960594ecb029e86559d30a64a81196b1fbdeddc2762e833e4b02",
+      "dayCount": 30,
+      "exactPercentage": 96.67,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 10,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 94,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 334,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -21,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -70,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 84,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 27,
+            "1": 2
+          }
+        }
+      ]
+    },
+    {
+      "city": "sidi-bennour",
+      "status": "WRITTEN",
+      "snapshotChecksum": "dc47d037b9fb0840e74d7fec721de6c76962f8c83976c515175cf501097828e4",
+      "dayCount": 30,
+      "exactPercentage": 96.67,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 0,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 114,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 330,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -21,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -96,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 73,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.1,
+          "errorHistogram": {
+            "-1": 3,
+            "0": 27
+          }
+        }
+      ]
+    },
+    {
+      "city": "sidi-slimane",
+      "status": "WRITTEN",
+      "snapshotChecksum": "694246386b4ffd6cf87e0d2977efe34089ba2dccf9a3f93fbda6b612140e9681",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 2,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 111,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 335,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -19,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -106,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 80,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 26,
+          "exactPercentage": 86.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.133,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 26,
+            "1": 2
+          }
+        }
+      ]
+    },
+    {
+      "city": "smara",
+      "status": "WRITTEN",
+      "snapshotChecksum": "f1afecdb0280589102a9c9ab68beb694d894520fe570fd59257695cbc59be3f8",
+      "dayCount": 30,
+      "exactPercentage": 99.44,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 0,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 100,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 331,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -21,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -63,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 76,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        }
+      ]
+    },
+    {
+      "city": "tan-tan",
+      "status": "WRITTEN",
+      "snapshotChecksum": "3fa866489ec9f17ba2c30e79f8f8d4d00958ed93c1b290d020e8fa4d8ca8042a",
+      "dayCount": 30,
+      "exactPercentage": 96.67,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 8,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 28,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 33,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 333,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -26,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -25,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 69,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        }
+      ]
+    },
+    {
+      "city": "tarfaya",
+      "status": "WRITTEN",
+      "snapshotChecksum": "ed9062984c985beb2a4e74dc68e14e76c33d719e154f1c0519058218a051d850",
+      "dayCount": 30,
+      "exactPercentage": 98.33,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 7,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 65,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 330,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -26,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -58,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 63,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        }
+      ]
+    },
+    {
+      "city": "taza",
+      "status": "WRITTEN",
+      "snapshotChecksum": "2b5016ccefe203233458232ae3ece8e3ab5d5e6a67d26aa9a370ba2e5a8e852c",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 3,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 29,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 330,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -21,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -21,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 76,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 27,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "tiflet",
+      "status": "WRITTEN",
+      "snapshotChecksum": "67e74ed4945d0beb845b5ca6cb5b2c739bae93f8dcb65c7ea2148385ffdea23a",
+      "dayCount": 30,
+      "exactPercentage": 97.22,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": -1,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 52,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 336,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -11,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -32,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 89,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 27,
+            "1": 2
+          }
+        }
+      ]
+    },
+    {
+      "city": "tinghir",
+      "status": "WRITTEN",
+      "snapshotChecksum": "8f53e684c04895add1ed2d870d9516fa27c65f6aa5daa7418c57d32814738307",
+      "dayCount": 30,
+      "exactPercentage": 97.78,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 2,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 41,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 329,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -25,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -26,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 69,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        }
+      ]
+    },
+    {
+      "city": "tiznit",
+      "status": "WRITTEN",
+      "snapshotChecksum": "178c52d45d32dfaf353fb5f9b2bc6135812670cb713380fa18dee69d8bedb74b",
+      "dayCount": 30,
+      "exactPercentage": 98.33,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 0,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 82,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 328,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -26,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -73,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 76,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        }
+      ]
+    },
+    {
+      "city": "berkane",
+      "status": "BELOW_BAND",
+      "snapshotChecksum": "9c27bd687f50e5643c172644005582e5a57b54eac8e2ac682f2deab6c6954d11",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 3,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 121,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 338,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -19,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -102,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 83,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 26,
+          "exactPercentage": 86.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.133,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 3,
+            "0": 26,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "chefchaouen",
+      "status": "BELOW_BAND",
+      "snapshotChecksum": "06fbf90089ee85f357e5fc1ddfe0c77d818a8f821b9cf728ac96e92cf34dceac",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 8,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": -9,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 329,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -22,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": 6,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 82,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "0": 28,
+            "1": 2
+          }
+        }
+      ]
+    },
+    {
+      "city": "el-jadida",
+      "status": "BELOW_BAND",
+      "snapshotChecksum": "fb56dfa8bc40b8041cb79eb6ac11878dabd36e7c7b34c601ec6a51b4d7a3af37",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 0,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 28,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 80,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 332,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -15,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -83,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 70,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 26,
+          "exactPercentage": 86.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.133,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.133,
+          "errorHistogram": {
+            "-1": 4,
+            "0": 26
+          }
+        }
+      ]
+    },
+    {
+      "city": "fkih-ben-salah",
+      "status": "BELOW_BAND",
+      "snapshotChecksum": "e1b1b1c2ec0030e16c1340616c00e9d1695529ee5cc6111ef16142466d5e8eaa",
+      "dayCount": 30,
+      "exactPercentage": 94.44,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 7,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 80,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 332,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -22,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -65,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 76,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 24,
+          "exactPercentage": 80.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.2,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 3,
+            "0": 24,
+            "1": 3
+          }
+        }
+      ]
+    },
+    {
+      "city": "khenifra",
+      "status": "BELOW_BAND",
+      "snapshotChecksum": "c9702fafc6beb26c3142099f51bba8dbb7a9a74c4001da6a0354f499efd76e7a",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 12,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "0": 28,
+            "1": 2
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 57,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 332,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -22,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -31,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 80,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 27,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "khouribga",
+      "status": "BELOW_BAND",
+      "snapshotChecksum": "c1647de88c04d6f104d0881156345a1bcf210337a3085edef956007976d7c990",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 0,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 78,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.033,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 29
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 329,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -22,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -50,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "0": 28,
+            "1": 2
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 66,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        }
+      ]
+    },
+    {
+      "city": "ksar-el-kebir",
+      "status": "BELOW_BAND",
+      "snapshotChecksum": "64b5f944219f31d1736c6e32bf7f41b85239520f048f9caa5f584a21811dc2d9",
+      "dayCount": 30,
+      "exactPercentage": 96.67,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 7,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 28,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 64,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 330,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -16,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -63,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 78,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 28,
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "city": "larache",
+      "status": "BELOW_BAND",
+      "snapshotChecksum": "ba69b071270fe0688c7fa34217cec0aaba4460a51079c9eb0b83e2242b57794f",
+      "dayCount": 30,
+      "exactPercentage": 93.89,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 0,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 24,
+          "exactPercentage": 80.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.2,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.2,
+          "errorHistogram": {
+            "-1": 6,
+            "0": 24
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 91,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 329,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -26,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -100,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 72,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 26,
+          "exactPercentage": 86.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.133,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 26,
+            "1": 2
+          }
+        }
+      ]
+    },
+    {
+      "city": "midelt",
+      "status": "BELOW_BAND",
+      "snapshotChecksum": "6ac9508b321e159c95c89a78c2e175c2d5fcebd53a10a2150a39041d67b0946c",
+      "dayCount": 30,
+      "exactPercentage": 95.56,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 2,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 42,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 333,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -22,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -20,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 78,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 25,
+          "exactPercentage": 83.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.167,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 25,
+            "1": 3
+          }
+        }
+      ]
+    },
+    {
+      "city": "sidi-ifni",
+      "status": "BELOW_BAND",
+      "snapshotChecksum": "ec488c75ff9e6265615e64bc1682bbc4c17d79ddd6d31c92d109235a529dcb48",
+      "dayCount": 30,
+      "exactPercentage": 96.11,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 7,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 17,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 331,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -24,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -12,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "0": 28,
+            "1": 2
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 76,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 26,
+          "exactPercentage": 86.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.133,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 26,
+            "1": 3
+          }
+        }
+      ]
+    },
+    {
+      "city": "sidi-kacem",
+      "status": "BELOW_BAND",
+      "snapshotChecksum": "4cd31da06c7af7c8756ac5c11f7aba3a360dd93c47caec7193a8f80b4a217074",
+      "dayCount": 30,
+      "exactPercentage": 94.44,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": 7,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 28,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": -2,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 332,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -21,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": 0,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 27,
+          "exactPercentage": 90.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.1,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.1,
+          "errorHistogram": {
+            "0": 27,
+            "1": 3
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 78,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 26,
+          "exactPercentage": 86.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.133,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.067,
+          "errorHistogram": {
+            "-1": 1,
+            "0": 26,
+            "1": 3
+          }
+        }
+      ]
+    },
+    {
+      "city": "taroudant",
+      "status": "BELOW_BAND",
+      "snapshotChecksum": "d1bbcca9057f107afaedabd75aad9e210c8bc32cd81a0087d75ee23d236dfa73",
+      "dayCount": 30,
+      "exactPercentage": 97.78,
+      "boundaryTouched": false,
+      "prayers": [
+        {
+          "prayer": "fajr",
+          "offset": -14,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "sunrise",
+          "offset": 74,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "dhuhr",
+          "offset": 311,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "asr",
+          "offset": -41,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 30,
+          "exactPercentage": 100.0,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.0,
+          "maxAbsoluteError": 0,
+          "signedMeanError": 0.0,
+          "errorHistogram": {
+            "0": 30
+          }
+        },
+        {
+          "prayer": "maghrib",
+          "offset": -94,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 29,
+          "exactPercentage": 96.67,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.033,
+          "maxAbsoluteError": 1,
+          "signedMeanError": 0.033,
+          "errorHistogram": {
+            "0": 29,
+            "1": 1
+          }
+        },
+        {
+          "prayer": "isha",
+          "offset": 48,
+          "fromBase": false,
+          "observations": 30,
+          "exactCount": 28,
+          "exactPercentage": 93.33,
+          "withinOneCount": 30,
+          "withinOnePercentage": 100.0,
+          "meanAbsoluteError": 0.067,
+          "maxAbsoluteError": 1,
+          "signedMeanError": -0.067,
+          "errorHistogram": {
+            "-1": 2,
+            "0": 28
+          }
+        }
+      ]
+    }
+  ]
+}

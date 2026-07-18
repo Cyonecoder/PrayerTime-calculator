@@ -130,20 +130,9 @@ public final class HabousDatasetCommand {
     }
 
     private static List<String> resolveCities(String value, HabousCityMapping mapping) {
-        if (value.trim().equalsIgnoreCase("all-mapped")) {
-            return mapping.mappedCityIds();
-        }
-        List<String> cities = new ArrayList<>();
-        for (String part : value.split(",")) {
-            String trimmed = part.trim();
-            if (!trimmed.isEmpty()) {
-                cities.add(trimmed.toLowerCase(Locale.ROOT));
-            }
-        }
-        if (cities.isEmpty()) {
-            throw new IllegalArgumentException("no cities resolved from --cities " + value);
-        }
-        return cities;
+        // Named selectors (all-mapped, all-candidates, all-new-verified, …) plus
+        // explicit comma lists, via the shared research selector.
+        return ResearchCitySelector.resolve(value);
     }
 
     /** Parses "1-12" or "1,3,5" or "7" into an ascending, de-duplicated month list. */

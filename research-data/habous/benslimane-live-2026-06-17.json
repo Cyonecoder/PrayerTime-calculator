@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "benslimane",
+  "habousVilleId": "60",
+  "habousArabicName": "بن سليمان",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=60",
+  "fetchedAt": "2026-07-13T12:55:23.711887Z",
+  "sourceSha256": "0b2a2425319538cdc3582429a824d90b1f029999df2f3c9426e9d74616cabfc9",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "benslimane",
+      "date": "2026-06-17",
+      "fajr": "04:27",
+      "sunrise": "06:14",
+      "dhuhr": "13:34",
+      "asr": "17:14",
+      "maghrib": "20:46",
+      "isha": "22:18"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-06-18",
+      "fajr": "04:27",
+      "sunrise": "06:14",
+      "dhuhr": "13:35",
+      "asr": "17:14",
+      "maghrib": "20:46",
+      "isha": "22:18"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-06-19",
+      "fajr": "04:27",
+      "sunrise": "06:14",
+      "dhuhr": "13:35",
+      "asr": "17:14",
+      "maghrib": "20:47",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-06-20",
+      "fajr": "04:27",
+      "sunrise": "06:14",
+      "dhuhr": "13:35",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-06-21",
+      "fajr": "04:27",
+      "sunrise": "06:14",
+      "dhuhr": "13:35",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-06-22",
+      "fajr": "04:28",
+      "sunrise": "06:15",
+      "dhuhr": "13:36",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-06-23",
+      "fajr": "04:28",
+      "sunrise": "06:15",
+      "dhuhr": "13:36",
+      "asr": "17:15",
+      "maghrib": "20:47",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-06-24",
+      "fajr": "04:28",
+      "sunrise": "06:15",
+      "dhuhr": "13:36",
+      "asr": "17:15",
+      "maghrib": "20:48",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-06-25",
+      "fajr": "04:29",
+      "sunrise": "06:15",
+      "dhuhr": "13:36",
+      "asr": "17:16",
+      "maghrib": "20:48",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-06-26",
+      "fajr": "04:29",
+      "sunrise": "06:16",
+      "dhuhr": "13:36",
+      "asr": "17:16",
+      "maghrib": "20:48",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-06-27",
+      "fajr": "04:29",
+      "sunrise": "06:16",
+      "dhuhr": "13:37",
+      "asr": "17:16",
+      "maghrib": "20:48",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-06-28",
+      "fajr": "04:30",
+      "sunrise": "06:16",
+      "dhuhr": "13:37",
+      "asr": "17:16",
+      "maghrib": "20:48",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-06-29",
+      "fajr": "04:30",
+      "sunrise": "06:17",
+      "dhuhr": "13:37",
+      "asr": "17:16",
+      "maghrib": "20:48",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-06-30",
+      "fajr": "04:31",
+      "sunrise": "06:17",
+      "dhuhr": "13:37",
+      "asr": "17:17",
+      "maghrib": "20:48",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-01",
+      "fajr": "04:31",
+      "sunrise": "06:18",
+      "dhuhr": "13:37",
+      "asr": "17:17",
+      "maghrib": "20:48",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-02",
+      "fajr": "04:32",
+      "sunrise": "06:18",
+      "dhuhr": "13:38",
+      "asr": "17:17",
+      "maghrib": "20:48",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-03",
+      "fajr": "04:33",
+      "sunrise": "06:19",
+      "dhuhr": "13:38",
+      "asr": "17:17",
+      "maghrib": "20:48",
+      "isha": "22:19"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-04",
+      "fajr": "04:33",
+      "sunrise": "06:19",
+      "dhuhr": "13:38",
+      "asr": "17:17",
+      "maghrib": "20:48",
+      "isha": "22:18"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-05",
+      "fajr": "04:34",
+      "sunrise": "06:19",
+      "dhuhr": "13:38",
+      "asr": "17:18",
+      "maghrib": "20:48",
+      "isha": "22:18"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-06",
+      "fajr": "04:35",
+      "sunrise": "06:20",
+      "dhuhr": "13:38",
+      "asr": "17:18",
+      "maghrib": "20:47",
+      "isha": "22:18"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-07",
+      "fajr": "04:35",
+      "sunrise": "06:21",
+      "dhuhr": "13:39",
+      "asr": "17:18",
+      "maghrib": "20:47",
+      "isha": "22:17"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-08",
+      "fajr": "04:36",
+      "sunrise": "06:21",
+      "dhuhr": "13:39",
+      "asr": "17:18",
+      "maghrib": "20:47",
+      "isha": "22:17"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-09",
+      "fajr": "04:37",
+      "sunrise": "06:22",
+      "dhuhr": "13:39",
+      "asr": "17:18",
+      "maghrib": "20:47",
+      "isha": "22:17"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-10",
+      "fajr": "04:38",
+      "sunrise": "06:22",
+      "dhuhr": "13:39",
+      "asr": "17:18",
+      "maghrib": "20:46",
+      "isha": "22:16"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-11",
+      "fajr": "04:38",
+      "sunrise": "06:23",
+      "dhuhr": "13:39",
+      "asr": "17:18",
+      "maghrib": "20:46",
+      "isha": "22:16"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-12",
+      "fajr": "04:39",
+      "sunrise": "06:23",
+      "dhuhr": "13:39",
+      "asr": "17:19",
+      "maghrib": "20:46",
+      "isha": "22:15"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-13",
+      "fajr": "04:40",
+      "sunrise": "06:24",
+      "dhuhr": "13:39",
+      "asr": "17:19",
+      "maghrib": "20:45",
+      "isha": "22:14"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-14",
+      "fajr": "04:41",
+      "sunrise": "06:24",
+      "dhuhr": "13:39",
+      "asr": "17:19",
+      "maghrib": "20:45",
+      "isha": "22:14"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-15",
+      "fajr": "04:42",
+      "sunrise": "06:25",
+      "dhuhr": "13:40",
+      "asr": "17:19",
+      "maghrib": "20:45",
+      "isha": "22:13"
+    },
+    {
+      "city": "benslimane",
+      "date": "2026-07-16",
+      "fajr": "04:43",
+      "sunrise": "06:26",
+      "dhuhr": "13:40",
+      "asr": "17:19",
+      "maghrib": "20:44",
+      "isha": "22:12"
+    }
+  ]
+}

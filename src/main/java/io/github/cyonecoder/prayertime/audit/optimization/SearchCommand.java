@@ -4,6 +4,7 @@ import io.github.cyonecoder.prayertime.audit.dataset.HabousDatasetCommand;
 import io.github.cyonecoder.prayertime.audit.optimization.ParameterSearchService.PrayerSearchResult;
 import io.github.cyonecoder.prayertime.audit.optimization.PrayerParameterSearch.CombinedResult;
 import io.github.cyonecoder.prayertime.domain.model.Prayer;
+import io.github.cyonecoder.prayertime.infrastructure.city.MoroccoCityRegistry;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.UncheckedIOException;
@@ -82,6 +83,25 @@ public final class SearchCommand {
                 case "rank-candidates" -> rankCandidates(flags, out);
                 case "fetch-habous" -> new HabousDatasetCommand().fetch(flags, out);
                 case "fetch-habous-live" -> new HabousDatasetCommand().fetchLive(flags, out);
+                case "verify-habous-cities" ->
+                        new io.github.cyonecoder.prayertime.audit.dataset
+                                .HabousCityVerificationCommand().run(flags, out);
+                case "train-secaproach", "train-secapproach" ->
+                        new io.github.cyonecoder.prayertime.audit.secapproach
+                                .SecApproachTrainingCommand(new MoroccoCityRegistry(), engine)
+                                .run(flags, out);
+                case "train-new-cities" ->
+                        new io.github.cyonecoder.prayertime.audit.secapproach
+                                .SecApproachNewCityTrainingCommand(new MoroccoCityRegistry(), engine)
+                                .run(flags, out);
+                case "evaluate-secapproach", "evaluate-secaproach" ->
+                        new io.github.cyonecoder.prayertime.audit.secapproach
+                                .SecApproachEvaluationCommand(new MoroccoCityRegistry(), engine)
+                                .run(flags, out);
+                case "reports", "secapproach-reports" ->
+                        new io.github.cyonecoder.prayertime.audit.secapproach
+                                .SecApproachReportsCommand(new MoroccoCityRegistry(), engine)
+                                .run(flags, out);
                 case "dataset-coverage" -> new HabousDatasetCommand().coverage(flags, out);
                 case "infer-global-model" ->
                         new io.github.cyonecoder.prayertime.audit.model.GlobalModelCommand(
@@ -392,7 +412,19 @@ public final class SearchCommand {
         out.println("  research dataset-coverage --dataset <dir> --year <y> --months <1-12|1,2> "
                 + "[--output dir]");
         out.println("  research infer-global-model --dataset <dir> [--output dir]");
-        out.println("  research fetch-habous-live --cities <all-mapped|a,b> "
+        out.println("  research fetch-habous-live --cities <selector|a,b> "
                 + "[--output dir] [--delay-seconds n]");
+        out.println("  research train-secapproach --dataset <dir> "
+                + "[--cities <selector|a,b>] [--from d] [--to d] [--base file] "
+                + "[--low -900] [--high 900] [--output dir]");
+        out.println("  research train-new-cities --dataset <dir> "
+                + "[--low -900] [--high 900] [--suspicious-seconds 600] [--output file]");
+        out.println("  research evaluate-secapproach --dataset <dir> --parameters <file> "
+                + "[--baseline global] [--cities <selector|a,b>] [--from d] [--to d] [--output dir]");
+        out.println("  research reports [--dataset <dir>] [--base file] [--output dir]");
+        out.println("  research verify-habous-cities [--inventory all-67] [--output dir] "
+                + "[--delay-seconds n] [--dropdown-ville id] [--mapping file]");
+        out.println("  selectors: all-candidates/all-67, all-mapped, all-new-verified, "
+                + "all-sec-supported, existing-sec");
     }
 }

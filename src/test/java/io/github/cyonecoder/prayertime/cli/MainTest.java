@@ -157,7 +157,7 @@ class MainTest {
 
         assertThat(code).isZero();
         String o = out();
-        assertThat(o).contains("Sec-Approach", "morocco-habous-secaproach-v1", "SecApp", "Official");
+        assertThat(o).contains("Sec-Approach", "morocco-habous-secaproach-v2", "SecApp", "Official");
         // Every prayer difference against official is +0 on this date.
         assertThat(o).contains("fajr", "+0");
     }
@@ -234,5 +234,36 @@ class MainTest {
     void unknownCommandIsUsageError() {
         assertThat(run("frobnicate")).isEqualTo(2);
         assertThat(err()).contains("unknown command");
+    }
+
+    @Test
+    void secaproachCandidateCityComparesAgainstResearchOracle() {
+        int code = run("secaproach", "--city", "safi", "--from", "2026-07-05", "--to", "2026-07-07");
+
+        assertThat(code).isZero();
+        String o = out();
+        assertThat(o).contains("Safi (safi)", "Sec-Approach", "vs official", "exact");
+        // A candidate city has no bundled production snapshot, so the diagnostic
+        // draws on the off-classpath research oracle and says so.
+        assertThat(o).contains("research oracle");
+    }
+
+    @Test
+    void secaproachProductionCityUsesBundledOfficialWithoutResearchNote() {
+        int code = run("secaproach", "--city", "rabat", "--from", "2026-07-05", "--to", "2026-07-07");
+
+        assertThat(code).isZero();
+        String o = out();
+        assertThat(o).contains("Rabat (rabat)", "vs official", "exact");
+        // Rabat has a bundled production snapshot, so no research-oracle fallback.
+        assertThat(o).doesNotContain("research oracle");
+    }
+
+    @Test
+    void secaproachUnsupportedCityFailsClosed() {
+        int code = run("secaproach", "--city", "larache", "--date", "2026-07-07");
+
+        assertThat(code).isEqualTo(2);
+        assertThat(err()).contains("no sec-approach offsets for city 'larache'");
     }
 }

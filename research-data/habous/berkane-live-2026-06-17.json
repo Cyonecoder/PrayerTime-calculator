@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "berkane",
+  "habousVilleId": "32",
+  "habousArabicName": "بركان",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=32",
+  "fetchedAt": "2026-07-13T12:55:24.751859Z",
+  "sourceSha256": "9c27bd687f50e5643c172644005582e5a57b54eac8e2ac682f2deab6c6954d11",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "berkane",
+      "date": "2026-06-17",
+      "fajr": "04:01",
+      "sunrise": "05:52",
+      "dhuhr": "13:15",
+      "asr": "16:58",
+      "maghrib": "20:30",
+      "isha": "22:05"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-06-18",
+      "fajr": "04:01",
+      "sunrise": "05:52",
+      "dhuhr": "13:16",
+      "asr": "16:58",
+      "maghrib": "20:30",
+      "isha": "22:05"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-06-19",
+      "fajr": "04:01",
+      "sunrise": "05:52",
+      "dhuhr": "13:16",
+      "asr": "16:58",
+      "maghrib": "20:31",
+      "isha": "22:06"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-06-20",
+      "fajr": "04:01",
+      "sunrise": "05:52",
+      "dhuhr": "13:16",
+      "asr": "16:58",
+      "maghrib": "20:31",
+      "isha": "22:06"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-06-21",
+      "fajr": "04:01",
+      "sunrise": "05:52",
+      "dhuhr": "13:16",
+      "asr": "16:59",
+      "maghrib": "20:31",
+      "isha": "22:06"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-06-22",
+      "fajr": "04:02",
+      "sunrise": "05:53",
+      "dhuhr": "13:16",
+      "asr": "16:59",
+      "maghrib": "20:31",
+      "isha": "22:06"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-06-23",
+      "fajr": "04:02",
+      "sunrise": "05:53",
+      "dhuhr": "13:17",
+      "asr": "16:59",
+      "maghrib": "20:31",
+      "isha": "22:07"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-06-24",
+      "fajr": "04:02",
+      "sunrise": "05:53",
+      "dhuhr": "13:17",
+      "asr": "16:59",
+      "maghrib": "20:32",
+      "isha": "22:07"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-06-25",
+      "fajr": "04:02",
+      "sunrise": "05:53",
+      "dhuhr": "13:17",
+      "asr": "17:00",
+      "maghrib": "20:32",
+      "isha": "22:07"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-06-26",
+      "fajr": "04:03",
+      "sunrise": "05:54",
+      "dhuhr": "13:17",
+      "asr": "17:00",
+      "maghrib": "20:32",
+      "isha": "22:07"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-06-27",
+      "fajr": "04:03",
+      "sunrise": "05:54",
+      "dhuhr": "13:18",
+      "asr": "17:00",
+      "maghrib": "20:32",
+      "isha": "22:07"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-06-28",
+      "fajr": "04:04",
+      "sunrise": "05:54",
+      "dhuhr": "13:18",
+      "asr": "17:00",
+      "maghrib": "20:32",
+      "isha": "22:07"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-06-29",
+      "fajr": "04:04",
+      "sunrise": "05:55",
+      "dhuhr": "13:18",
+      "asr": "17:00",
+      "maghrib": "20:32",
+      "isha": "22:07"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-06-30",
+      "fajr": "04:05",
+      "sunrise": "05:55",
+      "dhuhr": "13:18",
+      "asr": "17:01",
+      "maghrib": "20:32",
+      "isha": "22:06"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-01",
+      "fajr": "04:05",
+      "sunrise": "05:56",
+      "dhuhr": "13:18",
+      "asr": "17:01",
+      "maghrib": "20:32",
+      "isha": "22:06"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-02",
+      "fajr": "04:06",
+      "sunrise": "05:56",
+      "dhuhr": "13:19",
+      "asr": "17:01",
+      "maghrib": "20:32",
+      "isha": "22:06"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-03",
+      "fajr": "04:07",
+      "sunrise": "05:56",
+      "dhuhr": "13:19",
+      "asr": "17:01",
+      "maghrib": "20:32",
+      "isha": "22:06"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-04",
+      "fajr": "04:07",
+      "sunrise": "05:57",
+      "dhuhr": "13:19",
+      "asr": "17:01",
+      "maghrib": "20:32",
+      "isha": "22:05"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-05",
+      "fajr": "04:08",
+      "sunrise": "05:57",
+      "dhuhr": "13:19",
+      "asr": "17:01",
+      "maghrib": "20:31",
+      "isha": "22:05"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-06",
+      "fajr": "04:09",
+      "sunrise": "05:58",
+      "dhuhr": "13:19",
+      "asr": "17:02",
+      "maghrib": "20:31",
+      "isha": "22:05"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-07",
+      "fajr": "04:09",
+      "sunrise": "05:58",
+      "dhuhr": "13:19",
+      "asr": "17:02",
+      "maghrib": "20:31",
+      "isha": "22:04"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-08",
+      "fajr": "04:10",
+      "sunrise": "05:59",
+      "dhuhr": "13:20",
+      "asr": "17:02",
+      "maghrib": "20:31",
+      "isha": "22:04"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-09",
+      "fajr": "04:11",
+      "sunrise": "06:00",
+      "dhuhr": "13:20",
+      "asr": "17:02",
+      "maghrib": "20:30",
+      "isha": "22:03"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-10",
+      "fajr": "04:12",
+      "sunrise": "06:00",
+      "dhuhr": "13:20",
+      "asr": "17:02",
+      "maghrib": "20:30",
+      "isha": "22:03"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-11",
+      "fajr": "04:13",
+      "sunrise": "06:01",
+      "dhuhr": "13:20",
+      "asr": "17:02",
+      "maghrib": "20:30",
+      "isha": "22:02"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-12",
+      "fajr": "04:14",
+      "sunrise": "06:01",
+      "dhuhr": "13:20",
+      "asr": "17:02",
+      "maghrib": "20:29",
+      "isha": "22:02"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-13",
+      "fajr": "04:15",
+      "sunrise": "06:02",
+      "dhuhr": "13:20",
+      "asr": "17:02",
+      "maghrib": "20:29",
+      "isha": "22:01"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-14",
+      "fajr": "04:16",
+      "sunrise": "06:03",
+      "dhuhr": "13:20",
+      "asr": "17:02",
+      "maghrib": "20:29",
+      "isha": "22:00"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-15",
+      "fajr": "04:16",
+      "sunrise": "06:03",
+      "dhuhr": "13:20",
+      "asr": "17:02",
+      "maghrib": "20:28",
+      "isha": "22:00"
+    },
+    {
+      "city": "berkane",
+      "date": "2026-07-16",
+      "fajr": "04:17",
+      "sunrise": "06:04",
+      "dhuhr": "13:21",
+      "asr": "17:02",
+      "maghrib": "20:28",
+      "isha": "21:59"
+    }
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "source": "habous-live",
+  "city": "boujdour",
+  "habousVilleId": "158",
+  "habousArabicName": "بوجدور",
+  "sourceUrl": "https://www.habous.gov.ma/prieres/horaire_hijri_2.php?ville=158",
+  "fetchedAt": "2026-07-13T12:55:26.835155Z",
+  "sourceSha256": "70795bba625d6044667d918698a1a951d33012f1523ac0eb53accc8d8f3916cd",
+  "parserVersion": "habous-live-1",
+  "days": [
+    {
+      "city": "boujdour",
+      "date": "2026-06-17",
+      "fajr": "05:29",
+      "sunrise": "07:03",
+      "dhuhr": "14:04",
+      "asr": "17:24",
+      "maghrib": "20:56",
+      "isha": "22:17"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-06-18",
+      "fajr": "05:29",
+      "sunrise": "07:03",
+      "dhuhr": "14:04",
+      "asr": "17:24",
+      "maghrib": "20:56",
+      "isha": "22:18"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-06-19",
+      "fajr": "05:29",
+      "sunrise": "07:03",
+      "dhuhr": "14:05",
+      "asr": "17:25",
+      "maghrib": "20:57",
+      "isha": "22:18"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-06-20",
+      "fajr": "05:29",
+      "sunrise": "07:04",
+      "dhuhr": "14:05",
+      "asr": "17:25",
+      "maghrib": "20:57",
+      "isha": "22:18"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-06-21",
+      "fajr": "05:30",
+      "sunrise": "07:04",
+      "dhuhr": "14:05",
+      "asr": "17:25",
+      "maghrib": "20:57",
+      "isha": "22:18"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-06-22",
+      "fajr": "05:30",
+      "sunrise": "07:04",
+      "dhuhr": "14:05",
+      "asr": "17:25",
+      "maghrib": "20:57",
+      "isha": "22:19"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-06-23",
+      "fajr": "05:30",
+      "sunrise": "07:04",
+      "dhuhr": "14:05",
+      "asr": "17:26",
+      "maghrib": "20:57",
+      "isha": "22:19"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-06-24",
+      "fajr": "05:30",
+      "sunrise": "07:05",
+      "dhuhr": "14:06",
+      "asr": "17:26",
+      "maghrib": "20:58",
+      "isha": "22:19"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-06-25",
+      "fajr": "05:31",
+      "sunrise": "07:05",
+      "dhuhr": "14:06",
+      "asr": "17:26",
+      "maghrib": "20:58",
+      "isha": "22:19"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-06-26",
+      "fajr": "05:31",
+      "sunrise": "07:05",
+      "dhuhr": "14:06",
+      "asr": "17:26",
+      "maghrib": "20:58",
+      "isha": "22:19"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-06-27",
+      "fajr": "05:31",
+      "sunrise": "07:05",
+      "dhuhr": "14:06",
+      "asr": "17:27",
+      "maghrib": "20:58",
+      "isha": "22:19"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-06-28",
+      "fajr": "05:32",
+      "sunrise": "07:06",
+      "dhuhr": "14:06",
+      "asr": "17:27",
+      "maghrib": "20:58",
+      "isha": "22:19"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-06-29",
+      "fajr": "05:32",
+      "sunrise": "07:06",
+      "dhuhr": "14:07",
+      "asr": "17:27",
+      "maghrib": "20:58",
+      "isha": "22:19"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-06-30",
+      "fajr": "05:33",
+      "sunrise": "07:06",
+      "dhuhr": "14:07",
+      "asr": "17:27",
+      "maghrib": "20:58",
+      "isha": "22:19"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-01",
+      "fajr": "05:33",
+      "sunrise": "07:07",
+      "dhuhr": "14:07",
+      "asr": "17:28",
+      "maghrib": "20:58",
+      "isha": "22:19"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-02",
+      "fajr": "05:33",
+      "sunrise": "07:07",
+      "dhuhr": "14:07",
+      "asr": "17:28",
+      "maghrib": "20:58",
+      "isha": "22:19"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-03",
+      "fajr": "05:34",
+      "sunrise": "07:07",
+      "dhuhr": "14:07",
+      "asr": "17:28",
+      "maghrib": "20:58",
+      "isha": "22:19"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-04",
+      "fajr": "05:34",
+      "sunrise": "07:08",
+      "dhuhr": "14:08",
+      "asr": "17:28",
+      "maghrib": "20:58",
+      "isha": "22:19"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-05",
+      "fajr": "05:35",
+      "sunrise": "07:08",
+      "dhuhr": "14:08",
+      "asr": "17:29",
+      "maghrib": "20:58",
+      "isha": "22:19"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-06",
+      "fajr": "05:35",
+      "sunrise": "07:09",
+      "dhuhr": "14:08",
+      "asr": "17:29",
+      "maghrib": "20:58",
+      "isha": "22:18"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-07",
+      "fajr": "05:36",
+      "sunrise": "07:09",
+      "dhuhr": "14:08",
+      "asr": "17:29",
+      "maghrib": "20:58",
+      "isha": "22:18"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-08",
+      "fajr": "05:37",
+      "sunrise": "07:10",
+      "dhuhr": "14:08",
+      "asr": "17:29",
+      "maghrib": "20:58",
+      "isha": "22:18"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-09",
+      "fajr": "05:37",
+      "sunrise": "07:10",
+      "dhuhr": "14:08",
+      "asr": "17:30",
+      "maghrib": "20:58",
+      "isha": "22:18"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-10",
+      "fajr": "05:38",
+      "sunrise": "07:10",
+      "dhuhr": "14:09",
+      "asr": "17:30",
+      "maghrib": "20:57",
+      "isha": "22:17"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-11",
+      "fajr": "05:38",
+      "sunrise": "07:11",
+      "dhuhr": "14:09",
+      "asr": "17:30",
+      "maghrib": "20:57",
+      "isha": "22:17"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-12",
+      "fajr": "05:39",
+      "sunrise": "07:11",
+      "dhuhr": "14:09",
+      "asr": "17:30",
+      "maghrib": "20:57",
+      "isha": "22:17"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-13",
+      "fajr": "05:40",
+      "sunrise": "07:12",
+      "dhuhr": "14:09",
+      "asr": "17:31",
+      "maghrib": "20:57",
+      "isha": "22:16"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-14",
+      "fajr": "05:40",
+      "sunrise": "07:12",
+      "dhuhr": "14:09",
+      "asr": "17:31",
+      "maghrib": "20:57",
+      "isha": "22:16"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-15",
+      "fajr": "05:41",
+      "sunrise": "07:13",
+      "dhuhr": "14:09",
+      "asr": "17:31",
+      "maghrib": "20:56",
+      "isha": "22:16"
+    },
+    {
+      "city": "boujdour",
+      "date": "2026-07-16",
+      "fajr": "05:42",
+      "sunrise": "07:13",
+      "dhuhr": "14:09",
+      "asr": "17:31",
+      "maghrib": "20:56",
+      "isha": "22:15"
+    }
+  ]
+}

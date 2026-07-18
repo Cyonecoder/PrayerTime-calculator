@@ -16,9 +16,12 @@ class HabousCityCoverageTest {
     @Test
     void everyMappedCityHasAValidBundledSnapshot() {
         HabousCityMapping mapping = HabousCityMapping.load();
-        assertThat(store.supportedCityIds())
-                .as("official snapshots for all mapped cities")
-                .containsAll(mapping.mappedCityIds());
+        // Every bundled production-official snapshot resolves to a verified Habous
+        // mapping. (The mapping also carries research-verified cities that have no
+        // bundled snapshot; production OFFICIAL mode does not serve those.)
+        assertThat(mapping.verifiedCityIds())
+                .as("verified mapping for every bundled official snapshot")
+                .containsAll(store.supportedCityIds());
     }
 
     @Test

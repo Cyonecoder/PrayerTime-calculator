@@ -116,11 +116,17 @@ public final class HabousCompatibilityReport {
             }
         }
 
-        List<String> mapped = new ArrayList<>(new TreeSet<>(mapping.mappedCityIds()));
+        // Production OFFICIAL coverage: every bundled official snapshot must resolve
+        // to a verified Habous mapping. The mapping also carries research-verified
+        // cities that production OFFICIAL mode does not serve (they have no bundled
+        // snapshot); those are not required here, so coverage is measured over the
+        // bundled set, not the whole mapping.
         List<String> supported = store.supportedCityIds();
+        List<String> verifiedMapped = mapping.verifiedCityIds();
+        List<String> mapped = new ArrayList<>(new TreeSet<>(supported));
         List<String> gap = new ArrayList<>();
-        for (String c : mapped) {
-            if (!supported.contains(c)) {
+        for (String c : supported) {
+            if (!verifiedMapped.contains(c)) {
                 gap.add(c);
             }
         }

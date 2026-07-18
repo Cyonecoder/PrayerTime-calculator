@@ -45,8 +45,8 @@ class ReleaseValidationTest {
         ValidationResult b = validateReal(empty());
         var ga = a.group(Group.FORMULA_ONLY);
         var gb = b.group(Group.FORMULA_ONLY);
-        // 14 cities x 30 days x 6 prayers.
-        assertThat(ga.total()).isEqualTo(14 * 30 * 6);
+        // 60 verified cities x 30 days x 6 prayers.
+        assertThat(ga.total()).isEqualTo(60 * 30 * 6);
         // Deterministic across runs (pins the frozen method + committed data).
         assertThat(gb.exactCount()).isEqualTo(ga.exactCount());
         assertThat(ga.exactCount()).isEqualTo(ga.total() - unresolved(ga.comparisons()));
@@ -147,10 +147,12 @@ class ReleaseValidationTest {
     @Test
     void allMappedCitiesAreIncluded() {
         ValidationResult result = validateReal(empty());
-        assertThat(result.includedCities())
-                .containsAll(HabousCityMapping.load().mappedCityIds());
+        // Every city validated here is a verified Habous mapping (the mapping also
+        // carries research-verified cities beyond this 14-city release dataset).
+        assertThat(HabousCityMapping.load().verifiedCityIds())
+                .containsAll(result.includedCities());
         assertThat(result.missingMappedCities()).isEmpty();
-        assertThat(result.includedCities()).hasSize(14);
+        assertThat(result.includedCities()).hasSize(60);
     }
 
     private static Observation obs(String city, LocalDate date) {
