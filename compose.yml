@@ -1,0 +1,15 @@
+services:
+  prayertime:
+    image: ${APP_IMAGE:-ghcr.io/cyonecoder/prayertime-calculator:latest}
+    ports:
+      - "127.0.0.1:8080:8080"
+      - "127.0.0.1:8081:8081"
+    volumes:
+      - salat-data:/app/data
+    restart: unless-stopped
+    stop_grace_period: 20s
+    security_opt:
+      - no-new-privileges:true
+    cap_drop: [ALL]
+volumes:
+  salat-data:

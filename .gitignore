@@ -44,3 +44,5 @@ build/
 
 ### Local-only notes (kept out of version control) ###
 docs/HABOUS_WALKTHROUGH.txt
+# Generated combined container context
+.container-build/
